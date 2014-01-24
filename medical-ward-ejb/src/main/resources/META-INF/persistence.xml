@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence 
+    xmlns="http://java.sun.com/xml/ns/persistence" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+                        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+    version="2.0">
+                           
+    <!-- Persistence Units for medical-ward -->
+    
+    <persistence-unit name="medwar_MySQL">
+      <provider>org.hibernate.ejb.HibernatePersistence</provider>
+      
+      <jta-data-source>java:/medward_MySQL_Datasource</jta-data-source>
+      <class>pl.jasox.medward.model.domainobject.Admission</class>
+      <class>pl.jasox.medward.model.domainobject.Clinic</class>
+      <class>pl.jasox.medward.model.domainobject.Doctor</class>
+      <class>pl.jasox.medward.model.domainobject.Kasach</class>
+      <class>pl.jasox.medward.model.domainobject.MedProcedure</class>
+      <class>pl.jasox.medward.model.domainobject.MedProcedureCat</class>
+      <class>pl.jasox.medward.model.domainobject.MedProcedureType</class>
+      <class>pl.jasox.medward.model.domainobject.Patient</class>
+      <exclude-unlisted-classes>false</exclude-unlisted-classes>
+      
+      <properties> 
+        <property
+          name="hibernate.default_schema"
+          value="`${dbSchema}`"/>  <!-- niuans jak chce się używać nietypowych znaków -->
+        <property 
+          name="hibernate.dialect" 
+          value="org.hibernate.dialect.${dbName}5Dialect"/> 
+        <property
+          name="hibernate.connection.useUnicode"
+          value="yes"/> 
+        <property
+          name="hibernate.connection.characterEncoding"
+          value="UTF-8"/>    
+        <property
+          name="hibernate.connection.provider_class"
+          value="org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider"/> 
+        <property
+          name="hibernate.c3p0.idle_test_period"
+          value="30"/> 
+                        
+        <property
+          name="hibernate.show_sql"
+          value="false"/>      
+        <property
+          name="hibernate.format_sql"
+          value="false"/>
+        <property 
+          name="hibernate.use_sql_comments" 
+          value="false"/>  
+        <property
+          name="hibernate.cache.provider_class"
+          value="org.hibernate.cache.HashtableCacheProvider"/>
+        
+      </properties>  
+    </persistence-unit>
+    
+          
+    <persistence-unit name="medward_Hsql">
+      <provider>org.hibernate.ejb.HibernatePersistence</provider>
+      <jta-data-source>java:/medward_Hsql_Datasource</jta-data-source>   
+      <class>pl.jasox.medward.model.domainobject.Admission</class>
+      <class>pl.jasox.medward.model.domainobject.Clinic</class>
+      <class>pl.jasox.medward.model.domainobject.Doctor</class>
+      <class>pl.jasox.medward.model.domainobject.Kasach</class>
+      <class>pl.jasox.medward.model.domainobject.MedProcedure</class>
+      <class>pl.jasox.medward.model.domainobject.MedProcedureCat</class>
+      <class>pl.jasox.medward.model.domainobject.MedProcedureType</class>
+      <class>pl.jasox.medward.model.domainobject.Patient</class>
+      <exclude-unlisted-classes>false</exclude-unlisted-classes>
+       
+      <properties>      
+        <property
+          name="hibernate.default_schema"
+          value="PUBLIC"/> 
+        <property 
+          name="hibernate.dialect" 
+          value="org.hibernate.dialect.HSQLDialect"/>
+        <property
+          name="hibernate.connection.useUnicode"
+          value="yes"/> 
+        <property
+          name="hibernate.connection.characterEncoding"
+          value="UTF-8"/>    
+        <property
+          name="hibernate.connection.provider_class"
+          value="org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider"/> 
+        <property
+          name="hibernate.c3p0.idle_test_period"
+          value="30"/>   
+          
+        <property
+          name="hibernate.show_sql"
+          value="false"/>      
+        <property
+          name="hibernate.format_sql"
+          value="false"/>
+        <property 
+          name="hibernate.use_sql_comments" 
+          value="false"/>
+        <property
+          name="hibernate.cache.provider_class"
+          value="org.hibernate.cache.NoCacheProvider"/>         
+            
+      </properties>    
+    </persistence-unit>
+	
+</persistence>
+

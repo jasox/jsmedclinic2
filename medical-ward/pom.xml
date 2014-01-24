@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  -->
+
+<project 
+  xmlns="http://maven.apache.org/POM/4.0.0" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                      http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>pl.jasox</groupId>
+		<artifactId>medclinic</artifactId>
+		<version>1.0.1</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<groupId>pl.jasox.medclinic</groupId>
+	<artifactId>medical-ward</artifactId>
+	<packaging>war</packaging>
+	<name>Medical Ward</name>
+	<description>
+      The Seam Medical Ward example using the simplified Java EE 6 
+      programming model and packaging structure (i.e., web archive)
+  </description>
+	
+	<properties>	  
+		<jpamodelgen.version>1.1.1.Final</jpamodelgen.version>
+	  <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
+	  <netbeans.hint.j2eeVersion>1.6</netbeans.hint.j2eeVersion>
+	</properties>
+  
+  <!-- ===================================================================== -->
+
+	<dependencies>
+	    
+	  <dependency>
+      <groupId>${projectGroup}</groupId>
+      <artifactId>${projectName}-ejb</artifactId>
+      <version>${projectVersion}</version>
+      <type>ejb</type>
+    </dependency>
+    <!--
+    <dependency>
+      <groupId>${projectGroup}</groupId>
+      <artifactId>${projectName}-api</artifactId>
+      <version>${projectVersion}</version>
+      <type>jar</type>
+    </dependency>
+    --> 
+    
+    <dependency>
+      <groupId>${projectGroup}</groupId>
+      <artifactId>${projectName}-simple</artifactId>
+      <version>${projectVersion}</version>
+      <type>jar</type>
+    </dependency>  
+    
+    <!--
+      Mixing JUnit and TestNG in one module can be done just by adding both
+      as a plugin dependencies (not only as project dependencies):
+      -->
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.testng</groupId>
+        <artifactId>testng</artifactId>
+        <version>6.8</version>
+        <scope>test</scope>
+    </dependency>	    
+	    
+	    
+		<!-- Annotation processor for generating typed loggers -->
+		<dependency>
+			<groupId>org.jboss.solder</groupId>
+			<artifactId>solder-tooling</artifactId>
+			<scope>provided</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.solder</groupId>
+			<artifactId>solder-impl</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-jpamodelgen</artifactId>
+			<version>${jpamodelgen.version}</version>
+			<scope>provided</scope>
+			<!-- Excluded Hibernate-provided JPA API because it's provided by the 
+				   Java EE 6 dependencies -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.hibernate.javax.persistence</groupId>
+					<artifactId>hibernate-jpa-2.0-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+    <!-- Seam -->
+		<dependency>
+			<groupId>org.jboss.seam.faces</groupId>
+			<artifactId>seam-faces</artifactId>
+			<scope>compile</scope><!-- Temporary workaround for GLASSFISH-17184 -->
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.seam.international</groupId>
+			<artifactId>seam-international</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.seam.security</groupId>
+			<artifactId>seam-security</artifactId>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.seam.transaction</groupId>
+			<artifactId>seam-transaction</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		
+		<!-- RichFaces -->
+		<dependency>
+        <groupId>org.richfaces.ui</groupId>
+        <artifactId>richfaces-components-ui</artifactId>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.richfaces.core</groupId>
+        <artifactId>richfaces-core-impl</artifactId>
+    </dependency>
+
+		<dependency>
+			<groupId>org.picketlink.idm</groupId>
+			<artifactId>picketlink-idm-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ocpsoft</groupId>
+			<artifactId>ocpsoft-pretty-time</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ocpsoft</groupId>
+			<artifactId>prettyfaces-jsf2</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-digester</groupId>
+			<artifactId>commons-digester</artifactId>
+			<version>2.1</version>
+		</dependency>
+
+		<!-- Bean Validation Implementation; 
+         provides portable constraints @NotEmpty, @Email and @Url -->
+		<!-- Hibernate Validator is the only JSR-303 implementation at the moment, 
+			   so we can assume it's provided -->
+		<!-- TODO Move Hibernate Validator to app server specific sections -->		
+		<dependency>
+			<groupId>org.hibernate.</groupId>
+			<artifactId>hibernate-validator</artifactId>
+      <version>${version.hibernate.validator}</version>
+			<exclusions>
+         <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+         </exclusion>
+      </exclusions>				
+			<scope>provided</scope>
+		</dependency>
+    
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.spec</groupId>
+			<artifactId>jboss-javaee-6.0</artifactId>
+			<type>pom</type>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Test dependencies -->
+		<dependency>
+			<groupId>org.jboss.arquillian.junit</groupId>
+			<artifactId>arquillian-junit-container</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Arquillian Drone support in Arquillian tests -->
+    <!--
+		<dependency>
+			<groupId>org.jboss.arquillian.extension</groupId>
+			<artifactId>arquillian-drone-impl</artifactId>
+			<scope>test</scope>
+		</dependency>
+    -->
+		<!-- Support for Selenium in Arquillian Drone -->
+    <!--
+		<dependency>
+			<groupId>org.jboss.arquillian.extension</groupId>
+			<artifactId>arquillian-drone-selenium</artifactId>
+			<scope>test</scope>
+		</dependency>
+    -->
+		<!-- Support for Selenium Server in Arquillian Drone -->
+		<!-- Required only if you want Arquillian to control Selenium Server life	cycle -->
+    <!--
+		<dependency>
+			<groupId>org.jboss.arquillian.extension</groupId>
+			<artifactId>arquillian-drone-selenium-server</artifactId>
+			<scope>test</scope>
+		</dependency>
+    -->
+		<!-- Selenium -->
+    <!--
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<scope>test</scope>
+		</dependency>
+    -->
+		<!-- Selenium Server -->
+		<!-- Required only if you want Arquillian to control Selenium Server life cycle -->
+    <!--
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-server</artifactId>
+			<scope>test</scope>
+		</dependency>
+   
+		<dependency>
+			<groupId>org.jboss.arquillian.ajocado</groupId>
+			<artifactId>arquillian-ajocado-junit</artifactId>
+			<type>pom</type>
+			<scope>test</scope>
+		</dependency>
+    -->
+		<dependency>
+			<groupId>org.jboss.shrinkwrap.resolver</groupId>
+			<artifactId>shrinkwrap-resolver-impl-maven</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+  
+  <!-- ===================================================================== -->
+
+	<build>
+
+		<defaultGoal>package</defaultGoal>
+
+		<finalName>${projectName}-${projectVersion}</finalName>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<!-- activate only when you need to generate the metamodel -->
+					<!-- <compilerArgument>-proc:none</compilerArgument> -->
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.8</version>
+				<configuration>
+					<additionalBuildcommands>
+						<!-- annoyingly creates a bin directory 
+						<buildCommand> 
+              <name>org.eclipse.wst.jsdt.core.javascriptValidator</name> 
+						</buildCommand> -->
+						<buildCommand>
+							<name>
+								org.jboss.tools.common.verification.verifybuilder
+							</name>
+						</buildCommand>
+					</additionalBuildcommands>
+
+					<additionalConfig>
+						<file>
+							<name>.settings/org.maven.ide.eclipse.prefs</name>
+							<content>
+								eclipse.preferences.version=1
+								fullBuildGoals=process-test-resources
+								includeModules=false
+								resolveWorkspaceProjects=true
+								resourceFilterGoals=process-resources
+								resources\:testResources
+								skipCompilerPlugin=true
+								version=1
+							</content>
+						</file>
+					</additionalConfig>
+
+					<additionalProjectFacets>
+						<jst.jsf>2.0</jst.jsf>
+					</additionalProjectFacets>
+					<additionalProjectnatures>
+						<projectnature>org.eclipse.wst.jsdt.core.jsNature</projectnature>
+						<projectnature>org.jboss.tools.jsf.jsfnature</projectnature>
+					</additionalProjectnatures>
+					<workspace>${user.home}/.eclipse/workspace</workspace>
+					<wtpdefaultserver>JBossAS</wtpdefaultserver>
+					<wtpversion>2.0</wtpversion>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>          
+          <suiteXmlFiles>
+             <suiteXmlFile>
+                ${project.build.directory}/test-classes/testng.xml
+             </suiteXmlFile>
+          </suiteXmlFiles>
+ 				</configuration>
+			</plugin>
+			
+      
+			<!-- remote deployment on production server is not a good idea; 
+           hard-deploy by local network on test server is better -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>        
+        <artifactId>jboss-maven-plugin</artifactId>
+        <configuration>
+          <jbossHome>${jboss.home}</jbossHome>
+          <hostName>${jboss.hostName}</hostName>
+          <serverId>${jboss.serverId}</serverId>
+          <serverName>${jboss.serverName}</serverName>
+          <fileNames>
+            <fileName>
+              ${project.build.directory}/${project.build.finalName}.war
+            </fileName>
+          </fileNames>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.jboss.as.plugins</groupId>
+        <artifactId>jboss-as-maven-plugin</artifactId>
+        <version>7.3.Final</version>
+        <configuration>
+          <!-- The execute-commands goal allows you to execute commands, 
+               in the CLI format, on the running JBoss Application Server. -->
+          <execute-commands>
+            <commands>
+              <command>/subsystem=logging/file-handler=debug:add(level=DEBUG,autoflush=true,
+                       file={"relative-to"=>"jboss.server.log.dir", "path"=>"debug.log"})</command>
+              <command>/subsystem=logging/logger=org.jboss.as:add(level=DEBUG,handlers=[debug])</command>
+            </commands>
+          </execute-commands>
+        </configuration>
+      </plugin>
+  
+    </plugins>
+
+	</build>
+  
+  <!-- ===================================================================== -->
+
+	<profiles>
+
+		<profile>
+			<id>distribution</id>
+			<activation>
+				<property>
+					<name>release</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-assembly-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>jbossas6</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<property>
+					<name>arquillian</name>
+					<value>jbossas-managed-6</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-war-plugin</artifactId>
+						<configuration>
+							<webResources>
+								<resource>
+									<directory>src/main/resources-jbossas6</directory>
+								</resource>
+							</webResources>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>jbossas7</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<property>
+					<name>arquillian</name>
+					<value>jbossas-managed-7</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-war-plugin</artifactId>
+						<configuration>
+							<webResources>
+								<resource>
+									<directory>src/main/resources-jbossas7</directory>
+								</resource>
+							</webResources>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>glassfish</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<property>
+					<name>arquillian</name>
+					<value>glassfish-remote-3.1</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-war-plugin</artifactId>
+						<configuration>
+							<webResources>
+								<resource>
+									<directory>src/main/resources-glassfish</directory>
+								</resource>
+							</webResources>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<!-- Functional test profiles -->
+    <!--
+		<profile>
+			<id>ftest</id>
+			<activation>
+        <activeByDefault>false</activeByDefault>       
+				<property>
+					<name>arquillian</name>
+				</property>       
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-failsafe-plugin</artifactId>
+						<configuration>
+							<includes>
+								<include>**/ftest/*Test.java</include>
+							</includes>
+						</configuration>
+						<executions>
+							<execution>
+								<id>integration-test</id>
+								<phase>integration-test</phase>
+								<goals>
+									<goal>integration-test</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>verify</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>verify</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+    -->
+     
+		<profile>
+			<id>jbossas-managed-6</id>
+			<activation>
+				<property>
+					<name>arquillian</name>
+					<value>jbossas-managed-6</value>
+				</property>
+			</activation>
+			<dependencies>
+				<dependency>
+					<groupId>org.jboss.seam.test</groupId>
+					<artifactId>jbossas-managed-6</artifactId>
+					<type>pom</type>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+
+		<profile>
+			<id>jbossas-remote-6</id>
+			<activation>
+				<property>
+					<name>arquillian</name>
+					<value>jbossas-remote-6</value>
+				</property>
+			</activation>
+			<dependencies>
+				<dependency>
+					<groupId>org.jboss.seam.test</groupId>
+					<artifactId>jbossas-remote-6</artifactId>
+					<type>pom</type>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+
+		<profile>
+			<id>jbossas-remote-7</id>
+			<activation>
+				<property>
+					<name>arquillian</name>
+					<value>jbossas-remote-7</value>
+				</property>
+			</activation>
+			<dependencies>
+				<dependency>
+					<groupId>org.jboss.seam.test</groupId>
+					<artifactId>jbossas-remote-7</artifactId>
+					<type>pom</type>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+
+		<profile>
+			<id>jbossas-managed-7</id>
+			<activation>
+				<property>
+					<name>arquillian</name>
+					<value>jbossas-managed-7</value>
+				</property>
+			</activation>
+			<dependencies>
+				<dependency>
+					<groupId>org.jboss.seam.test</groupId>
+					<artifactId>jbossas-managed-7</artifactId>
+					<type>pom</type>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+
+		<profile>
+			<id>glassfish-remote-3.1</id>
+			<activation>
+				<property>
+					<name>arquillian</name>
+					<value>glassfish-remote-3.1</value>
+				</property>
+			</activation>
+			<dependencies>
+				<dependency>
+					<groupId>org.jboss.seam.test</groupId>
+					<artifactId>glassfish-remote-3.1</artifactId>
+					<type>pom</type>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+
+		<profile>
+			<id>openshift-express</id>
+			<activation>
+				<property>
+					<name>arquillian</name>
+					<value>openshift-express</value>
+				</property>
+			</activation>
+			<dependencies>
+				<dependency>
+					<groupId>org.jboss.seam.test</groupId>
+					<artifactId>openshift-express</artifactId>
+					<type>pom</type>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+
+	</profiles>
+
+</project>

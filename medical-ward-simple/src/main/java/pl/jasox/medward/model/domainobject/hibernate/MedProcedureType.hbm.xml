@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 
+  TABLE `med_procedure_type` <br/>
+  `id_med_proc_type` INT(10) unsigned NOT NULL auto_increment,   // id typu procedury     <br/>
+  `symbol_proc_type` VARCHAR(15) NOT NULL, // symbol typu czynności                       <br/>
+  `symbol_kasa`      VARCHAR(10) NOT NULL, // symbol kasy chorych dla tego typu procedury <br/>
+  `serial_no`        DECIMAL(10,2),        // numer kolejny                               <br/>
+  `description`      VARCHAR(120),         // opis typu czynności                         <br/> 
+  `point_value`      DECIMAL(6),           // wartość punktowa                            <br/>
+  `symbol_proc_cat`  VARCHAR(10),          // symbol kategorii procedury ( działu )       <br/>
+  `begin_date`       DATE,                 // data wprowadzenia                           <br/>
+  `expire_date`      DATE,                 // data wycofania                              <br/>
+  `medical_code`     VARCHAR(25),          // kod medyczny procedury                      <br/> 
+  `remarks`          VARCHAR(30)
+ -->
+<hibernate-mapping package="pl.jasox.medward.model.domainobject">
+    <class 
+        name="pl.jasox.medward.model.domainobject.MedProcedureType" 
+        table="`med_procedure_type`" >
+        
+        <id name="symbolMedProcedureType" type="string" >
+            <column name="`symbol_proc_type`" />
+        </id>        
+        <property name="idMedProcedureType" type="java.lang.Integer" unique="true" not-null="true">
+            <column name="`id_med_proc_type`" />
+        </property>        
+        <many-to-one name="kasach" column="`symbol_kasa`" not-null="true"/>               
+        <property name="serialNo" type="java.lang.Double">
+            <column name="`serial_no`" />
+        </property>        
+        <property name="description" type="string">
+            <column name="`description`" />
+        </property>        
+        <property name="pointValue" type="java.lang.Double">
+            <column name="`point_value`" />
+        </property>        
+        <many-to-one name="medProcedureCat" column="`symbol_proc_cat`" not-null="true"/>        
+        <property name="beginDate" type="date">
+            <column name="`begin_date`" />
+        </property>        
+        <property name="expireDate" type="date">
+            <column name="`expire_date`" />
+        </property>        
+        <property name="medicalCode" type="string">
+            <column name="`medical_code`" />
+        </property>        
+        <property name="remarks" type="string">
+            <column name="`remarks`" />
+        </property>  
+             
+    </class>
+</hibernate-mapping>

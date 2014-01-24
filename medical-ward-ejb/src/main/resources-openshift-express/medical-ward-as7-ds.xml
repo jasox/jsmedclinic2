@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<datasources 
+    xmlns="http://www.jboss.org/ironjacamar/schema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema
+                        http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
+
+
+    <!-- copy from standalone.xml 
+         trzeba też ustawić sterowniki jako moduły -->
+    
+          <datasources>
+                <datasource 
+                    jndi-name="java:jboss/datasources/ExampleDS" 
+                    pool-name="ExampleDS" 
+                    enabled="true" 
+                    use-java-context="true">
+                    <connection-url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1</connection-url>
+                    <driver>h2</driver>
+                    <security>
+                        <user-name>sa</user-name>
+                        <password>sa</password>
+                    </security>
+                </datasource>
+                <datasource 
+                  jndi-name="java:jboss/datasources/medward_MySQL_Datasource" 
+                  pool-name="medward_MySQL_Pool"
+                  enabled="true"
+                  jta="true"
+                  use-java-context="true">
+                  <connection-url>jdbc:mysql://ec2-23-21-211-172.compute-1.amazonaws.com:3306/jasox02-mysql</connection-url>      
+                  <driver>mysql</driver>
+                  <pool>
+                     <min-pool-size>2</min-pool-size>
+                     <max-pool-size>20</max-pool-size>
+                  </pool>
+                  <security>
+                    <user-name>jasox02</user-name>
+                    <password>jasox-02</password>
+                  </security>      
+               </datasource>
+               <datasource 
+                  jndi-name="java:jboss/datasources/medward_Hsql_Datasource" 
+                  pool-name="medward_Hsql_Pool"
+                  enabled="true" 
+                  jta="true"                 
+                  use-java-context="true">
+                  <connection-url> 
+                    jdbc:hsqldb:file:/C:/JS/Java/JSMedClinic/db-settings/fake-database-hsql/jsmedclinic 
+                  </connection-url>      
+                  <driver>hsql</driver>
+                  <pool>
+                     <min-pool-size>2</min-pool-size>
+                     <max-pool-size>20</max-pool-size> 
+                  </pool>
+                  <security>
+                    <user-name>SA</user-name>
+                    <password></password>
+                  </security>
+               </datasource>  
+               <drivers>
+                  <driver name="h2" module="com.h2database.h2">
+                      <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
+                  </driver>
+                  <driver name="mysql" module="com.mysql.jdbc">
+                    <driver-class>com.mysql.jdbc.Driver</driver-class> 
+                  </driver>
+                  <driver name="hsql" module="org.hsqldb.jdbc">
+                    <driver-class>org.hsqldb.jdbcDriver</driver-class>
+                  </driver>  
+               </drivers>
+            </datasources>
+    
+    
+    
+   
+   <!--
+   <datasource 
+      jndi-name="java:jboss/datasources/medward_MySQL_Datasource" 
+      pool-name="medward_MySQL_Pool">
+      <connection-url>jdbc:mysql://${dbHost}:3306/${dbSchema}</connection-url>      
+      <driver-class>com.mysql.jdbc.Driver</driver-class>
+      <pool>
+         <min-pool-size>2</min-pool-size>
+         <max-pool-size>20</max-pool-size>
+      </pool>
+      <security>
+        <user-name>${dbUser}</user-name>
+        <password>${dbPassword}</password> 
+      </security>
+   </datasource>
+   
+   <datasource 
+      jndi-name="java:jboss/datasources/medward_Hsql_Datasource" 
+      pool-name="medward_Hsql_Pool">
+      <connection-url> jdbc\:hsqldb\:file\:${fake-test-hsql-file}</connection-url>      
+      <driver-class>org.hsqldb.jdbcDriver</driver-class>
+      <pool>
+         <min-pool-size>2</min-pool-size>
+         <max-pool-size>20</max-pool-size>
+      </pool>
+      <security>
+        <user-name>SA</user-name>
+        <password></password>
+      </security>
+   </datasource>
+   -->
+</datasources>
+

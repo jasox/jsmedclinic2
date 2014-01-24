@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 
+ TABLE `med_procedure_cat`    <br/>
+  `id_med_proc_cat` INT(10) unsigned NOT NULL auto_increment,   // id kategorii              <br/>
+  `symbol_kasa`     VARCHAR(10) NOT NULL, // symbol kasy chorych dla tej kategorii procedury <br/>
+  `symbol_proc_cat` VARCHAR(10) NOT NULL, // symbol tej kategorii procedury                  <br/>
+  `description`     VARCHAR(55),          // opis                                            <br/>
+  `remarks`         VARCHAR(20)                                                              <br/>
+-->
+<hibernate-mapping package="pl.jasox.medward.model.domainobject">
+    <class 
+        name="pl.jasox.medward.model.domainobject.MedProcedureCat" 
+        table="`med_procedure_cat`" >          
+        
+        <id name="idMedProcedureCat" type="java.lang.Integer">
+            <column name="`id_med_proc_cat`" />
+        </id>  
+        <property name="symbolMedProcedureCat" type="string"  unique="true" not-null="true">
+            <column name="`symbol_proc_cat`" />
+        </property>                 
+        <property name="description" type="string">
+            <column name="`description`" />
+        </property>        
+        <property name="remarks" type="string">
+            <column name="`remarks`" />
+        </property>               
+        <many-to-one name="kasach" column="`symbol_kasa`" not-null="true"/>
+        
+    </class>
+</hibernate-mapping>

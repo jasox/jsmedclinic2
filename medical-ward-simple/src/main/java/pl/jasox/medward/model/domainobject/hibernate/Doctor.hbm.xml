@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 
+  `id_doctor`     INT(10) unsigned NOT NULL auto_increment, // id lekarza </br> 
+  `symbol_doctor` VARCHAR(10) NOT NULL ,  // symbol uprawnień lekarza     </br> 
+  `symbol_spec`   VARCHAR(15),            // symbol specializacji         </br>
+  `first_name`    VARCHAR(15),            // imię lekarza                 </br>
+  `last_name`     VARCHAR(25)  NOT NULL,  // nazwisko lekarza             </br> 
+  `email_adress`  VARCHAR(75),            // email                        </br>
+  `password`      VARCHAR(32),            // hasło do systemu             </br>  
+  `remarks`       VARCHAR(40) 
+ -->
+<hibernate-mapping package="pl.jasox.medward.model.domainobject">
+    <class 
+        name="pl.jasox.medward.model.domainobject.Doctor" 
+        table="`doctor`" >
+        
+        <id name="symbolDoctor" type="string">
+            <column name="`symbol_doctor`" length="10" />
+        </id>        
+        <property name="idDoctor" type="java.lang.Integer" unique="true" not-null="true">
+            <column name="`id_doctor`" />            
+        </property>        
+        <property name="symbolSpec" type="string">
+            <column name="`symbol_spec`" length="15" />
+        </property>        
+        <property name="firstName" type="string">
+            <column name="`first_name`" length="25" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="`last_name`" length="35" not-null="true" />
+        </property>  
+        <property name="emailAddress" type="string">
+            <column name="`email_adress`" length="75" />
+        </property>  
+        <property name="password" type="string">
+            <column name="`password`" length="32" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="`remarks`" length="40" />
+        </property>  
+              
+    </class>
+</hibernate-mapping>

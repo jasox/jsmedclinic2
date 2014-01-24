@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SimpleSuite" parallel="false">
+  <test name="SimpleDaoTest">
+    <classes>
+      <class name="pl.jasox.medward.model.dao.hibernate.DoctorDaoTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC 
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+          
+<hibernate-configuration>
+ <session-factory>  <!-- delete property "name" 24.09.2013 - for not bind to JNDI -->
+ 
+  <!-- Connection for MySQL -->
+  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+  <property name="hibernate.connection.url">jdbc:mysql://${dbHost}:3306/${dbSchema}</property>
+  <property name="hibernate.connection.useUnicode">yes</property>
+  <property name="hibernate.connection.characterEncoding">UTF-8</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.${dbName}5Dialect</property>
+  <property name="hibernate.connection.username">${dbUser}</property>
+  <property name="hibernate.connection.password">${dbPassword}</property>
+  <property name="hibernate.default_schema">`${dbSchema}`</property> <!-- niuans jak chce się używać nietypowych znaków -->
+  <!-- 
+    Ustawienia puli połączeń poprzez c3p0 
+  -->
+  <property name="hibernate.connection.provider_class">
+      org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider
+  </property>
+  <!-- Idle time in seconds before a connection is automatically validated. -->
+  <property name="hibernate.c3p0.idle_test_period">30</property>
+  <!-- 
+    This value is an indication of the number of seconds 
+    a connection can remain pooled but unused before being discarded. 
+    Zero means idle connections never expire. 
+  -->
+  <property name="hibernate.c3p0.timeout">120</property>
+  <property name="hibernate.c3p0.max_size">15</property>
+  <property name="hibernate.c3p0.min_size">1</property>
+  <property name="hibernate.c3p0.max_statements">0</property>
+  <!-- Cache : Disable the second-level cache -->
+  <property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+  
+  <!-- 
+  Wymagane dla obslugi wielu zapytań do bazy w trakcie pojedynczego żadania HTTP  -->  
+  <property name="current_session_context_class">thread</property>
+  <!-- wyświetlanie wyrażeń sql na konsoli -->
+  <property name="hibernate.show_sql">false</property>
+  <!-- formatowanie wyświetlania wyrażeń sql na konsoli -->
+  <property name="hibernate.format_sql">false</property>
+  <!-- 
+  -->
+  <!-- pliki mapowań ORM -->
+  <mapping resource="pl/jasox/medward/model/domainobject/hibernate/queries.hbm.xml"/>
+  <mapping resource="pl/jasox/medward/model/domainobject/hibernate/Patient.hbm.xml"/>
+  <mapping resource="pl/jasox/medward/model/domainobject/hibernate/Doctor.hbm.xml"/>
+  <mapping resource="pl/jasox/medward/model/domainobject/hibernate/Kasach.hbm.xml"/>
+  <mapping resource="pl/jasox/medward/model/domainobject/hibernate/Clinic.hbm.xml"/>
+  <mapping resource="pl/jasox/medward/model/domainobject/hibernate/MedProcedureCat.hbm.xml"/>
+  <mapping resource="pl/jasox/medward/model/domainobject/hibernate/MedProcedureType.hbm.xml"/>
+  <mapping resource="pl/jasox/medward/model/domainobject/hibernate/MedProcedure.hbm.xml"/>
+  <mapping resource="pl/jasox/medward/model/domainobject/hibernate/Admission.hbm.xml"/>
+    
+  <!-- -->
+ </session-factory>
+</hibernate-configuration>
+

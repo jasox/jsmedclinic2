@@ -1,0 +1,30 @@
+/*
+ * JBoss, Home of Professional Open Source
+ * Copyright 2010, Red Hat Middleware LLC, and individual contributors
+ * by the @authors tag. See the copyright.txt in the distribution for a
+ * full listing of individual contributors.
+ * 
+ */
+package pl.jasox.medward.account;
+
+import java.lang.annotation.Documented;
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.ElementType.METHOD;
+import static java.lang.annotation.ElementType.PARAMETER;
+import static java.lang.annotation.ElementType.TYPE;
+import java.lang.annotation.Retention;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import java.lang.annotation.Target;
+import javax.inject.Qualifier;
+
+/**
+ * A qualifier, which indicates that the user has been successfully authenticated
+ *
+ * @author pmuir
+ */
+@Target({TYPE, METHOD, PARAMETER, FIELD})
+@Retention(RUNTIME)
+@Documented
+@Qualifier
+public @interface Authenticated {
+}

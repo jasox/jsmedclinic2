@@ -1,0 +1,181 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/WEB-INF/layout/template.xhtml">
+
+    <ui:define name="head">
+        <script type="text/javascript">
+            function controlSpinner(behavior) {
+                if (behavior.status == 'begin') {
+                    document.getElementById('spinner').style.display = 'inline';
+                }
+                else if (behavior.status == 'complete') {
+                    document.getElementById('spinner').style.display = 'none';
+                }
+            }
+        </script>
+    </ui:define>
+
+    <ui:define name="content">
+
+        <div class="section">
+
+         <span class="errors">
+            <h:messages id="messages" globalOnly="true"/>
+         </span>
+
+            <h1>Search Hotels</h1>
+
+            <h:form id="searchForm" prependId="false">
+                <fieldset>
+                    <h:inputText id="query" 
+                                 value="#{searchCriteria.query}" 
+                                 style="width: 165px;" 
+                                 autocomplete="off">
+                        <f:ajax event="keyup" 
+                                listener="#{hotelSearch.find}" 
+                                render=":searchResults" 
+                                onevent="controlSpinner"/>
+                    </h:inputText>
+                    #{' '}
+                    <h:selectOneMenu id="pageSize" 
+                                     value="#{searchCriteria.pageSize}">
+                        <f:ajax listener="#{hotelSearch.find}" 
+                                render=":searchResults" 
+                                onevent="controlSpinner"/>
+                        <f:selectItem itemLabel=" 5 hotels per page" itemValue="5"/>
+                        <f:selectItem itemLabel="10 hotels per page" itemValue="10"/>
+                        <f:selectItem itemLabel="20 hotels per page" itemValue="20"/>
+                    </h:selectOneMenu>
+                    #{' '}
+                    <span id="activity">
+                       <h:graphicImage id="spinner" 
+                                       value="/img/spinner.gif" 
+                                       style="display: none;"/>
+                    </span>
+                </fieldset>
+            </h:form>
+        </div>
+
+        <h:panelGroup id="searchResults">
+            <div class="section">
+            
+                <h:outputText id="noHotelsMsg" 
+                              value="No Hotels Found" 
+                              rendered="#{empty hotels}"/>
+                              
+                <h:form id="hotelSelectionForm">
+                    <h:dataTable id="hotels" 
+                                 value="#{hotels}" 
+                                 var="_hotel" 
+                                 rendered="#{not empty hotels}"
+                                 columnClasses=",,,,action">
+                        <h:column id="nameCol">
+                            <f:facet id="nameFct" name="header">Hotel name</f:facet>
+                            #{_hotel.name}
+                        </h:column>
+                        <h:column id="locCol">
+                            <f:facet id="locFct" name="header">Location</f:facet>
+                            #{_hotel.location}
+                        </h:column>
+                        <h:column id="addrCol">
+                            <f:facet id="addrFct" name="header">Address</f:facet>
+                            #{_hotel.address}
+                        </h:column>                        
+                        <h:column id="zipCol">
+                            <f:facet id="zipFct" name="header">Zip</f:facet>
+                            #{_hotel.zip}
+                        </h:column>
+                        <h:column id="actCol">
+                            <f:facet id="actFct" name="header">#{bundles.messages.action_Action}</f:facet>
+                            <h:link id="view" 
+                                    value="#{bundles.messages.action_View}" 
+                                    outcome="hotel"
+                                    style="white-space: nowrap;" >
+                                <f:param name="id" value="#{_hotel.id}"/>
+                            </h:link>
+                            
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+                
+                <h:form id="paginationForm">
+                    <h:commandButton id="previousResults" 
+                                     value="Previous page" 
+                                     action="#{hotelSearch.previousPage}"
+                                     rendered="#{hotelSearch.previousPageAvailable}">
+                        <f:ajax render=":searchResults" onevent="controlSpinner"/>
+                    </h:commandButton>
+                    #{' '}
+                    <h:commandButton id="moreResults" 
+                                     value="More results" 
+                                     action="#{hotelSearch.nextPage}"
+                                     rendered="#{hotelSearch.nextPageAvailable}">
+                        <f:ajax render=":searchResults" onevent="controlSpinner"/>
+                    </h:commandButton>
+                </h:form>
+            </div>
+        </h:panelGroup>
+
+        <div class="section">
+            <h1>Current Hotel Bookings</h1>
+        </div>
+        
+        <div class="section">
+            <h:panelGroup rendered="#{not identity.loggedIn}">
+                You must be logged in to see the list of your hotel bookings.
+            </h:panelGroup>
+            
+            <h:form id="bookings" rendered="#{identity.loggedIn}">
+                <h:outputText value="No bookings found." 
+                              rendered="#{empty bookings}"/>
+                              
+                <h:dataTable id="bookings" 
+                             value="#{bookings}" 
+                             var="_booking" 
+                             rendered="#{not empty bookings}">
+                             
+                    <h:column id="nameCol">
+                        <f:facet id="nameFct" name="header">Hotel name</f:facet>
+                        #{_booking.hotel.name}
+                    </h:column>
+                    <h:column id="locCol">
+                        <f:facet id="locFct" name="header">Location</f:facet>
+                        #{_booking.hotel.location}
+                    </h:column>
+                    <h:column id="inCol">
+                        <f:facet id="inCol" name="header">Check-in date</f:facet>
+                        <h:outputText value="#{_booking.checkinDate}">
+                            <f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+                        </h:outputText>
+                    </h:column>
+                    <h:column id="outCol">
+                        <f:facet id="outFct" name="header">Check-out date</f:facet>
+                        <h:outputText value="#{_booking.checkoutDate}">
+                            <f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+                        </h:outputText>
+                    </h:column>
+                    <h:column id="idCol">
+                        <f:facet id="idFct" name="header">ID</f:facet>
+                        #{_booking.id}
+                    </h:column>
+                    <h:column id="actCol">
+                        <f:facet id="actFct" name="header">#{bundles.messages.action_Action}</f:facet>
+                        <h:commandLink id="cancel" 
+                                       value="#{bundles.messages.action_Cancel}" 
+                                       action="#{bookingHistory.cancelBooking(_booking)}" />
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </div>
+
+    </ui:define>
+
+    <ui:define name="sidebar">
+    </ui:define>
+
+</ui:composition>

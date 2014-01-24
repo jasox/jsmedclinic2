@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 
+  TABLE `med_procedure` </br>
+  `id_med_procedure` INT(10) unsigned NOT NULL auto_increment,  // id procedury               </br>
+  `symbol_doctor`    VARCHAR(10) NOT NULL,  // symbol uprawnień wykonującego/odpowiedzialnego </br>
+  `id_admiss`        INT(10) unsigned,      // identyfikator przyjęcia                        </br>
+  `data`             DATE,                  // data wykonania procedury                       </br>
+  `pesel`            DECIMAL(11) NOT NULL,  // pesel pacjenta poddanego tej procedurze        </br>
+  `symbol_kasa`      VARCHAR(10) NOT NULL,  // symbol kasy chorych dla tej procedury          </br>
+  `primary_data`     VARCHAR(15),           // dane dotyczące procedury ( np. ząb zabiegu )   </br>
+  `additional_data`  VARCHAR(15),           // dodatkowe dane                                 </br>
+  `symbol_proc_type` VARCHAR(15) NOT NULL,  // symbol typu procedury                          </br>
+  `no_adm`           DECIMAL(3)  DEFAULT 1, // numer kolejny w ramach przyjęcia               </br>
+  `surcharge`        BOOLEAN,               // czy była dopłata w ramach NFZ                  </br>
+  `amount`           DECIMAL(10,2),         // kwota dopłaty                                  </br> 
+  `description`      VARCHAR(75),           // opis leczenia                                  </br> 
+  `remarks`          VARCHAR(50),           // uwagi   
+ -->
+<hibernate-mapping package="pl.jasox.medward.model.domainobject">
+    <class 
+        name="pl.jasox.medward.model.domainobject.MedProcedure" 
+        table="`med_procedure`" >
+        
+        <id name="idMedProcedure" type="java.lang.Integer">
+            <column name="`id_med_procedure`" />
+        </id>        
+        <many-to-one name="doctor" column="`symbol_doctor`" not-null="true"/>        
+        <many-to-one name="admission" column="`id_admiss`" not-null="false"/>        
+        <property name="procedureDate" type="date">
+            <column name="`data`" />
+        </property>
+        <many-to-one name="patient" column="`pesel`" not-null="true"/>   
+        <many-to-one name="kasach" column="`symbol_kasa`" not-null="true"/>       
+        <property name="primaryInfo" type="string">
+            <column name="`primary_data`" />
+        </property>
+        <property name="additionalInfo" type="string">
+            <column name="`additional_data`" />
+        </property>
+        <many-to-one name="medProcedureType" column="`symbol_proc_type`" not-null="true"/>
+        <property name="noAdm" type="java.lang.Double">
+            <column name="`no_adm`" />
+        </property>
+        <property name="surcharge" type="java.lang.Boolean">
+            <column name="`surcharge`" />
+        </property>
+        <property name="amount" type="java.lang.Double">
+            <column name="`amount`" />
+        </property>        
+        <property name="description" type="string">
+            <column name="`description`" />
+        </property>       
+        <property name="remarks" type="string">
+            <column name="`remarks`" />
+        </property>  
+             
+    </class>
+</hibernate-mapping>
+

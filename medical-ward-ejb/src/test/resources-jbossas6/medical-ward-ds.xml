@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<datasources>   
+
+  <local-tx-datasource>
+    <jndi-name>medward_MySQL_Datasource</jndi-name>
+    <connection-url>
+      jdbc:mysql://${dbHost}:3306/${dbSchema}
+    </connection-url>
+    <driver-class>com.mysql.jdbc.Driver</driver-class>
+    <user-name>${dbUser}</user-name>
+    <password>${dbPassword}</password>  
+    <min-pool-size>2</min-pool-size>
+    <max-pool-size>20</max-pool-size>
+    <idle-timeout-minutes>5</idle-timeout-minutes>  
+  </local-tx-datasource>
+  
+  <local-tx-datasource>
+    <jndi-name>medward_Hsql_Datasource</jndi-name>
+    <connection-url>
+      jdbc\:hsqldb\:file\:${fake-test-hsql-file}
+    </connection-url>
+    <driver-class>org.hsqldb.jdbcDriver</driver-class>
+    <user-name>SA</user-name>
+    <password></password>    
+  </local-tx-datasource>   
+  
+  <!--  
+  <local-tx-datasource>
+    <jndi-name>medward_MySQL_Datasource</jndi-name>
+    <connection-url>      
+      jdbc:mysql://ec2-23-21-211-172.compute-1.amazonaws.com:3306/jasox02-mysql
+    </connection-url>
+    <driver-class>com.mysql.jdbc.Driver</driver-class>
+    <user-name>jasox02</user-name>
+    <password>jasox-02</password>  
+    <min-pool-size>2</min-pool-size>
+    <max-pool-size>20</max-pool-size>
+    <idle-timeout-minutes>5</idle-timeout-minutes>  
+  </local-tx-datasource>
+  
+  <local-tx-datasource>
+    <jndi-name>medward_Hsql_Datasource</jndi-name>
+    <connection-url>
+      jdbc\:hsqldb\:file:/C:\\JS\\Java\\JSMedClinic\\medical-ward-simple/../db-settings/fake-database-hsql/jsmedclinic     
+    </connection-url>
+    <driver-class>org.hsqldb.jdbcDriver</driver-class>
+    <user-name>SA</user-name>
+    <password></password>    
+  </local-tx-datasource> 
+  
+  <local-tx-datasource>
+    <jndi-name>oklOracleDatasource</jndi-name>
+    <connection-url>
+      jdbc:oracle:thin:@10.23.19.35:1521:DBP
+    </connection-url>
+    <driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+    <user-name>lookl2</user-name>
+    <password>lookl2</password>    
+  </local-tx-datasource>
+  -->
+    
+</datasources>

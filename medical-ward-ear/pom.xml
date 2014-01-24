@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project 
+  xmlns="http://maven.apache.org/POM/4.0.0" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation=
+    "http://maven.apache.org/POM/4.0.0 
+     http://maven.apache.org/maven-v4_0_0.xsd">
+    
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>pl.jasox</groupId>
+		<artifactId>medclinic</artifactId>
+		<version>0.0.1</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<groupId>pl.jasox.medclinic</groupId>
+	<artifactId>medical-ward-ear</artifactId>
+	<packaging>ear</packaging>
+	<name>Medical Ward EAR module</name>
+	<description></description>
+
+	<dependencies>
+    <!--
+		<dependency>
+			<groupId>${projectGroup}</groupId>
+			<artifactId>${projectName}-ejb</artifactId>
+			<version>${projectVersion}</version>
+			<type>ejb</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>${projectGroup}</groupId>
+			<artifactId>${projectName}-api</artifactId>
+			<version>${projectVersion}</version>
+			<type>jar</type>
+		</dependency>
+		-->
+		<dependency>
+      <groupId>${projectGroup}</groupId>
+      <artifactId>${projectName}</artifactId>
+      <version>${projectVersion}</version>
+      <type>war</type>
+    </dependency>
+		
+		<dependency>
+			<groupId>${projectGroup}</groupId>
+			<artifactId>${projectName}-simple</artifactId>
+			<version>${projectVersion}</version>
+			<type>jar</type>
+		</dependency>		
+		
+		<!--
+		<dependency>
+			<groupId>org.richfaces.framework</groupId>
+			<artifactId>richfaces-api</artifactId>
+			<version>${richfacesVersion}</version>
+		</dependency>
+    -->
+        
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.12</version>
+      <scope>provided</scope>
+    </dependency>
+    
+    <!--
+	  <dependency>
+      <groupId>org.jboss.seam</groupId>
+      <artifactId>jboss-seam</artifactId>
+      <version>${seamVersion}</version>
+      <type>ejb</type>
+      <exclusions>
+            <exclusion>
+                  <groupId>javax.el</groupId>
+                  <artifactId>el-api</artifactId>
+            </exclusion>
+            <exclusion>
+                  <groupId>commons-collections</groupId>
+                  <artifactId>commons-collections</artifactId>
+            </exclusion>
+            <exclusion>
+                  <groupId>org.jboss.seam</groupId>
+                  <artifactId>jboss-seam-pdf</artifactId>
+            </exclusion>
+            <exclusion>
+                  <groupId>com.sun.facelets</groupId>
+                  <artifactId>jsf-facelets</artifactId>
+            </exclusion>
+			</exclusions>
+    </dependency>    
+    -->
+    
+	</dependencies>
+	
+	<build>
+	    
+		<finalName>${projectName}-${projectVersion}</finalName>
+		
+		<plugins>
+		
+		  <!-- kopiuje plik ostateczny do lokalnego repozytorium gdzie 
+		       dostępny jest przez serwer HTTP Apache -->		       
+		  <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>				  
+				  <file>${basedir}/target/${project.build.finalName}.ear</file>
+				  <url>file:///C:/Data Files/shared-files</url>
+				  <repositoryId>js-pc</repositoryId>
+				  <groupId>${projectGroup}</groupId>
+		      <artifactId>${projectName}</artifactId>
+      	  <version>${projectVersion}</version>
+					<skip>false</skip>
+				</configuration>
+			</plugin>				     
+      
+      <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.7</version>        
+				<configuration>
+					<generateApplicationXml>true</generateApplicationXml>
+					<includeJar>false</includeJar>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<filtering>true</filtering>
+					<modules>
+						<webModule>
+							<groupId>${projectGroup}</groupId>
+							<artifactId>${projectName}</artifactId>							
+							<contextRoot>/${projectName}</contextRoot>
+						</webModule>
+						<ejbModule>
+							<groupId>${projectGroup}</groupId>							             
+              <artifactId>${projectName}-simple</artifactId>
+						</ejbModule>
+						<!--
+						<ejbModule>
+              <groupId>${projectGroup}</groupId>
+              <artifactId>${projectName}-api</artifactId>              
+            </ejbModule>
+						<ejbModule>
+              <groupId>${projectGroup}</groupId>              
+              <artifactId>${projectName}-ejb</artifactId>              
+            </ejbModule>
+						<ejbModule>
+							<groupId>org.jboss.seam</groupId>
+							<artifactId>jboss-seam</artifactId>
+						</ejbModule>
+						-->
+					</modules>
+					<jboss>
+						<version>5</version>
+						<loader-repository>
+						  ${projectGroup}:loader=${project.build.finalName}
+						</loader-repository>
+					</jboss>
+				</configuration>
+			</plugin>
+			
+      <!-- remote deployment on production server is not a good idea; 
+             hard-deploy by local network on test server is better -->
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <version>1.5.0</version>
+          <artifactId>jboss-maven-plugin</artifactId>
+          <configuration>
+            <jbossHome>${jboss.home}</jbossHome>
+            <hostName>${jboss.hostName}</hostName>
+            <serverId>${jboss.serverId}</serverId>
+            <serverName>${jboss.serverName}</serverName>
+            <fileNames>
+              <fileName>
+                ${project.build.directory}/${project.build.finalName}.ear
+              </fileName>
+            </fileNames>
+          </configuration>
+        </plugin>
+	
+		</plugins>
+		
+	</build>
+	
+
+</project>
+

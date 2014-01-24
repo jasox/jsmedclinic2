@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE application PUBLIC
+	"-//Sun Microsystems, Inc.//DTD J2EE Application 1.3//EN"
+	"http://java.sun.com/dtd/application_1_3.dtd">
+<application>
+  <display-name>${projectName}-ear</display-name>
+  <module>
+    <web>
+      <web-uri>${projectName}-${projectVersion}.war</web-uri>
+      <context-root>/${projectName}</context-root>
+    </web>
+  </module>
+  <module>
+    <ejb>${projectName}-simple-${projectVersion}.jar</ejb>
+  </module>
+  <!--
+  <module>
+    <ejb>${projectName}-ejb-${projectVersion}.jar</ejb>
+  </module>
+    
+  <module>
+    <ejb>jboss-seam-${seamVersion}.jar</ejb>
+  </module>
+  -->
+</application>

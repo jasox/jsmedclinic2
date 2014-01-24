@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arquillian xmlns="http://jboss.org/schema/arquillian"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://jboss.org/schema/arquillian 
+                        http://jboss.org/schema/arquillian/arquillian_1_0.xsd">  
+                       
+     <!-- <defaultProtocol type="Servlet 3.0"/> -->
+     <!-- <defaultProtocol type="jmx-as7"/> -->
+     
+     <engine>
+         <property name="deploymentExportPath">target</property>
+     </engine>
+                            
+     <container qualifier="openshift-express" default="true">
+       <configuration>
+          <property name="namespace">jaoss</property>
+          <property name="application">tests</property>
+          <property name="sshUserName">52b1caf95973ca3f91000509</property>
+          <property name="passphrase"></property>                
+          <property name="login">jan.osowski@gmail.com</property>
+          <!--
+          <property name="password">Js13011301</property>
+          -->
+        </configuration>
+     </container>
+    
+</arquillian>
+
+

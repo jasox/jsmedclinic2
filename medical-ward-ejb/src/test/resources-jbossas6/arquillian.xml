@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arquillian xmlns="http://jboss.org/schema/arquillian"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://jboss.org/schema/arquillian 
+                        http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+                        
+    <engine>
+         <property name="deploymentExportPath">target</property>
+    </engine>                        
+
+    <container qualifier="jbossas6Container_hp" default="false">
+        <configuration>           
+            <property name="providerUrl">jnp://10.23.14.95:1099</property> 
+        </configuration>
+        <protocol type="Servlet 3.0"> 
+            <configuration> 
+                <property name="host">10.23.14.95</property> 
+                <property name="port">8080</property>
+                <property name="login">admin</property>
+                <property name="password">admin</property>
+            </configuration> 
+        </protocol> 
+    </container>
+    
+    <container qualifier="jbossas6Container_localhost" default="true">
+        <configuration>           
+            <property name="providerUrl">jnp://127.0.0.1:1099</property> 
+        </configuration>
+        <protocol type="Servlet 3.0"> 
+            <configuration> 
+                <property name="host">127.0.0.1</property> 
+                <property name="port">8080</property>
+                <property name="login">admin</property>
+                <property name="password">admin</property>
+            </configuration> 
+        </protocol> 
+    </container>
+    
+    <!--
+    <extension qualifier="ajocado">
+        <property name="seleniumMaximize">false</property>
+    </extension>
+
+    <extension qualifier="selenium-server">
+        <property name="enable">true</property>
+        <property name="output">target/selenium-server-output.log</property>
+    </extension>
+    -->
+</arquillian>

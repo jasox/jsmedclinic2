@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+          "-//Hibernate/Hibernate Mapping DTD 2.0//EN" 
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+  
+<!--
+  Named Queries for the Hibernate implementation of this application. 
+  -->
+
+<hibernate-mapping 
+  auto-import="true" 
+  package="pl.jasox.medward.model.domainobject">
+  
+  <query name="getPatientAll">
+    <![CDATA[      
+      from Patient as p 
+      order by 
+        p.lastName, p.firstName  
+    ]]>
+  </query> 
+   
+  <query name="getPatientByName">
+    <![CDATA[      
+      from Patient as p       
+      where 
+        upper( p.lastName ) like upper( :name )
+      order by 
+        p.lastName, p.firstName  
+    ]]>
+  </query> 
+  
+  <query name="getPatientByPesel">
+    <![CDATA[      
+      from Patient as p      
+      where 
+        p.pesel = :pesel        
+      order by 
+        p.lastName, p.firstName  
+    ]]>
+  </query> 
+  
+  <query name="getKasach">
+    <![CDATA[      
+      from Kasach as k      
+      order by 
+        k.symbolKasa
+    ]]>
+  </query> 
+  
+  <query name="getDoctorAll">
+    <![CDATA[      
+      from Doctor as p 
+      order by 
+        p.lastName, p.firstName  
+    ]]>
+  </query> 
+  
+  <query name="getClinicAll">
+    <![CDATA[      
+      from Clinic as p 
+      order by 
+        p.description  
+    ]]>
+  </query> 
+  
+  <query name="getMedProcedureCatAll">
+    <![CDATA[      
+      from MedProcedureCat as p 
+      order by 
+        p.symbolMedProcedureCat  
+    ]]>
+  </query> 
+  
+  <query name="getMedProcedureTypeAll">
+    <![CDATA[      
+      from MedProcedureType as p 
+      order by 
+        p.symbolMedProcedureType  
+    ]]>
+  </query> 
+  
+  <query name="getMedProcedureAll">
+    <![CDATA[      
+      from MedProcedure as p 
+      order by 
+        p.procedureDate, p.patient.pesel, p.noAdm  
+    ]]>
+  </query> 
+  
+  <query name="getAdmissionAll">
+    <![CDATA[      
+      from Admission as p 
+      order by 
+        p.admissionDate, p.patient.pesel  
+    ]]>
+  </query> 
+  
+</hibernate-mapping>

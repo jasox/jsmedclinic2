@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 
+  `symbol_kasa` VARCHAR(10) NOT NULL, // symbol kasy chorych                      
+  `description` VARCHAR(45) NOT NULL, // opis kasy chorych  
+  `remarks`     VARCHAR(20),          // uwagi do kasy chorych
+ -->
+
+<hibernate-mapping package="pl.jasox.medward.model.domainobject">
+  <class
+    name="pl.jasox.medward.model.domainobject.Kasach"
+    table="`kasach`" >
+    
+    <id name="symbolKasa" type="string">
+      <column name="`symbol_kasa`" />      
+    </id>
+    <property  name="description" type="string">
+      <column name="`description`" length="45" unique ="true" not-null="true" />
+    </property>
+    <property name="remarks" type="string">
+      <column name="`remarks`" length="20" />
+    </property>  
+          
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+// <encoding="UTF-8">
+--------------------------------------------------------------------------------
+Pracę nad tym projektem starałem się planować, organizować i nadzorować
+   zgodnie z metodyką AGILE - zwinnym procesem wytwarzania oprogramowania 
+--------------------------------------------------------------------------------
+
+do planowania i śledzenia postępów pracy w pierwszych iteracjach używałem narzędzia 
+Scrumwise <http://www.scrumwise.com> w wersji trial, ale z powodu ograniczeń tej
+wersji załączam zdjęcia Task-Board, klasycznej tablicy ściennej. 
+Mimo wygody korzystania z narzędzi elektronicznych do prowadzenia projektu, większość
+ekspertów podnosi zalety tej formy dokumentowania postępów projektu, wskazując 
+na funkcję motywującą i konsolidującą zespół, na korzyści szybkiej wymiany informacji
+w dyskusjach pod tablicą.
+ 
+Na początku tworzyłem program w iteracjach według metodyki SCRUM z elementami XP, 
+i co ważniejsze - planowałem tylko następną iterację. Po jej zakończeniu planowałem 
+co zrobić dalej. Nie zakładałem z góry jaka architektura będzie najlepsza dla danego 
+problemu, dlatego tworzyłem ją w miarę rozszerzania programu - to podejście XP  
+( bo XP stosuje się głównie do aplikacji, w których nie wiadomo do końca, 
+  co się tak naprawdę robi i jak to prawidłowo zrobić - czyli mój program w tej
+  definicji doskonale się mieści. ) 
+
+Założenia :
+- Zespół składa się z dwóch osób
+- Sprinty/iteracje są czterotygodniowe czyli zawierają 20 kalendarzowych dni roboczych
+- Początkowa prędkość (velocity) zespołu wynosi 0.70 - czyli na sprint dysponujemy
+   sumaryczną liczbą 28 efektywnych dni roboczych (man-days) :=
+   (number-of-person-in-team)*(number-of-calendar-work-days-in-iteration)*(velocity)
+

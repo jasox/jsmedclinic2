@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!--
+  TABLE `admission` <br/> 
+  `id_admiss`  INT(10) unsigned NOT NULL auto_increment, // id przyjęcia       <br/>
+  `primary_no` INT(10) unsigned NOT NULL, // numer główny księgi kliniki       <br/>
+  `ward_no`    INT(10) unsigned NOT NULL, // numer odziałowy                   <br/>
+  `ksg`        VARCHAR(4),                // sygnatura księgi                  <br/>   
+  `pesel`      DECIMAL(11) NOT NULL,      // identyfikator pacjenta            <br/>
+  `admission_date`  TIMESTAMP NOT NULL,   // data i czas przyjęcia do szpitala <br/>
+  `admission_from`  VARCHAR(35),          // skąd skierowany                   <br/>
+  `from_remarks`    VARCHAR(25),          // uwagi o skierowaniu               <br/>
+  `symbol_doctor`   VARCHAR(10) NOT NULL, // identyfikator lekarza prowadzcego <br/>
+  `init_diagnosis`  VARCHAR(45),          // rozpoznanie wstępne               <br/>
+  `final_diagnosis` VARCHAR(45),          // rozpoznanie ostateczne            <br/>   
+  `discharge_date`  TIMESTAMP,            // data i czas wypisania ze szpitala <br/>
+  `discharge_to`    VARCHAR(35),          // gdzie wypisany                    <br/>
+  `remarks`   VARCHAR(20) <br/>
+ --> 
+<hibernate-mapping package="pl.jasox.medward.model.domainobject">
+    <class 
+        name="pl.jasox.medward.model.domainobject.Admission" 
+        table="`admission`" >
+        
+        <id name="idAdmission" type="java.lang.Integer">
+            <column name="`id_admiss`" />
+        </id> 
+        <property name="primaryNo" type="java.lang.Integer">
+            <column name="`primary_no`" />
+        </property>  
+        <property name="wardNo" type="java.lang.Integer">
+            <column name="`ward_no`" />
+        </property>
+        <property name="ksg" type="string">
+            <column name="`ksg`" />
+        </property>
+        <many-to-one name="patient" column="`pesel`" not-null="true"/> 
+        <property name="admissionDate" type="timestamp">
+            <column name="`admission_date`" />
+        </property>
+        <property name="admissionFrom" type="string">
+            <column name="`admission_from`" />
+        </property> 
+        <property name="fromRemarks" type="string">
+            <column name="`from_remarks`" />
+        </property>
+        <many-to-one name="doctor" column="`symbol_doctor`" not-null="true"/>  
+        <property name="initDiagnosis" type="string">
+            <column name="`init_diagnosis`" />
+        </property>
+        <property name="finalDiagnosis" type="string">
+            <column name="`final_diagnosis`" />
+        </property>
+        <property name="dischargeDate" type="timestamp">
+            <column name="`discharge_date`" />
+        </property>
+        <property name="dischargeTo" type="string">
+            <column name="`discharge_to`" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="`remarks`" />
+        </property> 
+        
+    </class>
+</hibernate-mapping>
+

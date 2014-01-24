@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" 
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+                                 http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+   
+  
+  <!-- Persistence Units for medical-ward -->
+   
+  <!-- ===================================================================== -->                               
+                                 
+  <persistence-unit name="medward_SE" transaction-type="RESOURCE_LOCAL">  
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>         
+    <class>pl.jasox.medward.model.domainobject.Admission</class>
+    <class>pl.jasox.medward.model.domainobject.Clinic</class>
+    <class>pl.jasox.medward.model.domainobject.Doctor</class>
+    <class>pl.jasox.medward.model.domainobject.Kasach</class>
+    <class>pl.jasox.medward.model.domainobject.MedProcedure</class>
+    <class>pl.jasox.medward.model.domainobject.MedProcedureCat</class>
+    <class>pl.jasox.medward.model.domainobject.MedProcedureType</class>
+    <class>pl.jasox.medward.model.domainobject.Patient</class>     
+    <properties>
+       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+       <property name="javax.persistence.jdbc.driver"  value="org.apache.derby.jdbc.EmbeddedDriver"/>
+       <property name="javax.persistence.jdbc.url"     value="jdbc:derby:memory:medwardDB;create=true"/>                   
+       <property name="eclipselink.logging.level"      value="INFO"/>      
+       <property name="eclipselink.logging.parameters" value="false"/>      
+    </properties>    
+  </persistence-unit>  
+                      
+  <!-- ===================================================================== -->                      
+  
+  <persistence-unit name="medward_AS" transaction-type="JTA">    
+    <jta-data-source>jdbc/medward_Hsql_Datasource</jta-data-source>
+    <class>pl.jasox.medward.model.domainobject.Doctor</class>
+    <class>pl.jasox.medward.model.domainobject.Patient</class>
+    <class>pl.jasox.medward.model.domainobject.Kasach</class>
+    <class>pl.jasox.medward.model.domainobject.Clinic</class>
+    <class>pl.jasox.medward.model.domainobject.MedProcedureCat</class>
+    <class>pl.jasox.medward.model.domainobject.MedProcedureType</class>
+    <class>pl.jasox.medward.model.domainobject.MedProcedure</class>     
+    <class>pl.jasox.medward.model.domainobject.Admission</class>       
+    <exclude-unlisted-classes>true</exclude-unlisted-classes> 
+    
+    <properties>              
+       <property name="eclipselink.logging.level"      value="INFO"/>      
+       <property name="eclipselink.logging.parameters" value="false"/>      
+    </properties>     
+        
+  </persistence-unit>
+  
+  <!-- ===================================================================== -->  
+  
+  <persistence-unit name="medward_MySQL" transaction-type="JTA">    
+    <jta-data-source>jdbc/medward_MySQL_Datasource</jta-data-source>    
+    <class>pl.jasox.medward.model.domainobject.Doctor</class>
+    <class>pl.jasox.medward.model.domainobject.Patient</class>
+    <class>pl.jasox.medward.model.domainobject.Kasach</class>
+    <class>pl.jasox.medward.model.domainobject.Clinic</class>
+    <class>pl.jasox.medward.model.domainobject.MedProcedureCat</class>
+    <class>pl.jasox.medward.model.domainobject.MedProcedureType</class>
+    <class>pl.jasox.medward.model.domainobject.MedProcedure</class>   
+    <class>pl.jasox.medward.model.domainobject.Admission</class>    
+    <exclude-unlisted-classes>true</exclude-unlisted-classes> 
+    
+    <properties>            
+       <property name="eclipselink.logging.level"      value="INFO"/>      
+       <property name="eclipselink.logging.parameters" value="false"/>      
+    </properties>
+            
+  </persistence-unit>
+  
+  <!-- ===================================================================== -->  
+  
+  <persistence-unit name="medward_Hsql" transaction-type="JTA">   
+    <!-- <provider>org.hibernate.ejb.HibernatePersistence</provider> -->      
+    <jta-data-source>jdbc/medward_Hsql_Datasource</jta-data-source>
+    <class>pl.jasox.medward.model.domainobject.Doctor</class>         
+    <class>pl.jasox.medward.model.domainobject.Patient</class>
+    <class>pl.jasox.medward.model.domainobject.Kasach</class>
+    <class>pl.jasox.medward.model.domainobject.Clinic</class> 
+    <class>pl.jasox.medward.model.domainobject.MedProcedureCat</class>
+    <class>pl.jasox.medward.model.domainobject.MedProcedureType</class>
+    <class>pl.jasox.medward.model.domainobject.MedProcedure</class>    
+    <class>pl.jasox.medward.model.domainobject.Admission</class>      
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>     
+    <!--  
+    <properties>         
+        <property
+          name="hibernate.default_schema"
+          value="PUBLIC"/> 
+        <property 
+          name="hibernate.dialect" 
+          value="org.hibernate.dialect.HSQLDialect"/>
+        <property
+          name="hibernate.connection.useUnicode"
+          value="yes"/> 
+        <property
+          name="hibernate.connection.characterEncoding"
+          value="UTF-8"/>
+        
+        <property
+          name="hibernate.connection.provider_class"
+          value="org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider"/> 
+        <property
+          name="hibernate.c3p0.idle_test_period"
+          value="30"/>   
+       
+        <property
+          name="hibernate.show_sql"
+          value="true"/>      
+        <property
+          name="hibernate.format_sql"
+          value="false"/>
+        <property 
+          name="hibernate.use_sql_comments" 
+          value="false"/>
+        <property
+          name="hibernate.cache.provider_class"
+          value="org.hibernate.cache.NoCacheProvider"/>             
+      </properties> 
+       --> 
+         
+      <properties>            
+         <property name="eclipselink.logging.level"      value="INFO"/>         
+         <property name="eclipselink.logging.parameters" value="false"/>         
+      </properties>
+   <!--   -->
+  </persistence-unit>
+  
+</persistence>

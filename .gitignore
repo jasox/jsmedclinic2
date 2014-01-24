@@ -1,0 +1,58 @@
+#---------------------------------------
+# ignoruj w projekcie JMedicalClinic
+#---------------------------------------
+
+# podkatalogi katalogu głównego
+
+.settings/
+.svn/
+target/
+test-output/
+
+*~
+.DS_Store
+.faces-config.xml.faceside
+.faces-config.xml.jsfdia
+MANIFEST.MF
+bin
+.openshift
+
+# pliki w głównym katalogu
+
+# /.gitignore
+/.springBeans
+/.project
+/.classpath
+/manifest
+#/nb-configuration.xml
+#/nbactions.xml
+
+# pliki w każdym katalogu
+
+*.doc#
+*.log
+*.log.*
+*.ldb
+
+#---------------------------------------
+# Compiled source #
+#
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+#
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+

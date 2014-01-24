@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 
+  `pesel`         DECIMAL(11) NOT NULL,  // pesel pacjenta                      <br/>  
+  `last_name`     VARCHAR(35) NOT NULL,  // nazwisko pacjenta                   <br/>
+  `first_name`    VARCHAR(25),           // imię pacjenta                       <br/> 
+  `sex`           VARCHAR(6),            // płeć pacjenta                       <br/>
+  `zip_code`      VARCHAR(6),            // kod zamieszkania pacjenta           <br/>
+  `city`          VARCHAR(20),           // miejscowość zamieszkania pacjenta   <br/>
+  `street`        VARCHAR(55),           // adres zamieszkania pacjenta         <br/>  
+  `phone`         VARCHAR(15),           // telefon kontaktowy                  <br/>
+  `workplace`     VARCHAR(35),           // miejsce pracy                       <br/>
+  `occupation`    VARCHAR(35),           // zawód wykonywany                    <br/>   
+  `insurance`     BOOLEAN,               // czy pacjent jest ubezpieczony w NFZ <br/>
+  `symbol_kasa`   VARCHAR(10) NOT NULL,  // symbol kasy chorych                 <br/> 
+  `contact`       VARCHAR(35),           // osoba kontaktowa                    <br/>
+  `remarks`       VARCHAR(20),           // uwagi    
+ -->
+<hibernate-mapping package="pl.jasox.medward.model.domainobject">
+    <class 
+        name="pl.jasox.medward.model.domainobject.Patient" 
+        table="`patient`" >
+        <id name="pesel" type="java.lang.Double">
+            <column name="`pesel`" />
+        </id>
+        <property name="lastName" type="string">
+            <column name="`last_name`" length="35" not-null="true" />
+        </property>
+        <property name="firstName" type="string">
+            <column name="`first_name`" length="25" />
+        </property>        
+        <property name="sex" type="string">
+            <column name="`sex`" length="6" />
+        </property>
+        <property name="zipCode" type="string">
+            <column name="`zip_code`" length="6" />
+        </property>
+        <property name="city" type="string">
+            <column name="`city`" length="20" />
+        </property>
+        <property name="street" type="string">
+            <column name="`street`" length="55" />
+        </property>        
+        <property name="phone" type="string">
+            <column name="`phone`" length="15" />
+        </property>        
+        <property name="workplace" type="string">
+            <column name="`workplace`" length="35" />
+        </property>        
+        <property name="occupation" type="string">
+            <column name="`occupation`" length="35" />
+        </property>        
+        <many-to-one name="kasaCh" column="`symbol_kasa`" not-null="true"/>
+        <property name="contact" type="string">
+            <column name="`contact`" length="35" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="`remarks`" length="20" />
+        </property>        
+    </class>
+</hibernate-mapping>
