@@ -15,11 +15,11 @@
 	</parent>
 
 	<groupId>pl.jasox</groupId>
-	<artifactId>medclinic</artifactId>
+	<artifactId>medclinic2</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0.1</version>
-	<name>JS Medical Clinic</name>
-	<description> JS Medical Clinic Application</description>
+	<name>JS Medical Clinic 2</name>
+	<description> JS Medical Clinic Application </description>
 	<url></url>
 	
 	<!-- ===================================================================== -->
@@ -48,7 +48,7 @@
     <version.derby>10.10.1.1</version.derby>
     <version.mysql>5.1.21</version.mysql>
     
-    <projectGroup>pl.jasox.medclinic</projectGroup> 
+    <projectGroup>pl.jasox.medclinic2</projectGroup> 
 		<projectName>medical-ward</projectName>
 		<projectVersion>1.0.1</projectVersion>    
 		<projectScope>compile</projectScope>

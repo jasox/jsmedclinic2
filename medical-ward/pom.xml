@@ -12,12 +12,12 @@
 
 	<parent>
 		<groupId>pl.jasox</groupId>
-		<artifactId>medclinic</artifactId>
+		<artifactId>medclinic2</artifactId>
 		<version>1.0.1</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<groupId>pl.jasox.medclinic</groupId>
+	<groupId>pl.jasox.medclinic2</groupId>
 	<artifactId>medical-ward</artifactId>
 	<packaging>war</packaging>
 	<name>Medical Ward</name>

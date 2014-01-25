@@ -12,12 +12,12 @@
 
 	<parent>
 		<groupId>pl.jasox</groupId>
-		<artifactId>medclinic</artifactId>
+		<artifactId>medclinic2</artifactId>
 		<version>1.0.1</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<groupId>pl.jasox.medclinic</groupId>
+	<groupId>pl.jasox.medclinic2</groupId>
 	<artifactId>medical-ward-ejb</artifactId>	
 	<packaging>jar</packaging>
 	<name>Medical Ward EJB Module</name>
@@ -485,7 +485,7 @@
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
-					<skip>false</skip>
+					<skip>true</skip>
           <!--
 					<suiteXmlFiles>
              <suiteXmlFile>
