@@ -380,15 +380,16 @@
 
 	</profiles>
 
-	<scm>     
-    <connection>https://pl5.projectlocker.com/jasox/JSMedClinic/svn</connection>  
-    <!-- Not done yet 
-		<connection>scm:git:git://github.com/jasox/jsmedclinic.git</connection>
+	<scm> 
+    <!--    
+    <connection>https://pl5.projectlocker.com/jasox/JSMedClinic/svn</connection> 
+    --> 
+    <!-- Since 25.01.2014, after migration from Svn -->
+		<connection>scm:git:git://github.com/jasox/jsmedclinic2.git</connection>
 		<developerConnection>
-        scm:git:git@github.com:jasox/jsmedclinic.git
+        scm:git:git@github.com:jasox/jsmedclinic2.git
     </developerConnection>
-		<url>http://github.com/jasox/jsmedclinic.git</url>
-		-->
+		<url>http://github.com/jasox/jsmedclinic2.git</url>		
 	</scm>
 	
 	<developers>
