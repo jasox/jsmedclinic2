@@ -4,14 +4,15 @@
     xsi:schemaLocation="http://jboss.org/schema/arquillian 
                         http://jboss.org/schema/arquillian/arquillian_1_0.xsd">  
                        
-     <!-- <defaultProtocol type="Servlet 3.0"/> -->
-     <!-- <defaultProtocol type="jmx-as7"/>     -->
+     <!-- -->
+     <defaultProtocol type="Servlet 3.0"/> 
+     <!-- <defaultProtocol type="jmx-as7"/>  -->
      
      <engine>
          <property name="deploymentExportPath">target</property>
      </engine>
                             
-     <container qualifier="jbossas7Container_hp" default="false">  
+     <container qualifier="jbossas7Container_hp" default="true">  
         <protocol type="Servlet 3.0">
             <property name="executionType">REMOTE</property>             
         </protocol>     
@@ -23,7 +24,7 @@
         </configuration>        
      </container>
      
-     <container qualifier="jbossas7Container_localhost" default="true"> 
+     <container qualifier="jbossas7Container_localhost" default="false"> 
         
         <protocol type="Servlet 3.0">                                   
         </protocol>    
@@ -47,17 +48,17 @@
 <!--
 Container Configuration Options - MANAGED
 
-Name	     Type	   Default	     Description
-jbossHome	 String	 $JBOSS_HOME	 The JBoss configuration to start.
-javaHome	 String	 $JAVA_HOME	 The Java runtime to use to start the server.
-modulePath	     String	 $module.path	 The location of the module repository.
-javaVmArguments	 String	 -Xmx512m -XX:MaxPermSize=128m	 JVM arguments used to start the server.
-startupTimeoutInSeconds	 int	 30	 Time to wait before throwing Exception on server startup.
-outputToConsole	   boolean	 true	 Should the server startup console log be piped to the console
-serverConfig	     String	 standalone.xml	 Which server configuration file to startup with
-managementAddress	 String	 127.0.0.1	 The ip address of the running server instances manage interface
-managementPort	   int	 9999	 The management port for deployment
-allowConnectingToRunningServer	 boolean false	 If true, if a running AS is found on managementPort, it is used; if false, fails. 
-username	 String	 null	 The username for the ManagementRealm (not required by default)
-password	 String	 null	 The password for the ManagementRealm (not required by default)
+Name	                           Type	   Default	     Description
+jbossHome	                       String	 $JBOSS_HOME	 The JBoss configuration to start.
+javaHome	                       String	 $JAVA_HOME	   The Java runtime to use to start the server.
+modulePath	                     String	 $module.path	 The location of the module repository.
+javaVmArguments	                 String	 -Xmx512m -XX:MaxPermSize=128m	 JVM arguments used to start the server.
+startupTimeoutInSeconds	         int	   30	           Time to wait before throwing Exception on server startup.
+outputToConsole	                 boolean true	         Should the server startup console log be piped to the console
+serverConfig	                   String	 standalone.xml	 Which server configuration file to startup with
+managementAddress	               String	 127.0.0.1	   The ip address of the running server instances manage interface
+managementPort	                 int	   9999	         The management port for deployment
+allowConnectingToRunningServer	 boolean false	       If true, if a running AS is found on managementPort, it is used; if false, fails. 
+username	                       String	 null	         The username for the ManagementRealm (not required by default)
+password	                       String	 null	         The password for the ManagementRealm (not required by default)
 -->

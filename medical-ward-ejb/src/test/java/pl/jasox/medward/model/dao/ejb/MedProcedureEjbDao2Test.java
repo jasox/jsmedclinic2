@@ -102,7 +102,7 @@ public class MedProcedureEjbDao2Test {
 
     File[] medical_ward_simple = 
         Maven.resolver().loadPomFromFile("pom.xml")
-       .resolve("pl.jasox.medclinic:medical-ward-simple")
+       .resolve("pl.jasox.medclinic2:medical-ward-simple")
        .withoutTransitivity().asFile();
     
     File[] picketlink_idm = 
