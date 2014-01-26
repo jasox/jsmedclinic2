@@ -8,16 +8,16 @@
          <property name="deploymentExportPath">target</property>
     </engine>
     
-    <container qualifier="glassfish31localhost" default="false">
+    <container qualifier="glassfish31localhost" default="true">
         <configuration>
-              <!--                        
+              <!--  -->                      
               <property name="adminUser">admin</property>
               <property name="adminPassword"></property> 
-              -->          
+                        
         </configuration>
     </container>
     
-    <container qualifier="glassfish31jslaptophp" default="true" >
+    <container qualifier="glassfish31jslaptophp" default="false" >
           <configuration>
               <!-- --> 
               <property name="adminUser">jaoss</property>

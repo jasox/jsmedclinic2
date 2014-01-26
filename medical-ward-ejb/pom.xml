@@ -792,7 +792,35 @@
           <scope>test</scope>
         </dependency>
       </dependencies>
-    </profile>    
+    </profile>     
+    
+    <profile>
+        <id>glassfish-managed-3.1</id>
+        <activation>
+          <property>
+            <name>arquillian</name>
+            <value>glassfish-managed-3.1</value>
+          </property>
+        </activation>
+        <dependencies>           
+            <dependency>
+                <groupId>org.jboss.arquillian.container</groupId>
+                <artifactId>arquillian-glassfish-managed-3.1</artifactId>
+                <version>1.0.0.CR4</version>
+                <scope>test</scope>
+            </dependency>                     
+        </dependencies>
+        <build>
+            <testResources>
+                <testResource>
+                    <directory>${basedir}/src/test/resources</directory>
+                </testResource>
+                <testResource>
+                    <directory>${basedir}/src/test/resources-glassfish-managed</directory>
+                </testResource>
+            </testResources>
+        </build>
+    </profile>  
 
     <profile>
       <id>glassfish-remote-3.1</id>
@@ -810,7 +838,8 @@
         </dependency>
         <dependency>
           <groupId>org.jboss.arquillian.container</groupId>
-          <artifactId>arquillian-glassfish-remote-3.1</artifactId>          
+          <artifactId>arquillian-glassfish-remote-3.1</artifactId>
+          <version>1.0.0.CR3</version>          
           <scope>test</scope>
         </dependency>
       </dependencies>
