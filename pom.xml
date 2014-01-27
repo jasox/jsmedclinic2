@@ -15,9 +15,9 @@
 	</parent>
 
 	<groupId>pl.jasox</groupId>
-	<artifactId>medclinic2</artifactId>
+	<artifactId>medclinic</artifactId>
 	<packaging>pom</packaging>
-	<version>1.0.1</version>
+	<version>1.1.1</version>
 	<name>JS Medical Clinic 2</name>
 	<description> JS Medical Clinic Application </description>
 	<url></url>
@@ -42,15 +42,16 @@
     <version.json>1.0.2</version.json>
     <version.ejb>3.1</version.ejb>     
     <version.shrinkwrap.resolvers>2.0.0</version.shrinkwrap.resolvers>   
+    <version.arquillian.bom>1.0.0.Final</version.arquillian.bom> <!-- 1.1.2.Final -->
     <version.slf4j>1.7.5</version.slf4j> 
     
     <!-- Databases -->
     <version.derby>10.10.1.1</version.derby>
     <version.mysql>5.1.21</version.mysql>
     
-    <projectGroup>pl.jasox.medclinic2</projectGroup> 
+    <projectGroup>pl.jasox.medclinic</projectGroup> 
 		<projectName>medical-ward</projectName>
-		<projectVersion>1.0.1</projectVersion>    
+		<projectVersion>1.1.1</projectVersion>    
 		<projectScope>compile</projectScope>
     		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>	

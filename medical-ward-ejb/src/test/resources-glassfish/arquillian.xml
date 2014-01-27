@@ -10,10 +10,10 @@
     
     <container qualifier="glassfish31localhost" default="true">
         <configuration>
-              <!--  -->                      
+              <!--                        
               <property name="adminUser">admin</property>
               <property name="adminPassword"></property> 
-                        
+              -->          
         </configuration>
     </container>
     

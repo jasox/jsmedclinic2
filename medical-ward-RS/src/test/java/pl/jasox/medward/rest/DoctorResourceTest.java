@@ -43,7 +43,7 @@ public class DoctorResourceTest {
 
     File[] medical_ward_simple = 
         Maven.resolver().loadPomFromFile("pom.xml")
-       .resolve("pl.jasox.medclinic2:medical-ward-simple")
+       .resolve("pl.jasox.medclinic:medical-ward-simple")
        .withoutTransitivity().asFile();
     
     File[] picketlink_idm = 
@@ -58,7 +58,7 @@ public class DoctorResourceTest {
     
     File[] medical_ward_ejb = 
         Maven.resolver().loadPomFromFile("pom.xml")
-       .resolve("pl.jasox.medclinic2:medical-ward-ejb")
+       .resolve("pl.jasox.medclinic:medical-ward-ejb")
        .withoutTransitivity().asFile();
     
     return ShrinkWrap.create(WebArchive.class, "test.war")       

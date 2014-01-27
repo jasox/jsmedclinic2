@@ -10,12 +10,12 @@
 	
 	<parent>
 		<groupId>pl.jasox</groupId>
-		<artifactId>medclinic2</artifactId>
-		<version>1.0.1</version>
+		<artifactId>medclinic</artifactId>
+		<version>1.1.1</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-  <groupId>pl.jasox.medclinic2</groupId>
+  <groupId>pl.jasox.medclinic</groupId>
 	<artifactId>medical-ward-simple</artifactId>	
 	<packaging>jar</packaging>
 	<name>Medical Ward Simple DAO's</name>
