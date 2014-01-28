@@ -7,13 +7,7 @@
                       http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-
-	<parent>
-		<groupId>org.jboss.seam</groupId>
-		<artifactId>seam-parent</artifactId>
-		<version>19</version>
-	</parent>
-
+  
 	<groupId>pl.jasox</groupId>
 	<artifactId>medclinic</artifactId>
 	<packaging>pom</packaging>
@@ -26,23 +20,47 @@
 
 	<properties>
     
+    <!-- JBoss dependency versions -->
+    <jboss.maven.plugin.version>7.4.Final</jboss.maven.plugin.version>    
+    <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
+    <jboss.bom.version>1.0.7.Final</jboss.bom.version>    
+     
 		<seam.version>3.1.0.Final</seam.version>    
     <org.richfaces.bom.version>4.3.3.Final</org.richfaces.bom.version>
-    <surefire.version>2.13</surefire.version>
-    <jpamodelgen.version>1.1.1.Final</jpamodelgen.version>
+    <surefire.version>2.13</surefire.version>   
+    <jpamodelgen.version>1.2.0.Final</jpamodelgen.version>    
+    <jersey.version>1.8</jersey.version>
+    
+    <!-- Maven Plugins -->
+    <maven.source.plugin.version>2.2.1</maven.source.plugin.version>  
+    <maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
+    <maven.compiler.target>1.6</maven.compiler.target>
+    <maven.compiler.source>1.6</maven.compiler.source>   
+    
+    <maven.jar.plugin.version>2.4</maven.jar.plugin.version>
+    <maven.war.plugin.version>2.4</maven.war.plugin.version>
+    <maven.processor.plugin.version>2.2.4</maven.processor.plugin.version>
+    <maven.dependency.plugin>2.8</maven.dependency.plugin>
+    <maven.help.plugin.version>2.2</maven.help.plugin.version>
+    <maven.exec.plugin.version>1.2.1</maven.exec.plugin.version>
+    <maven.jaxws.plugin.version>2.2</maven.jaxws.plugin.version>    
+    <maven.failsafe.plugin.version>2.16</maven.failsafe.plugin.version>
+    <maven.javadoc.plugin.version>2.9.1</maven.javadoc.plugin.version> 
     
     <version.java>1.6</version.java>     
     <version.javaee>6.0</version.javaee>
     <version.glassfish>3.1</version.glassfish>
     <version.weld>2.1.0.Final</version.weld> 
-    <version.jersey>1.8</version.jersey>  <!-- 2.3.1 -->
+    <version.jersey>1.8</version.jersey>  
     <version.eclipselink>2.5.1</version.eclipselink>
-    <version.hibernate.validator>4.1.0.Final</version.hibernate.validator> <!-- 4.1.0.Final 5.0.1.Final -->
+    <version.hibernate.validator>4.1.0.Final</version.hibernate.validator> 
     <version.el>3.0.0</version.el>
     <version.json>1.0.2</version.json>
     <version.ejb>3.1</version.ejb>     
-    <version.shrinkwrap.resolvers>2.0.0</version.shrinkwrap.resolvers>   
-    <version.arquillian.bom>1.0.0.Final</version.arquillian.bom> <!-- 1.1.2.Final -->
+    <version.shrinkwrap.resolvers>2.0.0</version.shrinkwrap.resolvers>
+    <!--  
+    <version.arquillian.bom>1.1.2.Final</version.arquillian.bom> 
+    -->
     <version.slf4j>1.7.5</version.slf4j> 
     
     <!-- Databases -->
@@ -188,7 +206,33 @@
 
 	<dependencyManagement>
 
-		<dependencies>      
+		<dependencies>
+      
+      <!-- Override dependency resolver with latest version. 
+           This must go *BEFORE* the Arquillian BOM.  -->
+       <dependency>
+         <groupId>org.jboss.shrinkwrap.resolver</groupId>
+         <artifactId>shrinkwrap-resolver-bom</artifactId>
+         <version>${version.shrinkwrap.resolvers}</version>
+         <scope>import</scope> 
+         <type>pom</type>
+       </dependency>   
+      
+      <dependency>
+        <groupId>org.jboss.bom</groupId>
+        <artifactId>jboss-javaee-6.0-with-tools</artifactId>
+        <version>${jboss.bom.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      
+      <dependency>
+        <groupId>org.jboss.bom</groupId>
+        <artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
+        <version>${jboss.bom.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>    
       
 			<dependency>
 				<groupId>org.jboss.seam</groupId>
@@ -209,7 +253,7 @@
 			<dependency>
 				<groupId>org.jboss.seam.rest</groupId>
 				<artifactId>seam-rest-parent</artifactId>
-				<version>3.1.0.Final</version>
+				<version>${seam.version}</version>
 				<scope>import</scope>
 				<type>pom</type>
 			</dependency>
@@ -226,6 +270,167 @@
 
 	</dependencyManagement>
   
+  <!-- ===================================================================== -->
+  
+  <dependencies>
+      <!-- First declare the APIs we depend on and need for compilation. 
+           All of them are provided by JBoss AS 7 -->
+
+      <!-- Import the CDI API, we use provided scope as the API is included in JBoss AS 7 -->
+      <dependency>
+          <groupId>javax.enterprise</groupId>
+          <artifactId>cdi-api</artifactId>
+          <scope>provided</scope>
+      </dependency>
+
+      <!-- Import the Common Annotations API (JSR-250), we use provided 
+           scope as the API is included in JBoss AS 7 -->
+      <dependency>
+          <groupId>org.jboss.spec.javax.annotation</groupId>
+          <artifactId>jboss-annotations-api_1.1_spec</artifactId>
+          <scope>provided</scope>
+      </dependency>
+
+      <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss AS 7 -->
+      <dependency>
+          <groupId>org.jboss.spec.javax.ws.rs</groupId>
+          <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
+          <scope>provided</scope>
+      </dependency>
+
+      <!-- Import the JPA API, we use provided scope as the API is included in JBoss AS 7 -->
+      <dependency>
+          <groupId>org.hibernate.javax.persistence</groupId>
+          <artifactId>hibernate-jpa-2.0-api</artifactId>
+          <scope>provided</scope>
+      </dependency>
+
+      <!-- Import the EJB API, we use provided scope as the API is included in JBoss AS 7 -->
+      <dependency>
+          <groupId>org.jboss.spec.javax.ejb</groupId>
+          <artifactId>jboss-ejb-api_3.1_spec</artifactId>
+          <scope>provided</scope>
+      </dependency>
+
+      <!-- JSR-303 (Bean Validation) Implementation -->
+      <!-- Provides portable constraints such as @Email -->
+      <!-- Hibernate Validator is shipped in JBoss AS 7 -->
+      <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-validator</artifactId>
+          <scope>provided</scope>
+          <exclusions>
+              <exclusion>
+                  <groupId>org.slf4j</groupId>
+                  <artifactId>slf4j-api</artifactId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+
+      <!-- Import the JSF API, we use provided scope as the API is included in JBoss AS 7 -->
+      <dependency>
+          <groupId>org.jboss.spec.javax.faces</groupId>
+          <artifactId>jboss-jsf-api_2.1_spec</artifactId>
+          <scope>provided</scope>
+      </dependency>
+
+      <!-- Import the Servlet API, we use provided scope as the API is included in JBoss AS 7 -->
+      <dependency>
+         <groupId>org.jboss.spec.javax.servlet</groupId>
+         <artifactId>jboss-servlet-api_3.0_spec</artifactId>
+         <scope>provided</scope>
+      </dependency>
+
+      <!-- Import the RichFaces core library -->
+      <dependency>
+         <groupId>org.richfaces.core</groupId>
+         <artifactId>richfaces-core-impl</artifactId>
+         <exclusions>
+            <exclusion>
+                <artifactId>cssparser</artifactId>
+                <groupId>net.sourceforge.cssparser</groupId>
+            </exclusion>
+             <exclusion>
+                <artifactId>guava</artifactId>
+                <groupId>com.google.guava</groupId>
+            </exclusion>
+         </exclusions>
+      </dependency>
+
+      <!-- Import the RichFaces components -->
+      <dependency>
+         <groupId>org.richfaces.ui</groupId>
+         <artifactId>richfaces-components-ui</artifactId>
+      </dependency>
+
+       <!-- Import the Atmosphere framework for a4j:push -->
+      <dependency>
+         <groupId>org.atmosphere</groupId>
+         <artifactId>atmosphere-runtime</artifactId>
+         <exclusions>
+             <exclusion>
+                 <groupId>org.slf4j</groupId>
+                 <artifactId>slf4j-api</artifactId>
+             </exclusion>
+         </exclusions>
+      </dependency>
+
+      <!-- Now we declare any tools needed -->
+
+      <!-- Annotation processor to generate the JPA 2.0 metamodel classes 
+          for typesafe criteria queries -->
+      <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-jpamodelgen</artifactId> 
+          <version>${jpamodelgen.version}</version>        
+          <scope>provided</scope>
+      </dependency>
+
+      <!-- The rewrite library allows us to do url rewriting - 
+           used here for rewriting mobile devices to mobile specific views -->
+      <dependency>
+          <groupId>org.ocpsoft.rewrite</groupId>
+          <artifactId>rewrite-servlet</artifactId>
+      </dependency>
+
+      <!-- The cdi integration allows for CDI injection into the rewrite configuration class -->
+      <dependency>
+          <groupId>org.ocpsoft.rewrite</groupId>
+          <artifactId>rewrite-integration-cdi</artifactId>
+      </dependency>
+
+      <!-- Annotation processor that raising compilation errors whenever 
+           constraint annotations are incorrectly used. -->
+      <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-validator-annotation-processor</artifactId>          
+          <scope>provided</scope>
+      </dependency>
+
+      <!-- Needed for running tests (you may also use TestNG) -->
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <scope>test</scope>
+      </dependency>
+
+      <!-- Optional, but highly recommended -->
+      <!-- Arquillian allows you to test enterprise code such as EJBs and 
+           Transactional(JTA) JPA from JUnit/TestNG -->
+      <dependency>
+          <groupId>org.jboss.arquillian.junit</groupId>
+          <artifactId>arquillian-junit-container</artifactId>
+          <scope>test</scope>
+      </dependency>
+
+      <dependency>
+          <groupId>org.jboss.arquillian.protocol</groupId>
+          <artifactId>arquillian-protocol-servlet</artifactId>
+          <scope>test</scope>
+      </dependency>
+      
+  </dependencies>
+    
   <!-- ===================================================================== -->
 
 	<build>
@@ -259,9 +464,10 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
+          <version>${maven.compiler.plugin.version}</version>
 					<configuration>
-						<source>${version.java}</source>
-						<target>${version.java}</target>
+						<source>${maven.compiler.source}</source>
+						<target>${maven.compiler.target}</target>
 					</configuration>
 				</plugin>
 
@@ -274,6 +480,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
+        <version>${maven.source.plugin.version}</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>

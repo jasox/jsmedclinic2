@@ -26,8 +26,7 @@
       programming model and packaging structure (i.e., web archive)
   </description>
 	
-	<properties>	  
-		<jpamodelgen.version>1.1.1.Final</jpamodelgen.version>
+	<properties>		
 	  <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
 	  <netbeans.hint.j2eeVersion>1.6</netbeans.hint.j2eeVersion>
 	</properties>
@@ -57,6 +56,13 @@
       <version>${projectVersion}</version>
       <type>jar</type>
     </dependency>  
+    
+    <dependency>
+			<groupId>org.jboss.spec</groupId>
+			<artifactId>jboss-javaee-6.0</artifactId>
+			<type>pom</type>
+			<scope>provided</scope>
+		</dependency>
     
     <!--
       Mixing JUnit and TestNG in one module can be done just by adding both
@@ -89,22 +95,7 @@
 			<artifactId>solder-impl</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-jpamodelgen</artifactId>
-			<version>${jpamodelgen.version}</version>
-			<scope>provided</scope>
-			<!-- Excluded Hibernate-provided JPA API because it's provided by the 
-				   Java EE 6 dependencies -->
-			<exclusions>
-				<exclusion>
-					<groupId>org.hibernate.javax.persistence</groupId>
-					<artifactId>hibernate-jpa-2.0-api</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-
-    <!-- Seam -->
+		<!-- Seam -->
 		<dependency>
 			<groupId>org.jboss.seam.faces</groupId>
 			<artifactId>seam-faces</artifactId>
@@ -160,42 +151,13 @@
 			<version>2.1</version>
 		</dependency>
 
-		<!-- Bean Validation Implementation; 
-         provides portable constraints @NotEmpty, @Email and @Url -->
-		<!-- Hibernate Validator is the only JSR-303 implementation at the moment, 
-			   so we can assume it's provided -->
-		<!-- TODO Move Hibernate Validator to app server specific sections -->		
-		<dependency>
-			<groupId>org.hibernate.</groupId>
-			<artifactId>hibernate-validator</artifactId>
-      <version>${version.hibernate.validator}</version>
-			<exclusions>
-         <exclusion>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-         </exclusion>
-      </exclusions>				
-			<scope>provided</scope>
-		</dependency>
-    
+		    
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.jboss.spec</groupId>
-			<artifactId>jboss-javaee-6.0</artifactId>
-			<type>pom</type>
-			<scope>provided</scope>
-		</dependency>
-
-		<!-- Test dependencies -->
-		<dependency>
-			<groupId>org.jboss.arquillian.junit</groupId>
-			<artifactId>arquillian-junit-container</artifactId>
-			<scope>test</scope>
-		</dependency>
+		
 
 		<!-- Arquillian Drone support in Arquillian tests -->
     <!--
@@ -246,11 +208,15 @@
 			<scope>test</scope>
 		</dependency>
     -->
-		<dependency>
-			<groupId>org.jboss.shrinkwrap.resolver</groupId>
-			<artifactId>shrinkwrap-resolver-impl-maven</artifactId>
-			<scope>test</scope>
-		</dependency>
+    
+		<!-- Obtaining ShrinkWrap Resolvers for use in your system can be done in 
+         a single pass by declaring a dependency upon the depchain module  -->
+    <dependency> 
+      <groupId>org.jboss.shrinkwrap.resolver</groupId>
+      <artifactId>shrinkwrap-resolver-depchain</artifactId>      
+      <scope>test</scope>
+      <type>pom</type>
+    </dependency> 
 
 	</dependencies>
   

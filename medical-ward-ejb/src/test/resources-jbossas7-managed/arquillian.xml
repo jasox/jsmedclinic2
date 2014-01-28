@@ -16,7 +16,7 @@
         <!-- -->  
         <configuration>              
             <property name="jbossHome">C:\JBoss\jboss-as-7.1.1.Final-localhost</property>
-            <property name="javaHome">C:\Program Files\Java\jdk1.7.0_51</property>            
+            <property name="javaHome">"C:\Program Files\Java\jdk1.7.0_51"</property>            
             <!-- -->
             <property name="managementAddress">127.0.0.1</property>
             <property name="managementPort">9999</property>  

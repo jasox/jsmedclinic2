@@ -29,7 +29,7 @@
     
     <dependencies>      
         <!-- Override dependency resolver with latest version. 
-             This must go *BEFORE* the Arquillian BOM. --> 
+             This must go *BEFORE* the Arquillian BOM.  
        <dependency>
          <groupId>org.jboss.shrinkwrap.resolver</groupId>
          <artifactId>shrinkwrap-resolver-bom</artifactId>
@@ -51,7 +51,8 @@
           <artifactId>arquillian-openshift-express</artifactId>
           <version>1.0.0.Alpha1</version>
           <scope>test</scope>
-      </dependency>      
+      </dependency>   
+      -->  
       <!--
       <dependency>
           <groupId>org.slf4j</groupId>
@@ -78,15 +79,7 @@
       <artifactId>${projectName}-ejb</artifactId>
       <version>${projectVersion}</version>
       <type>jar</type>
-    </dependency>   
-      
-    
-    <dependency>
-			<groupId>org.jboss.spec</groupId>
-			<artifactId>jboss-javaee-6.0</artifactId>
-			<type>pom</type>
-			<scope>provided</scope>
-		</dependency>
+    </dependency>    
     
     <!--
       Mixing JUnit and TestNG in one module can be done just by adding both
@@ -128,7 +121,7 @@
       <scope>test</scope>
     </dependency>	    
 	    
-		<!-- Annotation processor for generating typed loggers
+		<!-- Annotation processor for generating typed loggers -->
 		<dependency>
 			<groupId>org.jboss.solder</groupId>
 			<artifactId>solder-tooling</artifactId>
@@ -140,68 +133,7 @@
 			<groupId>org.jboss.solder</groupId>
 			<artifactId>solder-impl</artifactId>
 		</dependency>
-    -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-jpamodelgen</artifactId>
-			<version>${jpamodelgen.version}</version>
-			<scope>provided</scope>
-			<!-- Excluded Hibernate-provided JPA API because it's provided by the 
-				   Java EE 6 dependencies -->
-			<exclusions>
-				<exclusion>
-					<groupId>org.hibernate.javax.persistence</groupId>
-					<artifactId>hibernate-jpa-2.0-api</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-
-    <!-- Seam 
-		<dependency>
-			<groupId>org.jboss.seam.faces</groupId>
-			<artifactId>seam-faces</artifactId>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.jboss.seam.international</groupId>
-			<artifactId>seam-international</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.jboss.seam.security</groupId>
-			<artifactId>seam-security</artifactId>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.jboss.seam.transaction</groupId>
-			<artifactId>seam-transaction</artifactId>
-			<scope>compile</scope>
-		</dependency>
-		-->
-		<!-- RichFaces 
-		<dependency>
-        <groupId>org.richfaces.ui</groupId>
-        <artifactId>richfaces-components-ui</artifactId>
-    </dependency>
-    
-    <dependency>
-        <groupId>org.richfaces.core</groupId>
-        <artifactId>richfaces-core-impl</artifactId>
-    </dependency>
-    
-    <dependency>
-			<groupId>com.ocpsoft</groupId>
-			<artifactId>prettyfaces-jsf2</artifactId>			
-		</dependency>
-
-		<dependency>
-			<groupId>commons-digester</groupId>
-			<artifactId>commons-digester</artifactId>
-			<version>2.1</version>
-		</dependency>
-    -->
+       
     
 		<dependency>
 			<groupId>org.picketlink.idm</groupId>
@@ -212,41 +144,19 @@
 			<groupId>com.ocpsoft</groupId>
 			<artifactId>ocpsoft-pretty-time</artifactId>			
 		</dependency>
-		
-
-		<!-- Bean Validation Implementation; 
-         provides portable constraints @NotEmpty, @Email and @Url -->
-		<!-- Hibernate Validator is the only JSR-303 implementation at the moment, 
-			   so we can assume it's provided -->
-		<!-- TODO Move Hibernate Validator to app server specific sections -->		
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-      <version>${version.hibernate.validator}</version>	
-      <!--
-      <exclusions>
-         <exclusion>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-         </exclusion>
-      </exclusions>			
-      -->
-			<scope>provided</scope>
-		</dependency>
-    
+        
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
-		</dependency>
-    
+		</dependency>    
 
-		<!-- Test dependencies -->
+		<!-- Test dependencies 
 		<dependency>
 			<groupId>org.jboss.arquillian.junit</groupId>
 			<artifactId>arquillian-junit-container</artifactId>
 			<scope>test</scope>
 		</dependency>
-    
+    -->
     <!--
     <dependency>
       <groupId>org.jboss.arquillian.extension</groupId>
@@ -384,15 +294,6 @@
       <artifactId>log4j</artifactId>       
       <scope>${projectScope}</scope>                    
     </dependency>
-    
-    <!--
-    <dependency>
-      <groupId>org.glassfish.appclient</groupId>
-      <artifactId>gf-client</artifactId>
-      <version>3.1</version>
-      <scope>runtime</scope>
-    </dependency>
-    -->
     
     <!-- JPA EclipseLink -->
     <dependency>
@@ -575,6 +476,7 @@
       
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
+        <version>${surefire.version}</version>
 				<configuration>
 					<skip>false</skip>
           <!--
