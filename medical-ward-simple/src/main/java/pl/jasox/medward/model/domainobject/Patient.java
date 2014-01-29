@@ -54,6 +54,7 @@ public class Patient implements java.io.Serializable {
 		this.pesel = pesel;
 	}
 	/** Original PESEL is double because legacy database */
+  @Transient
 	public String getStrPesel() {
 		String strPesel = (new Long(pesel.longValue())).toString();
 		return strPesel;
@@ -141,8 +142,7 @@ public class Patient implements java.io.Serializable {
 	}
   
 	@ManyToOne
-	@JoinColumn(name="symbol_kasa")
-  //@Transient
+	@JoinColumn(name="symbol_kasa")  
 	public Kasach getKasaCh() {
 		return kasaCh;
 	}

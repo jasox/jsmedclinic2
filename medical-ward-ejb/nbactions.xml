@@ -14,6 +14,9 @@
                 <java.util.logging.config.file>src/test/resources/logging.properties</java.util.logging.config.file>
                 
             </properties>
+            <activatedProfiles>
+                <activatedProfile>aws_MySQL</activatedProfile>
+            </activatedProfiles>
         </action>
         <action>
             <actionName>build</actionName>

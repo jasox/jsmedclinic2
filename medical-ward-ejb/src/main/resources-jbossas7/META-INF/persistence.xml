@@ -19,13 +19,12 @@
       <class>pl.jasox.medward.model.domainobject.MedProcedure</class>
       <class>pl.jasox.medward.model.domainobject.MedProcedureCat</class>
       <class>pl.jasox.medward.model.domainobject.MedProcedureType</class>
-      <class>pl.jasox.medward.model.domainobject.Patient</class>
-      <exclude-unlisted-classes>true</exclude-unlisted-classes>
+      <class>pl.jasox.medward.model.domainobject.Patient</class>      
       <properties>
          <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
          <property name="javax.persistence.jdbc.driver"  value="org.apache.derby.jdbc.EmbeddedDriver"/>
          <property name="javax.persistence.jdbc.url"     value="jdbc:derby:memory:medwardDB;create=true"/>                   
-         <property name="eclipselink.logging.level"      value="FINEST"/>      
+         <property name="eclipselink.logging.level"      value="INFO"/>      
          <property name="eclipselink.logging.parameters" value="true"/>      
       </properties>    
     </persistence-unit> 

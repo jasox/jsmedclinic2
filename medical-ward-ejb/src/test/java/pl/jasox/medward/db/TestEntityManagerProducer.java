@@ -42,7 +42,7 @@ public class TestEntityManagerProducer implements Serializable {
        EntityManager entityManager = entityManagerHsql;             
        return entityManager;
     }
-            
+           
     @Produces
     @TestDatabase(DatabaseType.AS)        
     public EntityManager getEntityManagerAs() {       

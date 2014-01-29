@@ -9,7 +9,7 @@
     <!-- Persistence Units for medical-ward -->
     
     <!-- =================================================================== -->
-    
+    <!--
     <persistence-unit name="medward_SE" transaction-type="RESOURCE_LOCAL">  
       <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>         
       <class>pl.jasox.medward.model.domainobject.Admission</class>
@@ -28,7 +28,7 @@
          <property name="eclipselink.logging.parameters" value="true"/>      
       </properties>    
     </persistence-unit> 
-    
+    -->
     <!-- =================================================================== -->
     
     <persistence-unit name="medward_AS">
@@ -79,14 +79,15 @@
           value="yes"/> 
         <property
           name="hibernate.connection.characterEncoding"
-          value="UTF-8"/>    
+          value="UTF-8"/>  
+        <!--  
         <property
           name="hibernate.connection.provider_class"
           value="org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider"/> 
         <property
           name="hibernate.c3p0.idle_test_period"
           value="30"/> 
-                        
+        -->             
         <property
           name="hibernate.show_sql"
           value="true"/>      
@@ -129,14 +130,15 @@
           value="yes"/> 
         <property
           name="hibernate.connection.characterEncoding"
-          value="UTF-8"/>    
+          value="UTF-8"/>
+        <!--    
         <property
           name="hibernate.connection.provider_class"
           value="org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider"/> 
         <property
           name="hibernate.c3p0.idle_test_period"
           value="30"/>   
-          
+        -->  
         <property
           name="hibernate.show_sql"
           value="true"/>      

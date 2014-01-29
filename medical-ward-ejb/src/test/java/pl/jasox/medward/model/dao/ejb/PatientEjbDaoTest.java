@@ -114,9 +114,10 @@ public class PatientEjbDaoTest {
        .resolve("org.picketlink.idm:picketlink-idm-core")
        .withTransitivity().asFile();
     
-    return ShrinkWrap.create(WebArchive.class, "test.war")       
-       .addClass(PatientEjbDao.class)
-       .addClass(EjbDaoFactory.class)      
+    return ShrinkWrap.create(WebArchive.class, "test.war")
+       .addPackages(true,"pl.jasox.medward.model.dao.ejb")
+       //.addClass(PatientEjbDao.class)
+       //.addClass(EjbDaoFactory.class)      
        .addClass(ResourcesProducer.class)
        .addClass(ApplicationDatabase.class)
        .addClass(TestDatabase.class)  

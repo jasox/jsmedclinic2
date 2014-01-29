@@ -329,10 +329,18 @@
            <testResource>
               <directory>${basedir}/src/test/resources</directory>
               <filtering>true</filtering>
+              <includes> 
+                <include>**/*.xml</include> 
+                <include>**/*.properties</include>
+              </includes>
            </testResource>
            <testResource>
               <directory>${basedir}/src/test/resources-jbossas6</directory>
               <filtering>true</filtering>
+              <includes> 
+                <include>**/*.xml</include> 
+                <include>**/*.properties</include>
+              </includes>
            </testResource>
         </testResources>	
        </build>					
@@ -378,11 +386,20 @@
            <testResource>
               <directory>${basedir}/src/test/resources</directory>
               <filtering>true</filtering>
+              <includes> 
+                <include>**/*.xml</include> 
+                <include>**/*.properties</include>
+              </includes>
            </testResource>
            <testResource>
               <directory>${basedir}/src/test/resources-jbossas7</directory>
               <filtering>true</filtering>
+              <includes> 
+                <include>**/*.xml</include> 
+                <include>**/*.properties</include>
+              </includes>
            </testResource>
+           
         </testResources>
       </build>
   	</profile>
@@ -419,10 +436,18 @@
            <testResource>              
               <directory>${basedir}/src/test/resources</directory>
               <filtering>true</filtering>
+              <includes> 
+                <include>**/*.xml</include> 
+                <include>**/*.properties</include>
+              </includes>
            </testResource>
            <testResource>              
               <directory>${basedir}/src/test/resources-glassfish</directory>
               <filtering>true</filtering>
+              <includes> 
+                <include>**/*.xml</include> 
+                <include>**/*.properties</include>
+              </includes>
            </testResource>
         </testResources>
       </build>
@@ -460,10 +485,18 @@
            <testResource>              
               <directory>${basedir}/src/test/resources</directory>
               <filtering>true</filtering>
+              <includes> 
+                <include>**/*.xml</include> 
+                <include>**/*.properties</include>
+              </includes>
            </testResource>
            <testResource>              
               <directory>${basedir}/src/test/resources-openshift-express</directory>
               <filtering>true</filtering>
+              <includes> 
+                <include>**/*.xml</include> 
+                <include>**/*.properties</include>
+              </includes>
            </testResource>
         </testResources>
       </build>
@@ -546,14 +579,16 @@
         </dependency>              
       </dependencies>
       <build>
-            <testResources>
-                <testResource>
-                    <directory>${basedir}/src/test/resources</directory>
-                </testResource>
-                <testResource>
-                    <directory>${basedir}/src/test/resources-jbossas7-managed</directory>
-                </testResource>
-            </testResources>
+          <testResources>
+              <testResource>
+                  <directory>${basedir}/src/test/resources</directory>
+                  <filtering>true</filtering>
+              </testResource>
+              <testResource>
+                  <directory>${basedir}/src/test/resources-jbossas7-managed</directory>
+                  <filtering>true</filtering>
+              </testResource>
+          </testResources>
         </build>
     </profile>
 
@@ -605,9 +640,11 @@
             <testResources>
                 <testResource>
                     <directory>${basedir}/src/test/resources</directory>
+                    <filtering>true</filtering>
                 </testResource>
                 <testResource>
                     <directory>${basedir}/src/test/resources-glassfish-managed</directory>
+                    <filtering>true</filtering>
                 </testResource>
             </testResources>
         </build>
