@@ -30,9 +30,9 @@ import javax.transaction.UserTransaction;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Assert;
 import org.junit.Test;
@@ -47,7 +47,8 @@ public class HotelSearchTest {
   
     @Deployment
     public static Archive<?> createTestArchive() {
-        WebArchive war = ShrinkWrap.create(WebArchive.class, "test.war").addPackage(HotelSearch.class.getPackage())
+        WebArchive war = ShrinkWrap.create(WebArchive.class, "test.war")
+                .addPackage(HotelSearch.class.getPackage())
                 .addPackage(Hotel.class.getPackage()).addAsLibraries(SOLDER).addAsLibraries(JODA_TIME)
                 .addAsLibraries(INTERNATIONAL)
                 .addAsWebInfResource("test-persistence.xml", "classes/META-INF/persistence.xml")

@@ -67,11 +67,11 @@
     <version.derby>10.10.1.1</version.derby>
     <version.mysql>5.1.21</version.mysql>
     
+    <!-- Application properties -->
     <projectGroup>pl.jasox.medclinic</projectGroup> 
 		<projectName>medical-ward</projectName>
 		<projectVersion>1.1.1</projectVersion>    
-		<projectScope>compile</projectScope>
-    		
+		<projectScope>compile</projectScope>    		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>	
     
     <!-- Konfiguracja dla Tomcata (default) -->
@@ -88,8 +88,9 @@
 		<jboss-as.hostname>localhost</jboss-as.hostname>	
     	
 		<!-- 
+      Scieżki do baz testowych HSQL
       potrzebne są dwie bazy testowe z powodu niepełnej kompatybilności
-      bazy HSQL do dwóch implementacji utrwalania : Hibernate i EclipseLink  
+      HSQL do dwóch implementacji utrwalania : Hibernate i EclipseLink  
     -->
 		<fake-test-hsql-file>
       /${basedir}/../db-settings/fake-database-hsql/jsmedclinic
@@ -105,10 +106,7 @@
 
 	<modules>
 	
-		<module>medical-ward</module>
-    <!-- Not done yet    	
-		<module>medical-ward-ear</module>		
-		-->
+		<module>medical-ward</module>    
 		<module>medical-ward-ejb</module>
 		<module>medical-ward-RS</module>
 		<module>medical-ward-simple</module>
@@ -378,11 +376,11 @@
       <!-- Now we declare any tools needed -->
 
       <!-- Annotation processor to generate the JPA 2.0 metamodel classes 
-          for typesafe criteria queries -->
+           for typesafe criteria queries -->
       <dependency>
           <groupId>org.hibernate</groupId>
           <artifactId>hibernate-jpamodelgen</artifactId> 
-          <version>${jpamodelgen.version}</version>        
+           <!-- <version>${jpamodelgen.version}</version> -->      
           <scope>provided</scope>
       </dependency>
 
@@ -413,8 +411,7 @@
           <artifactId>junit</artifactId>
           <scope>test</scope>
       </dependency>
-
-      <!-- Optional, but highly recommended -->
+      
       <!-- Arquillian allows you to test enterprise code such as EJBs and 
            Transactional(JTA) JPA from JUnit/TestNG -->
       <dependency>

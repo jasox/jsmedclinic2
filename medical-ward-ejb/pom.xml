@@ -25,16 +25,7 @@
   
   <!-- ===================================================================== -->
   
-  <dependencyManagement>
-    
-    <dependencies>      
-        
-    </dependencies>
-    
-  </dependencyManagement> 
-
-
-	<dependencies>
+  <dependencies>
     
     <dependency>
       <groupId>${projectGroup}</groupId>
@@ -56,8 +47,7 @@
     <!--
     <dependency>
       <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>6.8</version>
+      <artifactId>testng</artifactId>      
       <scope>test</scope>
     </dependency>	    
     -->
@@ -100,7 +90,7 @@
 		<dependency>
 			<groupId>org.jboss.seam.faces</groupId>
 			<artifactId>seam-faces</artifactId>
-			<scope>compile</scope><!-- Temporary workaround for GLASSFISH-17184 -->
+			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
@@ -149,7 +139,7 @@
     <dependency> 
        <groupId>org.slf4j</groupId>
        <artifactId>slf4j-simple</artifactId>
-       <version>${version.slf4j}</version>
+        <!-- <version>${version.slf4j}</version> -->
        <scope>${projectScope}</scope>
     </dependency>
     
@@ -607,7 +597,7 @@
             <dependency>
                 <groupId>org.jboss.arquillian.container</groupId>
                 <artifactId>arquillian-glassfish-managed-3.1</artifactId>
-                <version>1.0.0.CR4</version>
+                <version>1.0.0.CR3</version>  <!-- -->
                 <scope>test</scope>
             </dependency>                     
         </dependencies>
@@ -639,7 +629,7 @@
         </dependency>
         <dependency>
           <groupId>org.jboss.arquillian.container</groupId>
-          <artifactId>arquillian-glassfish-remote-3.1</artifactId>                    
+          <artifactId>arquillian-glassfish-remote-3.1</artifactId>                           
           <scope>test</scope>
         </dependency>
       </dependencies>

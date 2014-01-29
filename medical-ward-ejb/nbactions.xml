@@ -10,7 +10,7 @@
                 <goal>test</goal>
             </goals>
             <properties>
-                <arquillian>glassfish-remote-3.1</arquillian>
+                <arquillian>jbossas-remote-7</arquillian>
                 <java.util.logging.config.file>src/test/resources/logging.properties</java.util.logging.config.file>
                 
             </properties>

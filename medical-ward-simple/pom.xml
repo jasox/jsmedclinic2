@@ -46,7 +46,7 @@
     <dependency>
        <groupId>org.testng</groupId>
        <artifactId>testng</artifactId>
-       <version>6.8</version>
+        <!-- <version>6.8</version> -->
        <scope>test</scope>
     </dependency>
     
@@ -130,7 +130,7 @@
 		<dependency>     
 		  <groupId>org.hibernate</groupId>     
 		  <artifactId>hibernate-c3p0</artifactId> 
-		  <version>4.0.0.CR2</version>
+		   <!-- <version>4.0.0.CR2</version> -->
 		  <scope>${projectScope}</scope>
 		</dependency>	
     
