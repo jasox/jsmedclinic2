@@ -130,7 +130,7 @@
          a single pass by declaring a dependency upon the depchain module  -->
     <dependency> 
       <groupId>org.jboss.shrinkwrap.resolver</groupId>
-      <artifactId>shrinkwrap-resolver-depchain</artifactId>      
+      <artifactId>shrinkwrap-resolver-depchain</artifactId>          
       <scope>test</scope>
       <type>pom</type>
     </dependency>     
@@ -629,10 +629,10 @@
           </property>
         </activation>
         <dependencies>           
-            <dependency>
+             <dependency>
                 <groupId>org.jboss.arquillian.container</groupId>
                 <artifactId>arquillian-glassfish-managed-3.1</artifactId>
-                <version>1.0.0.CR3</version>  <!-- -->
+                <version>1.0.0.CR4</version>  <!-- -->
                 <scope>test</scope>
             </dependency>                     
         </dependencies>
@@ -651,7 +651,7 @@
     </profile>  
 
     <profile>
-      <id>glassfish-remote-3.1</id>
+      <id>glassfish-remote-3.1</id>      
       <activation>
         <property>
           <name>arquillian</name>
@@ -666,7 +666,8 @@
         </dependency>
         <dependency>
           <groupId>org.jboss.arquillian.container</groupId>
-          <artifactId>arquillian-glassfish-remote-3.1</artifactId>                           
+          <artifactId>arquillian-glassfish-remote-3.1</artifactId> 
+          <version>1.0.0.CR4</version>                          
           <scope>test</scope>
         </dependency>
       </dependencies>

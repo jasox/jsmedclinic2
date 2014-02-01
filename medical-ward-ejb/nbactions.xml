@@ -61,6 +61,7 @@
             </properties>
             <activatedProfiles>
                 <activatedProfile>glassfish</activatedProfile>
+                <activatedProfile>aws_MySQL</activatedProfile>
             </activatedProfiles>
         </action>
         <action>
@@ -69,5 +70,8 @@
             <goals>
                 <goal>install</goal>
             </goals>
+            <activatedProfiles>
+                <activatedProfile>aws_MySQL</activatedProfile>
+            </activatedProfiles>
         </action>
     </actions>

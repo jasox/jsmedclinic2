@@ -14,7 +14,7 @@
 	<version>1.1.1</version>
 	<name>JS Medical Clinic 2</name>
 	<description> JS Medical Clinic Application </description>
-	<url></url>
+	<url>http://github.com/jasox/jsmedclinic2.git</url>
 	 
 	<!-- ===================================================================== -->
 
@@ -28,9 +28,10 @@
 		<seam.version>3.1.0.Final</seam.version>    
     <org.richfaces.bom.version>4.3.3.Final</org.richfaces.bom.version>
     <surefire.version>2.13</surefire.version>   
-    <jpamodelgen.version>1.2.0.Final</jpamodelgen.version>    
+    <jpamodelgen.version>1.2.0.Final</jpamodelgen.version> 
+    <!--   
     <jersey.version>1.8</jersey.version>
-    
+    -->
     <!-- Maven Plugins -->
     <maven.source.plugin.version>2.2.1</maven.source.plugin.version>  
     <maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
@@ -57,10 +58,9 @@
     <version.el>3.0.0</version.el>
     <version.json>1.0.2</version.json>
     <version.ejb>3.1</version.ejb>     
-    <version.shrinkwrap.resolvers>2.0.0</version.shrinkwrap.resolvers>
-    <!--  
+    <version.shrinkwrap.resolvers>2.0.0</version.shrinkwrap.resolvers>      
     <version.arquillian.bom>1.1.2.Final</version.arquillian.bom> 
-    -->
+    
     <version.slf4j>1.7.5</version.slf4j> 
     
     <!-- Databases -->
@@ -214,7 +214,15 @@
          <version>${version.shrinkwrap.resolvers}</version>
          <scope>import</scope> 
          <type>pom</type>
-       </dependency>   
+       </dependency> 
+       
+       <dependency>
+         <groupId>org.jboss.arquillian</groupId>
+         <artifactId>arquillian-bom</artifactId>
+         <version>${version.arquillian.bom}</version>
+         <type>pom</type>
+         <scope>import</scope>
+       </dependency>  
       
       <dependency>
         <groupId>org.jboss.bom</groupId>
