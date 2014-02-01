@@ -37,7 +37,7 @@
     <!--
       Mixing JUnit and TestNG in one module can be done just by adding both
       as a plugin dependencies (not only as project dependencies):
-      -->
+    -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -569,7 +569,7 @@
         <dependency>
             <groupId>org.jboss.as</groupId>
             <artifactId>jboss-as-arquillian-container-managed</artifactId>            
-            <type>pom</type>
+            <!-- <type>pom</type> -->
             <scope>test</scope>  
         </dependency> 
         <dependency>

@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<arquillian xmlns="http://jboss.org/schema/arquillian"
+<arquillian 
+    xmlns="http://jboss.org/schema/arquillian"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://jboss.org/schema/arquillian 
                         http://jboss.org/schema/arquillian/arquillian_1_0.xsd">  
                        
      <!-- -->
-     <defaultProtocol type="Servlet 3.0"/> 
-     <!-- <defaultProtocol type="jmx-as7"/>  --> 
-     
+     <defaultProtocol type="Servlet 3.0"/>
+      
+     <!-- 
+     <defaultProtocol type="jmx-as7"/>  
+     -->      
      <engine>
          <property name="deploymentExportPath">target</property>
      </engine>                       
@@ -16,15 +19,15 @@
         <!-- -->  
         <configuration>              
             <property name="jbossHome">C:\JBoss\jboss-as-7.1.1.Final-localhost</property>
-            <property name="javaHome">"C:\Program Files\Java\jdk1.7.0_51"</property>            
+            <property name="javaHome">C:\Program Files\Java\jdk1.7.0_05</property>            
             <!-- -->
             <property name="managementAddress">127.0.0.1</property>
             <property name="managementPort">9999</property>  
             <property name="allowConnectingToRunningServer">true</property>
-            <!--
+            <!-- -->
             <property name="username">admin</property>  
             <property name="password">1234</property>  
-            -->                   
+                        
         </configuration>        
      </container>
     

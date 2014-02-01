@@ -10,12 +10,13 @@
                 <goal>test</goal>
             </goals>
             <properties>
-                <arquillian>jbossas-remote-7</arquillian>
+                <arquillian>jbossas-managed-7</arquillian>
                 <java.util.logging.config.file>src/test/resources/logging.properties</java.util.logging.config.file>
                 
             </properties>
             <activatedProfiles>
                 <activatedProfile>aws_MySQL</activatedProfile>
+                
             </activatedProfiles>
         </action>
         <action>
