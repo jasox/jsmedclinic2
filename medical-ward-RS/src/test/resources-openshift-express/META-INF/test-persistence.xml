@@ -9,7 +9,7 @@
     <!-- Persistence Units for medical-ward -->
     
     <!-- =================================================================== -->
-    
+    <!--
     <persistence-unit name="medward_SE" transaction-type="RESOURCE_LOCAL">  
       <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>         
       <class>pl.jasox.medward.model.domainobject.Admission</class>
@@ -28,7 +28,7 @@
          <property name="eclipselink.logging.parameters" value="true"/>      
       </properties>    
     </persistence-unit> 
-    
+    -->
     <!-- =================================================================== -->
     
     <persistence-unit name="medward_AS">
@@ -54,7 +54,7 @@
     </persistence-unit>
     
     <!-- =================================================================== -->
-    
+    <!--
     <persistence-unit name="medward_MySQL">
       <provider>org.hibernate.ejb.HibernatePersistence</provider>
       <jta-data-source>java:jboss/datasources/medward_MySQL_Datasource</jta-data-source>
@@ -70,7 +70,7 @@
       <properties>
         <property
           name="hibernate.default_schema"
-          value="`${dbSchema}`"/>  <!-- niuans jak chce się używać nietypowych znaków -->
+          value="`${dbSchema}`"/>  
         <property 
           name="hibernate.dialect" 
           value="org.hibernate.dialect.${dbName}5Dialect"/> 
@@ -102,9 +102,9 @@
         
       </properties>  
     </persistence-unit>
-    
+    -->
     <!-- =================================================================== -->
-          
+    <!--      
     <persistence-unit name="medward_Hsql">
       <provider>org.hibernate.ejb.HibernatePersistence</provider>
       <jta-data-source>java:jboss/datasources/medward_Hsql_Datasource</jta-data-source>
@@ -152,6 +152,6 @@
               
       </properties>     
     </persistence-unit>
-	
+	  -->
 </persistence>
 
