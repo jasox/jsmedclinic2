@@ -34,7 +34,7 @@ public class DoctorResourceTest {
   String js_laptop_hp = "10.23.14.95";
    
   String host = localhost;
-  // String host = JS_laptop_HP;
+  // String host = js_laptop_hp;
     
   // ---------------------------------------------------------------------------
   
@@ -61,9 +61,10 @@ public class DoctorResourceTest {
        .resolve("pl.jasox.medclinic:medical-ward-ejb")
        .withoutTransitivity().asFile();
     
-    return ShrinkWrap.create(WebArchive.class, "test.war")       
-       .addClass(DoctorEjbDao.class)       
-       .addClass(EjbDaoFactory.class)      
+    return ShrinkWrap.create(WebArchive.class, "test.war") 
+       .addPackages(true,"pl.jasox.medward.model.dao.ejb")
+       //.addClass(DoctorEjbDao.class)       
+       //.addClass(EjbDaoFactory.class)      
        .addClass(ResourcesProducer.class)
        .addClass(ApplicationDatabase.class)
        .addClass(TestDatabase.class)   

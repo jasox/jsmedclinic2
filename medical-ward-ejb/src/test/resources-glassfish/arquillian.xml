@@ -18,6 +18,7 @@
     </container>
     
     <container qualifier="glassfish31jslaptophp" default="true" >
+          <!-- for 3.1.1 js-laptop-hp -->
           <configuration>
               <!-- --> 
               <property name="adminUser">jaoss</property>

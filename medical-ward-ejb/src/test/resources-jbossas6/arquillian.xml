@@ -8,7 +8,7 @@
          <property name="deploymentExportPath">target</property>
     </engine>                        
 
-    <container qualifier="jbossas6Container_hp" default="false">
+    <container qualifier="jbossas6Container_hp" default="true">
         <configuration>           
             <property name="providerUrl">jnp://10.23.14.95:1099</property> 
         </configuration>
@@ -22,7 +22,7 @@
         </protocol> 
     </container>
     
-    <container qualifier="jbossas6Container_localhost" default="true">
+    <container qualifier="jbossas6Container_localhost" default="false">
         <configuration>           
             <property name="providerUrl">jnp://127.0.0.1:1099</property> 
         </configuration>
@@ -34,16 +34,6 @@
                 <property name="password">admin</property>
             </configuration> 
         </protocol> 
-    </container>
-    
-    <!--
-    <extension qualifier="ajocado">
-        <property name="seleniumMaximize">false</property>
-    </extension>
-
-    <extension qualifier="selenium-server">
-        <property name="enable">true</property>
-        <property name="output">target/selenium-server-output.log</property>
-    </extension>
-    -->
+    </container>    
+    <!--  -->
 </arquillian>

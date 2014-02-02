@@ -135,15 +135,15 @@
       <type>pom</type>
     </dependency>     
     
-    
+    <!--
     <dependency> 
        <groupId>org.slf4j</groupId>
        <artifactId>slf4j-simple</artifactId>
-        <!-- <version>${version.slf4j}</version> -->
+       <version>${version.slf4j}</version> 
        <scope>${projectScope}</scope>
     </dependency>
-    
-   <!--
+    -->
+    <!--
     <dependency>
        <groupId>org.slf4j</groupId>
        <artifactId>slf4j-log4j12</artifactId>
@@ -165,7 +165,7 @@
     </dependency>
     
         
-    <!-- JPA EclipseLink-->
+    <!-- JPA EclipseLink -->
     <dependency>
       <groupId>org.eclipse.persistence</groupId>
       <artifactId>org.eclipse.persistence.jpa</artifactId>
@@ -504,7 +504,7 @@
 
     
     <profile>
-      <!-- probably deprecated  : @jaoss 22.11.2013 -->
+      <!-- -->
       <id>jbossas-managed-6</id>
       <activation>
         <property>
@@ -514,11 +514,11 @@
       </activation>
       <dependencies>
         <dependency>
-          <groupId>org.jboss.seam.test</groupId>
-          <artifactId>jbossas-managed-6</artifactId>
-          <type>pom</type>
+          <groupId>org.jboss.arquillian.container</groupId>
+          <artifactId>arquillian-jbossas-managed-6</artifactId>
+          <!-- <version>1.0.0.CR3</version> -->
           <scope>test</scope>
-        </dependency>
+        </dependency>        
       </dependencies>
     </profile>
 
@@ -530,12 +530,13 @@
           <value>jbossas-remote-6</value>
         </property>
       </activation>
-      <dependencies>        
+      <dependencies> 
         <dependency>
           <groupId>org.jboss.arquillian.container</groupId>
-          <artifactId>arquillian-jbossas-remote-6</artifactId>          
-          <scope>test</scope>        
-        </dependency>        
+          <artifactId>arquillian-jbossas-remote-6</artifactId>
+          <!-- <version>1.0.0.CR3</version> -->
+          <scope>test</scope>
+        </dependency>             
         <dependency>
             <groupId>org.jboss.jbossas</groupId>
             <artifactId>jboss-as-profileservice-client</artifactId>
@@ -667,7 +668,7 @@
         <dependency>
           <groupId>org.jboss.arquillian.container</groupId>
           <artifactId>arquillian-glassfish-remote-3.1</artifactId> 
-          <version>1.0.0.CR4</version>                          
+          <!-- <version>1.0.0.CR4</version> -->                         
           <scope>test</scope>
         </dependency>
       </dependencies>
