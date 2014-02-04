@@ -50,7 +50,7 @@
     
     <version.java>1.6</version.java>     
     <version.javaee>6.0</version.javaee>
-    <version.glassfish>3.1</version.glassfish>
+    <version.glassfish>3.1.2</version.glassfish>
     <version.weld>2.1.0.Final</version.weld> 
     <version.jersey>1.5</version.jersey>  
     <version.eclipselink>2.5.1</version.eclipselink>
@@ -60,7 +60,7 @@
     <version.ejb>3.1</version.ejb>     
     <version.shrinkwrap.resolvers>2.0.0</version.shrinkwrap.resolvers>      
     <version.arquillian.bom>1.1.2.Final</version.arquillian.bom> 
-    
+    <version.xmlunit>1.4</version.xmlunit>
     <version.slf4j>1.6.1</version.slf4j> 
     
     <!-- Databases -->
@@ -105,7 +105,7 @@
 	</properties>
 
 	<modules>
-	
+    	
 		<module>medical-ward</module>    
 		<module>medical-ward-ejb</module>
 		<module>medical-ward-RS</module>
@@ -208,21 +208,21 @@
       
       <!-- Override dependency resolver with latest version. 
            This must go *BEFORE* the Arquillian BOM.  -->
-       <dependency>
-         <groupId>org.jboss.shrinkwrap.resolver</groupId>
-         <artifactId>shrinkwrap-resolver-bom</artifactId>
-         <version>${version.shrinkwrap.resolvers}</version>
-         <scope>import</scope> 
-         <type>pom</type>
-       </dependency> 
+      <dependency>
+        <groupId>org.jboss.shrinkwrap.resolver</groupId>
+        <artifactId>shrinkwrap-resolver-bom</artifactId>
+        <version>${version.shrinkwrap.resolvers}</version>
+        <scope>import</scope> 
+        <type>pom</type>
+      </dependency> 
        
-       <dependency>
-         <groupId>org.jboss.arquillian</groupId>
-         <artifactId>arquillian-bom</artifactId>
-         <version>${version.arquillian.bom}</version>
-         <type>pom</type>
-         <scope>import</scope>
-       </dependency>  
+      <dependency>
+        <groupId>org.jboss.arquillian</groupId>
+        <artifactId>arquillian-bom</artifactId>
+        <version>${version.arquillian.bom}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>  
       
       <dependency>
         <groupId>org.jboss.bom</groupId>
@@ -272,6 +272,13 @@
         <type>pom</type>
       </dependency>
       
+      <dependency>
+        <groupId>org.glassfish.main.extras</groupId>
+        <artifactId>glassfish-embedded-all</artifactId>
+        <version>${version.glassfish}</version>
+        <scope>provided</scope>
+      </dependency>
+      
 		</dependencies>
 
 	</dependencyManagement>
@@ -282,45 +289,45 @@
       <!-- First declare the APIs we depend on and need for compilation. 
            All of them are provided by JBoss AS 7 -->
 
-      <!-- Import the CDI API, we use provided scope as the API is included in JBoss AS 7 -->
+      <!-- Import the CDI API, we use provided scope as the API is included in JBoss AS 7 
       <dependency>
           <groupId>javax.enterprise</groupId>
           <artifactId>cdi-api</artifactId>
           <scope>provided</scope>
       </dependency>
-
+      -->
       <!-- Import the Common Annotations API (JSR-250), we use provided 
-           scope as the API is included in JBoss AS 7 -->
+           scope as the API is included in JBoss AS 7 
       <dependency>
           <groupId>org.jboss.spec.javax.annotation</groupId>
           <artifactId>jboss-annotations-api_1.1_spec</artifactId>
           <scope>provided</scope>
       </dependency>
-
-      <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss AS 7 -->
+      -->
+      <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss AS 7 
       <dependency>
           <groupId>org.jboss.spec.javax.ws.rs</groupId>
           <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
           <scope>provided</scope>
       </dependency>
-
-      <!-- Import the JPA API, we use provided scope as the API is included in JBoss AS 7 -->
+      -->
+      <!-- Import the JPA API, we use provided scope as the API is included in JBoss AS 7 
       <dependency>
           <groupId>org.hibernate.javax.persistence</groupId>
           <artifactId>hibernate-jpa-2.0-api</artifactId>
           <scope>provided</scope>
       </dependency>
-
-      <!-- Import the EJB API, we use provided scope as the API is included in JBoss AS 7 -->
+      -->
+      <!-- Import the EJB API, we use provided scope as the API is included in JBoss AS 7 
       <dependency>
           <groupId>org.jboss.spec.javax.ejb</groupId>
           <artifactId>jboss-ejb-api_3.1_spec</artifactId>
           <scope>provided</scope>
       </dependency>
-
+      -->
       <!-- JSR-303 (Bean Validation) Implementation -->
       <!-- Provides portable constraints such as @Email -->
-      <!-- Hibernate Validator is shipped in JBoss AS 7 -->
+      <!-- Hibernate Validator is shipped in JBoss AS 7 
       <dependency>
           <groupId>org.hibernate</groupId>
           <artifactId>hibernate-validator</artifactId>
@@ -332,96 +339,61 @@
               </exclusion>
           </exclusions>
       </dependency>
-
-      <!-- Import the JSF API, we use provided scope as the API is included in JBoss AS 7 -->
+      -->
+      <!-- Import the JSF API, we use provided scope as the API is included in JBoss AS 7 
       <dependency>
           <groupId>org.jboss.spec.javax.faces</groupId>
           <artifactId>jboss-jsf-api_2.1_spec</artifactId>
           <scope>provided</scope>
       </dependency>
-
-      <!-- Import the Servlet API, we use provided scope as the API is included in JBoss AS 7 -->
+      -->
+      <!-- Import the Servlet API, we use provided scope as the API is included in JBoss AS 7 
       <dependency>
          <groupId>org.jboss.spec.javax.servlet</groupId>
          <artifactId>jboss-servlet-api_3.0_spec</artifactId>
          <scope>provided</scope>
       </dependency>
-
-      <!-- Import the RichFaces core library -->
-      <dependency>
-         <groupId>org.richfaces.core</groupId>
-         <artifactId>richfaces-core-impl</artifactId>
-         <exclusions>
-            <exclusion>
-                <artifactId>cssparser</artifactId>
-                <groupId>net.sourceforge.cssparser</groupId>
-            </exclusion>
-             <exclusion>
-                <artifactId>guava</artifactId>
-                <groupId>com.google.guava</groupId>
-            </exclusion>
-         </exclusions>
-      </dependency>
-
-      <!-- Import the RichFaces components -->
-      <dependency>
-         <groupId>org.richfaces.ui</groupId>
-         <artifactId>richfaces-components-ui</artifactId>
-      </dependency>
-
-       <!-- Import the Atmosphere framework for a4j:push -->
-      <dependency>
-         <groupId>org.atmosphere</groupId>
-         <artifactId>atmosphere-runtime</artifactId>
-         <exclusions>
-             <exclusion>
-                 <groupId>org.slf4j</groupId>
-                 <artifactId>slf4j-api</artifactId>
-             </exclusion>
-         </exclusions>
-      </dependency>
-
+      -->
       <!-- Now we declare any tools needed -->
 
       <!-- Annotation processor to generate the JPA 2.0 metamodel classes 
-           for typesafe criteria queries -->
+           for typesafe criteria queries 
       <dependency>
           <groupId>org.hibernate</groupId>
-          <artifactId>hibernate-jpamodelgen</artifactId> 
-           <!-- <version>${jpamodelgen.version}</version> -->      
+          <artifactId>hibernate-jpamodelgen</artifactId>          
           <scope>provided</scope>
       </dependency>
-
+      -->
       <!-- The rewrite library allows us to do url rewriting - 
-           used here for rewriting mobile devices to mobile specific views -->
+           used here for rewriting mobile devices to mobile specific views 
       <dependency>
           <groupId>org.ocpsoft.rewrite</groupId>
           <artifactId>rewrite-servlet</artifactId>
       </dependency>
-
-      <!-- The cdi integration allows for CDI injection into the rewrite configuration class -->
+      -->
+      <!-- The cdi integration allows for CDI injection into the rewrite configuration class 
       <dependency>
           <groupId>org.ocpsoft.rewrite</groupId>
           <artifactId>rewrite-integration-cdi</artifactId>
       </dependency>
-
+      -->
       <!-- Annotation processor that raising compilation errors whenever 
-           constraint annotations are incorrectly used. -->
+           constraint annotations are incorrectly used. 
       <dependency>
           <groupId>org.hibernate</groupId>
           <artifactId>hibernate-validator-annotation-processor</artifactId>          
           <scope>provided</scope>
       </dependency>
-
-      <!-- Needed for running tests (you may also use TestNG) -->
+      -->
+      <!-- Needed for running tests (you may also use TestNG) 
       <dependency>
           <groupId>junit</groupId>
           <artifactId>junit</artifactId>
           <scope>test</scope>
       </dependency>
-      
+      -->
       <!-- Arquillian allows you to test enterprise code such as EJBs and 
-           Transactional(JTA) JPA from JUnit/TestNG -->
+           Transactional(JTA) JPA from JUnit/TestNG 
       <dependency>
           <groupId>org.jboss.arquillian.junit</groupId>
           <artifactId>arquillian-junit-container</artifactId>
@@ -433,7 +405,7 @@
           <artifactId>arquillian-protocol-servlet</artifactId>
           <scope>test</scope>
       </dependency>
-      
+      -->
   </dependencies>
     
   <!-- ===================================================================== -->

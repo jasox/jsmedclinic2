@@ -11,7 +11,7 @@
 	<parent>
 		<groupId>pl.jasox</groupId>
 		<artifactId>medclinic</artifactId>
-		<version>0.0.1</version>
+		<version>1.1.1</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
@@ -22,21 +22,14 @@
 	<description></description>
 
 	<dependencies>
-    <!--
+    
 		<dependency>
 			<groupId>${projectGroup}</groupId>
 			<artifactId>${projectName}-ejb</artifactId>
 			<version>${projectVersion}</version>
 			<type>ejb</type>
-		</dependency>
+		</dependency>			
 		
-		<dependency>
-			<groupId>${projectGroup}</groupId>
-			<artifactId>${projectName}-api</artifactId>
-			<version>${projectVersion}</version>
-			<type>jar</type>
-		</dependency>
-		-->
 		<dependency>
       <groupId>${projectGroup}</groupId>
       <artifactId>${projectName}</artifactId>

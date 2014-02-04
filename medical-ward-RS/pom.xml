@@ -41,6 +41,93 @@
       <type>jar</type>
     </dependency>    
     
+    <!-- Import the CDI API, we use provided scope as the API is included in JBoss AS 7 -->
+    <dependency>
+       <groupId>javax.enterprise</groupId>
+       <artifactId>cdi-api</artifactId>
+       <scope>provided</scope>
+    </dependency>
+    
+    <!-- Import the Common Annotations API (JSR-250), we use provided 
+         scope as the API is included in JBoss AS 7 -->
+    <dependency>
+       <groupId>org.jboss.spec.javax.annotation</groupId>
+       <artifactId>jboss-annotations-api_1.1_spec</artifactId>
+       <scope>provided</scope>
+    </dependency>
+    
+    <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss AS 7 -->
+    <dependency>
+       <groupId>org.jboss.spec.javax.ws.rs</groupId>
+       <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
+       <scope>provided</scope>
+    </dependency>
+    
+    <!-- Import the JPA API, we use provided scope as the API is included in JBoss AS 7 -->
+    <dependency>
+       <groupId>org.hibernate.javax.persistence</groupId>
+       <artifactId>hibernate-jpa-2.0-api</artifactId>
+       <scope>provided</scope>
+    </dependency>
+    
+    <!-- Import the EJB API, we use provided scope as the API is included in JBoss AS 7 -->
+    <dependency>
+       <groupId>org.jboss.spec.javax.ejb</groupId>
+       <artifactId>jboss-ejb-api_3.1_spec</artifactId>
+       <scope>provided</scope>
+    </dependency>
+    
+    <!-- JSR-303 (Bean Validation) Implementation -->
+    <!-- Provides portable constraints such as @Email -->
+    <!-- Hibernate Validator is shipped in JBoss AS 7 -->
+    <dependency>
+       <groupId>org.hibernate</groupId>
+       <artifactId>hibernate-validator</artifactId>
+       <scope>provided</scope>
+       <exclusions>
+           <exclusion>
+               <groupId>org.slf4j</groupId>
+               <artifactId>slf4j-api</artifactId>
+           </exclusion>
+       </exclusions>
+    </dependency>
+    
+    <!-- Import the JSF API, we use provided scope as the API is included in JBoss AS 7 -->
+    <dependency>
+       <groupId>org.jboss.spec.javax.faces</groupId>
+       <artifactId>jboss-jsf-api_2.1_spec</artifactId>
+       <scope>provided</scope>
+    </dependency>
+    
+    <!-- Annotation processor to generate the JPA 2.0 metamodel classes 
+         for typesafe criteria queries -->
+    <dependency>
+       <groupId>org.hibernate</groupId>
+       <artifactId>hibernate-jpamodelgen</artifactId>            
+       <scope>provided</scope>
+    </dependency>
+    
+    <!-- The rewrite library allows us to do url rewriting - 
+         used here for rewriting mobile devices to mobile specific views -->
+    <dependency>
+       <groupId>org.ocpsoft.rewrite</groupId>
+       <artifactId>rewrite-servlet</artifactId>
+    </dependency>
+    
+    <!-- The cdi integration allows for CDI injection into the rewrite configuration class -->
+    <dependency>
+       <groupId>org.ocpsoft.rewrite</groupId>
+       <artifactId>rewrite-integration-cdi</artifactId>
+    </dependency>
+    
+    <!-- Annotation processor that raising compilation errors whenever 
+         constraint annotations are incorrectly used. -->
+    <dependency>
+       <groupId>org.hibernate</groupId>
+       <artifactId>hibernate-validator-annotation-processor</artifactId>          
+       <scope>provided</scope>
+    </dependency>
+    
     <!--
       Mixing JUnit and TestNG in one module can be done just by adding both
       as a plugin dependencies (not only as project dependencies):
@@ -54,11 +141,24 @@
     <!--
     <dependency>
       <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>6.8</version>
+      <artifactId>testng</artifactId>      
       <scope>test</scope>
     </dependency>	    
     -->
+    
+    <!-- Arquillian allows you to test enterprise code such as EJBs and 
+         Transactional(JTA) JPA from JUnit/TestNG -->
+    <dependency>
+        <groupId>org.jboss.arquillian.junit</groupId>
+        <artifactId>arquillian-junit-container</artifactId>
+        <scope>test</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>org.jboss.arquillian.protocol</groupId>
+        <artifactId>arquillian-protocol-servlet</artifactId>
+        <scope>test</scope>
+    </dependency>
     
     <dependency>
       <groupId>org.hamcrest</groupId>
@@ -79,7 +179,14 @@
       <artifactId>mockito-core</artifactId>
       <version>1.9.5</version>
       <scope>test</scope>
-    </dependency>	    
+    </dependency>	   
+    
+    <dependency>
+      <groupId>xmlunit</groupId>
+      <artifactId>xmlunit</artifactId>
+      <version>${version.xmlunit}</version>
+      <scope>test</scope>
+    </dependency> 
 	    
 		<!-- Annotation processor for generating typed loggers -->
 		<dependency>
@@ -174,6 +281,7 @@
     </dependency>
     
     <!-- Jersey --> 
+    <!--
     <dependency>
         <groupId>com.sun.jersey</groupId>
         <artifactId>jersey-atom</artifactId>
@@ -243,6 +351,56 @@
         <groupId>com.sun.jersey.contribs.jersey-oauth</groupId>
         <artifactId>oauth-signature</artifactId>
         <version>${version.jersey}</version>
+    </dependency>
+    -->
+    
+    <!-- Jersey for Glassfish -->
+    <dependency>
+      <groupId>org.glassfish.jersey.core</groupId>
+      <artifactId>jersey-common</artifactId>
+      <version>${version.jersey}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.core</groupId>
+      <artifactId>jersey-server</artifactId>
+      <version>${version.jersey}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.core</groupId>
+      <artifactId>jersey-client</artifactId>
+      <version>${version.jersey}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.containers</groupId>
+      <artifactId>jersey-container-grizzly2-http</artifactId>
+      <version>${version.jersey}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.containers</groupId>
+      <artifactId>jersey-container-jdk-http</artifactId>
+      <version>${version.jersey}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.containers</groupId>
+      <artifactId>jersey-container-servlet</artifactId>
+      <version>${version.jersey}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.containers</groupId>
+      <artifactId>jersey-container-servlet-core</artifactId>
+      <version>${version.jersey}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>org.eclipse.persistence.moxy</artifactId>
+      <version>2.4.1</version>
+    </dependency>
+    
+    <!-- JSOn-P -->
+    <dependency>
+      <groupId>org.glassfish</groupId>
+      <artifactId>javax.json</artifactId>
+      <version>${version.json}</version>
     </dependency>
     
     <dependency>

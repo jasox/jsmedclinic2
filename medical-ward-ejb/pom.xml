@@ -34,6 +34,100 @@
       <type>jar</type>
     </dependency>   
     
+    <!-- Import the CDI API, we use provided scope as the API is included in JBoss AS 7 -->
+    <dependency>
+       <groupId>javax.enterprise</groupId>
+       <artifactId>cdi-api</artifactId>
+       <scope>provided</scope>
+    </dependency>
+      
+    <!-- Import the Common Annotations API (JSR-250), we use provided 
+           scope as the API is included in JBoss AS 7 -->
+    <dependency>
+       <groupId>org.jboss.spec.javax.annotation</groupId>
+       <artifactId>jboss-annotations-api_1.1_spec</artifactId>
+       <scope>provided</scope>
+    </dependency>  
+    
+    <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss AS 7 -->
+    <dependency>
+       <groupId>org.jboss.spec.javax.ws.rs</groupId>
+       <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
+       <scope>provided</scope>
+    </dependency>
+    
+    <!-- Import the JPA API, we use provided scope as the API is included in JBoss AS 7 -->
+    <dependency>
+       <groupId>org.hibernate.javax.persistence</groupId>
+       <artifactId>hibernate-jpa-2.0-api</artifactId>
+       <scope>provided</scope>
+    </dependency>
+    
+    <!-- Import the EJB API, we use provided scope as the API is included in JBoss AS 7 -->
+    <dependency>
+       <groupId>org.jboss.spec.javax.ejb</groupId>
+       <artifactId>jboss-ejb-api_3.1_spec</artifactId>
+       <scope>provided</scope>
+    </dependency>
+    
+    <!-- JSR-303 (Bean Validation) Implementation -->
+    <!-- Provides portable constraints such as @Email -->
+    <!-- Hibernate Validator is shipped in JBoss AS 7 -->
+    <dependency>
+       <groupId>org.hibernate</groupId>
+       <artifactId>hibernate-validator</artifactId>
+       <scope>provided</scope>
+       <exclusions>
+           <exclusion>
+               <groupId>org.slf4j</groupId>
+               <artifactId>slf4j-api</artifactId>
+           </exclusion>
+       </exclusions>
+    </dependency>
+    
+    <!-- Import the JSF API, we use provided scope as the API is included in JBoss AS 7 -->
+    <dependency>
+       <groupId>org.jboss.spec.javax.faces</groupId>
+       <artifactId>jboss-jsf-api_2.1_spec</artifactId>
+       <scope>provided</scope>
+    </dependency>
+    
+    <!-- Import the Servlet API, we use provided scope as the API is included in JBoss AS 7 -->
+    <dependency>
+       <groupId>org.jboss.spec.javax.servlet</groupId>
+       <artifactId>jboss-servlet-api_3.0_spec</artifactId>
+       <scope>provided</scope>
+    </dependency>
+    
+    <!-- Annotation processor to generate the JPA 2.0 metamodel classes 
+         for typesafe criteria queries -->
+    <dependency>
+       <groupId>org.hibernate</groupId>
+       <artifactId>hibernate-jpamodelgen</artifactId>           
+       <scope>provided</scope>
+    </dependency>
+    
+    <!-- The rewrite library allows us to do url rewriting - 
+         used here for rewriting mobile devices to mobile specific views -->
+    <dependency>
+       <groupId>org.ocpsoft.rewrite</groupId>
+       <artifactId>rewrite-servlet</artifactId>
+    </dependency>
+    
+    <!-- The cdi integration allows for CDI injection into the rewrite configuration class -->
+    <dependency>
+       <groupId>org.ocpsoft.rewrite</groupId>
+       <artifactId>rewrite-integration-cdi</artifactId>
+    </dependency>
+    
+    <!-- Annotation processor that raising compilation errors whenever 
+         constraint annotations are incorrectly used. -->
+    <dependency>
+       <groupId>org.hibernate</groupId>
+       <artifactId>hibernate-validator-annotation-processor</artifactId>          
+       <scope>provided</scope>
+    </dependency>
+    
     <!--
       Mixing JUnit and TestNG in one module can be done just by adding both
       as a plugin dependencies (not only as project dependencies):
@@ -42,6 +136,20 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
+    </dependency>
+    
+    <!-- Arquillian allows you to test enterprise code such as EJBs and 
+         Transactional(JTA) JPA from JUnit/TestNG -->
+    <dependency>
+        <groupId>org.jboss.arquillian.junit</groupId>
+        <artifactId>arquillian-junit-container</artifactId>
+        <scope>test</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>org.jboss.arquillian.protocol</groupId>
+        <artifactId>arquillian-protocol-servlet</artifactId>
+        <scope>test</scope>
     </dependency>
 
     <!--
@@ -71,7 +179,14 @@
       <artifactId>mockito-core</artifactId>
       <version>1.9.5</version>
       <scope>test</scope>
-    </dependency>	    
+    </dependency>	  
+    
+    <dependency>
+      <groupId>xmlunit</groupId>
+      <artifactId>xmlunit</artifactId>
+      <version>${version.xmlunit}</version>
+      <scope>test</scope>
+    </dependency>  
 	    
 		<!-- Annotation processor for generating typed loggers -->
 		<dependency>
@@ -619,7 +734,42 @@
           <scope>test</scope>
         </dependency>
       </dependencies>
-    </profile>     
+    </profile>  
+    
+    <!-- -->
+    <profile>
+        <id>glassfish-embedded-3.1</id>
+        <activation>
+          <property>
+            <name>arquillian</name>
+            <value>glassfish-embedded-3.1</value>
+          </property>
+        </activation>
+        <dependencies>           
+             <dependency>
+                <groupId>org.jboss.arquillian.container</groupId>
+                <artifactId>arquillian-glassfish-embedded-3.1</artifactId>
+                <version>1.0.0.CR4</version>  
+                <scope>test</scope>
+            </dependency> 
+            <dependency>
+                <groupId>org.glassfish.main.extras</groupId>
+                <artifactId>glassfish-embedded-all</artifactId>                
+            </dependency>                    
+        </dependencies>
+        <build>
+            <testResources>
+                <testResource>
+                    <directory>${basedir}/src/test/resources</directory>
+                    <filtering>true</filtering>
+                </testResource>
+                <testResource>
+                    <directory>${basedir}/src/test/resources-glassfish-embedded</directory>
+                    <filtering>true</filtering>
+                </testResource>
+            </testResources>
+        </build>
+    </profile>   
     
     <profile>
         <id>glassfish-managed-3.1</id>

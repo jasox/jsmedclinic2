@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
- Application : JMedicalClinic
+ Application : JSMedClinic
       Author : Janusz Swół <janusz.swol@gmail.com>
 ----------------------------------------------------------------------
 
@@ -10,22 +10,22 @@ jest przygotowany wyłącznie jako demonstracja.
 
 Ilustruje użycie : 
 -------------------
- - metodologi AGILE (Scrum, Kanban) do prowadzenia projektu, Specification by 
-    Example do zbierania wymagań i zdefiniowania testów akceptacyjnych. 
+ - metodologi AGILE (Scrum, Kanban) do prowadzenia projektu, ATDD do zbierania 
+    wymagań i zdefiniowania testów akceptacyjnych. 
     Plik obiektowego projektu aplikacji w formacie Enterprprise Architect, 
     oraz inne artefakty znajdują się w katalogu ./project-design/
      
- - Java EE 7, oraz SOA i REST - a w szczególności :
-    EJB 3.2 - [JSR 345]
-    CDI 1.1 - [JSR 346]
-    Bean Validation 1.1 [JSR 349]  
-    JPA 2.1 - [JSR 338]
-    JSF 2.2 - [JSR 344]
-    Servlet 3.1 - [JSR 340]
+ - Java EE 6/7, oraz SOA i REST - a w szczególności :
+    EJB 3.2             - [JSR 345]
+    CDI 1.1             - [JSR 346]
+    Bean Validation 1.1 - [JSR 349]  
+    JPA 2.1             - [JSR 338]
+    JSF 2.2             - [JSR 344]
+    Servlet 3.1         - [JSR 340]
     RichFaces 4
-    JAXB 2.2 - [JSR 222]
-    JAX-RS 2.0 - [JSR 339]
-    JSON-P 1.0 - [JSR 353]
+    JAXB 2.2            - [JSR 222]
+    JAX-RS 2.0          - [JSR 339]
+    JSON-P 1.0          - [JSR 353]
     
  - Wzorców GoF, a przynajmniej wzorca Strategy, Template method, State, 
      Abstract Factory
@@ -50,13 +50,12 @@ Ilustruje użycie :
  
 Dla ilustracji współdziałania w zespole wg. metodologii AGILE wprowadziłem 
    dwóch fikcyjnych deweloperów :
-   jaoss - Jan Osowski <jan.osowski@gmail.com>
+   jaoss - Jan Osowski     <jan.osowski@gmail.com>
    jasox - Janusz Janowski <jasox@gazeta.pl>
- w istocie to ja, tylko z różnych komputerów - stacjonarnego i laptopa, 
- gdzie mam dostęp do repozytoriów przez odpowiednio skonfigurowane IDE - 
- ( za pomocą zapisanych haseł i kluczy SSH )   
+   w istocie to ja, tylko z różnych kont, gdzie mam dostęp do repozytoriów przez 
+   odpowiednio skonfigurowane IDE - ( za pomocą zapisanych haseł i kluczy SSH )   
  
- Program można uruchomić pod adresem : 
+ 
  
    
 

@@ -41,15 +41,7 @@
       <version>${projectVersion}</version>
       <type>ejb</type>
     </dependency>
-    <!--
-    <dependency>
-      <groupId>${projectGroup}</groupId>
-      <artifactId>${projectName}-api</artifactId>
-      <version>${projectVersion}</version>
-      <type>jar</type>
-    </dependency>
-    --> 
-    
+        
     <dependency>
       <groupId>${projectGroup}</groupId>
       <artifactId>${projectName}-simple</artifactId>
@@ -67,7 +59,7 @@
     <!--
       Mixing JUnit and TestNG in one module can be done just by adding both
       as a plugin dependencies (not only as project dependencies):
-      -->
+    -->
     <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
@@ -76,11 +68,9 @@
     
     <dependency>
         <groupId>org.testng</groupId>
-        <artifactId>testng</artifactId>
-        <version>6.8</version>
+        <artifactId>testng</artifactId>       
         <scope>test</scope>
-    </dependency>	    
-	    
+    </dependency>	  	    
 	    
 		<!-- Annotation processor for generating typed loggers -->
 		<dependency>
@@ -117,17 +107,40 @@
 			<groupId>org.jboss.seam.transaction</groupId>
 			<artifactId>seam-transaction</artifactId>
 			<scope>compile</scope>
-		</dependency>
+		</dependency>		
 		
-		<!-- RichFaces -->
-		<dependency>
-        <groupId>org.richfaces.ui</groupId>
-        <artifactId>richfaces-components-ui</artifactId>
-    </dependency>
-    
+    <!-- Import the RichFaces core library -->
     <dependency>
-        <groupId>org.richfaces.core</groupId>
-        <artifactId>richfaces-core-impl</artifactId>
+       <groupId>org.richfaces.core</groupId>
+       <artifactId>richfaces-core-impl</artifactId>
+       <exclusions>
+          <exclusion>
+              <artifactId>cssparser</artifactId>
+              <groupId>net.sourceforge.cssparser</groupId>
+          </exclusion>
+           <exclusion>
+              <artifactId>guava</artifactId>
+              <groupId>com.google.guava</groupId>
+          </exclusion>
+       </exclusions>
+    </dependency>
+
+    <!-- Import the RichFaces components -->
+    <dependency>
+       <groupId>org.richfaces.ui</groupId>
+       <artifactId>richfaces-components-ui</artifactId>
+    </dependency>
+
+     <!-- Import the Atmosphere framework for a4j:push -->
+    <dependency>
+       <groupId>org.atmosphere</groupId>
+       <artifactId>atmosphere-runtime</artifactId>
+       <exclusions>
+           <exclusion>
+               <groupId>org.slf4j</groupId>
+               <artifactId>slf4j-api</artifactId>
+           </exclusion>
+       </exclusions>
     </dependency>
 
 		<dependency>
@@ -155,59 +168,21 @@
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
-		</dependency>
+		</dependency>		
+  
+    <!-- Arquillian allows you to test enterprise code such as EJBs and 
+         Transactional(JTA) JPA from JUnit/TestNG -->
+    <dependency>
+        <groupId>org.jboss.arquillian.junit</groupId>
+        <artifactId>arquillian-junit-container</artifactId>
+        <scope>test</scope>
+    </dependency>
 
-		
-
-		<!-- Arquillian Drone support in Arquillian tests -->
-    <!--
-		<dependency>
-			<groupId>org.jboss.arquillian.extension</groupId>
-			<artifactId>arquillian-drone-impl</artifactId>
-			<scope>test</scope>
-		</dependency>
-    -->
-		<!-- Support for Selenium in Arquillian Drone -->
-    <!--
-		<dependency>
-			<groupId>org.jboss.arquillian.extension</groupId>
-			<artifactId>arquillian-drone-selenium</artifactId>
-			<scope>test</scope>
-		</dependency>
-    -->
-		<!-- Support for Selenium Server in Arquillian Drone -->
-		<!-- Required only if you want Arquillian to control Selenium Server life	cycle -->
-    <!--
-		<dependency>
-			<groupId>org.jboss.arquillian.extension</groupId>
-			<artifactId>arquillian-drone-selenium-server</artifactId>
-			<scope>test</scope>
-		</dependency>
-    -->
-		<!-- Selenium -->
-    <!--
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<scope>test</scope>
-		</dependency>
-    -->
-		<!-- Selenium Server -->
-		<!-- Required only if you want Arquillian to control Selenium Server life cycle -->
-    <!--
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-server</artifactId>
-			<scope>test</scope>
-		</dependency>
-   
-		<dependency>
-			<groupId>org.jboss.arquillian.ajocado</groupId>
-			<artifactId>arquillian-ajocado-junit</artifactId>
-			<type>pom</type>
-			<scope>test</scope>
-		</dependency>
-    -->
+    <dependency>
+        <groupId>org.jboss.arquillian.protocol</groupId>
+        <artifactId>arquillian-protocol-servlet</artifactId>
+        <scope>test</scope>
+    </dependency>
     
 		<!-- Obtaining ShrinkWrap Resolvers for use in your system can be done in 
          a single pass by declaring a dependency upon the depchain module  -->
@@ -235,7 +210,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
 					<!-- activate only when you need to generate the metamodel -->
-					<!-- <compilerArgument>-proc:none</compilerArgument> -->
+					<!-- <compilerArgument>-proc:none</compilerArgument>       -->
 				</configuration>
 			</plugin>
 
