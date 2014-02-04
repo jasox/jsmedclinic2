@@ -276,7 +276,10 @@
         <groupId>org.glassfish.main.extras</groupId>
         <artifactId>glassfish-embedded-all</artifactId>
         <version>${version.glassfish}</version>
-        <scope>provided</scope>
+        <!--
+        <scope>import</scope>
+        <type>pom</type>
+        -->
       </dependency>
       
 		</dependencies>
