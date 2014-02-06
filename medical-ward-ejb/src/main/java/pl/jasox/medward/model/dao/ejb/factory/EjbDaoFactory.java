@@ -31,50 +31,42 @@ public class EjbDaoFactory implements IDaoFactory, Serializable {
   @Inject
   private Logger log;
   
-  @EJB
-	private IDoctorDao    doctorDao; 
+  @EJB	private IDoctorDao           doctorDao; 
   
-  @EJB
-	private IPatientDao   patientDao; 
+  @EJB	private IPatientDao          patientDao; 
   
-  @EJB
-	private IKasachDao    kasachDao;
+  @EJB	private IKasachDao           kasachDao;
   
-  @EJB
-  private IClinicDao    clinicDao;
+  @EJB  private IClinicDao           clinicDao;
   
-  @EJB
-  private IAdmissionDao admissionDao;  
+  @EJB  private IAdmissionDao        admissionDao;  
   
-  @EJB
-  private IMedProcedureDao     medProcedureDao;
+  @EJB  private IMedProcedureDao     medProcedureDao;
   
-  @EJB
-  private IMedProcedureTypeDao medProcedureTypeDao;
+  @EJB  private IMedProcedureTypeDao medProcedureTypeDao;
   
-  @EJB
-  private IMedProcedureCatDao  medProcedureCatDao;    
+  @EJB  private IMedProcedureCatDao  medProcedureCatDao;    
   
   // ---------------------------------------------------------------------------
   
-   public EjbDaoFactory( ) {
-   }
+  public EjbDaoFactory( ) {
+  }
   /*
   @EJB
-  public EjbDaoFactory( IDoctorDao    doctorDao,
-                        IPatientDao   patientDao,
-                        IKasachDao    kasachDao,
-                        IClinicDao    clinicDao,
-                        IAdmissionDao admissionDao,
+  public EjbDaoFactory( IDoctorDao           doctorDao,
+                        IPatientDao          patientDao,
+                        IKasachDao           kasachDao,
+                        IClinicDao           clinicDao,
+                        IAdmissionDao        admissionDao,
                         IMedProcedureDao     medProcedureDao,
                         IMedProcedureTypeDao medProcedureTypeDao,
                         IMedProcedureCatDao  medProcedureCatDao) 
   {  
-    this.doctorDao    = doctorDao;
-    this.patientDao   = patientDao;
-    this.kasachDao    = kasachDao;
-    this.clinicDao    = clinicDao;
-    this.admissionDao = admissionDao;
+    this.doctorDao           = doctorDao;
+    this.patientDao          = patientDao;
+    this.kasachDao           = kasachDao;
+    this.clinicDao           = clinicDao;
+    this.admissionDao        = admissionDao;
     this.medProcedureDao     = medProcedureDao;
     this.medProcedureTypeDao = medProcedureTypeDao;
     this.medProcedureCatDao  = medProcedureCatDao;

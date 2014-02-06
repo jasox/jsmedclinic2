@@ -58,7 +58,7 @@ public class ClinicEjbDaoTest {
   @EJB
   private IDaoFactory daoFactory;
   
-  @EJB
+  //@EJB
   private IClinicDao clinicDao; 
   
   // ---------------------------------------------------------------------------
@@ -77,7 +77,7 @@ public class ClinicEjbDaoTest {
   
   @Before
   public void setUp() throws NotSupportedException, SystemException {   
-    //patientDao = daoFactory.getPatientDao();   
+    clinicDao = daoFactory.getClinicDao();   
     utx.begin();
   }
   
@@ -114,8 +114,8 @@ public class ClinicEjbDaoTest {
     
     return ShrinkWrap.create(WebArchive.class, "test.war")
        .addPackages(true,"pl.jasox.medward.model.dao.ejb")
-       //.addClass(ClinicEjbDao.class)
-       //.addClass(EjbDaoFactory.class)      
+       .addClass(ClinicEjbDao.class)
+       .addClass(EjbDaoFactory.class)      
        .addClass(ResourcesProducer.class)
        .addClass(ApplicationDatabase.class)
        .addClass(TestDatabase.class) 

@@ -61,7 +61,7 @@ public class DoctorEjbDaoTest {
   @EJB
   private IDaoFactory daoFactory;
   
-  @EJB
+  //@EJB
   private IDoctorDao  doctorDao; 
   
   // ---------------------------------------------------------------------------
@@ -79,7 +79,7 @@ public class DoctorEjbDaoTest {
   
   @Before
   public void setUp() throws NotSupportedException, SystemException {      
-    //doctorDao = daoFactory.getDoctorDao();    
+    doctorDao = daoFactory.getDoctorDao();    
     utx.begin();
   }
   
@@ -116,8 +116,8 @@ public class DoctorEjbDaoTest {
     
     return ShrinkWrap.create(WebArchive.class, "test.war")  
        .addPackages(true,"pl.jasox.medward.model.dao.ejb")
-       //.addClass(DoctorEjbDao.class)       
-       //.addClass(EjbDaoFactory.class)      
+       .addClass(DoctorEjbDao.class)       
+       .addClass(EjbDaoFactory.class)      
        .addClass(ResourcesProducer.class)
        .addClass(ApplicationDatabase.class)
        .addClass(TestDatabase.class)   
@@ -234,14 +234,15 @@ public class DoctorEjbDaoTest {
   
   /**
    * Test of find method, of class DoctorEjbDao - implements method from IMedwardUserRepository
-   */
+   
   @Test
   public void testFind() {
     log.info("find");
-    String username     = "0000001";
-    String expectedName = "Michał Zubek";
-    IMedwardUser user = doctorDao.find(username);
+    String       username     = "0000001";
+    String       expectedName = "Michał Zubek";
+    IMedwardUser user;
+    user = doctorDao.find(username);
     assertEquals(expectedName, user.getName());    
   }
-  
+  */
 }

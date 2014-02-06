@@ -1,83 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE resources PUBLIC 
-  "-//Sun Microsystems, Inc.//DTD Application Server 9.0 Resource Definitions //EN" 
-  "http://www.sun.com/software/appserver/dtds/sun-resources_1_3.dtd">
-
+  "-//GlassFish.org//DTD GlassFish Application Server 3.1 Resource Definitions//EN" 
+  "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
+  
 <resources>
 
+    <!-- description="Connection Pool for medward apps with MySQL" -->
     <jdbc-connection-pool        
         datasource-classname="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
-        name="medward_MySQL_Pool" 
-        description="Connection Pool for medward apps with MySQL" 
+        name="medward_MySQL_Pool"         
         res-type="javax.sql.DataSource" 
         ping="true">
-        <property name="serverName" value="${dbHost}"/>
-        <property name="portNumber" value="3306"/>
+        <property name="serverName"   value="${dbHost}"/>
+        <property name="portNumber"   value="3306"/>
         <property name="databaseName" value="${dbSchema}"/>
-        <property name="User" value="${dbUser}"/>
-        <property name="Password" value="${dbPassword}"/>        
-        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="User"         value="${dbUser}"/>
+        <property name="Password"     value="${dbPassword}"/>        
+        <property name="driverClass"  value="com.mysql.jdbc.Driver"/>
     </jdbc-connection-pool>
     
+    <!-- description="DataSource for medward apps with MySQL" -->
     <jdbc-resource 
         enabled="true" 
         pool-name="medward_MySQL_Pool" 
-        jndi-name="jdbc/medward_MySQL_Datasource" 
-        description="DataSource for medward apps with MySQL">
+        jndi-name="jdbc/medward_MySQL_Datasource">
     </jdbc-resource>           
         
-       
+    <!-- description="Connection Pool for medward apps with HSQLDB" -->   
     <jdbc-connection-pool        
        datasource-classname="org.hsqldb.jdbc.JDBCDataSource"
-       res-type="javax.sql.DataSource" 
-       description="Connection Pool for medward apps with HSQLDB" 
+       res-type="javax.sql.DataSource"         
        name="medward_Hsql_Pool" 
        init-sql="SET SCHEMA PUBLIC"
        ping="true">
-       <property name="DatabaseName" value="jdbc\:hsqldb\:file\:${fake-test-hsql-file-2}"></property>
-       <property name="User" value="SA"></property>
-       <property name="Password" value=""></property>
+       <property name="DatabaseName"         value="jdbc\:hsqldb\:file\:${fake-test-hsql-file-2}"></property>
+       <property name="User"                 value="SA"></property>
+       <property name="Password"             value=""></property>
        <property name="connectionAttributes" value=";ifexists=true"></property>
-       <property name="driverClass" value="org.hsqldb.jdbcDriver"/>       
+       <property name="driverClass"          value="org.hsqldb.jdbcDriver"/>       
     </jdbc-connection-pool>
-      
+    
+    <!-- description="DataSource for medward apps with HSQLDB" -->  
     <jdbc-resource 
        enabled="true"
-       pool-name="medward_Hsql_Pool" 
-       description="DataSource for medward apps with HSQLDB"
+       pool-name="medward_Hsql_Pool"        
        jndi-name="jdbc/medward_Hsql_Datasource">
     </jdbc-resource>
 
 </resources>
 
-
-<!--
-
-    [... from domain/domain1/config/domain.xml ]
-    
-    <jdbc-connection-pool datasource-classname="org.hsqldb.jdbc.JDBCDataSource" res-type="javax.sql.DataSource" description="Connection Pool for medward apps with HSQLDB" name="medward_Hsql_Pool" init-sql="SET SCHEMA PUBLIC" ping="true">
-      <property name="DatabaseName" value="jdbc:hsqldb:file:/C:\\JS\\Java\\JSMedClinic\\medical-ward-simple/../db-settings/fake-database-hsql-2/jsmedclinic"></property>
-      <property name="User" value="SA"></property>
-      <property name="Password" value=""></property>
-      <property name="connectionAttributes" value=";ifexists=true"></property>
-      <property name="driverClass" value="org.hsqldb.jdbcDriver"></property>
-    </jdbc-connection-pool>
-    <jdbc-resource pool-name="medward_Hsql_Pool" description="DataSource for medward apps with HSQLDB" jndi-name="jdbc/medward_Hsql_Datasource"></jdbc-resource>
-  
-  
-    <jdbc-connection-pool datasource-classname="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource" res-type="javax.sql.ConnectionPoolDataSource " description="Connection Pool for medward apps with MySQL" name="medward_MySQL_Pool" ping="true">
-      <property name="serverName" value="ec2-23-21-211-172.compute-1.amazonaws.com"></property>
-      <property name="portNumber" value="3306"></property>
-      <property name="databaseName" value="jasox02-mysql"></property>
-      <property name="User" value="jasox02"></property>
-      <property name="Password" value="jasox-02"></property>
-      <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-    </jdbc-connection-pool>
-    <jdbc-resource pool-name="medward_MySQL_Pool" description="DataSource for medward apps with MySQL" jndi-name="jdbc/medward_MySQL_Datasource"></jdbc-resource>
-  
- -->
- 
-    
-    
      

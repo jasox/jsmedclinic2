@@ -743,7 +743,13 @@
             <value>glassfish-embedded-3.1</value>
           </property>
         </activation>
-        <dependencies>  
+        <dependencies> 
+             <dependency>
+                <groupId>org.jboss.spec</groupId>
+                <artifactId>jboss-javaee-6.0</artifactId>            
+                <type>pom</type>
+                <scope>provided</scope>
+             </dependency> 
              <dependency>
                 <groupId>org.jboss.weld</groupId>
                 <artifactId>weld-api</artifactId>           

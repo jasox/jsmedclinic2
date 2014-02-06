@@ -1,9 +1,9 @@
 package pl.jasox.medward.db;
 
 import java.io.Serializable;
-
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
+//import javax.ejb.Stateless;
+//import javax.ejb.Singleton;
+//import javax.ejb.Startup;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
@@ -12,8 +12,7 @@ import javax.persistence.PersistenceContext;
 /**
  * Exposes the <code>EntityManager</code>'s available for test of application <br/> 
  */
-@Singleton
-@Startup
+//@Stateless
 public class TestEntityManagerProducer implements Serializable {
 	
 	  private static final long serialVersionUID = 6970822929709709752L;
