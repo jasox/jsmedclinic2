@@ -127,9 +127,9 @@ public class MedProcedureCatEjbDaoTest {
        .addAsLibraries(picketlink_idm)       
        .addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")
        .addAsResource("log4j.properties", "log4j.properties")
-       .addAsResource("logging.properties", "logging.properties")
-       .addAsWebInfResource("META-INF/beans.xml", "beans.xml")
-       .addAsWebInfResource("META-INF/seam-beans.xml", "seam-beans.xml");
+       .addAsResource("logging.properties", "logging.properties")       
+       //.addAsWebInfResource("META-INF/seam-beans.xml", "seam-beans.xml")
+       .addAsWebInfResource("META-INF/beans.xml", "beans.xml");
   }
   
   

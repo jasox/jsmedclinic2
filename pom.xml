@@ -59,7 +59,7 @@
     <version.json>1.0.2</version.json>
     <version.ejb>3.1</version.ejb>     
     <version.shrinkwrap.resolvers>2.0.0</version.shrinkwrap.resolvers>      
-    <version.arquillian.bom>1.1.2.Final</version.arquillian.bom> 
+    <version.arquillian.bom>1.0.3.Final</version.arquillian.bom>  <!-- 1.1.2.Final -->
     <version.xmlunit>1.4</version.xmlunit>
     <version.slf4j>1.6.1</version.slf4j> 
     
@@ -272,16 +272,16 @@
         <type>pom</type>
       </dependency>
       
+      <!--
       <dependency>
         <groupId>org.glassfish.main.extras</groupId>
         <artifactId>glassfish-embedded-all</artifactId>
-        <version>${version.glassfish}</version>
-        <!--
+        <version>${version.glassfish}</version>       
         <scope>import</scope>
         <type>pom</type>
-        -->
+        
       </dependency>
-      
+      -->
 		</dependencies>
 
 	</dependencyManagement>

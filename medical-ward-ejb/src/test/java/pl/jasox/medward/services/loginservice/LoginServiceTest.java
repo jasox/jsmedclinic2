@@ -14,12 +14,12 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 /**
- *  By Brett L. Schuchert <br/>
- *  
-    All types used or needed by the underling LoginService will be represented as Interfaces <br/>     
-    All types used or needed by the underling LoginService will be created via Mockito <br/>
-    I'm going to use Loose mocks - you can call anything you want and the underling object will not complain <br/>
-    I'm going to minimally verify the expected resulting interactions (one assertion per test) <br/>   
+By Brett L. Schuchert <br/>
+  
+All types used or needed by the underling LoginService will be represented as Interfaces                 <br/>     
+All types used or needed by the underling LoginService will be created via Mockito                       <br/>
+I'm going to use Loose mocks - you can call anything you want and the underling object will not complain <br/>
+I'm going to minimally verify the expected resulting interactions (one assertion per test)               <br/>   
 */ 
 public class LoginServiceTest {   	
 	

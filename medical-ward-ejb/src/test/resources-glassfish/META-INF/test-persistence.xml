@@ -8,7 +8,7 @@
   <!-- Persistence Units for medical-ward -->
    
   <!-- ===================================================================== -->                               
-                                 
+  <!--                               
   <persistence-unit name="medward_SE" transaction-type="RESOURCE_LOCAL">  
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>         
     <class>pl.jasox.medward.model.domainobject.Admission</class>
@@ -27,7 +27,7 @@
        <property name="eclipselink.logging.parameters" value="false"/>      
     </properties>    
   </persistence-unit>  
-                      
+  -->                    
   <!-- ===================================================================== -->                      
   
   <persistence-unit name="medward_AS" transaction-type="JTA">    
@@ -93,3 +93,4 @@
   </persistence-unit>
   
 </persistence>
+

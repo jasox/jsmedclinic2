@@ -10,10 +10,10 @@ jest przygotowany wyłącznie jako demonstracja.
 
 Ilustruje użycie : 
 -------------------
- - metodologi AGILE (Scrum, Kanban) do prowadzenia projektu, ATDD do zbierania 
+ - metodologi AGILE (Scrum, Kanban) do prowadzenia projektu, A-TDD do zbierania 
     wymagań i zdefiniowania testów akceptacyjnych. 
     Plik obiektowego projektu aplikacji w formacie Enterprprise Architect, 
-    oraz inne artefakty znajdują się w katalogu ./project-design/
+    oraz inne artefakty znajdują się w katalogu ./project-design
      
  - Java EE 6/7, oraz SOA i REST - a w szczególności :
     EJB 3.2             - [JSR 345]
@@ -34,6 +34,7 @@ Ilustruje użycie :
      Mockito, Arquillian
      
  - SQL - do tworzenia schematu bazy MySQL i Hsql, oraz do wstępnego wczytania danych
+          ( katalog ./db-settings )
  
  - SCM - kod źródłowy jest przechowywany w zewnętrznym repozytorium na GitHub
           oraz na serwerze Subversion (ProjectLocker.com)
