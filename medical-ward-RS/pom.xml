@@ -199,7 +199,31 @@
 		<dependency>
 			<groupId>org.jboss.solder</groupId>
 			<artifactId>solder-impl</artifactId>
-		</dependency>       
+		</dependency> 
+    
+    <!-- Seam -->
+		<dependency>
+			<groupId>org.jboss.seam.faces</groupId>
+			<artifactId>seam-faces</artifactId>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.seam.international</groupId>
+			<artifactId>seam-international</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.seam.security</groupId>
+			<artifactId>seam-security</artifactId>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.seam.transaction</groupId>
+			<artifactId>seam-transaction</artifactId>
+			<scope>compile</scope>
+		</dependency>	      
     
 		<dependency>
 			<groupId>org.picketlink.idm</groupId>
@@ -354,7 +378,7 @@
     </dependency>
     -->
     
-    <!-- Jersey for Glassfish -->
+    <!-- Jersey for Glassfish 
     <dependency>
       <groupId>org.glassfish.jersey.core</groupId>
       <artifactId>jersey-common</artifactId>
@@ -395,7 +419,7 @@
       <artifactId>org.eclipse.persistence.moxy</artifactId>
       <version>2.4.1</version>
     </dependency>
-    
+    -->
     <!-- JSOn-P -->
     <dependency>
       <groupId>org.glassfish</groupId>
@@ -406,12 +430,12 @@
     <dependency>
         <groupId>org.jboss.resteasy</groupId>
         <artifactId>resteasy-jaxrs</artifactId>        
-        <version>3.0-beta-1</version>
+        <!-- <version>3.0-beta-1</version> -->
     </dependency>
     <dependency>
         <groupId>org.jboss.resteasy</groupId>
         <artifactId>resteasy-jaxb-provider</artifactId>      
-        <version>3.0-beta-1</version>            
+        <!-- <version>3.0-beta-1</version> -->           
     </dependency>
     
 	</dependencies>
@@ -867,6 +891,57 @@
         </dependency>
       </dependencies>
     </profile>    
+    
+    <!-- -->
+    <profile>
+        <id>glassfish-embedded-3.1</id>
+        <activation>
+          <property>
+            <name>arquillian</name>
+            <value>glassfish-embedded-3.1</value>
+          </property>
+        </activation>
+        <dependencies>                    
+             <dependency>
+                <groupId>org.jboss.arquillian.container</groupId>
+                <artifactId>arquillian-glassfish-embedded-3.1</artifactId>
+                <!-- <version>1.0.0.CR4</version> -->  
+                <scope>test</scope>
+            </dependency> 
+            <dependency>
+                <groupId>org.glassfish.main.extras</groupId>
+                <artifactId>glassfish-embedded-all</artifactId>
+                <version>${version.glassfish}</version>
+                <scope>provided</scope>                
+            </dependency>            
+            <!-- HSQL database driver -->
+            <dependency> 
+                <groupId>org.hsqldb</groupId>  
+                <artifactId>hsqldb</artifactId>  
+                <version>2.2.7</version>
+                <scope>test</scope> 
+            </dependency>
+            <!-- MySQL database driver -->
+            <dependency>
+                <groupId>mysql</groupId> 
+                <artifactId>mysql-connector-java</artifactId> 
+                <version>5.1.5</version>  
+                <scope>test</scope>
+            </dependency>                     
+        </dependencies>
+        <build>
+            <testResources>
+                <testResource>
+                    <directory>${basedir}/src/test/resources</directory>
+                    <filtering>true</filtering>
+                </testResource>
+                <testResource>
+                    <directory>${basedir}/src/test/resources-glassfish-embedded</directory>
+                    <filtering>true</filtering>
+                </testResource>
+            </testResources>
+        </build>
+    </profile> 
 
     <profile>
       <id>glassfish-remote-3.1</id>

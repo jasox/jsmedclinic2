@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arquillian 
+    xmlns="http://jboss.org/schema/arquillian"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://jboss.org/schema/arquillian 
+                        http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+
+    <engine>
+         <property name="deploymentExportPath">target</property>
+    </engine>
+    
+    <container qualifier="glassfish-embedded" default="true">
+        <configuration>            
+            <property name="sunResourcesXml">
+               ${basedir}/target/test-classes/glassfish-resources.xml
+            </property>  
+            <property name="bindHttpPort">9999</property>  
+            <!--  
+            <property name="configurationXml">
+               C:\Applications\glassfish-3.1.2.2\glassfish\domains\domain1\config\domain.xml
+            </property>
+            <property name="configurationReadOnly">true</property>           
+            --> 
+        </configuration>
+    </container>
+     
+</arquillian>
+
+<!-- 
+Name	                Type	    Default	Description
+bindHttpPort	        int	      8181	  The HTTP port the server should bind to.
+instanceRoot	        String	 	        The instanceRoot to use for booting the server. If it does not exist, a default structure will be created.
+installRoot	          String	         	The installRoot to use for booting the server. If it does not exist, a default structure will be created.
+configurationXml	    String	 	        The relative or absolute path to the domain.xml file that will be used to configure the instance. 
+                                        If absent, the default domain.xml configuration will be used.
+configurationReadOnly	boolean	  false  	If true deployment changes are not written to the configuration and persisted.
+sunResourcesXml	      String	 	        The relative or absolute path to the sun-resources.xml file that will be used 
+                                        to add resources to the instance using the add-resources asadmin command.
+                                        
+
+==== Arquillian fails to inject dependencies after the first test class ====
+
+I have a similar problem (the only difference is that I'm getting the message 
+"WELD-001456 Argument resolvedBean must not be null"). 
+Resolved beans are stored in an instance of the class org.jboss.weld.manager.BeanManagerImpl
+that is shared between all tests in micro deployment. In my case the cause of failure is that 
+when some test finished, its thread is staying bound with old instance of TestRunnerAdaptor 
+that is linked to the already cleaned bean manager 
+(see method org.jboss.weld.manager.BeanManagerImpl.cleanup()). 
+If some test from next micro deployment will use one of such threads it fail. 
+The problem is related to Arquillian with version > 1.0.3.Final 
+(in new versions field type org.jboss.arquillian.junit.State.lastCreatedRunner 
+is changed from ThreadLocal to InheritableThreadLocal and now method 
+org.jboss.arquillian.junit.State.isLastRunner() always returns false).
+
+I don't know how to solve this problem. The only way is use Arquillian 1.0.3.Final.                                        
+-->

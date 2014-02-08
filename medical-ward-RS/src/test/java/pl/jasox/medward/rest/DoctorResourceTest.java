@@ -19,8 +19,6 @@ import pl.jasox.medward.db.ApplicationDatabase;
 import pl.jasox.medward.db.DatabaseType;
 import pl.jasox.medward.db.TestDatabase;
 import pl.jasox.medward.db.TestEntityManagerProducer;
-import pl.jasox.medward.model.dao.ejb.DoctorEjbDao;
-import pl.jasox.medward.model.dao.ejb.factory.EjbDaoFactory;
 import pl.jasox.medward.util.ResourcesProducer;
 
 /**
@@ -50,12 +48,12 @@ public class DoctorResourceTest {
         Maven.resolver().loadPomFromFile("pom.xml")
        .resolve("org.picketlink.idm:picketlink-idm-core")
        .withTransitivity().asFile();
-    
+    /*
     File[] jersey_core = 
         Maven.resolver().loadPomFromFile("pom.xml")
        .resolve("com.sun.jersey:jersey-core")
        .withTransitivity().asFile();
-    
+    */
     File[] medical_ward_ejb = 
         Maven.resolver().loadPomFromFile("pom.xml")
        .resolve("pl.jasox.medclinic:medical-ward-ejb")

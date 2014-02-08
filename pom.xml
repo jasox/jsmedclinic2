@@ -52,7 +52,7 @@
     <version.javaee>6.0</version.javaee>
     <version.glassfish>3.1.2</version.glassfish>
     <version.weld>2.1.0.Final</version.weld> 
-    <version.jersey>1.5</version.jersey>  
+    <version.jersey>1.8</version.jersey>  
     <version.eclipselink>2.5.1</version.eclipselink>
     <version.hibernate.validator>4.1.0.Final</version.hibernate.validator> 
     <version.el>3.0.0</version.el>
@@ -61,7 +61,7 @@
     <version.shrinkwrap.resolvers>2.0.0</version.shrinkwrap.resolvers>      
     <version.arquillian.bom>1.0.3.Final</version.arquillian.bom>  <!-- 1.1.2.Final -->
     <version.xmlunit>1.4</version.xmlunit>
-    <version.slf4j>1.6.1</version.slf4j> 
+    <version.slf4j>1.5.10</version.slf4j> 
     
     <!-- Databases -->
     <version.derby>10.10.1.1</version.derby>
