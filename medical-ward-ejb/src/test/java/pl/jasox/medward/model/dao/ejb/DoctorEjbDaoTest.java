@@ -37,7 +37,6 @@ import pl.jasox.medward.db.TestDatabase;
 import pl.jasox.medward.db.TestEntityManagerProducer;
 import pl.jasox.medward.model.IMedwardUser;
 import pl.jasox.medward.model.dao.IDoctorDao;
-import pl.jasox.medward.model.dao.ejb.factory.EjbDaoFactory;
 import pl.jasox.medward.model.dao.factory.IDaoFactory;
 import pl.jasox.medward.model.domainobject.Doctor;
 import pl.jasox.medward.util.ResourcesProducer;
@@ -116,8 +115,8 @@ public class DoctorEjbDaoTest {
     
     return ShrinkWrap.create(WebArchive.class, "test.war")  
        .addPackages(true,"pl.jasox.medward.model.dao.ejb")
-       .addClass(DoctorEjbDao.class)       
-       .addClass(EjbDaoFactory.class)      
+       //.addClass(DoctorEjbDao.class)       
+       //.addClass(EjbDaoFactory.class)      
        .addClass(ResourcesProducer.class)
        .addClass(ApplicationDatabase.class)
        .addClass(TestDatabase.class)   
@@ -137,7 +136,8 @@ public class DoctorEjbDaoTest {
    * Test of DaoFactory injection.
    */
   @Test
-  public void shouldDaoFactoryBeInjected() {    
+  public void shouldDaoFactoryBeInjected() {
+    log.info("shouldDaoFactoryBeInjected");
     assertNotNull(daoFactory);       
   }
   
@@ -145,7 +145,8 @@ public class DoctorEjbDaoTest {
    * Test of Logger injection.
    */
   @Test
-  public void shouldLoggerBeInjected() {    
+  public void shouldLoggerBeInjected() {  
+    log.info("shouldLoggerBeInjected");
     assertNotNull(log);       
   }
   
@@ -153,7 +154,8 @@ public class DoctorEjbDaoTest {
    * Test of DoctorDao obtaining from DaoFactory.
    */
   @Test
-  public void shouldDaoBeObtained() {    
+  public void shouldDaoBeObtained() { 
+    log.info("shouldDaoBeObtained");
     assertNotNull(doctorDao);       
   }
 
@@ -162,7 +164,7 @@ public class DoctorEjbDaoTest {
    */
   @Test
   public void testFindById() {
-    log.info("findById");
+    log.info("testFindById");
     String id        = "0000007";  // siedem znaków    
     String firstName = "Michał";
     String lastName  = "Sobański";    
@@ -177,7 +179,7 @@ public class DoctorEjbDaoTest {
    */
   @Test
   public void testSaveAndtestDeleteAndtestFindById() {
-    log.info("save and delete and findById");
+    log.info("testSaveAndtestDeleteAndtestFindById");
     String username  = "test";
     String firstName = "Joe";
     String lastName  = "Doe";    
@@ -219,7 +221,7 @@ public class DoctorEjbDaoTest {
    */
   @Test
   public void testGetAll() {  	
-    log.info("getAll");
+    log.info("testGetAll");
     Doctor doctor; 
     int i = 0;
     List<Doctor> result = doctorDao.getAll();
@@ -234,15 +236,15 @@ public class DoctorEjbDaoTest {
   
   /**
    * Test of find method, of class DoctorEjbDao - implements method from IMedwardUserRepository
-   
+   */ 
   @Test
   public void testFind() {
-    log.info("find");
+    log.info("testFind");
     String       username     = "0000001";
     String       expectedName = "Michał Zubek";
     IMedwardUser user;
     user = doctorDao.find(username);
     assertEquals(expectedName, user.getName());    
   }
-  */
+  
 }

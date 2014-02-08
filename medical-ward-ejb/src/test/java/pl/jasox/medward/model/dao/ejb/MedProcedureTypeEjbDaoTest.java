@@ -29,13 +29,11 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import static org.junit.Assert.*;
-import org.junit.Ignore;
 import org.junit.runner.RunWith;
 
 import pl.jasox.medward.db.ApplicationDatabase;
 import pl.jasox.medward.db.DatabaseType;
 import pl.jasox.medward.model.dao.IMedProcedureTypeDao;
-import pl.jasox.medward.model.dao.ejb.factory.EjbDaoFactory;
 import pl.jasox.medward.model.dao.factory.IDaoFactory;
 import pl.jasox.medward.db.TestDatabase;
 import pl.jasox.medward.db.TestEntityManagerProducer;
@@ -60,7 +58,7 @@ public class MedProcedureTypeEjbDaoTest {
   @EJB
   private IDaoFactory daoFactory;
   
-  @EJB
+  //@EJB
   private IMedProcedureTypeDao medProcedureTypeDao; 
   
   // ---------------------------------------------------------------------------
@@ -79,7 +77,7 @@ public class MedProcedureTypeEjbDaoTest {
   
   @Before
   public void setUp() throws NotSupportedException, SystemException {   
-    //medProcedureTypeDao = daoFactory.getMedProcedureTypeDao();   
+    medProcedureTypeDao = daoFactory.getMedProcedureTypeDao();   
     utx.begin();
   }
   
@@ -162,7 +160,7 @@ public class MedProcedureTypeEjbDaoTest {
    */
   @Test
   public void testFindById() {
-    log.info("findById");
+    log.info("testFindById");
     Integer id           = 122;  
     String  description  = "Korona metalowa";    
     String  symbolKasach = "P/P";
@@ -184,7 +182,7 @@ public class MedProcedureTypeEjbDaoTest {
    */
   @Test
   public void testGetAll() {  	
-    log.info("getAll");
+    log.info("testGetAll");
     MedProcedureType medProcedureType; 
     int i = 0;
     List<MedProcedureType> result = medProcedureTypeDao.getAll();
@@ -195,7 +193,6 @@ public class MedProcedureTypeEjbDaoTest {
         i++;
 	  }    
     assertEquals(NUMBER_OF_PROCEDURES, i);
-  }
-  
+  }  
   
 }

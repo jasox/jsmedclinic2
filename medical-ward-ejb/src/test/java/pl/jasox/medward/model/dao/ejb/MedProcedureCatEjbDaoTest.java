@@ -29,13 +29,11 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import static org.junit.Assert.*;
-import org.junit.Ignore;
 import org.junit.runner.RunWith;
 
 import pl.jasox.medward.db.ApplicationDatabase;
 import pl.jasox.medward.db.DatabaseType;
 import pl.jasox.medward.model.dao.IMedProcedureCatDao;
-import pl.jasox.medward.model.dao.ejb.factory.EjbDaoFactory;
 import pl.jasox.medward.model.dao.factory.IDaoFactory;
 import pl.jasox.medward.db.TestDatabase;
 import pl.jasox.medward.db.TestEntityManagerProducer;
@@ -60,7 +58,7 @@ public class MedProcedureCatEjbDaoTest {
   @EJB
   private IDaoFactory daoFactory;
   
-  @EJB
+  //@EJB
   private IMedProcedureCatDao medProcedureCatDao; 
   
   // ---------------------------------------------------------------------------
@@ -79,7 +77,7 @@ public class MedProcedureCatEjbDaoTest {
   
   @Before
   public void setUp() throws NotSupportedException, SystemException {   
-    //medProcedureCatDao = daoFactory.getMedProcedureCatDao();   
+    medProcedureCatDao = daoFactory.getMedProcedureCatDao();   
     utx.begin();
   }
   

@@ -34,7 +34,6 @@ import pl.jasox.medward.db.DatabaseType;
 import pl.jasox.medward.db.EntityManagerProducer;
 import pl.jasox.medward.db.TestDatabase;
 import pl.jasox.medward.model.dao.IMedProcedureDao;
-import pl.jasox.medward.model.dao.ejb.factory.EjbDaoFactory;
 import pl.jasox.medward.model.dao.factory.IDaoFactory;
 import pl.jasox.medward.model.domainobject.MedProcedure;
 import pl.jasox.medward.util.ResourcesProducer;
@@ -43,7 +42,6 @@ import pl.jasox.medward.util.ResourcesProducer;
  * Test na bazie produkcyjnej!
  * @author Janusz Swół
  */
-//@Ignore
 @RunWith(Arquillian.class)
 public class MedProcedureEjbDao2Test {
   
@@ -56,7 +54,7 @@ public class MedProcedureEjbDao2Test {
   @EJB
   private IDaoFactory daoFactory;
   
-  @EJB
+  //@EJB
   private IMedProcedureDao medProcedureDao; 
   
   // ---------------------------------------------------------------------------
@@ -75,7 +73,7 @@ public class MedProcedureEjbDao2Test {
   
   @Before
   public void setUp() throws NotSupportedException, SystemException {   
-    //medProcedureDao = daoFactory.getMedProcedureDao();   
+    medProcedureDao = daoFactory.getMedProcedureDao();   
     utx.begin();
   }
   
@@ -159,7 +157,7 @@ public class MedProcedureEjbDao2Test {
   @Test    //  na bazie produkcyjnej MySQL - Amazon WS
   @Ignore  //  z tego powodu wykonywać świadomie i z dużą ostrożnością
   public void testFindById() {
-    log.info("findById");
+    log.info("testFindById");
     Integer id           = 4966;  
     String  description  = "kl.1 Charisma";    
     String  symbolKasach = "P/P";
@@ -169,8 +167,8 @@ public class MedProcedureEjbDao2Test {
     assertEquals(id,           medProcedure.getIdMedProcedure());
     assertEquals(description,  medProcedure.getDescription());    
     assertEquals(symbolKasach, medProcedure.getKasach().getSymbolKasa()); // FIXME bad style
-    assertEquals(firstName,    medProcedure.getPatient().getFirstName()); // violates Demeter principle
-    assertEquals(lastName,     medProcedure.getPatient().getLastName());  // czyli nie wywołuj w stylu jQuery
+    assertEquals(firstName,    medProcedure.getPatient().getFirstName()); //  violates Demeter principle
+    assertEquals(lastName,     medProcedure.getPatient().getLastName());  //   czyli nie wywołuj w stylu jQuery
     id           = 4353;  
     description  = "Rach";    
     symbolKasach = "P/P";

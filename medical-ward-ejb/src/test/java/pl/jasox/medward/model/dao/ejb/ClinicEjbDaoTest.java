@@ -35,7 +35,6 @@ import pl.jasox.medward.db.DatabaseType;
 import pl.jasox.medward.db.TestDatabase;
 import pl.jasox.medward.db.TestEntityManagerProducer;
 import pl.jasox.medward.model.dao.IClinicDao;
-import pl.jasox.medward.model.dao.ejb.factory.EjbDaoFactory;
 import pl.jasox.medward.model.dao.factory.IDaoFactory;
 import pl.jasox.medward.model.domainobject.Clinic;
 import pl.jasox.medward.util.ResourcesProducer;
@@ -113,8 +112,8 @@ public class ClinicEjbDaoTest {
     
     return ShrinkWrap.create(WebArchive.class, "test.war")
        .addPackages(true,"pl.jasox.medward.model.dao.ejb")
-       .addClass(ClinicEjbDao.class)
-       .addClass(EjbDaoFactory.class)      
+       //.addClass(ClinicEjbDao.class)
+       //.addClass(EjbDaoFactory.class)      
        .addClass(ResourcesProducer.class)
        .addClass(ApplicationDatabase.class)
        .addClass(TestDatabase.class) 

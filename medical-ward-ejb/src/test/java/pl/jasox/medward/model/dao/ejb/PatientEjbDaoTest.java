@@ -29,13 +29,11 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import static org.junit.Assert.*;
-import org.junit.Ignore;
 import org.junit.runner.RunWith;
 
 import pl.jasox.medward.db.ApplicationDatabase;
 import pl.jasox.medward.db.DatabaseType;
 import pl.jasox.medward.model.dao.IPatientDao;
-import pl.jasox.medward.model.dao.ejb.factory.EjbDaoFactory;
 import pl.jasox.medward.model.dao.factory.IDaoFactory;
 import pl.jasox.medward.model.domainobject.Patient;
 import pl.jasox.medward.db.TestDatabase;
@@ -60,7 +58,7 @@ public class PatientEjbDaoTest {
   @EJB
   private IDaoFactory daoFactory;
   
-  @EJB
+  //@EJB
   private IPatientDao patientDao; 
   
   // ---------------------------------------------------------------------------
@@ -79,7 +77,7 @@ public class PatientEjbDaoTest {
   
   @Before
   public void setUp() throws NotSupportedException, SystemException {   
-    //patientDao = daoFactory.getPatientDao();   
+    patientDao = daoFactory.getPatientDao();   
     utx.begin();
   }
   
@@ -162,7 +160,7 @@ public class PatientEjbDaoTest {
    */
   @Test
   public void testFindById() {
-    log.info("findById");
+    log.info("testFindById");
     Double id           = 94033100000D;  // pesel - jedenaście znaków    
     String firstName    = "Mateusz";
     String lastName     = "Sajdak";
@@ -188,7 +186,7 @@ public class PatientEjbDaoTest {
    */
   @Test
   public void testGetAll() {  	
-    log.info("getAll");
+    log.info("testGetAll");
     Patient patient; 
     int i = 0;
     List<Patient> result   = patientDao.getAll();
@@ -199,7 +197,6 @@ public class PatientEjbDaoTest {
         i++;
 	  }    
     assertEquals(NUMBER_OF_PATIENTS, i);
-  }
-  
+  }  
   
 }
