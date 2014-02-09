@@ -28,7 +28,7 @@ import pl.jasox.medward.util.ResourcesProducer;
 @RunWith(Arquillian.class)
 public class DoctorResourceTest {  
      
-  String localhost    = "localhost";
+  String localhost    = "127.0.0.1";
   String js_laptop_hp = "10.23.14.95";
    
   String host = localhost;
