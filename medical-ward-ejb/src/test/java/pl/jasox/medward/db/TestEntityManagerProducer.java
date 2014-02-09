@@ -12,7 +12,6 @@ import javax.persistence.PersistenceContext;
 /**
  * Exposes the <code>EntityManager</code>'s available for test of application <br/> 
  */
-//@Stateless
 public class TestEntityManagerProducer implements Serializable {
 	
 	  private static final long serialVersionUID = 6970822929709709752L;

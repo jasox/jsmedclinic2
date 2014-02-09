@@ -15,15 +15,15 @@ import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import pl.jasox.medward.db.ApplicationDatabase;
-import pl.jasox.medward.db.DatabaseType;
-import pl.jasox.medward.db.TestDatabase;
-import pl.jasox.medward.db.TestEntityManagerProducer;
+//import pl.jasox.medward.db.ApplicationDatabase;
+//import pl.jasox.medward.db.DatabaseType;
+//import pl.jasox.medward.db.TestDatabase;
+//import pl.jasox.medward.db.TestEntityManagerProducer;
 import pl.jasox.medward.util.ResourcesProducer;
 
 /**
  * @author <a href="mailto:janusz.swol@gmail.com">Janusz Swół</a>
- * @version $Revision: 1 $
+ * @version 1.1.1
  */
 @RunWith(Arquillian.class)
 public class DoctorResourceTest {  
@@ -48,12 +48,22 @@ public class DoctorResourceTest {
         Maven.resolver().loadPomFromFile("pom.xml")
        .resolve("org.picketlink.idm:picketlink-idm-core")
        .withTransitivity().asFile();
-    /*
-    File[] jersey_core = 
+    
+    File[] json = 
         Maven.resolver().loadPomFromFile("pom.xml")
-       .resolve("com.sun.jersey:jersey-core")
+       .resolve("org.glassfish:javax.json")
        .withTransitivity().asFile();
-    */
+    
+    File[] resteasy_jaxrs = 
+        Maven.resolver().loadPomFromFile("pom.xml")
+       .resolve("org.jboss.resteasy:resteasy-jaxrs")
+       .withTransitivity().asFile();
+    
+    File[] resteasy_jaxb = 
+        Maven.resolver().loadPomFromFile("pom.xml")
+       .resolve("org.jboss.resteasy:resteasy-jaxb-provider")
+       .withTransitivity().asFile();    
+    
     File[] medical_ward_ejb = 
         Maven.resolver().loadPomFromFile("pom.xml")
        .resolve("pl.jasox.medclinic:medical-ward-ejb")
@@ -64,19 +74,24 @@ public class DoctorResourceTest {
        //.addClass(DoctorEjbDao.class)       
        //.addClass(EjbDaoFactory.class)      
        .addClass(ResourcesProducer.class)
-       .addClass(ApplicationDatabase.class)
-       .addClass(TestDatabase.class)   
-       .addClass(DatabaseType.class)      
-       .addClass(TestEntityManagerProducer.class) 
+       //.addClass(ApplicationDatabase.class)
+       //.addClass(TestDatabase.class)   
+       //.addClass(DatabaseType.class)      
+       //.addClass(TestEntityManagerProducer.class) 
        .addClass(DoctorResourceRESTService.class)     
        .addAsLibraries(medical_ward_simple)       
        .addAsLibraries(picketlink_idm)  
        .addAsLibraries(medical_ward_ejb)
+       .addAsLibraries(json)
+       .addAsLibraries(resteasy_jaxrs)
+       .addAsLibraries(resteasy_jaxb)
        .addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")
-       .addAsResource("log4j.properties", "log4j.properties")
+       .addAsResource("log4j.properties",   "log4j.properties")
        .addAsResource("logging.properties", "logging.properties")
-       .addAsWebInfResource("META-INF/beans.xml", "beans.xml")
-       .addAsWebInfResource("META-INF/seam-beans.xml", "seam-beans.xml");
+       .addAsWebInfResource("WEB-INF/glassfish-web.xml", "glassfish-web.xml")
+       .addAsWebInfResource("WEB-INF/web.xml",           "web.xml")
+       .addAsWebInfResource("META-INF/beans.xml",        "beans.xml")
+       .addAsWebInfResource("META-INF/seam-beans.xml",   "seam-beans.xml");
   }
   
   // ---------------------------------------------------------------------------
@@ -101,6 +116,7 @@ public class DoctorResourceTest {
       connection.setInstanceFollowRedirects(false);
       connection.setRequestMethod("POST");
       connection.setRequestProperty("Content-Type", "application/xml");
+      System.out.println("Connection :" + connection);
       OutputStream os = connection.getOutputStream();
       os.write(newDoctor.getBytes());
       os.flush();

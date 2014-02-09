@@ -20,8 +20,8 @@ public class DoctorEjbDao implements IDoctorDao, Serializable {
 	
 	private static final long serialVersionUID = -2046140499998287419L;
 
-	@Inject
-  Logger log;
+	//@Inject
+  //Logger log;
 	 
   @Inject
   @ApplicationDatabase

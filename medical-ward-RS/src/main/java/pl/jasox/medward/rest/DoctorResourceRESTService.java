@@ -42,7 +42,7 @@ public class DoctorResourceRESTService {
     
     // very very simple version of DoctorRepository
     private Map<Integer, Doctor> doctorRepository = new ConcurrentHashMap<Integer, Doctor>();
-    private AtomicInteger idCounter = new AtomicInteger();
+    private AtomicInteger        idCounter        = new AtomicInteger();
 
     //@Inject
     //private Logger log;
