@@ -18,6 +18,7 @@ import java.net.InetSocketAddress;
 import java.net.URI;
 
 import static org.junit.Assert.assertEquals;
+
 import pl.jasox.medward.model.domainobject.Doctor;
 
 /**

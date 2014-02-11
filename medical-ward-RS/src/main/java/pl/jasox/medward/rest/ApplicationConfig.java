@@ -11,13 +11,15 @@ import javax.ws.rs.ApplicationPath;
 public class ApplicationConfig extends Application {
   
    private Set<Object>   singletons = new HashSet<Object>();
-   private Set<Class<?>> classes    = new HashSet<Class<?>>();
+   private Set<Class<?>> classes; //    = new HashSet<Class<?>>();
+   
 
    public ApplicationConfig() {
       super();
-      //packages("pl.jasox.medward.rest");     
-      //singletons.add( new DoctorResourceRESTService() );
-      //singletons = Collections.unmodifiableSet(singletons);
+      // ...        
+      HashSet<Class<?>> c = new HashSet<>();
+      c.add(DoctorResourceRESTService.class);
+      classes = Collections.unmodifiableSet(c);
    }
   
    @Override
