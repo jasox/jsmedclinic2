@@ -3,13 +3,15 @@ package pl.jasox.medward.rest;
 import javax.ws.rs.core.Application;
 import java.util.HashSet;
 import java.util.Set;
+import javax.ws.rs.ApplicationPath;
 
-public class MedwardApplication extends Application {
+@ApplicationPath("/")
+public class ApplicationConfig extends Application {
   
    private Set<Object>   singletons = new HashSet<Object>();
    private Set<Class<?>> empty      = new HashSet<Class<?>>();
 
-   public MedwardApplication() {
+   public ApplicationConfig() {
       super();
       singletons.add( new DoctorResourceRESTService() );
    }

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--  -->
-
 <project 
   xmlns="http://maven.apache.org/POM/4.0.0" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -23,9 +21,16 @@
 	<name>Medical Ward REST Module</name>
 	<description></description>	
   
+  <properties>
+    <!--Test-->
+    <skipTests>false</skipTests>
+    <skipITs>${skipTests}</skipITs>
+    <skipUTs>${skipTests}</skipUTs>
+  </properties>
+  
   <!-- ===================================================================== -->
     
-	<dependencies>
+  <dependencies>
     
     <dependency>
       <groupId>${projectGroup}</groupId>
@@ -378,42 +383,44 @@
     </dependency>
     -->
     
-    <!-- Jersey for Glassfish 
+    <!-- Jersey for Glassfish -->    
     <dependency>
-      <groupId>org.glassfish.jersey.core</groupId>
-      <artifactId>jersey-common</artifactId>
-      <version>${version.jersey}</version>
+        <groupId>org.glassfish.jersey.core</groupId>
+        <artifactId>jersey-common</artifactId>
+        <version>${version.jersey}</version>        
     </dependency>
     <dependency>
-      <groupId>org.glassfish.jersey.core</groupId>
-      <artifactId>jersey-server</artifactId>
-      <version>${version.jersey}</version>
+        <groupId>org.glassfish.jersey.containers</groupId>
+        <artifactId>jersey-container-jdk-http</artifactId>
+        <version>${version.jersey}</version>        
     </dependency>
     <dependency>
-      <groupId>org.glassfish.jersey.core</groupId>
-      <artifactId>jersey-client</artifactId>
-      <version>${version.jersey}</version>
+        <groupId>org.glassfish.jersey.core</groupId>
+        <artifactId>jersey-client</artifactId>
+        <version>${version.jersey}</version>        
     </dependency>
+    <dependency>
+        <groupId>org.glassfish.jersey.core</groupId>
+        <artifactId>jersey-server</artifactId>
+        <version>${version.jersey}</version>        
+    </dependency>
+    <dependency>
+        <groupId>org.glassfish.jersey.containers</groupId>
+        <artifactId>jersey-container-servlet</artifactId>
+        <version>${version.jersey}</version>        
+    </dependency>      
+        
     <dependency>
       <groupId>org.glassfish.jersey.containers</groupId>
       <artifactId>jersey-container-grizzly2-http</artifactId>
-      <version>${version.jersey}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.glassfish.jersey.containers</groupId>
-      <artifactId>jersey-container-jdk-http</artifactId>
-      <version>${version.jersey}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.glassfish.jersey.containers</groupId>
-      <artifactId>jersey-container-servlet</artifactId>
-      <version>${version.jersey}</version>
-    </dependency>
+      <version>${version.jersey}</version>      
+    </dependency>   
     <dependency>
       <groupId>org.glassfish.jersey.containers</groupId>
       <artifactId>jersey-container-servlet-core</artifactId>
-      <version>${version.jersey}</version>
+      <version>${version.jersey}</version>      
     </dependency>
+    <!--
     <dependency>
       <groupId>org.eclipse.persistence</groupId>
       <artifactId>org.eclipse.persistence.moxy</artifactId>
@@ -511,7 +518,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
         <version>${surefire.version}</version>
 				<configuration>
-					<skip>false</skip>
+					<skip>${skipUTs}</skip>
           <!--
 					<suiteXmlFiles>
              <suiteXmlFile>

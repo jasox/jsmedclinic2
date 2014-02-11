@@ -52,7 +52,8 @@
     <version.javaee>6.0</version.javaee>
     <version.glassfish>3.1.2</version.glassfish>
     <version.weld>2.1.0.Final</version.weld> 
-    <version.jersey>1.8</version.jersey>  
+     <!--  <version.jersey>1.8</version.jersey> -->
+    <version.jersey>2.3.1</version.jersey> 
     <version.eclipselink>2.5.1</version.eclipselink>
     <version.hibernate.validator>4.1.0.Final</version.hibernate.validator> 
     <version.el>3.0.0</version.el>
@@ -61,7 +62,8 @@
     <version.shrinkwrap.resolvers>2.0.0</version.shrinkwrap.resolvers>      
     <version.arquillian.bom>1.0.3.Final</version.arquillian.bom>  <!-- 1.1.2.Final -->
     <version.xmlunit>1.4</version.xmlunit>
-    <version.slf4j>1.5.10</version.slf4j> 
+    <version.slf4j>1.5.10</version.slf4j>
+    <version.maven.jrebel.plugin>1.1.5</version.maven.jrebel.plugin> 
     
     <!-- Databases -->
     <version.derby>10.10.1.1</version.derby>
@@ -72,7 +74,8 @@
 		<projectName>medical-ward</projectName>
 		<projectVersion>1.1.1</projectVersion>    
 		<projectScope>compile</projectScope>    		
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>	
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>	
     
     <!-- Konfiguracja dla Tomcata (default) -->
 		<tomcat.home>${env.CATALINA_HOME}</tomcat.home>
