@@ -13,6 +13,7 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 //import pl.jasox.medward.db.ApplicationDatabase;
@@ -25,6 +26,7 @@ import pl.jasox.medward.util.ResourcesProducer;
  * @author <a href="mailto:janusz.swol@gmail.com">Janusz Swół</a>
  * @version 1.1.1
  */
+@Ignore
 @RunWith(Arquillian.class)
 public class DoctorResourceTest {  
      
@@ -96,7 +98,7 @@ public class DoctorResourceTest {
   
   // ---------------------------------------------------------------------------
      
-  @Test
+  @Test  
    public void testDoctorResource() throws Exception {
       System.out.println("*** Create a new Doctor ***");
       // Create a new doctor

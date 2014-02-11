@@ -15,6 +15,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
 
 import pl.jasox.medward.model.validation.Email;
 import pl.jasox.medward.model.IMedwardUser;
@@ -34,6 +36,8 @@ import pl.jasox.medward.model.IMedwardUser;
 @Entity                           // JPA annotations   
 @Table(name="doctor")
 @XmlRootElement(name = "doctor")  // JAXB annotations  
+@XmlType(propOrder = { "idDoctor", "symbolDoctor", "symbolSpec", "firstName", 
+                       "lastName", "emailAddress", "password", "remarks" })
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class Doctor implements IMedwardUser, Serializable {
 	
@@ -191,6 +195,7 @@ public class Doctor implements IMedwardUser, Serializable {
 	/** For interface <i>IMedwardUser</i>
 	 *  @return  firstName + " " + lastName : dla doktora */
   @Transient
+  @XmlTransient
 	@Override
 	public String getName() {		
 		return getFirstName() + " " + getLastName();
@@ -198,18 +203,20 @@ public class Doctor implements IMedwardUser, Serializable {
 	
 	/** For interface <i>IMedwardUser</i> - Loginem doktora jest jego numer lekarski */
   @Transient
+  @XmlTransient
 	@Override	
 	public String getUsername() {		
-		return getSymbolDoctor();
+		return this.symbolDoctor;
 	}
 	
 	@Override
 	public void setUsername(String username) {
-		setSymbolDoctor(username);		
+		this.symbolDoctor = username;		
 	}
 	
 	/** For interface <i>User</i> in PicketLink - ID doktora jest jego numer lekarski */
   @Transient
+  @XmlTransient
 	@Override
 	public String getId() {		
 		return getUsername();
@@ -217,6 +224,7 @@ public class Doctor implements IMedwardUser, Serializable {
 	
 	/** For interface <i>User</i> in PicketLink */
   @Transient
+  @XmlTransient
 	@Override
 	public String getKey() {
 		// For User this will return same value as getId(). 
@@ -225,3 +233,9 @@ public class Doctor implements IMedwardUser, Serializable {
 	
 }
 
+/*
+@XmlType
+When property (method) access is used, the entries in the propOrder attribute correspond 
+to the property names. When field (instance variable) access is used, the entries 
+in the propOrder attribute correspond to the field names.
+*/

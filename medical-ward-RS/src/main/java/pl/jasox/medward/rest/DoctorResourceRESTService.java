@@ -30,7 +30,7 @@ import javax.ws.rs.core.Response;
 
 import pl.jasox.medward.model.domainobject.Doctor;
 
-import org.jboss.resteasy.annotations.providers.jaxb.Formatted;
+//import org.jboss.resteasy.annotations.providers.jaxb.Formatted;
 
 /**
  * JAX-RS Service <br/>
@@ -69,7 +69,7 @@ public class DoctorResourceRESTService {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_XML) // "application/xml")
-    @Formatted
+    //@Formatted
     public Doctor getDoctor(@PathParam("id") int id) {
       Doctor doctor = doctorRepository.get(id);
       if (doctor == null) {
@@ -81,7 +81,7 @@ public class DoctorResourceRESTService {
     @PUT
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_XML) // "application/xml")
-    @Formatted
+    //@Formatted
     public void updateCustomer(@PathParam("id") int id, Doctor update)
     {
       Doctor current = doctorRepository.get(id);
@@ -98,7 +98,7 @@ public class DoctorResourceRESTService {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Formatted
+    //@Formatted
     public List<Doctor> listAllDoctors() {
         return findAllDoctorsOrderedByName();
     }

@@ -18,48 +18,54 @@ import java.net.InetSocketAddress;
 import java.net.URI;
 
 import static org.junit.Assert.assertEquals;
+import pl.jasox.medward.model.domainobject.Doctor;
 
 /**
  * @author Janusz Swół
  * @credit Antonio Goncalves
  *         http://www.antoniogoncalves.org         
  */
-public class DoctorRestServiceIT {
+public class DoctorRestServiceITest {
+  
+    // Attributes --------------------------------------------------------------    
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
-
-    private static final String XML = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><customer><email>jsmith@gmail.com</email><firstName>John</firstName><lastName>Smith</lastName><phoneNumber>1234565</phoneNumber></customer>";
-
-    // ======================================
-    // =                 Tests              =
-    // ======================================
-
+    private static final String Doctor_XML = 
+       "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"
+          + "<doctor>"
+            + "<symbol-doctor>1234565</symbol-doctor>"            
+            + "<first-name>John</first-name>"
+            + "<last-name>Smith</last-name>"
+            + "<email-address>jsmith@gmail.com</email-address>"
+          + "</doctor>";
+    
+    // Tests  ------------------------------------------------------------------
+    
     @Test
-    public void shouldMarshallACustomer() throws JAXBException {
+    public void shouldMarshallADoctor() throws JAXBException {
         // given
-        Customer customer = new Customer("John", "Smith", "jsmith@gmail.com", "1234565");
+        Doctor doctor = new Doctor("1234565", "John", "Smith", "jsmith@gmail.com");
+        System.out.println("Java: " + doctor);
         StringWriter writer = new StringWriter();
-        JAXBContext context = JAXBContext.newInstance(Customer.class);
+        JAXBContext context = JAXBContext.newInstance(Doctor.class);
         Marshaller m = context.createMarshaller();
-        m.marshal(customer, writer);
-
+        m.marshal(doctor, writer);
+        System.out.println("XML : " + writer.toString());
         // then
-        assertEquals(XML, writer.toString());
+        assertEquals(Doctor_XML, writer.toString());
     }
-
+    
     @Test
-    public void shouldMarshallAListOfCustomers() throws JAXBException {
-        Customers books = new Customers();
-        books.add(new Customer("John", "Smith", "jsmith@gmail.com", "1234565"));
-        books.add(new Customer("John", "Smith", "jsmith@gmail.com", "1234565"));
+    public void shouldMarshallAListOfDoctors() throws JAXBException {
+        Doctors doctors = new Doctors();
+        doctors.add(new Doctor("John", "Smith", "jsmith@gmail.com", "1234565"));
+        doctors.add(new Doctor("John", "Smith", "jsmith@gmail.com", "1234565"));
         StringWriter writer = new StringWriter();
-        JAXBContext context = JAXBContext.newInstance(Customers.class);
+        JAXBContext context = JAXBContext.newInstance(Doctors.class);
         Marshaller m = context.createMarshaller();
-        m.marshal(books, writer);
+        m.marshal(doctors, writer);
+        System.out.println("XML : " + writer.toString());
     }
-
+   
     @Test //@Ignore
     public void shouldCheckURIs() throws IOException {
 
@@ -77,21 +83,21 @@ public class DoctorRestServiceIT {
         Client client = ClientBuilder.newClient();
 
         // Valid URIs
-        assertEquals(200, client.target("http://localhost:8282/customer/agoncal").request().get().getStatus());
-        assertEquals(200, client.target("http://localhost:8282/customer/1234").request().get().getStatus());
-        assertEquals(200, client.target("http://localhost:8282/customer?zip=75012").request().get().getStatus());
-        assertEquals(200, client.target("http://localhost:8282/customer/search;firstname=Antonio;surname=Goncalves").request().get().getStatus());
+        assertEquals(200, client.target("http://localhost:8282/doctor/agoncal").request().get().getStatus());
+        assertEquals(200, client.target("http://localhost:8282/doctor/1234").request().get().getStatus());
+        assertEquals(200, client.target("http://localhost:8282/doctor?zip=75012").request().get().getStatus());
+        assertEquals(200, client.target("http://localhost:8282/doctor/search;firstname=Antonio;surname=Goncalves").request().get().getStatus());
 
         // Invalid URIs
-        assertEquals(404, client.target("http://localhost:8282/customer/AGONCAL").request().get().getStatus());
-        assertEquals(404, client.target("http://localhost:8282/customer/dummy/1234").request().get().getStatus());
+        assertEquals(404, client.target("http://localhost:8282/doctor/AGONCAL").request().get().getStatus());
+        assertEquals(404, client.target("http://localhost:8282/doctor/dummy/1234").request().get().getStatus());
 
         // Stop HTTP server
         server.stop(0);
     }
-
+    /*
     @Test //@Ignore
-    public void shouldGetCustomerByLogin() throws IOException {
+    public void shouldGetDoctorByLogin() throws IOException {
 
         URI uri = UriBuilder.fromUri("http://localhost/").port(8282).build();
 
@@ -107,7 +113,7 @@ public class DoctorRestServiceIT {
         Client client = ClientBuilder.newClient();
 
         // Valid URIs
-        Response response = client.target("http://localhost:8282/customer/agoncal").request().get();
+        Response response = client.target("http://localhost:8282/doctor/agoncal").request().get();
         assertEquals(200, response.getStatus());
 
         System.out.println("###############################");
@@ -118,7 +124,7 @@ public class DoctorRestServiceIT {
     }
 
     @Test //@Ignore
-    public void shouldGetCustomers() throws IOException {
+    public void shouldGetDoctors() throws IOException {
 
         URI uri = UriBuilder.fromUri("http://localhost/").port(8282).build();
 
@@ -134,7 +140,7 @@ public class DoctorRestServiceIT {
         Client client = ClientBuilder.newClient();
 
         // Valid URIs
-        Response response = client.target("http://localhost:8282/customer").request().get();
+        Response response = client.target("http://localhost:8282/doctor").request().get();
         assertEquals(200, response.getStatus());
 
         System.out.println("###############################");
@@ -143,4 +149,5 @@ public class DoctorRestServiceIT {
         // Stop HTTP server
         server.stop(0);
     }
+    */
 }
