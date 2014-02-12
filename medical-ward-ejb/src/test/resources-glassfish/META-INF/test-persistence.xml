@@ -31,7 +31,7 @@
   <!-- ===================================================================== -->                      
   
   <persistence-unit name="medward_AS" transaction-type="JTA">    
-    <jta-data-source>jdbc/medward_Hsql_Datasource</jta-data-source>
+    <jta-data-source>jdbc/__default</jta-data-source>
     <class>pl.jasox.medward.model.domainobject.Doctor</class>
     <class>pl.jasox.medward.model.domainobject.Patient</class>
     <class>pl.jasox.medward.model.domainobject.Kasach</class>
@@ -42,7 +42,8 @@
     <class>pl.jasox.medward.model.domainobject.Admission</class>       
     <exclude-unlisted-classes>true</exclude-unlisted-classes> 
     <!-- -->
-    <properties>              
+    <properties>
+       <property name="eclipselink.ddl-generation"     value="drop-and-create-tables"/>              
        <property name="eclipselink.logging.level"      value="INFO"/>      
        <property name="eclipselink.logging.parameters" value="false"/>      
     </properties>     

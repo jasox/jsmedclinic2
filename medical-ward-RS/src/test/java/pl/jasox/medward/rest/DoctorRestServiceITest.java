@@ -59,7 +59,7 @@ public class DoctorRestServiceITest {
     public void shouldMarshallAListOfDoctors() throws JAXBException {
         Doctors doctors = new Doctors();
         doctors.add(new Doctor("John", "Smith", "jsmith@gmail.com", "1234565"));
-        doctors.add(new Doctor("John", "Smith", "jsmith@gmail.com", "1234565"));
+        doctors.add(new Doctor("Joe",  "Doe",   "jdoe@gmail.com",   "1234566"));
         StringWriter writer = new StringWriter();
         JAXBContext context = JAXBContext.newInstance(Doctors.class);
         Marshaller m = context.createMarshaller();

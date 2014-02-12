@@ -6,6 +6,7 @@ import javax.ejb.Startup;
 import javax.ejb.Singleton;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -21,35 +22,31 @@ import javax.persistence.PersistenceContext;
 public class EntityManagerProducer implements Serializable {
 	
 	  private static final long serialVersionUID = 6970822929709709751L;
-
-		public static class Database {
-      public enum Type {  
-        DEFAULT, AS, HSQL, MySQL; 
-      }
-    }
     
-    // Baza produkcyjna, baza defaultowa dla aplikacji
-    Database.Type actualDatabaseType = Database.Type.MySQL;
+    // Baza produkcyjna, baza defaultowa dla aplikacji = DatabaseType.MySQL;
+    @Inject
+    @ApplicationDatabase 
+    DatabaseType actualDatabaseType; 
     
     // -------------------------------------------------------------------------
     
     // wbudowana baza na serwerze aplikacji
-    // (Database.Type.AS)
+    // (DatabaseType.AS)
     @PersistenceContext(unitName="medward_AS")    
 	  private EntityManager entityManagerAs;
 	  
     // testowa baza Hsql w lokalnym pliku tekstowym
-    // (Database.Type.HSQL)
+    // (DatabaseType.HSQL)
     @PersistenceContext(unitName="medward_Hsql")    
 	  private EntityManager entityManagerHsql;
     
     // produkcyjna baza na Amazon WS
-    // (Database.Type.MySQL)
+    // (DatabaseType.MySQL)
     @PersistenceContext(unitName="medward_MySQL")    
 	  private EntityManager entityManagerMySQL;
     
     // -------------------------------------------------------------------------
-    
+    // @ApplicationDatabase  
    
     @Produces
     @ApplicationDatabase        
@@ -57,16 +54,16 @@ public class EntityManagerProducer implements Serializable {
       
        EntityManager entityManager = null;
        
-       if ( actualDatabaseType == Database.Type.DEFAULT) {
+       if ( actualDatabaseType == DatabaseType.DEFAULT) {
           entityManager = entityManagerMySQL; // MySQL
        }
-       if ( actualDatabaseType == Database.Type.AS) {
+       if ( actualDatabaseType == DatabaseType.AS) {
           entityManager = entityManagerAs;  
        }
-       if ( actualDatabaseType == Database.Type.HSQL) {
+       if ( actualDatabaseType == DatabaseType.HSQL) {
           entityManager = entityManagerHsql; 
        }
-       if ( actualDatabaseType == Database.Type.MySQL) {
+       if ( actualDatabaseType == DatabaseType.MySQL) {
           entityManager = entityManagerMySQL; 
        }       
        return entityManager;
@@ -77,6 +74,62 @@ public class EntityManagerProducer implements Serializable {
       if ( em.isOpen() ) {      
         em.close();
       }  
-    }        
+    }   
+    
+    // -------------------------------------------------------------------------
+    // @TestDatabase
+    
+    @Produces
+    @TestDatabase(DatabaseType.DEFAULT)        
+    public EntityManager getEntityManagerDefault() {       
+       EntityManager entityManager = entityManagerHsql;             
+       return entityManager;
+    }
+           
+    @Produces
+    @TestDatabase(DatabaseType.AS)        
+    public EntityManager getEntityManagerAs() {       
+       EntityManager entityManager = entityManagerAs;             
+       return entityManager;
+    }     
+    
+    @Produces
+    @TestDatabase(DatabaseType.HSQL)        
+    public EntityManager getEntityManagerHsql() {       
+       EntityManager entityManager = entityManagerHsql;             
+       return entityManager;
+    }   
+    
+    @Produces
+    @TestDatabase(DatabaseType.MySQL)        
+    public EntityManager getEntityManagerMySQL() {       
+       EntityManager entityManager = entityManagerMySQL;             
+       return entityManager;
+    }
+   
+       
+    public void closeEntityManagerAs(@Disposes @TestDatabase(DatabaseType.AS) EntityManager em) {
+      if ( em.isOpen() ) { 
+        em.close();
+      }  
+    }     
+    
+    public void closeEntityManagerHsql(@Disposes @TestDatabase(DatabaseType.HSQL) EntityManager em) {
+      if ( em.isOpen() ) { 
+        em.close();
+      }  
+    }  
+    
+    public void closeEntityManagerMySQL(@Disposes @TestDatabase(DatabaseType.MySQL) EntityManager em) {
+      if ( em.isOpen() ) { 
+        em.close();
+      }  
+    } 
+    
+    public void closeEntityManagerDefault(@Disposes @TestDatabase(DatabaseType.DEFAULT) EntityManager em) {
+      if ( em.isOpen() ) { 
+        em.close();
+      }  
+    }         
    
 }

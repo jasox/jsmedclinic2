@@ -24,6 +24,19 @@
   
   <!-- ===================================================================== -->
   
+  <properties>    
+    <version.java>1.6</version.java>     
+    <version.javaee>6.0</version.javaee>
+    <maven.compiler.target>1.6</maven.compiler.target>
+    <maven.compiler.source>1.6</maven.compiler.source>
+    <!-- Test -->
+    <skipTests>true</skipTests>
+    <skipITs>${skipTests}</skipITs>
+    <skipUTs>${skipTests}</skipUTs>
+  </properties>
+  
+  <!-- ===================================================================== -->
+  
   <dependencies>
     
     <dependency>
@@ -48,13 +61,20 @@
        <scope>provided</scope>
     </dependency>  
     
-    <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss AS 7 -->
+    <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss AS 7 
     <dependency>
        <groupId>org.jboss.spec.javax.ws.rs</groupId>
        <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
        <scope>provided</scope>
     </dependency>
     
+    <dependency>
+	     <groupId>org.jboss.spec.javax.ws.rs</groupId>
+	     <artifactId>jboss-jaxrs-api_2.0_spec</artifactId>
+	     <version>1.0.0.Alpha1</version>
+       <scope>provided</scope>
+    </dependency>
+    -->
     <!-- Import the JPA API, we use provided scope as the API is included in JBoss AS 7 -->
     <dependency>
        <groupId>org.hibernate.javax.persistence</groupId>
@@ -371,7 +391,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
         <version>${surefire.version}</version>
 				<configuration>
-					<skip>true</skip>
+					<skip>${skipUTs}</skip>
           <!--
 					<suiteXmlFiles>
              <suiteXmlFile>

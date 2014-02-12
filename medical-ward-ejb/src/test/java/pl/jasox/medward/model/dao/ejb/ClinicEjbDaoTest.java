@@ -32,6 +32,7 @@ import org.junit.runner.RunWith;
 
 import pl.jasox.medward.db.ApplicationDatabase;
 import pl.jasox.medward.db.DatabaseType;
+import pl.jasox.medward.db.EntityManagerProducer;
 import pl.jasox.medward.db.TestDatabase;
 import pl.jasox.medward.db.TestEntityManagerProducer;
 import pl.jasox.medward.model.dao.IClinicDao;
@@ -119,6 +120,7 @@ public class ClinicEjbDaoTest {
        .addClass(TestDatabase.class) 
        .addClass(DatabaseType.class)      
        .addClass(TestEntityManagerProducer.class)
+       .addClass(EntityManagerProducer.class)
        .addAsLibraries(medical_ward_simple)       
        .addAsLibraries(picketlink_idm)       
        .addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")

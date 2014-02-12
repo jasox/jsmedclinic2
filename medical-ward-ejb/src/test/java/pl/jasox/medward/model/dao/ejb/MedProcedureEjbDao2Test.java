@@ -33,6 +33,7 @@ import pl.jasox.medward.db.ApplicationDatabase;
 import pl.jasox.medward.db.DatabaseType;
 import pl.jasox.medward.db.EntityManagerProducer;
 import pl.jasox.medward.db.TestDatabase;
+import pl.jasox.medward.db.TestEntityManagerProducer;
 import pl.jasox.medward.model.dao.IMedProcedureDao;
 import pl.jasox.medward.model.dao.factory.IDaoFactory;
 import pl.jasox.medward.model.domainobject.MedProcedure;
@@ -115,7 +116,8 @@ public class MedProcedureEjbDao2Test {
        .addClass(ResourcesProducer.class)
        .addClass(ApplicationDatabase.class)
        .addClass(TestDatabase.class) 
-       .addClass(DatabaseType.class)      
+       .addClass(DatabaseType.class) 
+       .addClass(TestEntityManagerProducer.class)     
        .addClass(EntityManagerProducer.class)  // Test bazy produkcyjnej      
        .addAsLibraries(medical_ward_simple)       
        .addAsLibraries(picketlink_idm)       
