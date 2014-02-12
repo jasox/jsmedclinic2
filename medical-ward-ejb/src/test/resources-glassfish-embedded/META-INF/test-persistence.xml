@@ -27,7 +27,8 @@
        <property name="eclipselink.logging.parameters" value="false"/>      
     </properties>    
   </persistence-unit>  
-  -->                    
+  -->     
+  
   <!-- ===================================================================== -->                      
   
   <persistence-unit name="medward_AS" transaction-type="JTA">    
@@ -43,13 +44,35 @@
     <exclude-unlisted-classes>true</exclude-unlisted-classes> 
     <!-- -->
     <properties>   
-       <property name="eclipselink.ddl-generation"     value="drop-and-create-tables"/>               
+       <property name="eclipselink.ddl-generation"     value="drop-and-create-tables"/>                      
        <property name="eclipselink.logging.level"      value="INFO"/>      
        <property name="eclipselink.logging.parameters" value="false"/>      
     </properties>     
     <!-- -->    
+  </persistence-unit>               
+  <!-- ===================================================================== -->                      
+  <!--
+  <persistence-unit name="medward_Derby" transaction-type="JTA">    
+    <jta-data-source>jdbc/medward_Derby_Datasource</jta-data-source>
+    <class>pl.jasox.medward.model.domainobject.Doctor</class>
+    <class>pl.jasox.medward.model.domainobject.Patient</class>
+    <class>pl.jasox.medward.model.domainobject.Kasach</class>
+    <class>pl.jasox.medward.model.domainobject.Clinic</class>
+    <class>pl.jasox.medward.model.domainobject.MedProcedureCat</class>
+    <class>pl.jasox.medward.model.domainobject.MedProcedureType</class>
+    <class>pl.jasox.medward.model.domainobject.MedProcedure</class>     
+    <class>pl.jasox.medward.model.domainobject.Admission</class>       
+    <exclude-unlisted-classes>true</exclude-unlisted-classes> 
+     
+    <properties>   
+       <property name="eclipselink.ddl-generation"     value="drop-and-create-tables"/>  
+       <property name="javax.persistence.sql-load-script-source" value="insert.sql"/>               
+       <property name="eclipselink.logging.level"      value="INFO"/>      
+       <property name="eclipselink.logging.parameters" value="false"/>      
+    </properties>     
+        
   </persistence-unit>
-  
+  -->
   <!-- ===================================================================== -->  
   
   <persistence-unit name="medward_MySQL" transaction-type="JTA">    

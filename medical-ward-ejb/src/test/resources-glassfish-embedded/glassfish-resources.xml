@@ -44,20 +44,25 @@
     <jdbc-resource 
        enabled="true"
        pool-name="medward_Hsql_Pool"       
-       jndi-name="jdbc/medward_Hsql_Datasource" />    
+       jndi-name="jdbc/medward_Hsql_Datasource" />       
     
-    <!--
-    <jdbc-resource pool-name="ArquillianEmbeddedDerbyPool"
-       jndi-name="arq/derby"/>
     
-    <jdbc-connection-pool name="ArquillianEmbeddedDerbyPool"
+    <!-- description="Connection Pool for medward apps with DERBY" -->   
+    <jdbc-connection-pool 
+       name="medward_Derby_Pool"
        res-type="javax.sql.DataSource"
        datasource-classname="org.apache.derby.jdbc.EmbeddedDataSource"
        is-isolation-level-guaranteed="false">
-       <property name="databaseName" value="target/db/derby"/>
+       <property name="databaseName"   value="target/db/derby"/>
        <property name="createDatabase" value="create"/>
     </jdbc-connection-pool>
-    -->
+    
+    <!-- description="DataSource for medward apps with DERBY" -->
+    <jdbc-resource
+       enabled="true" 
+       pool-name="medward_Derby_Pool"
+       jndi-name="jdbc/medward_Derby_Datasource"/>
+       
 </resources>
 
 

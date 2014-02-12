@@ -24,10 +24,10 @@
   <!-- ===================================================================== -->
   
   <properties>    
-    <version.java>1.7</version.java>     
-    <version.javaee>7.0</version.javaee>
-    <maven.compiler.target>1.7</maven.compiler.target>
-    <maven.compiler.source>1.7</maven.compiler.source>
+    <version.java>1.6</version.java>     
+    <version.javaee>6.0</version.javaee>
+    <maven.compiler.target>1.6</maven.compiler.target>
+    <maven.compiler.source>1.6</maven.compiler.source>
     <!-- Test -->
     <skipTests>false</skipTests>
     <skipITs>${skipTests}</skipITs>
@@ -115,6 +115,13 @@
     <dependency>
        <groupId>org.jboss.spec.javax.faces</groupId>
        <artifactId>jboss-jsf-api_2.1_spec</artifactId>
+       <scope>provided</scope>
+    </dependency>
+    
+    <!-- Import the Servlet API, we use provided scope as the API is included in JBoss AS 7 -->
+    <dependency>
+       <groupId>org.jboss.spec.javax.servlet</groupId>
+       <artifactId>jboss-servlet-api_3.0_spec</artifactId>
        <scope>provided</scope>
     </dependency>
     
