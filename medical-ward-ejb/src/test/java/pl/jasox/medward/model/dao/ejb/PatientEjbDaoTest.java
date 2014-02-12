@@ -33,12 +33,12 @@ import org.junit.runner.RunWith;
 
 import pl.jasox.medward.db.ApplicationDatabase;
 import pl.jasox.medward.db.DatabaseType;
+import pl.jasox.medward.db.DatabaseTypeProducer;
 import pl.jasox.medward.db.EntityManagerProducer;
 import pl.jasox.medward.model.dao.IPatientDao;
 import pl.jasox.medward.model.dao.factory.IDaoFactory;
 import pl.jasox.medward.model.domainobject.Patient;
 import pl.jasox.medward.db.TestDatabase;
-import pl.jasox.medward.db.TestEntityManagerProducer;
 import pl.jasox.medward.util.ResourcesProducer;
 
 /**
@@ -121,7 +121,7 @@ public class PatientEjbDaoTest {
        .addClass(ApplicationDatabase.class)
        .addClass(TestDatabase.class)  
        .addClass(DatabaseType.class)       
-       .addClass(TestEntityManagerProducer.class)
+       .addClass(DatabaseTypeProducer.class)
        .addClass(EntityManagerProducer.class)
        .addAsLibraries(medical_ward_simple)       
        .addAsLibraries(picketlink_idm)       

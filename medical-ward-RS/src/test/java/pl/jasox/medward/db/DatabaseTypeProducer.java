@@ -10,10 +10,10 @@ import javax.enterprise.inject.Produces;
  */
 @Singleton
 @Startup
-public class TestEntityManagerProducer implements Serializable {
-	 
+public class DatabaseTypeProducer implements Serializable {	  
+    
     @Produces
     @ApplicationDatabase 
-    static DatabaseType actualDatabaseType = DatabaseType.HSQL;
-	
+    static DatabaseType actualDatabaseType = DatabaseType.AS;
+     
 }
