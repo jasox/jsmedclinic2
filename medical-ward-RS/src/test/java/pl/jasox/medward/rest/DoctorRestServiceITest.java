@@ -18,14 +18,14 @@ import java.net.InetSocketAddress;
 import java.net.URI;
 
 import static org.junit.Assert.assertEquals;
+import org.junit.Ignore;
 
 import pl.jasox.medward.model.domainobject.Doctor;
 
 /**
- * @author Janusz Swół
- * @credit Antonio Goncalves
- *         http://www.antoniogoncalves.org         
+ *
  */
+//@Ignore
 public class DoctorRestServiceITest {
   
     // Attributes --------------------------------------------------------------    
@@ -84,45 +84,19 @@ public class DoctorRestServiceITest {
         Client client = ClientBuilder.newClient();
 
         // Valid URIs
-        assertEquals(200, client.target("http://localhost:8282/doctor/agoncal").request().get().getStatus());
-        assertEquals(200, client.target("http://localhost:8282/doctor/1234").request().get().getStatus());
-        assertEquals(200, client.target("http://localhost:8282/doctor?zip=75012").request().get().getStatus());
-        assertEquals(200, client.target("http://localhost:8282/doctor/search;firstname=Antonio;surname=Goncalves").request().get().getStatus());
+        assertEquals(200, client.target("http://localhost:8282/doctor/dummy").request().get().getStatus());
+        assertEquals(200, client.target("http://localhost:8282/doctor/1234567").request().get().getStatus());
+        assertEquals(200, client.target("http://localhost:8282/doctor?email=jdoe@wp.pl").request().get().getStatus());
+        assertEquals(200, client.target("http://localhost:8282/doctor/search;firstname=Jan;surname=Dox").request().get().getStatus());
 
         // Invalid URIs
-        assertEquals(404, client.target("http://localhost:8282/doctor/AGONCAL").request().get().getStatus());
+        assertEquals(404, client.target("http://localhost:8282/doctor/dummy/22").request().get().getStatus());
         assertEquals(404, client.target("http://localhost:8282/doctor/dummy/1234").request().get().getStatus());
 
         // Stop HTTP server
         server.stop(0);
     }
-    /*
-    @Test //@Ignore
-    public void shouldGetDoctorByLogin() throws IOException {
-
-        URI uri = UriBuilder.fromUri("http://localhost/").port(8282).build();
-
-        // Create an HTTP server listening at port 8282
-        HttpServer server = HttpServer.create(new InetSocketAddress(uri.getPort()), 0);
-        // Create a handler wrapping the JAX-RS application
-        HttpHandler handler = RuntimeDelegate.getInstance().createEndpoint(new ApplicationConfig(), HttpHandler.class);
-        // Map JAX-RS handler to the server root
-        server.createContext(uri.getPath(), handler);
-        // Start the server
-        server.start();
-
-        Client client = ClientBuilder.newClient();
-
-        // Valid URIs
-        Response response = client.target("http://localhost:8282/doctor/agoncal").request().get();
-        assertEquals(200, response.getStatus());
-
-        System.out.println("###############################");
-        System.out.println(response.readEntity(String.class));
-
-        // Stop HTTP server
-        server.stop(0);
-    }
+      
 
     @Test //@Ignore
     public void shouldGetDoctors() throws IOException {
@@ -132,7 +106,8 @@ public class DoctorRestServiceITest {
         // Create an HTTP server listening at port 8282
         HttpServer server = HttpServer.create(new InetSocketAddress(uri.getPort()), 0);
         // Create a handler wrapping the JAX-RS application
-        HttpHandler handler = RuntimeDelegate.getInstance().createEndpoint(new ApplicationConfig(), HttpHandler.class);
+        HttpHandler handler = RuntimeDelegate.getInstance()
+                                             .createEndpoint(new ApplicationConfig(), HttpHandler.class);
         // Map JAX-RS handler to the server root
         server.createContext(uri.getPath(), handler);
         // Start the server
@@ -150,5 +125,5 @@ public class DoctorRestServiceITest {
         // Stop HTTP server
         server.stop(0);
     }
-    */
+    
 }

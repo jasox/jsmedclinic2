@@ -30,7 +30,7 @@ import pl.jasox.medward.model.domainobject.Doctor;
  * @credit Antonio Goncalves
  *         http://www.antoniogoncalves.org
  */
-@Ignore
+//@Ignore
 public class DoctorCRUDRestServiceITest {
 
     // ======================================
@@ -88,60 +88,62 @@ public class DoctorCRUDRestServiceITest {
     public void shouldMarshallADoctor() throws JAXBException {
         // given
         Doctor doctor = new Doctor( "1234567", "John", "Smith", "jsmith@gmail.com");
-        System.out.println("Doctor : " + doctor);
+        System.out.println("Java: " + doctor);
         StringWriter writer = new StringWriter();
         JAXBContext context = JAXBContext.newInstance(Doctor.class);
         Marshaller m = context.createMarshaller();
-        m.marshal(doctor, writer);        
+        m.marshal(doctor, writer);  
+        System.out.println("XML : " + writer);
     }
-    /*
+   
     @Test
     public void shouldCheckGetDoctorByLoginResponse() {
-        Response response = client.target("http://localhost:8282/doctor/agoncal").request().get();
+        Response response = client.target("http://localhost:8282/doctor/1234567").request().get();
         assertEquals(200, response.getStatus());
     }
-
+ 
     @Test
     public void shouldCheckGetDoctorByLogin() {
-        String login = "agoncal";
+        String login = "1234567";
         Doctor doctor = client.target("http://localhost:8282/doctor").path(login).request().get(Doctor.class);
-        assertEquals(login, doctor.getLogin());
+        assertEquals(login, doctor.getUsername());
     }
 
     @Test
     public void shouldCheckGetDoctorByIdResponse() {
-        Response response = client.target("http://localhost:8282/doctor/1234").request().get();
+        Response response = client.target("http://localhost:8282/doctor/1234567").request().get();
         assertEquals(200, response.getStatus());
     }
 
     @Test
     public void shouldCheckGetDoctorById() {
-        String id = "123";
+        String id = "1234567";
         Doctor doctor = client.target("http://localhost:8282/doctor").path(id).request().get(Doctor.class);
         assertEquals(id, doctor.getId().toString());
     }
 
     @Test
-    public void shouldCheckGetDoctorByZipCodeURI() {
-        Response response = client.target("http://localhost:8282/doctor?zip=75012").request().get();
+    public void shouldCheckGetDoctorByEmailURI() {
+        Response response = client.target("http://localhost:8282/doctor?email=jdoe@wp.pl").request().get();
         assertEquals(200, response.getStatus());
     }
 
     @Test
-    public void shouldCheckGetDoctorByZipCodeWithParamURI() {
-        Response response = client.target("http://localhost:8282/doctor").queryParam("zip", 75011L).request().get();
+    public void shouldCheckGetDoctorByEmailWithParamURI() {
+        Response response = client.target("http://localhost:8282/doctor").queryParam("email", "jdoe@onet.pl").request().get();
         assertEquals(200, response.getStatus());
     }
 
     @Test
     public void shouldCheckGetDoctorByFirstnameNameURI() {
-        Response response = client.target("http://localhost:8282/doctor/search;firstname=Antonio;surname=Goncalves").request().get();
+        Response response = client.target("http://localhost:8282/doctor/search;firstname=Joe;surname=Doe").request().get();
         assertEquals(200, response.getStatus());
     }
 
     @Test
     public void shouldCheckGetDoctorByFirstnameNameWithParamURI() {
-        Response response = client.target("http://localhost:8282/doctor/search").matrixParam("firstname", "Antonio2").matrixParam("surname", "Goncalves2").request().get();
+        Response response = client.target("http://localhost:8282/doctor/search")
+                                  .matrixParam("firstname", "Jane").matrixParam("surname", "Doe").request().get();
         assertEquals(200, response.getStatus());
     }
 
@@ -159,5 +161,5 @@ public class DoctorCRUDRestServiceITest {
         String response = client.target("http://localhost:8282/doctor/userAgent").request().get(String.class);
         assertEquals("Jersey/2.0-m09 (HttpUrlConnection 1.7.0_04) from the server", response);
     }
-    */
+  /*  */
 }
