@@ -33,18 +33,16 @@ import pl.jasox.medward.model.domainobject.Doctor;
 //@Ignore
 public class DoctorCRUDRestServiceITest {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
+    
+    // Attributes --------------------------------------------------------------    
 
     private static HttpServer server;
     private static URI        uri    = UriBuilder.fromUri("http://localhost/").port(8282).build();
     private static Client     client = ClientBuilder.newClient();
 
-    // ======================================
-    // =          Lifecycle Methods         =
-    // ======================================
-
+    
+    // Lifecycle Methods -------------------------------------------------------         
+    
     @BeforeClass
     public static void init() throws IOException {
         // create a new server listening at port 8080
@@ -65,12 +63,10 @@ public class DoctorCRUDRestServiceITest {
     public static void stop() {
         server.stop(0);
     }
-
-    // ======================================
-    // =              Unit tests            =
-    // ======================================
-    /*
+   
+    // Unit tests --------------------------------------------------------------            
     
+    /*    
     // Create a new doctor
       String newDoctor = 
               "<doctor>"
@@ -81,13 +77,12 @@ public class DoctorCRUDRestServiceITest {
               + "<email-address>joe.doe@mail.com</email-address>"
               + "<remarks>test</remarks>"
               + "</doctor>";
-
     */
 
     @Test
     public void shouldMarshallADoctor() throws JAXBException {
         // given
-        Doctor doctor = new Doctor( "1234567", "John", "Smith", "jsmith@gmail.com");
+        Doctor doctor = new Doctor( "1234567", "John", "Smith", "j.smith@gmail.com");
         System.out.println("Java: " + doctor);
         StringWriter writer = new StringWriter();
         JAXBContext context = JAXBContext.newInstance(Doctor.class);
@@ -124,13 +119,13 @@ public class DoctorCRUDRestServiceITest {
 
     @Test
     public void shouldCheckGetDoctorByEmailURI() {
-        Response response = client.target("http://localhost:8282/doctor?email=jdoe@wp.pl").request().get();
+        Response response = client.target("http://localhost:8282/doctor?email=j.doe@wp.pl").request().get();
         assertEquals(200, response.getStatus());
     }
 
     @Test
     public void shouldCheckGetDoctorByEmailWithParamURI() {
-        Response response = client.target("http://localhost:8282/doctor").queryParam("email", "jdoe@onet.pl").request().get();
+        Response response = client.target("http://localhost:8282/doctor").queryParam("email", "j.doe@onet.pl").request().get();
         assertEquals(200, response.getStatus());
     }
 
@@ -148,7 +143,7 @@ public class DoctorCRUDRestServiceITest {
     }
 
     @Test
-    @Ignore
+    //@Ignore
     public void shouldCheckGetDoctorWithCookieParamURI() {
         Cookie myCookie = new Cookie("myCookie", "This is my cookie");
         String response = client.target("http://localhost:8282/doctor/cookie").request().cookie(myCookie).get(String.class);
@@ -156,10 +151,11 @@ public class DoctorCRUDRestServiceITest {
     }
 
     @Test
-    @Ignore
+    //@Ignore
     public void shouldEchoUserAgentValue() {
         String response = client.target("http://localhost:8282/doctor/userAgent").request().get(String.class);
-        assertEquals("Jersey/2.0-m09 (HttpUrlConnection 1.7.0_04) from the server", response);
+        //System.out.println("    : " + response);
+        assertEquals("Jersey/2.3.1 (HttpUrlConnection 1.7.0_05) from the server", response);
     }
-  /*  */
+  
 }

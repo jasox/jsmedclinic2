@@ -6,30 +6,31 @@ import javax.ws.rs.core.Response;
 import pl.jasox.medward.model.domainobject.Doctor;
 
 /**
+ * 
  */
 @Path("/doctor")
 @Produces(MediaType.APPLICATION_XML)
 public class DoctorCRUDRestService {
 
-    // Public Methods               
+    // Public Methods ----------------------------------------------------------              
 
     /**
-     * http://localhost:8080/rs/doctors/1234567
+     * http://localhost:8080/doctors/1234567
      */
     @GET
     @Path("{login: [a-zA-Z]*}")
     public Doctor getDoctorByLogin(@PathParam("login") String login) {        
-        Doctor doctor = new Doctor( "1234567", "John", "Smith", "jsmith@gmail.com");        
+        Doctor doctor = new Doctor( "1234567", "John", "Smith", "j.smith@gmail.com");        
         return doctor;
     }
 
     /**
-     * http://localhost:8080/rs/doctors/1234567
+     * http://localhost:8080/doctors/1234567
      */
     @GET
     @Path("{doctorId : \\d+}")
     public Doctor getDoctorById(@PathParam("doctorId") Integer id) {
-        Doctor doctor = new Doctor( "1234567", "John", "Smith", "jsmith@gmail.com"); 
+        Doctor doctor = new Doctor( "1234567", "John", "Smith", "j.smith@gmail.com"); 
         doctor.setIdDoctor(id);
         return doctor;
     }
@@ -37,7 +38,7 @@ public class DoctorCRUDRestService {
     @GET
     public Doctor getDoctorByZipCode(@QueryParam("email") String email) {
          System.out.println("getDoctorByEmail : " + email);
-         Doctor doctor = new Doctor( "1234567", "John", "Smith", "jsmith@gmail.com");
+         Doctor doctor = new Doctor( "1234567", "John", "Smith", "j.smith@gmail.com");
          return doctor;
     }
 
@@ -46,7 +47,7 @@ public class DoctorCRUDRestService {
     public Doctor getDoctorByFirstnameName(@MatrixParam("firstname") String firstname, 
                                            @MatrixParam("surname")   String surname) {
         System.out.println("getDoctorByFirstnameName : " + firstname + " - " + surname);
-        return new Doctor( "1234567", "John", "Smith", "jsmith@gmail.com");
+        return new Doctor( "1234567", "John", "Smith", "j.smith@gmail.com");
     }
 
     @GET
@@ -67,8 +68,9 @@ public class DoctorCRUDRestService {
     @GET
     @Path("userAgentRep")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response echoUserAgentWithReponse(@HeaderParam(value = "User-Agent") String userAgent) {
-        System.out.println("echoUserAgentWithReponse : " + userAgent);
+    public Response echoUserAgentWithResponse(@HeaderParam(value = "User-Agent") String userAgent) {
+        System.out.println("echoUserAgentWithResponse : " + userAgent);
         return Response.ok(userAgent + " from the server", MediaType.TEXT_PLAIN).build();
     }
+    
 }

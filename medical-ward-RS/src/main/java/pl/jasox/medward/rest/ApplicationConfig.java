@@ -7,7 +7,7 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 //import org.glassfish.jersey.server.ResourceConfig;
 
-@ApplicationPath("")
+@ApplicationPath("rest")
 public class ApplicationConfig extends Application {
   
    private Set<Object>   singletons = new HashSet<Object>();

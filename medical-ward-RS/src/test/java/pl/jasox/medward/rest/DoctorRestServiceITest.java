@@ -86,7 +86,7 @@ public class DoctorRestServiceITest {
         // Valid URIs
         assertEquals(200, client.target("http://localhost:8282/doctor/dummy").request().get().getStatus());
         assertEquals(200, client.target("http://localhost:8282/doctor/1234567").request().get().getStatus());
-        assertEquals(200, client.target("http://localhost:8282/doctor?email=jdoe@wp.pl").request().get().getStatus());
+        assertEquals(200, client.target("http://localhost:8282/doctor?email=j.doe@wp.pl").request().get().getStatus());
         assertEquals(200, client.target("http://localhost:8282/doctor/search;firstname=Jan;surname=Dox").request().get().getStatus());
 
         // Invalid URIs
