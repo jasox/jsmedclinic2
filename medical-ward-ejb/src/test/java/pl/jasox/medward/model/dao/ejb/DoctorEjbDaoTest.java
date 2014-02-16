@@ -38,7 +38,6 @@ import pl.jasox.medward.db.EntityManagerProducer;
 import pl.jasox.medward.db.TestDatabase;
 import pl.jasox.medward.model.IMedwardUser;
 import pl.jasox.medward.model.dao.IDoctorDao;
-import pl.jasox.medward.model.dao.ejb.factory.EjbDaoFactory;
 import pl.jasox.medward.model.dao.factory.IDaoFactory;
 import pl.jasox.medward.model.domainobject.Doctor;
 import pl.jasox.medward.util.ResourcesProducer;
@@ -171,7 +170,7 @@ public class DoctorEjbDaoTest {
     String id        = "0000007";  // siedem znaków    
     String firstName = "Michał";
     String lastName  = "Sobański";    
-    Doctor doctor = doctorDao.findById(id);
+    Doctor doctor    = doctorDao.findById(id);
     assertEquals(id,        doctor.getUsername());
     assertEquals(firstName, doctor.getFirstName());
     assertEquals(lastName,  doctor.getLastName());    
@@ -186,7 +185,7 @@ public class DoctorEjbDaoTest {
     String username  = "test";
     String firstName = "Joe";
     String lastName  = "Doe";    
-    Doctor  doctor = new Doctor(username, firstName, lastName);    
+    Doctor doctor    = new Doctor(username, firstName, lastName);    
     log.info(doctor.toString());
     doctorDao.save(doctor);         
     doctor = doctorDao.findById(username);
@@ -207,7 +206,7 @@ public class DoctorEjbDaoTest {
     String username  = "test";
     String firstName = "Joe";
     String lastName  = "Doe";    
-    Doctor  doctor = new Doctor(username, firstName, lastName);    
+    Doctor doctor    = new Doctor(username, firstName, lastName);    
     log.info(doctor.toString());
     doctorDao.saveOrUpdate(doctor);         
     doctor = doctorDao.findById(username);
@@ -227,8 +226,8 @@ public class DoctorEjbDaoTest {
     log.info("testGetAll");
     Doctor doctor; 
     int i = 0;
-    List<Doctor> result = doctorDao.getAll();
-    Iterator<Doctor> iter = result.iterator();
+    List<Doctor>     result = doctorDao.getAll();
+    Iterator<Doctor> iter   = result.iterator();
     while ( iter.hasNext() ) {   
 	      doctor = iter.next();        
 	      log.info(doctor.toString());

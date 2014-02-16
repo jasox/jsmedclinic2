@@ -10,15 +10,14 @@ import pl.jasox.medward.model.domainobject.Doctor;
 
 public class DoctorHibernateDao extends AGenericHibernateDao implements IDoctorDao {
 
-    /** */
+  /** */
 	public DoctorHibernateDao() {
 		super(Doctor.class);
 	}
 
 	@Override
 	public void delete(Doctor doctor) {
-		// TODO Auto-generated method stub
-		
+		session.delete(doctor);		
 	}
 
 	@SuppressWarnings("unchecked")
@@ -36,28 +35,33 @@ public class DoctorHibernateDao extends AGenericHibernateDao implements IDoctorD
 	}
 
 	@Override
-	public IMedwardUser find(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	public IMedwardUser find(String id) {		
+		return findById(id);
 	}
 
 	@Override
 	public Doctor findById(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Doctor> doctors = null;
+    try { 
+        Query query = getSession().getNamedQuery("getDoctorById");  
+        query.setParameter("symbolDoctor", id);
+        doctors     = query.list();   
+    }
+    finally {
+        //session.getTransaction().commit();
+    }
+    return (Doctor)doctors.toArray()[0];		
 	}
-
+ 
 	@Override
 	public void save(Doctor doctor) {
-		// TODO Auto-generated method stub
-		
+		session.save(doctor);		
 	}
 
 	@Override
 	public void saveOrUpdate(Doctor doctor) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-
+		session.saveOrUpdate(doctor);		
+	}	
+ 
+  
 }

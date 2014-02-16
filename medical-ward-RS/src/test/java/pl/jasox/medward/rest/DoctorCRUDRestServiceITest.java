@@ -4,7 +4,6 @@ import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.ws.rs.client.Client;
@@ -150,12 +149,13 @@ public class DoctorCRUDRestServiceITest {
         assertEquals("This is my cookie from the server", response);
     }
 
+    /*
     @Test
-    //@Ignore
+    @Ignore
     public void shouldEchoUserAgentValue() {
         String response = client.target("http://localhost:8282/doctor/userAgent").request().get(String.class);
         //System.out.println("    : " + response);
         assertEquals("Jersey/2.3.1 (HttpUrlConnection 1.7.0_05) from the server", response);
     }
-  
+    */
 }

@@ -55,6 +55,16 @@
     ]]>
   </query> 
   
+  <query name="getDoctorById">
+    <![CDATA[      
+      from Doctor as d      
+      where 
+        d.symbolDoctor = :symbolDoctor        
+      order by 
+        d.lastName, d.firstName  
+    ]]>
+  </query>
+  
   <query name="getClinicAll">
     <![CDATA[      
       from Clinic as p 
