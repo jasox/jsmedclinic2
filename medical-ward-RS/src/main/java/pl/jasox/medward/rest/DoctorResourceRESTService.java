@@ -6,12 +6,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.logging.Logger;
-
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
+import javax.annotation.PostConstruct;
 import javax.persistence.NoResultException;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -29,10 +25,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import org.hibernate.SessionFactory;
 import pl.jasox.medward.model.dao.IDoctorDao;
+import pl.jasox.medward.model.dao.factory.ADaoFactory;
 import pl.jasox.medward.model.dao.hibernate.DoctorHibernateDao;
+import pl.jasox.medward.model.dao.hibernate.factory.HibernateDaoFactory;
 
 import pl.jasox.medward.model.domainobject.Doctor;
+import pl.jasox.medward.model.util.hibernate.HibernateUtil;
 
 //import org.jboss.resteasy.annotations.providers.jaxb.Formatted;
 
@@ -41,10 +41,11 @@ import pl.jasox.medward.model.domainobject.Doctor;
  * This class produces a RESTful service to read/write the contents of the doctors table.
  */
 @Path("/doctors")
-//@RequestScoped
 public class DoctorResourceRESTService {    
     
-    IDoctorDao doctorRepository = new DoctorHibernateDao();
+    private static ADaoFactory daoFactory = ADaoFactory.getInstance();
+   
+    IDoctorDao doctorRepository = daoFactory.getDoctorDao(); // = new DoctorHibernateDao();
     private AtomicInteger idCounter = new AtomicInteger();
     
     protected static ValidatorFactory vf;
@@ -64,13 +65,18 @@ public class DoctorResourceRESTService {
     //@Inject    
     //DoctorRegistration registration;
     
+    @PostConstruct
+    public void init() {        
+      doctorRepository = daoFactory.getDoctorDao();
+      System.out.println("DAO" + doctorRepository);
+    }
     
     @POST
     @Consumes(MediaType.APPLICATION_XML) // "application/xml")
     public Response createDoctorXml(Doctor doctor) {
       doctor.setIdDoctor(idCounter.incrementAndGet());
       doctorRepository.saveOrUpdate(doctor);
-      System.out.println("Created doctor " + doctor.getId());
+      System.out.println("Created doctor : " + doctor.getId());
       return Response.created(URI.create("/doctors/" + doctor.getIdDoctor())).build();
     }
     
@@ -79,7 +85,8 @@ public class DoctorResourceRESTService {
     @Produces(MediaType.APPLICATION_XML) // "application/xml")
     //@Formatted
     public Doctor getDoctor(@PathParam("id") String id) {
-      Doctor doctor = doctorRepository.findById(id);
+      System.out.println("@GET @Path(\"{id}\"), doctor id : " + id);
+      Doctor doctor = new Doctor(); //doctorRepository.findById(id);
       if (doctor == null) {
          throw new WebApplicationException(Response.Status.NOT_FOUND);
       }

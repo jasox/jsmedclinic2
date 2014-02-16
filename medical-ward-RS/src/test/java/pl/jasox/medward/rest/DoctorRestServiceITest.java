@@ -25,7 +25,7 @@ import pl.jasox.medward.model.domainobject.Doctor;
 /**
  *
  */
-//@Ignore
+@Ignore
 public class DoctorRestServiceITest {
   
     // Attributes --------------------------------------------------------------    

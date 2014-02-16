@@ -18,7 +18,7 @@ public class ApplicationConfig extends Application {
       super();
       // ...        
       //HashSet<Class<?>> c = new HashSet<>();
-      classes.add(DoctorCRUDRestService.class);
+      classes.add(DoctorResourceRESTService.class);
       classes = Collections.unmodifiableSet(classes);
    }
   

@@ -15,7 +15,7 @@ public class DoctorCRUDRestService {
     // Public Methods ----------------------------------------------------------              
 
     /**
-     * http://localhost:8080/doctors/1234567
+     * http://localhost:8080/doctor/1234567
      */
     @GET
     @Path("{login: [a-zA-Z]*}")
@@ -25,7 +25,7 @@ public class DoctorCRUDRestService {
     }
 
     /**
-     * http://localhost:8080/doctors/1234567
+     * http://localhost:8080/doctor/1234567
      */
     @GET
     @Path("{doctorId : \\d+}")

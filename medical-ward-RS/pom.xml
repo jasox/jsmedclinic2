@@ -275,14 +275,14 @@
       <scope>test</scope>
       <type>pom</type>
     </dependency>  
-    <!-- 
+     
     <dependency> 
        <groupId>org.slf4j</groupId>
        <artifactId>slf4j-simple</artifactId>
       <version>${version.slf4j}</version> 
        <scope>${projectScope}</scope>
     </dependency>
-    -->
+    <!-- -->
     <!--
     <dependency>
        <groupId>org.slf4j</groupId>

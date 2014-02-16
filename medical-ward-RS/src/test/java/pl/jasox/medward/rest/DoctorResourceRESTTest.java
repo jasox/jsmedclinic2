@@ -26,14 +26,13 @@ import org.junit.Ignore;
 import pl.jasox.medward.model.domainobject.Doctor;
 
 /**
- * @author Janusz Swół
- * @credit Antonio Goncalves
- *         http://www.antoniogoncalves.org
+ * @author <a href="mailto:janusz.swol@gmail.com">Janusz Swół</a>
+ * @version 1.1.1
  */
-@Ignore
-public class DoctorCRUDRestServiceITest {
-
-    
+//@Ignore
+public class DoctorResourceRESTTest {  
+     
+  
     // Attributes --------------------------------------------------------------    
 
     private static HttpServer server;
@@ -93,51 +92,61 @@ public class DoctorCRUDRestServiceITest {
    
     @Test
     public void shouldCheckGetDoctorByLoginResponse() {
-        Response response = client.target("http://localhost:8282/doctor/1234567").request().get();
-        assertEquals(200, response.getStatus());
+        System.out.println("shouldCheckGetDoctorByLoginResponse");
+        Response response = client.target("http://localhost:8282/doctors/0000001").request().get();
+        //assertEquals(200, response.getStatus());
+        System.out.println(response.toString());
     }
- 
+    
     @Test
     public void shouldCheckGetDoctorByLogin() {
-        String login = "1234567";
-        Doctor doctor = client.target("http://localhost:8282/doctor").path(login).request().get(Doctor.class);
-        assertEquals(login, doctor.getUsername());
+        System.out.println("shouldCheckGetDoctorByLogin");
+        String login = "0000001";
+        Doctor doctor = client.target("http://localhost:8282/doctors").path(login).request().get(Doctor.class);
+        //assertEquals(login, doctor.getUsername());
+        System.out.println("Java:" + doctor);
     }
-
+/*
     @Test
     public void shouldCheckGetDoctorByIdResponse() {
-        Response response = client.target("http://localhost:8282/doctor/1234567").request().get();
+        System.out.println("shouldCheckGetDoctorByIdResponse");
+        Response response = client.target("http://localhost:8282/doctors/0000001").request().get();
         assertEquals(200, response.getStatus());
     }
 
     @Test
     public void shouldCheckGetDoctorById() {
-        String id = "1234567";
-        Doctor doctor = client.target("http://localhost:8282/doctor").path(id).request().get(Doctor.class);
+        System.out.println("shouldCheckGetDoctorById");
+        String id = "0000001";
+        Doctor doctor = client.target("http://localhost:8282/doctors").path(id).request().get(Doctor.class);
         assertEquals(id, doctor.getId().toString());
     }
 
     @Test
     public void shouldCheckGetDoctorByEmailURI() {
-        Response response = client.target("http://localhost:8282/doctor?email=j.doe@wp.pl").request().get();
+        System.out.println("shouldCheckGetDoctorByEmailURI");
+        Response response = client.target("http://localhost:8282/doctors?email=j.doe@wp.pl").request().get();
         assertEquals(200, response.getStatus());
     }
 
     @Test
     public void shouldCheckGetDoctorByEmailWithParamURI() {
-        Response response = client.target("http://localhost:8282/doctor").queryParam("email", "j.doe@onet.pl").request().get();
+        System.out.println("shouldCheckGetDoctorByEmailWithParamURI");
+        Response response = client.target("http://localhost:8282/doctors").queryParam("email", "j.doe@onet.pl").request().get();
         assertEquals(200, response.getStatus());
     }
 
     @Test
     public void shouldCheckGetDoctorByFirstnameNameURI() {
-        Response response = client.target("http://localhost:8282/doctor/search;firstname=Joe;surname=Doe").request().get();
+        System.out.println("shouldCheckGetDoctorByFirstnameNameURI");
+        Response response = client.target("http://localhost:8282/doctors/search;firstname=Joe;surname=Doe").request().get();
         assertEquals(200, response.getStatus());
     }
 
     @Test
     public void shouldCheckGetDoctorByFirstnameNameWithParamURI() {
-        Response response = client.target("http://localhost:8282/doctor/search")
+        System.out.println("shouldCheckGetDoctorByFirstnameNameWithParamURI");
+        Response response = client.target("http://localhost:8282/doctors/search")
                                   .matrixParam("firstname", "Jane").matrixParam("surname", "Doe").request().get();
         assertEquals(200, response.getStatus());
     }
@@ -149,7 +158,7 @@ public class DoctorCRUDRestServiceITest {
         String response = client.target("http://localhost:8282/doctor/cookie").request().cookie(myCookie).get(String.class);
         assertEquals("This is my cookie from the server", response);
     }
-
+    */
     /*
     @Test
     @Ignore
@@ -159,4 +168,5 @@ public class DoctorCRUDRestServiceITest {
         assertEquals("Jersey/2.3.1 (HttpUrlConnection 1.7.0_05) from the server", response);
     }
     */
+   
 }
