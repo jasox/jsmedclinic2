@@ -3,6 +3,7 @@ package pl.jasox.medward.model.dao.hibernate;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import static org.testng.Assert.assertEquals;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
@@ -73,12 +74,31 @@ public class DoctorDaoTest extends HibernateDaoTest {
 	public void testGetAllDoctor() {
 	  // fail("Not yet implemented");
 	  // dostęp do tabeli 'Doctor'
-      log.info("> begin Doctor");      
+      log.info("> begin Doctor all");      
       List<Doctor> listDoctor = getDaoFactory().getDoctorDao().getAll();      
       for ( Doctor doctor : listDoctor ) {
     	  log.info(doctor);  
-      }
-      log.info("> end   Doctor");
+      }     
 	}  
+  
+   @Test
+	 public void testFindById() {
+	  // fail("Not yet implemented");	  
+      log.info("> begin Doctor - getById"); 
+      String id = "0000001";
+      Doctor doctor = getDaoFactory().getDoctorDao().findById(id);
+      assertEquals(id, doctor.getSymbolDoctor());
+    	log.info(doctor);     
+	} 
+   
+  @Test
+	public void testFindByEmail() {
+	  // fail("Not yet implemented");	  
+      log.info("> begin Doctor - getByEmail"); 
+      String id = null;
+      Doctor doctor = getDaoFactory().getDoctorDao().findByEmail(id);
+      //assertEquals(id, doctor.getSymbolDoctor());
+    	//log.info(doctor);     
+	}
   
 }

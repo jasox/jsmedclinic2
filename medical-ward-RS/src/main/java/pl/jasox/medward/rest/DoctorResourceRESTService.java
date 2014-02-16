@@ -12,11 +12,13 @@ import java.util.logging.Logger;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-// import javax.persistence.NoResultException;
+import javax.persistence.NoResultException;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
+import javax.validation.Validation;
 import javax.validation.ValidationException;
 import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -27,6 +29,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import pl.jasox.medward.model.dao.IDoctorDao;
+import pl.jasox.medward.model.dao.hibernate.DoctorHibernateDao;
 
 import pl.jasox.medward.model.domainobject.Doctor;
 
@@ -38,11 +42,15 @@ import pl.jasox.medward.model.domainobject.Doctor;
  */
 @Path("/doctors")
 //@RequestScoped
-public class DoctorResourceRESTService {
+public class DoctorResourceRESTService {    
     
-    // very very simple version of DoctorRepository
-    private Map<Integer, Doctor> doctorRepository = new ConcurrentHashMap<Integer, Doctor>();
-    private AtomicInteger        idCounter        = new AtomicInteger();
+    IDoctorDao doctorRepository = new DoctorHibernateDao();
+    private AtomicInteger idCounter = new AtomicInteger();
+    
+    protected static ValidatorFactory vf;
+    protected static Validator validator;
+    final static org.apache.log4j.Logger log = 
+          org.apache.log4j.Logger.getLogger( DoctorResourceRESTService.class.getName() );
 
     //@Inject
     //private Logger log;
@@ -61,7 +69,7 @@ public class DoctorResourceRESTService {
     @Consumes(MediaType.APPLICATION_XML) // "application/xml")
     public Response createDoctorXml(Doctor doctor) {
       doctor.setIdDoctor(idCounter.incrementAndGet());
-      doctorRepository.put(doctor.getIdDoctor(), doctor);
+      doctorRepository.saveOrUpdate(doctor);
       System.out.println("Created doctor " + doctor.getId());
       return Response.created(URI.create("/doctors/" + doctor.getIdDoctor())).build();
     }
@@ -70,8 +78,8 @@ public class DoctorResourceRESTService {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_XML) // "application/xml")
     //@Formatted
-    public Doctor getDoctor(@PathParam("id") int id) {
-      Doctor doctor = doctorRepository.get(id);
+    public Doctor getDoctor(@PathParam("id") String id) {
+      Doctor doctor = doctorRepository.findById(id);
       if (doctor == null) {
          throw new WebApplicationException(Response.Status.NOT_FOUND);
       }
@@ -82,9 +90,9 @@ public class DoctorResourceRESTService {
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_XML) // "application/xml")
     //@Formatted
-    public void updateCustomer(@PathParam("id") int id, Doctor update)
+    public void updateCustomer(@PathParam("id") String id, Doctor update)
     {
-      Doctor current = doctorRepository.get(id);
+      Doctor current = doctorRepository.findById(id);
       if (current == null) { 
         throw new WebApplicationException(Response.Status.NOT_FOUND);
       }
@@ -104,10 +112,10 @@ public class DoctorResourceRESTService {
     }
 
     @GET
-    @Path("/{id:[0-9][0-9]*}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Doctor lookupDoctorById(@PathParam("id") int id) {
-        Doctor doctor = doctorRepository.get(id);
+    public Doctor lookupDoctorById(@PathParam("id") String id) {
+        Doctor doctor = doctorRepository.findById(id);
         if (doctor == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
@@ -117,7 +125,8 @@ public class DoctorResourceRESTService {
     /**
      * Creates a new doctor from the values provided. <br/>
      * Performs validation, and will return a JAX-RS response with either 200 ok,
-     * or with a map of fields, and related errors.
+     * or with a map of fields, and related errors. <br/>
+     * @param doctor   
      */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -130,7 +139,7 @@ public class DoctorResourceRESTService {
             // Validates doctor using bean validation
             validateDoctor(doctor);
 
-            doctorRepository.put(doctor.getIdDoctor(), doctor);
+            doctorRepository.saveOrUpdate(doctor);
             //registration.register(doctor);
 
             // Create an "ok" response
@@ -169,7 +178,9 @@ public class DoctorResourceRESTService {
      */
     private void validateDoctor(Doctor doctor) throws ConstraintViolationException, ValidationException {
         // Create a bean validator and check for issues.
-        /*
+        vf = Validation.buildDefaultValidatorFactory();
+        validator = vf.getValidator();
+       
         Set<ConstraintViolation<Doctor>> violations = validator.validate(doctor);
 
         if (!violations.isEmpty()) {
@@ -180,7 +191,7 @@ public class DoctorResourceRESTService {
         if (emailAlreadyExists(doctor.getEmailAddress())) {
             throw new ValidationException("Unique Email Violation");
         }
-      */
+       /**/
     }
 
     /**
@@ -191,7 +202,7 @@ public class DoctorResourceRESTService {
      * @return JAX-RS response containing all violations
      */
     private Response.ResponseBuilder createViolationResponse(Set<ConstraintViolation<?>> violations) {
-        //log.fine("Validation completed. violations found: " + violations.size());
+        log.info("Validation completed. violations found: " + violations.size());
 
         Map<String, String> responseObj = new HashMap<String, String>();
 
@@ -211,27 +222,27 @@ public class DoctorResourceRESTService {
      */
     public boolean emailAlreadyExists(String email) {
         Doctor doctor = null;
-        /*
+        
         try {
-            doctor = repository.findByEmail(email);
+            doctor = doctorRepository.findByEmail(email);
         } 
         catch (NoResultException e) {
             // ignore
         }
-        */
-        return doctor != null;
+        
+        return (doctor != null) && ( email != null );
     }
     
     public List<Doctor> findAllDoctorsOrderedByName() {
         List<Doctor> doctors = null;
-        /*
+        
         try {
-            //
+            doctors = doctorRepository.getAll();
         } 
         catch (NoResultException e) {
             // ignore
         }
-        */
+        
         return doctors;
     }
     

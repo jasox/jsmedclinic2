@@ -42,6 +42,7 @@ public class DoctorHibernateDao extends AGenericHibernateDao implements IDoctorD
 	@Override
 	public Doctor findById(String id) {
 		List<Doctor> doctors = null;
+    Doctor doctor = null;
     try { 
         Query query = getSession().getNamedQuery("getDoctorById");  
         query.setParameter("symbolDoctor", id);
@@ -50,7 +51,32 @@ public class DoctorHibernateDao extends AGenericHibernateDao implements IDoctorD
     finally {
         //session.getTransaction().commit();
     }
-    return (Doctor)doctors.toArray()[0];		
+    if ( doctors != null ) {
+        if ( !doctors.isEmpty() ) {
+            doctor = (Doctor)doctors.toArray()[0];
+        }
+    }   
+    return doctor;	    
+	}
+  
+  @Override
+	public Doctor findByEmail(String email) {
+		List<Doctor> doctors = null;
+    Doctor doctor = null;
+    try { 
+        Query query = getSession().getNamedQuery("getDoctorByEmail");  
+        query.setParameter("emailAddress", email);
+        doctors     = query.list();   
+    }
+    finally {
+        //session.getTransaction().commit();
+    }
+    if ( doctors != null ) {
+        if ( !doctors.isEmpty() ) {
+            doctor = (Doctor)doctors.toArray()[0];
+        }
+    }   
+    return doctor;	
 	}
  
 	@Override

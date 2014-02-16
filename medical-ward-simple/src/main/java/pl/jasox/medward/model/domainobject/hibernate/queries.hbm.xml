@@ -65,6 +65,16 @@
     ]]>
   </query>
   
+  <query name="getDoctorByEmail">
+    <![CDATA[      
+      from Doctor as d      
+      where 
+        d.emailAddress = :emailAddress        
+      order by 
+        d.lastName, d.firstName  
+    ]]>
+  </query>
+  
   <query name="getClinicAll">
     <![CDATA[      
       from Clinic as p 

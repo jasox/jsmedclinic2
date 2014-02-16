@@ -50,6 +50,12 @@ public class DoctorEjbDao implements IDoctorDao, Serializable {
 	}
   
   @Override
+	public Doctor findByEmail(String email) {
+		Doctor doctor = null; // em.find(Doctor.class, id);
+		return doctor;
+	}
+  
+  @Override
 	public void saveOrUpdate(Doctor doctor) {
 		em.merge(doctor);
 	}

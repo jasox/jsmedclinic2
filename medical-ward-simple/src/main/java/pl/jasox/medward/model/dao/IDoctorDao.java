@@ -8,6 +8,8 @@ import pl.jasox.medward.model.domainobject.Doctor;
 public interface IDoctorDao extends IMedwardUserRepository {
 	
 	public abstract Doctor       findById(String id);
+  
+  public abstract Doctor       findByEmail(String email); 
 
 	public abstract void         save(Doctor doctor);
 
