@@ -95,10 +95,10 @@ public class DoctorDaoTest extends HibernateDaoTest {
 	public void testFindByEmail() {
 	  // fail("Not yet implemented");	  
       log.info("> begin Doctor - getByEmail"); 
-      String id = null;
-      Doctor doctor = getDaoFactory().getDoctorDao().findByEmail(id);
-      //assertEquals(id, doctor.getSymbolDoctor());
-    	//log.info(doctor);     
+      String email = null;
+      Doctor doctor = getDaoFactory().getDoctorDao().findByEmail(email);
+      //assertEquals(email, doctor.getEmailAddress());
+    	log.info(doctor);     
 	}
   
 }

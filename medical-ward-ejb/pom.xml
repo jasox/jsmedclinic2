@@ -29,7 +29,7 @@
     <maven.compiler.target>1.6</maven.compiler.target>
     <maven.compiler.source>1.6</maven.compiler.source>
     <!-- Test -->
-    <skipTests>false</skipTests>
+    <skipTests>true</skipTests>
     <skipITs>${skipTests}</skipITs>
     <skipUTs>${skipTests}</skipUTs>
   </properties>
