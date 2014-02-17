@@ -45,8 +45,8 @@ import pl.jasox.medward.model.util.hibernate.HibernateUtil;
 //@Stateless
 @Path("/doctors")
 public class DoctorHibernateRestService {  
-    final static Logger log = Logger.getLogger( DoctorHibernateRestService.class.getName() );
-     
+  
+    final   static Logger         log = Logger.getLogger(DoctorHibernateRestService.class.getName());     
     private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
     private static IDaoFactory    daoFactory; 
     private        IDoctorDao     doctorRepository;
@@ -70,21 +70,20 @@ public class DoctorHibernateRestService {
     @PostConstruct
     public void init() { 
       daoFactory = HibernateDaoFactory.getInstance();
-      log.info("############# DAO Factory :" + daoFactory);
-      //doctorRepository = daoFactory.getDoctorDao();
-      //doctorRepository = new DoctorHibernateDao();
-      //log.info("############# Doctor DAO  :" + doctorRepository);
-      //Doctor doctor = doctorRepository.findById("0000001");
-      //log.info("############# in init, doctor : " + doctor);
+      log.info("DAO Factory :" + daoFactory);
+      doctorRepository = daoFactory.getDoctorDao();      
+      log.info("Doctor DAO  :" + doctorRepository);      
     }
     
     @POST
     @Consumes(MediaType.APPLICATION_XML) // "application/xml")
     public Response createDoctorXml(Doctor doctor) {
+      beginHibernateTransaction();
       doctor.setIdDoctor(idCounter.incrementAndGet());
       doctorRepository = daoFactory.getDoctorDao();      
       doctorRepository.saveOrUpdate(doctor);
-      System.out.println("Created doctor : " + doctor.getId());
+      endHibernateTransaction();
+      log.info("Created doctor : " + doctor.getId());
       return Response.created(URI.create("/doctors/" + doctor.getIdDoctor())).build();
     }
     
@@ -93,11 +92,13 @@ public class DoctorHibernateRestService {
     @Produces(MediaType.APPLICATION_XML) // "application/xml")
     //@Formatted
     public Doctor getDoctor(@PathParam("id") String id) {      
-      System.out.println("@GET @Path(\"{id}\"), doctor id : " + id);
+      log.info("@GET @Path(\"{id}\"), doctor id : " + id);
+      beginHibernateTransaction();
       doctorRepository = daoFactory.getDoctorDao();
       Doctor doctor = doctorRepository.findById(id);
-      System.out.println("in @GET, doctor : " + doctor);
+      log.info("in @GET, doctor : " + doctor);
       //Doctor doctor = new Doctor("0000001", "John", "Smith", "j.smith@gmail.com");
+      endHibernateTransaction();
       if (doctor == null) {
          throw new WebApplicationException(Response.Status.NOT_FOUND);
       }      
@@ -108,8 +109,8 @@ public class DoctorHibernateRestService {
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_XML) // "application/xml")
     //@Formatted
-    public void updateCustomer(@PathParam("id") String id, Doctor update)
-    {
+    public void updateCustomer(@PathParam("id") String id, Doctor update) {
+      beginHibernateTransaction();
       doctorRepository = daoFactory.getDoctorDao();
       Doctor current = doctorRepository.findById(id);
       if (current == null) { 
@@ -119,9 +120,9 @@ public class DoctorHibernateRestService {
       current.setLastName(update.getLastName());
       current.setEmailAddress(update.getEmailAddress());
       current.setSymbolDoctor(update.getSymbolDoctor());
-      current.setSymbolSpec(update.getSymbolSpec());      
+      current.setSymbolSpec(update.getSymbolSpec()); 
+      endHibernateTransaction();
     }
-
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -129,17 +130,18 @@ public class DoctorHibernateRestService {
     public List<Doctor> listAllDoctors() {
         return findAllDoctorsOrderedByName();
     }
-
     
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Doctor lookupDoctorById(@PathParam("id") String id) {
+        beginHibernateTransaction();
         doctorRepository = daoFactory.getDoctorDao();
         Doctor doctor = doctorRepository.findById(id);
         if (doctor == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
+        endHibernateTransaction();
         return doctor;
     }
     
@@ -155,11 +157,9 @@ public class DoctorHibernateRestService {
     public Response createDoctor(Doctor doctor) {
 
         Response.ResponseBuilder builder = null;
-
         try {
             // Validates doctor using bean validation
             validateDoctor(doctor);
-
             doctorRepository.saveOrUpdate(doctor);
             //registration.register(doctor);
 
@@ -242,30 +242,26 @@ public class DoctorHibernateRestService {
      * @return True if the email already exists, and false otherwise
      */
     public boolean emailAlreadyExists(String email) {
-        Doctor doctor = null;
-        
+        Doctor doctor = null;        
         try {
             doctorRepository = daoFactory.getDoctorDao();
             doctor = doctorRepository.findByEmail(email);
         } 
         catch (NoResultException e) {
             // ignore
-        }
-        
+        }        
         return (doctor != null) && ( email != null );
     }
     
     public List<Doctor> findAllDoctorsOrderedByName() {
-        List<Doctor> doctors = null;
-        
+        List<Doctor> doctors = null;        
         try {
             doctorRepository = daoFactory.getDoctorDao();
             doctors = doctorRepository.getAll();
         } 
         catch (NoResultException e) {
             // ignore
-        }
-        
+        }        
         return doctors;
     }
     
@@ -311,19 +307,6 @@ public class DoctorHibernateRestService {
         }      
       } 
        
-    }
-    
-    
-    
-    /** */
-    public static void main(String[] args) {
-      
-      daoFactory = HibernateDaoFactory.getInstance();
-      log.info("############# DAO Factory :" + daoFactory);  
-      log.info("############# Doctor DAO  :" + daoFactory.getDoctorDao());
-      //Doctor doctor = daoFactory.getDoctorDao().findById("0000001");
-      //log.info("############# in init, doctor : " + doctor);
-           
-    }
+    }   
         
 }

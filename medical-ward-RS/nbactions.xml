@@ -13,6 +13,7 @@
                 <packaging>*</packaging>
             </packagings>
             <goals>
+                <goal>clean</goal>
                 <goal>test</goal>
             </goals>
             <properties>

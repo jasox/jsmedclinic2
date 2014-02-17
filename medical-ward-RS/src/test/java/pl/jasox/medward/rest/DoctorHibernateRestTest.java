@@ -108,28 +108,26 @@ public class DoctorHibernateRestTest {
     public void shouldCheckGetDoctorByLoginResponse() {
         log.info("shouldCheckGetDoctorByLoginResponse");
         Response response = client.target("http://localhost:8282/doctors/0000001").request().get();
-        //assertEquals(200, response.getStatus());
+        assertEquals(200, response.getStatus());
         log.info(response.toString());
     }
-    /*
+    
     @Test
     public void shouldCheckGetDoctorByLogin() {
         log.info("shouldCheckGetDoctorByLogin");
         String login = "0000001";
         Doctor doctor = client.target("http://localhost:8282/doctors").path(login).request().get(Doctor.class);
-        //assertEquals(login, doctor.getUsername());
-        log.info("Java:" + doctor);
-    }
-    
+        assertEquals(login, doctor.getUsername());
+        log.info(doctor);
+    }    
     
     @Test
     public void shouldCheckGetDoctorByIdResponse() {
         log.info("shouldCheckGetDoctorByIdResponse");
         Response response = client.target("http://localhost:8282/doctors/0000001").request().get();
-        //assertEquals(200, response.getStatus());
-    }
- 
-    
+        assertEquals(200, response.getStatus());
+    } 
+      
     @Test
     public void shouldCheckGetDoctorById() {
         log.info("shouldCheckGetDoctorById");
@@ -137,7 +135,7 @@ public class DoctorHibernateRestTest {
         Doctor doctor = client.target("http://localhost:8282/doctors").path(id).request().get(Doctor.class);
         assertEquals(id, doctor.getId().toString());
     }
-    */
+    
     /*
     @Test
     public void shouldCheckGetDoctorByEmailURI() {
