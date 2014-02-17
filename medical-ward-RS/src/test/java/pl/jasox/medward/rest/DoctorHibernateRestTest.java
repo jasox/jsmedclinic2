@@ -19,8 +19,11 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.net.InetSocketAddress;
 import java.net.URI;
+import org.apache.log4j.Logger;
+import org.junit.After;
 
 import static org.junit.Assert.assertEquals;
+import org.junit.Before;
 import org.junit.Ignore;
 
 import pl.jasox.medward.model.domainobject.Doctor;
@@ -30,11 +33,11 @@ import pl.jasox.medward.model.domainobject.Doctor;
  * @version 1.1.1
  */
 //@Ignore
-public class DoctorResourceRESTTest {  
-     
+public class DoctorHibernateRestTest {       
   
     // Attributes --------------------------------------------------------------    
 
+    final   static Logger     log    = Logger.getLogger( DoctorHibernateRestTest.class.getName() );
     private static HttpServer server;
     private static URI        uri    = UriBuilder.fromUri("http://localhost/").port(8282).build();
     private static Client     client = ClientBuilder.newClient();
@@ -55,13 +58,24 @@ public class DoctorResourceRESTTest {
         server.createContext(uri.getPath(), handler);
 
         // start the server
-        server.start();
+        server.start();        
     }
 
     @AfterClass
     public static void stop() {
         server.stop(0);        
     }
+    
+    @Before
+	  public void setUp() throws Exception {
+		    //beforeAssertions();
+	  }
+
+	  @After
+	  public void tearDown() throws Exception {
+		   //afterAssertions();
+	  }
+
    
     // Unit tests --------------------------------------------------------------            
     
@@ -76,49 +90,49 @@ public class DoctorResourceRESTTest {
               + "<email-address>joe.doe@mail.com</email-address>"
               + "<remarks>test</remarks>"
               + "</doctor>";
-    */
-
+    */    
+      
     @Test
     public void shouldMarshallADoctor() throws JAXBException {
         // given
         Doctor doctor = new Doctor( "1234567", "John", "Smith", "j.smith@gmail.com");
-        System.out.println("Java: " + doctor);
+        log.info("Java: " + doctor);
         StringWriter writer = new StringWriter();
         JAXBContext context = JAXBContext.newInstance(Doctor.class);
         Marshaller m = context.createMarshaller();
         m.marshal(doctor, writer);  
-        System.out.println("XML : " + writer);
+        log.info("XML : " + writer);
     }
     
     @Test
     public void shouldCheckGetDoctorByLoginResponse() {
-        System.out.println("shouldCheckGetDoctorByLoginResponse");
+        log.info("shouldCheckGetDoctorByLoginResponse");
         Response response = client.target("http://localhost:8282/doctors/0000001").request().get();
         //assertEquals(200, response.getStatus());
-        System.out.println(response.toString());
+        log.info(response.toString());
     }
     /*
     @Test
     public void shouldCheckGetDoctorByLogin() {
-        System.out.println("shouldCheckGetDoctorByLogin");
+        log.info("shouldCheckGetDoctorByLogin");
         String login = "0000001";
         Doctor doctor = client.target("http://localhost:8282/doctors").path(login).request().get(Doctor.class);
         //assertEquals(login, doctor.getUsername());
-        System.out.println("Java:" + doctor);
+        log.info("Java:" + doctor);
     }
-    */
+    
     
     @Test
     public void shouldCheckGetDoctorByIdResponse() {
-        System.out.println("shouldCheckGetDoctorByIdResponse");
+        log.info("shouldCheckGetDoctorByIdResponse");
         Response response = client.target("http://localhost:8282/doctors/0000001").request().get();
         //assertEquals(200, response.getStatus());
     }
  
-    /*
+    
     @Test
     public void shouldCheckGetDoctorById() {
-        System.out.println("shouldCheckGetDoctorById");
+        log.info("shouldCheckGetDoctorById");
         String id = "0000001";
         Doctor doctor = client.target("http://localhost:8282/doctors").path(id).request().get(Doctor.class);
         assertEquals(id, doctor.getId().toString());
@@ -127,28 +141,28 @@ public class DoctorResourceRESTTest {
     /*
     @Test
     public void shouldCheckGetDoctorByEmailURI() {
-        System.out.println("shouldCheckGetDoctorByEmailURI");
+        log.info("shouldCheckGetDoctorByEmailURI");
         Response response = client.target("http://localhost:8282/doctors?email=j.doe@wp.pl").request().get();
         assertEquals(200, response.getStatus());
     }
 
     @Test
     public void shouldCheckGetDoctorByEmailWithParamURI() {
-        System.out.println("shouldCheckGetDoctorByEmailWithParamURI");
+        log.info("shouldCheckGetDoctorByEmailWithParamURI");
         Response response = client.target("http://localhost:8282/doctors").queryParam("email", "j.doe@onet.pl").request().get();
         assertEquals(200, response.getStatus());
     }
 
     @Test
     public void shouldCheckGetDoctorByFirstnameNameURI() {
-        System.out.println("shouldCheckGetDoctorByFirstnameNameURI");
+        log.info("shouldCheckGetDoctorByFirstnameNameURI");
         Response response = client.target("http://localhost:8282/doctors/search;firstname=Joe;surname=Doe").request().get();
         assertEquals(200, response.getStatus());
     }
 
     @Test
     public void shouldCheckGetDoctorByFirstnameNameWithParamURI() {
-        System.out.println("shouldCheckGetDoctorByFirstnameNameWithParamURI");
+        log.info("shouldCheckGetDoctorByFirstnameNameWithParamURI");
         Response response = client.target("http://localhost:8282/doctors/search")
                                   .matrixParam("firstname", "Jane").matrixParam("surname", "Doe").request().get();
         assertEquals(200, response.getStatus());
@@ -167,7 +181,7 @@ public class DoctorResourceRESTTest {
     @Ignore
     public void shouldEchoUserAgentValue() {
         String response = client.target("http://localhost:8282/doctor/userAgent").request().get(String.class);
-        //System.out.println("    : " + response);
+        //log.info("    : " + response);
         assertEquals("Jersey/2.3.1 (HttpUrlConnection 1.7.0_05) from the server", response);
     }
     */

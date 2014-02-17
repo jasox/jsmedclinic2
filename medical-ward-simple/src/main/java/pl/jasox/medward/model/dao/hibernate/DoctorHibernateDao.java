@@ -17,7 +17,7 @@ public class DoctorHibernateDao extends AGenericHibernateDao implements IDoctorD
 
 	@Override
 	public void delete(Doctor doctor) {
-		session.delete(doctor);		
+		getSession().delete(doctor);		
 	}
 
 	@SuppressWarnings("unchecked")
@@ -81,13 +81,12 @@ public class DoctorHibernateDao extends AGenericHibernateDao implements IDoctorD
  
 	@Override
 	public void save(Doctor doctor) {
-		session.save(doctor);		
+		getSession().save(doctor);		
 	}
 
 	@Override
 	public void saveOrUpdate(Doctor doctor) {
-		session.saveOrUpdate(doctor);		
-	}	
- 
+		getSession().saveOrUpdate(doctor);		
+	}	 
   
 }

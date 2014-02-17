@@ -9,7 +9,7 @@
   <!-- Connection for HSQL -->   
   <property name="hibernate.connection.driver_class"> org.hsqldb.jdbcDriver</property>
   <property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
-  <property name="hibernate.connection.url">jdbc:hsqldb:file:/C:\\JS\\Java\\JSMedClinic2\\medical-ward-simple/../db-settings/fake-database-hsql/jsmedclinic</property>         
+  <property name="hibernate.connection.url">jdbc:hsqldb:file:/C:/JS/Java/JSMedClinic2/db-settings/fake-database-hsql/jsmedclinic</property>         
   <property name="hibernate.connection.username">SA</property>
   <property name="hibernate.connection.password"></property>      
   <property name="hibernate.default_schema">PUBLIC</property>    
@@ -21,22 +21,22 @@
   <property name="hibernate.show_sql">false</property>
   <property name="hibernate.format_sql">false</property>
     
-  <!-- Ustawienia puli połączeń poprzez c3p0  
+  <!-- Ustawienia puli połączeń poprzez c3p0 --> 
   <property name="hibernate.connection.provider_class">
       org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider
   </property>
   <property name="hibernate.c3p0.idle_test_period">30</property>
-  -->
+  
   <!--
     This value is an indication of the number of seconds 
     a connection can remain pooled but unused before being discarded. 
-    Zero means idle connections never expire. 
+    Zero means idle connections never expire. --> 
   
   <property name="hibernate.c3p0.timeout">120</property>
   <property name="hibernate.c3p0.max_size">5</property>
   <property name="hibernate.c3p0.min_size">1</property>
   <property name="hibernate.c3p0.max_statements">0</property>
-  -->
+  
   <!-- Cache : Disable the second-level cache -->
   <property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>  
   <!-- 

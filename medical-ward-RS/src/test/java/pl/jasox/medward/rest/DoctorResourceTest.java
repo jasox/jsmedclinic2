@@ -80,7 +80,7 @@ public class DoctorResourceTest {
        //.addClass(TestDatabase.class)   
        //.addClass(DatabaseType.class)      
        //.addClass(TestEntityManagerProducer.class) 
-       .addClass(DoctorResourceRESTService.class)     
+       .addClass(DoctorHibernateRestService.class)     
        .addAsLibraries(medical_ward_simple)       
        .addAsLibraries(picketlink_idm)  
        .addAsLibraries(medical_ward_ejb)

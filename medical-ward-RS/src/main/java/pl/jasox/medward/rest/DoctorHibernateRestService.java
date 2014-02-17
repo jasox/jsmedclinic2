@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.annotation.PostConstruct;
-import javax.ejb.Singleton;
 import javax.persistence.NoResultException;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -32,7 +31,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import pl.jasox.medward.model.dao.IDoctorDao;
 import pl.jasox.medward.model.dao.factory.IDaoFactory;
-import pl.jasox.medward.model.dao.hibernate.DoctorHibernateDao;
 import pl.jasox.medward.model.dao.hibernate.factory.HibernateDaoFactory;
 
 import pl.jasox.medward.model.domainobject.Doctor;
@@ -44,15 +42,15 @@ import pl.jasox.medward.model.util.hibernate.HibernateUtil;
  * JAX-RS Service <br/>
  * This class produces a RESTful service to read/write the contents of the doctors table.
  */
-//@Singleton
+//@Stateless
 @Path("/doctors")
-public class DoctorResourceRESTService {      
-    final static Logger log = Logger.getLogger( DoctorResourceRESTService.class.getName() );
-    private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+public class DoctorHibernateRestService {  
+    final static Logger log = Logger.getLogger( DoctorHibernateRestService.class.getName() );
      
-    private static IDaoFactory   daoFactory; // = HibernateDaoFactory.getInstance();   
-    private IDoctorDao    doctorRepository;
-    private AtomicInteger idCounter = new AtomicInteger();
+    private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+    private static IDaoFactory    daoFactory; 
+    private        IDoctorDao     doctorRepository;
+    private        AtomicInteger  idCounter = new AtomicInteger();
     
     protected static ValidatorFactory vf;
     protected static Validator validator;   
@@ -71,20 +69,20 @@ public class DoctorResourceRESTService {
     
     @PostConstruct
     public void init() { 
-      daoFactory       = HibernateDaoFactory.getInstance();
-      System.out.println("############# DAO Factory :" + daoFactory);
-      doctorRepository = daoFactory.getDoctorDao();
+      daoFactory = HibernateDaoFactory.getInstance();
+      log.info("############# DAO Factory :" + daoFactory);
+      //doctorRepository = daoFactory.getDoctorDao();
       //doctorRepository = new DoctorHibernateDao();
-      System.out.println("############# Doctor DAO  :" + doctorRepository);
-      Doctor doctor = doctorRepository.findById("0000001");
-      System.out.println("############# in init, doctor : " + doctor);
+      //log.info("############# Doctor DAO  :" + doctorRepository);
+      //Doctor doctor = doctorRepository.findById("0000001");
+      //log.info("############# in init, doctor : " + doctor);
     }
     
     @POST
     @Consumes(MediaType.APPLICATION_XML) // "application/xml")
     public Response createDoctorXml(Doctor doctor) {
       doctor.setIdDoctor(idCounter.incrementAndGet());
-      //doctorRepository = daoFactory.getDoctorDao();      
+      doctorRepository = daoFactory.getDoctorDao();      
       doctorRepository.saveOrUpdate(doctor);
       System.out.println("Created doctor : " + doctor.getId());
       return Response.created(URI.create("/doctors/" + doctor.getIdDoctor())).build();
@@ -94,17 +92,15 @@ public class DoctorResourceRESTService {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_XML) // "application/xml")
     //@Formatted
-    public Doctor getDoctor(@PathParam("id") String id) {
-      beginHibernateTransaction();
+    public Doctor getDoctor(@PathParam("id") String id) {      
       System.out.println("@GET @Path(\"{id}\"), doctor id : " + id);
-      //doctorRepository = daoFactory.getDoctorDao();
+      doctorRepository = daoFactory.getDoctorDao();
       Doctor doctor = doctorRepository.findById(id);
       System.out.println("in @GET, doctor : " + doctor);
       //Doctor doctor = new Doctor("0000001", "John", "Smith", "j.smith@gmail.com");
       if (doctor == null) {
          throw new WebApplicationException(Response.Status.NOT_FOUND);
-      }
-      endHibernateTransaction();
+      }      
       return doctor;
     }
     
@@ -114,6 +110,7 @@ public class DoctorResourceRESTService {
     //@Formatted
     public void updateCustomer(@PathParam("id") String id, Doctor update)
     {
+      doctorRepository = daoFactory.getDoctorDao();
       Doctor current = doctorRepository.findById(id);
       if (current == null) { 
         throw new WebApplicationException(Response.Status.NOT_FOUND);
@@ -138,6 +135,7 @@ public class DoctorResourceRESTService {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Doctor lookupDoctorById(@PathParam("id") String id) {
+        doctorRepository = daoFactory.getDoctorDao();
         Doctor doctor = doctorRepository.findById(id);
         if (doctor == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
@@ -247,6 +245,7 @@ public class DoctorResourceRESTService {
         Doctor doctor = null;
         
         try {
+            doctorRepository = daoFactory.getDoctorDao();
             doctor = doctorRepository.findByEmail(email);
         } 
         catch (NoResultException e) {
@@ -260,6 +259,7 @@ public class DoctorResourceRESTService {
         List<Doctor> doctors = null;
         
         try {
+            doctorRepository = daoFactory.getDoctorDao();
             doctors = doctorRepository.getAll();
         } 
         catch (NoResultException e) {
@@ -269,9 +269,10 @@ public class DoctorResourceRESTService {
         return doctors;
     }
     
-   
-    protected void beginHibernateTransaction() {	
+    // -------------------------------------------------------------------------    
     
+    protected void beginHibernateTransaction() {		
+      
       Session session = sessionFactory.getCurrentSession();     
       try {
         session.beginTransaction();      
@@ -286,9 +287,9 @@ public class DoctorResourceRESTService {
           log.error("Could not rollback after exception!", eh);
           eh.printStackTrace();
         }
-      }    
-    }
-  
+      }
+
+    }  
  
     protected void endHibernateTransaction() {
 
@@ -308,6 +309,21 @@ public class DoctorResourceRESTService {
             eh.printStackTrace();
           }
         }      
-      }     
+      } 
+       
     }
+    
+    
+    
+    /** */
+    public static void main(String[] args) {
+      
+      daoFactory = HibernateDaoFactory.getInstance();
+      log.info("############# DAO Factory :" + daoFactory);  
+      log.info("############# Doctor DAO  :" + daoFactory.getDoctorDao());
+      //Doctor doctor = daoFactory.getDoctorDao().findById("0000001");
+      //log.info("############# in init, doctor : " + doctor);
+           
+    }
+        
 }

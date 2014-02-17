@@ -1037,7 +1037,14 @@
                 <artifactId>mysql-connector-java</artifactId> 
                 <version>5.1.5</version>  
                 <scope>test</scope>
-            </dependency>                     
+            </dependency> 
+            <!-- c3p0 connection management -->    
+            <dependency> 
+              <groupId>c3p0</groupId> 
+              <artifactId>c3p0</artifactId> 
+              <version>0.9.1.2</version> 
+              <scope>test</scope>
+            </dependency>                      
         </dependencies>
         <build>
             <testResources>

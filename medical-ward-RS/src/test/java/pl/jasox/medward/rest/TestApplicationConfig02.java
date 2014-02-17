@@ -16,7 +16,7 @@ public class TestApplicationConfig02 extends Application {
    public TestApplicationConfig02() {
       super();
       // ...             
-      classes.add(DoctorResourceRESTService.class);
+      classes.add(DoctorHibernateRestService.class);
       classes = Collections.unmodifiableSet(classes);
       //singletons.add(new DoctorResourceRESTService());
       //singletons = Collections.unmodifiableSet(singletons);

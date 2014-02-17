@@ -27,7 +27,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>    
 		<!-- do testów filtrowania z zachowaniem odpowiedniego kodowania -->
     <projectOwner>Janusz Swół - (POM)</projectOwner>
-    <skipUTs>false</skipUTs>
+    <skipUTs>true</skipUTs>
   </properties>
   
   <!-- ===================================================================== -->
@@ -97,7 +97,7 @@
 		  <scope>runtime</scope>
     </dependency>     
     
-     <!-- c3p0 connection management -->    
+    <!-- c3p0 connection management -->    
     <dependency> 
       <groupId>c3p0</groupId> 
       <artifactId>c3p0</artifactId> 
