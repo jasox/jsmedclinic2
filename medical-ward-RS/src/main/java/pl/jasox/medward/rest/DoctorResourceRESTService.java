@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.annotation.PostConstruct;
+import javax.ejb.Singleton;
 import javax.persistence.NoResultException;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -25,14 +26,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import org.hibernate.SessionFactory;
+import org.apache.log4j.Logger;
 import pl.jasox.medward.model.dao.IDoctorDao;
-import pl.jasox.medward.model.dao.factory.ADaoFactory;
+import pl.jasox.medward.model.dao.factory.IDaoFactory;
 import pl.jasox.medward.model.dao.hibernate.DoctorHibernateDao;
 import pl.jasox.medward.model.dao.hibernate.factory.HibernateDaoFactory;
 
 import pl.jasox.medward.model.domainobject.Doctor;
-import pl.jasox.medward.model.util.hibernate.HibernateUtil;
 
 //import org.jboss.resteasy.annotations.providers.jaxb.Formatted;
 
@@ -40,18 +40,17 @@ import pl.jasox.medward.model.util.hibernate.HibernateUtil;
  * JAX-RS Service <br/>
  * This class produces a RESTful service to read/write the contents of the doctors table.
  */
+//@Singleton
 @Path("/doctors")
-public class DoctorResourceRESTService {    
-    
-    private static ADaoFactory daoFactory = ADaoFactory.getInstance();
-   
-    IDoctorDao doctorRepository = daoFactory.getDoctorDao(); // = new DoctorHibernateDao();
+public class DoctorResourceRESTService {      
+    final static Logger log = Logger.getLogger( DoctorResourceRESTService.class.getName() );
+     
+    private IDaoFactory   daoFactory; // = HibernateDaoFactory.getInstance();   
+    private IDoctorDao    doctorRepository;
     private AtomicInteger idCounter = new AtomicInteger();
     
     protected static ValidatorFactory vf;
-    protected static Validator validator;
-    final static org.apache.log4j.Logger log = 
-          org.apache.log4j.Logger.getLogger( DoctorResourceRESTService.class.getName() );
+    protected static Validator validator;   
 
     //@Inject
     //private Logger log;
@@ -66,9 +65,11 @@ public class DoctorResourceRESTService {
     //DoctorRegistration registration;
     
     @PostConstruct
-    public void init() {        
-      doctorRepository = daoFactory.getDoctorDao();
-      System.out.println("DAO" + doctorRepository);
+    public void init() { 
+      //daoFactory       = HibernateDaoFactory.getInstance();
+      //doctorRepository = daoFactory.getDoctorDao();
+      doctorRepository = new DoctorHibernateDao();
+      //System.out.println("DAO :" + doctorRepository);
     }
     
     @POST
@@ -86,7 +87,7 @@ public class DoctorResourceRESTService {
     //@Formatted
     public Doctor getDoctor(@PathParam("id") String id) {
       System.out.println("@GET @Path(\"{id}\"), doctor id : " + id);
-      Doctor doctor = new Doctor(); //doctorRepository.findById(id);
+      Doctor doctor = doctorRepository.findById(id);
       if (doctor == null) {
          throw new WebApplicationException(Response.Status.NOT_FOUND);
       }

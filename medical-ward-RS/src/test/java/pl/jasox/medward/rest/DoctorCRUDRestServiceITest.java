@@ -49,8 +49,8 @@ public class DoctorCRUDRestServiceITest {
         server = HttpServer.create(new InetSocketAddress(uri.getPort()), 0);
 
         // create a handler wrapping the JAX-RS application
-        HttpHandler handler = 
-           RuntimeDelegate.getInstance().createEndpoint(new ApplicationConfig(), HttpHandler.class);
+        HttpHandler handler = RuntimeDelegate.getInstance().createEndpoint(
+                                 new TestApplicationConfig01(), HttpHandler.class);
 
         // map JAX-RS handler to the server root
         server.createContext(uri.getPath(), handler);
@@ -99,7 +99,7 @@ public class DoctorCRUDRestServiceITest {
  
     @Test
     public void shouldCheckGetDoctorByLogin() {
-        String login = "1234567";
+        String login  = "1234567";
         Doctor doctor = client.target("http://localhost:8282/doctor").path(login).request().get(Doctor.class);
         assertEquals(login, doctor.getUsername());
     }

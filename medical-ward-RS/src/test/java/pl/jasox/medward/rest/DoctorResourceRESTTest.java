@@ -48,8 +48,8 @@ public class DoctorResourceRESTTest {
         server = HttpServer.create(new InetSocketAddress(uri.getPort()), 0);
 
         // create a handler wrapping the JAX-RS application
-        HttpHandler handler = 
-           RuntimeDelegate.getInstance().createEndpoint(new ApplicationConfig(), HttpHandler.class);
+        HttpHandler handler = RuntimeDelegate.getInstance().createEndpoint(
+                                 new TestApplicationConfig02(), HttpHandler.class);
 
         // map JAX-RS handler to the server root
         server.createContext(uri.getPath(), handler);
@@ -60,7 +60,7 @@ public class DoctorResourceRESTTest {
 
     @AfterClass
     public static void stop() {
-        server.stop(0);
+        server.stop(0);        
     }
    
     // Unit tests --------------------------------------------------------------            
@@ -97,7 +97,7 @@ public class DoctorResourceRESTTest {
         //assertEquals(200, response.getStatus());
         System.out.println(response.toString());
     }
-    
+  
     @Test
     public void shouldCheckGetDoctorByLogin() {
         System.out.println("shouldCheckGetDoctorByLogin");
@@ -106,7 +106,7 @@ public class DoctorResourceRESTTest {
         //assertEquals(login, doctor.getUsername());
         System.out.println("Java:" + doctor);
     }
-/*
+ /* 
     @Test
     public void shouldCheckGetDoctorByIdResponse() {
         System.out.println("shouldCheckGetDoctorByIdResponse");

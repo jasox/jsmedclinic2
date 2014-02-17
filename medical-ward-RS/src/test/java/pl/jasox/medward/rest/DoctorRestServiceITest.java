@@ -75,7 +75,8 @@ public class DoctorRestServiceITest {
         // Create an HTTP server listening at port 8282
         HttpServer server = HttpServer.create(new InetSocketAddress(uri.getPort()), 0);
         // Create a handler wrapping the JAX-RS application
-        HttpHandler handler = RuntimeDelegate.getInstance().createEndpoint(new ApplicationConfig(), HttpHandler.class);
+        HttpHandler handler = RuntimeDelegate.getInstance().createEndpoint(
+                                new TestApplicationConfig01(), HttpHandler.class);
         // Map JAX-RS handler to the server root
         server.createContext(uri.getPath(), handler);
         // Start the server
@@ -106,8 +107,8 @@ public class DoctorRestServiceITest {
         // Create an HTTP server listening at port 8282
         HttpServer server = HttpServer.create(new InetSocketAddress(uri.getPort()), 0);
         // Create a handler wrapping the JAX-RS application
-        HttpHandler handler = RuntimeDelegate.getInstance()
-                                             .createEndpoint(new ApplicationConfig(), HttpHandler.class);
+        HttpHandler handler = RuntimeDelegate.getInstance().createEndpoint(
+                                 new TestApplicationConfig01(), HttpHandler.class);
         // Map JAX-RS handler to the server root
         server.createContext(uri.getPath(), handler);
         // Start the server
@@ -118,8 +119,7 @@ public class DoctorRestServiceITest {
         // Valid URIs
         Response response = client.target("http://localhost:8282/doctor").request().get();
         assertEquals(200, response.getStatus());
-
-        System.out.println("###############################");
+        
         System.out.println(response.readEntity(String.class));
 
         // Stop HTTP server
