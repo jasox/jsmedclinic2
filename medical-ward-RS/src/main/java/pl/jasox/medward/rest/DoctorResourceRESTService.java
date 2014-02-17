@@ -27,12 +27,16 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.apache.log4j.Logger;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import pl.jasox.medward.model.dao.IDoctorDao;
 import pl.jasox.medward.model.dao.factory.IDaoFactory;
 import pl.jasox.medward.model.dao.hibernate.DoctorHibernateDao;
 import pl.jasox.medward.model.dao.hibernate.factory.HibernateDaoFactory;
 
 import pl.jasox.medward.model.domainobject.Doctor;
+import pl.jasox.medward.model.util.hibernate.HibernateUtil;
 
 //import org.jboss.resteasy.annotations.providers.jaxb.Formatted;
 
@@ -44,8 +48,9 @@ import pl.jasox.medward.model.domainobject.Doctor;
 @Path("/doctors")
 public class DoctorResourceRESTService {      
     final static Logger log = Logger.getLogger( DoctorResourceRESTService.class.getName() );
+    private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
      
-    private IDaoFactory   daoFactory; // = HibernateDaoFactory.getInstance();   
+    private static IDaoFactory   daoFactory; // = HibernateDaoFactory.getInstance();   
     private IDoctorDao    doctorRepository;
     private AtomicInteger idCounter = new AtomicInteger();
     
@@ -66,16 +71,20 @@ public class DoctorResourceRESTService {
     
     @PostConstruct
     public void init() { 
-      //daoFactory       = HibernateDaoFactory.getInstance();
-      //doctorRepository = daoFactory.getDoctorDao();
-      doctorRepository = new DoctorHibernateDao();
-      //System.out.println("DAO :" + doctorRepository);
+      daoFactory       = HibernateDaoFactory.getInstance();
+      System.out.println("############# DAO Factory :" + daoFactory);
+      doctorRepository = daoFactory.getDoctorDao();
+      //doctorRepository = new DoctorHibernateDao();
+      System.out.println("############# Doctor DAO  :" + doctorRepository);
+      Doctor doctor = doctorRepository.findById("0000001");
+      System.out.println("############# in init, doctor : " + doctor);
     }
     
     @POST
     @Consumes(MediaType.APPLICATION_XML) // "application/xml")
     public Response createDoctorXml(Doctor doctor) {
       doctor.setIdDoctor(idCounter.incrementAndGet());
+      //doctorRepository = daoFactory.getDoctorDao();      
       doctorRepository.saveOrUpdate(doctor);
       System.out.println("Created doctor : " + doctor.getId());
       return Response.created(URI.create("/doctors/" + doctor.getIdDoctor())).build();
@@ -86,11 +95,16 @@ public class DoctorResourceRESTService {
     @Produces(MediaType.APPLICATION_XML) // "application/xml")
     //@Formatted
     public Doctor getDoctor(@PathParam("id") String id) {
+      beginHibernateTransaction();
       System.out.println("@GET @Path(\"{id}\"), doctor id : " + id);
+      //doctorRepository = daoFactory.getDoctorDao();
       Doctor doctor = doctorRepository.findById(id);
+      System.out.println("in @GET, doctor : " + doctor);
+      //Doctor doctor = new Doctor("0000001", "John", "Smith", "j.smith@gmail.com");
       if (doctor == null) {
          throw new WebApplicationException(Response.Status.NOT_FOUND);
       }
+      endHibernateTransaction();
       return doctor;
     }
     
@@ -119,8 +133,9 @@ public class DoctorResourceRESTService {
         return findAllDoctorsOrderedByName();
     }
 
+    
     @GET
-    @Path("/{id}")
+    @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Doctor lookupDoctorById(@PathParam("id") String id) {
         Doctor doctor = doctorRepository.findById(id);
@@ -129,7 +144,7 @@ public class DoctorResourceRESTService {
         }
         return doctor;
     }
-
+    
     /**
      * Creates a new doctor from the values provided. <br/>
      * Performs validation, and will return a JAX-RS response with either 200 ok,
@@ -254,5 +269,45 @@ public class DoctorResourceRESTService {
         return doctors;
     }
     
+   
+    protected void beginHibernateTransaction() {	
     
+      Session session = sessionFactory.getCurrentSession();     
+      try {
+        session.beginTransaction();      
+      }
+      catch ( Exception e ) {
+        try {
+          if ( session.getTransaction().isActive() ) {
+            session.getTransaction().rollback();
+          }
+        } 
+        catch ( HibernateException eh ) {
+          log.error("Could not rollback after exception!", eh);
+          eh.printStackTrace();
+        }
+      }    
+    }
+  
+ 
+    protected void endHibernateTransaction() {
+
+      if ( daoFactory != null ) {
+        Session session = sessionFactory.getCurrentSession();   
+        try {
+          session.getTransaction().commit();
+        }
+        catch ( Exception e ) {
+          try {
+            if ( session.getTransaction().isActive() ) {
+              session.getTransaction().rollback();
+            }
+          } 
+          catch ( HibernateException eh ) {
+            log.error("Could not commit after exception!", eh);
+            eh.printStackTrace();
+          }
+        }      
+      }     
+    }
 }

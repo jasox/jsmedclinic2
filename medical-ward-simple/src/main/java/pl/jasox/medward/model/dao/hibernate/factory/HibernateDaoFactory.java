@@ -26,7 +26,7 @@ import pl.jasox.medward.model.dao.hibernate.PatientHibernateDao;
  */
 public class HibernateDaoFactory extends ADaoFactory {
 	
-	final static Logger log = Logger.getLogger( HibernateDaoFactory.class.getName() );	
+	 final static Logger log = Logger.getLogger( HibernateDaoFactory.class.getName() );	
 	
 	 public static ADaoFactory getInstance() {  
 		if ( instance == null ) {
@@ -38,6 +38,10 @@ public class HibernateDaoFactory extends ADaoFactory {
 		}		
 		return instance;
 	}
+   
+  public HibernateDaoFactory() {
+    log.info("> HibernateDaoFactory initialized ");
+  } 
 	
 	@Override
 	public IPatientDao getPatientDao() {
@@ -84,6 +88,8 @@ public class HibernateDaoFactory extends ADaoFactory {
 	public IClinicDao getClinicDao() {
 		return new ClinicHibernateDao();
 	}
+  
+  // ---------------------------------------------------------------------------
 	
 	@Override
 	public String toString() {
@@ -91,4 +97,4 @@ public class HibernateDaoFactory extends ADaoFactory {
 	}
 	
 }
-//--------------------------------------------------------------------
+

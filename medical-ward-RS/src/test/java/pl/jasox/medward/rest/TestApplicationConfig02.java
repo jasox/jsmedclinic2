@@ -15,11 +15,10 @@ public class TestApplicationConfig02 extends Application {
 
    public TestApplicationConfig02() {
       super();
-      // ...        
-      //HashSet<Class<?>> c = new HashSet<>();
+      // ...             
       classes.add(DoctorResourceRESTService.class);
       classes = Collections.unmodifiableSet(classes);
-      //singletons.add(DoctorResourceRESTService.class);
+      //singletons.add(new DoctorResourceRESTService());
       //singletons = Collections.unmodifiableSet(singletons);
    }
   

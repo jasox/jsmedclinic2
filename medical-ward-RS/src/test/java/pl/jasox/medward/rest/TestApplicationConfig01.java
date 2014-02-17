@@ -15,8 +15,7 @@ public class TestApplicationConfig01 extends Application {
 
    public TestApplicationConfig01() {
       super();
-      // ...        
-      //HashSet<Class<?>> c = new HashSet<>();
+      // ...       
       classes.add(DoctorCRUDRestService.class);
       classes = Collections.unmodifiableSet(classes);
    }
