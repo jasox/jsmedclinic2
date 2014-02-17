@@ -40,7 +40,8 @@ import pl.jasox.medward.model.util.hibernate.HibernateUtil;
 
 /**
  * JAX-RS Service <br/>
- * This class produces a RESTful service to read/write the contents of the doctors table.
+ * This class produces a RESTful service to read/write the contents of the doctors table
+ * by Hibernate access layer
  */
 //@Stateless
 @Path("/doctors")
@@ -62,25 +63,19 @@ public class DoctorHibernateRestService {
     //private Validator validator;
 
     //@Inject
-    //private DoctorRepository repository;
-
-    //@Inject    
-    //DoctorRegistration registration;
+    //private DoctorRepository repository;    
     
     @PostConstruct
     public void init() { 
-      daoFactory = HibernateDaoFactory.getInstance();
-      log.info("DAO Factory :" + daoFactory);
-      doctorRepository = daoFactory.getDoctorDao();      
-      log.info("Doctor DAO  :" + doctorRepository);      
+      daoFactory       = HibernateDaoFactory.getInstance();      
+      doctorRepository = daoFactory.getDoctorDao();          
     }
     
     @POST
     @Consumes(MediaType.APPLICATION_XML) // "application/xml")
     public Response createDoctorXml(Doctor doctor) {
       beginHibernateTransaction();
-      doctor.setIdDoctor(idCounter.incrementAndGet());
-      doctorRepository = daoFactory.getDoctorDao();      
+      doctor.setIdDoctor(idCounter.incrementAndGet());           
       doctorRepository.saveOrUpdate(doctor);
       endHibernateTransaction();
       log.info("Created doctor : " + doctor.getId());
@@ -93,11 +88,9 @@ public class DoctorHibernateRestService {
     //@Formatted
     public Doctor getDoctor(@PathParam("id") String id) {      
       log.info("@GET @Path(\"{id}\"), doctor id : " + id);
-      beginHibernateTransaction();
-      doctorRepository = daoFactory.getDoctorDao();
+      beginHibernateTransaction();     
       Doctor doctor = doctorRepository.findById(id);
       log.info("in @GET, doctor : " + doctor);
-      //Doctor doctor = new Doctor("0000001", "John", "Smith", "j.smith@gmail.com");
       endHibernateTransaction();
       if (doctor == null) {
          throw new WebApplicationException(Response.Status.NOT_FOUND);
@@ -110,9 +103,9 @@ public class DoctorHibernateRestService {
     @Consumes(MediaType.APPLICATION_XML) // "application/xml")
     //@Formatted
     public void updateCustomer(@PathParam("id") String id, Doctor update) {
-      beginHibernateTransaction();
-      doctorRepository = daoFactory.getDoctorDao();
+      beginHibernateTransaction();      
       Doctor current = doctorRepository.findById(id);
+      endHibernateTransaction();
       if (current == null) { 
         throw new WebApplicationException(Response.Status.NOT_FOUND);
       }
@@ -120,8 +113,7 @@ public class DoctorHibernateRestService {
       current.setLastName(update.getLastName());
       current.setEmailAddress(update.getEmailAddress());
       current.setSymbolDoctor(update.getSymbolDoctor());
-      current.setSymbolSpec(update.getSymbolSpec()); 
-      endHibernateTransaction();
+      current.setSymbolSpec(update.getSymbolSpec());      
     }
 
     @GET
@@ -135,8 +127,7 @@ public class DoctorHibernateRestService {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Doctor lookupDoctorById(@PathParam("id") String id) {
-        beginHibernateTransaction();
-        doctorRepository = daoFactory.getDoctorDao();
+        beginHibernateTransaction();        
         Doctor doctor = doctorRepository.findById(id);
         if (doctor == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
@@ -182,7 +173,6 @@ public class DoctorHibernateRestService {
             responseObj.put("error", e.getMessage());
             builder = Response.status(Response.Status.BAD_REQUEST).entity(responseObj);
         }
-
         return builder.build();
     }
 
@@ -211,8 +201,7 @@ public class DoctorHibernateRestService {
         // Check the uniqueness of the email address
         if (emailAlreadyExists(doctor.getEmailAddress())) {
             throw new ValidationException("Unique Email Violation");
-        }
-       /**/
+        }       
     }
 
     /**
@@ -224,7 +213,6 @@ public class DoctorHibernateRestService {
      */
     private Response.ResponseBuilder createViolationResponse(Set<ConstraintViolation<?>> violations) {
         log.info("Validation completed. violations found: " + violations.size());
-
         Map<String, String> responseObj = new HashMap<String, String>();
 
         for (ConstraintViolation<?> violation : violations) {
@@ -244,8 +232,9 @@ public class DoctorHibernateRestService {
     public boolean emailAlreadyExists(String email) {
         Doctor doctor = null;        
         try {
-            doctorRepository = daoFactory.getDoctorDao();
-            doctor = doctorRepository.findByEmail(email);
+          beginHibernateTransaction();  
+          doctor = doctorRepository.findByEmail(email);
+          endHibernateTransaction();
         } 
         catch (NoResultException e) {
             // ignore
@@ -256,8 +245,9 @@ public class DoctorHibernateRestService {
     public List<Doctor> findAllDoctorsOrderedByName() {
         List<Doctor> doctors = null;        
         try {
-            doctorRepository = daoFactory.getDoctorDao();
+            beginHibernateTransaction();
             doctors = doctorRepository.getAll();
+            endHibernateTransaction();
         } 
         catch (NoResultException e) {
             // ignore
@@ -267,8 +257,7 @@ public class DoctorHibernateRestService {
     
     // -------------------------------------------------------------------------    
     
-    protected void beginHibernateTransaction() {		
-      
+    protected void beginHibernateTransaction() {	      
       Session session = sessionFactory.getCurrentSession();     
       try {
         session.beginTransaction();      
@@ -284,11 +273,9 @@ public class DoctorHibernateRestService {
           eh.printStackTrace();
         }
       }
-
     }  
  
     protected void endHibernateTransaction() {
-
       if ( daoFactory != null ) {
         Session session = sessionFactory.getCurrentSession();   
         try {
@@ -305,8 +292,7 @@ public class DoctorHibernateRestService {
             eh.printStackTrace();
           }
         }      
-      } 
-       
+      }        
     }   
         
 }

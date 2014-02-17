@@ -124,14 +124,14 @@ public class DoctorHibernateRestTest {
     @Test
     public void shouldCheckGetDoctorByIdResponse() {
         log.info("shouldCheckGetDoctorByIdResponse");
-        Response response = client.target("http://localhost:8282/doctors/0000001").request().get();
+        Response response = client.target("http://localhost:8282/doctors/0000003").request().get();
         assertEquals(200, response.getStatus());
     } 
       
     @Test
     public void shouldCheckGetDoctorById() {
         log.info("shouldCheckGetDoctorById");
-        String id = "0000001";
+        String id = "0000003";
         Doctor doctor = client.target("http://localhost:8282/doctors").path(id).request().get(Doctor.class);
         assertEquals(id, doctor.getId().toString());
     }
