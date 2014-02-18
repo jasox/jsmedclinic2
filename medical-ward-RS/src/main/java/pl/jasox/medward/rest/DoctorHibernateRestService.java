@@ -44,7 +44,6 @@ import pl.jasox.medward.model.util.hibernate.HibernateUtil;
  * This class produces a RESTful service to read/write the contents of the doctors table
  * by Hibernate access layer
  */
-//@Stateless
 @Path("/doctors")
 public class DoctorHibernateRestService {  
   
@@ -75,8 +74,7 @@ public class DoctorHibernateRestService {
     @POST
     @Consumes(MediaType.APPLICATION_XML) // "application/xml")
     public Response createDoctorXml(Doctor doctor) {      
-      doctor.setIdDoctor(idCounter.incrementAndGet());  
-      doctorRepository = daoFactory.getDoctorDao();
+      doctor.setIdDoctor(idCounter.incrementAndGet());       
       beginHibernateTransaction();
       doctorRepository.saveOrUpdate(doctor);
       endHibernateTransaction();
@@ -91,7 +89,7 @@ public class DoctorHibernateRestService {
     public Doctor getDoctorById(@PathParam("id") String id) {    
       log.info("in @GET by id, id     : " + id);      
       beginHibernateTransaction();
-      Doctor doctor    = doctorRepository.findById(id);
+      Doctor doctor = doctorRepository.findById(id);
       endHibernateTransaction();
       log.info("in @GET by id, doctor : " + doctor);      
       if (doctor == null) {
@@ -106,7 +104,7 @@ public class DoctorHibernateRestService {
     public Doctor getDoctorByEmail(@QueryParam("email") String email) {   
       log.info("in @GET by email, email  : " + email);      
       beginHibernateTransaction();      
-      Doctor doctor    = doctorRepository.findByEmail(email);      
+      Doctor doctor = doctorRepository.findByEmail(email);      
       endHibernateTransaction();
       log.info("in @GET by email, doctor : " + doctor);
       if (doctor == null) {
@@ -121,7 +119,7 @@ public class DoctorHibernateRestService {
     //@Formatted
     public void updateDoctor(@PathParam("id") String id, Doctor update) {        
       beginHibernateTransaction();
-      Doctor current   = doctorRepository.findById(id);
+      Doctor current = doctorRepository.findById(id);
       endHibernateTransaction();
       if (current == null) { 
         throw new WebApplicationException(Response.Status.NOT_FOUND);
@@ -206,7 +204,7 @@ public class DoctorHibernateRestService {
      */
     private void validateDoctor(Doctor doctor) throws ConstraintViolationException, ValidationException {
         // Create a bean validator and check for issues.
-        vf = Validation.buildDefaultValidatorFactory();
+        vf        = Validation.buildDefaultValidatorFactory();
         validator = vf.getValidator();       
         Set<ConstraintViolation<Doctor>> violations = validator.validate(doctor);
         //
@@ -241,7 +239,7 @@ public class DoctorHibernateRestService {
      * This is the only way to easily capture the
      * "@UniqueConstraint(columnNames = "email")" constraint from the Doctor class.
      * 
-     * @param email The email to check
+     * @param  email The email to check
      * @return True if the email already exists, and false otherwise
      */
     public boolean emailAlreadyExists(String email) {

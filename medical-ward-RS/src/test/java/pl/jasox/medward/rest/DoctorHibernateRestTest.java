@@ -20,7 +20,6 @@ import java.io.StringWriter;
 import java.net.InetSocketAddress;
 import java.net.URI;
 import org.apache.log4j.Logger;
-import org.hibernate.SessionFactory;
 import org.junit.After;
 
 import static org.junit.Assert.assertEquals;
@@ -28,7 +27,6 @@ import org.junit.Before;
 import org.junit.Ignore;
 
 import pl.jasox.medward.model.domainobject.Doctor;
-import pl.jasox.medward.model.util.hibernate.HibernateUtil;
 
 /**
  * @author <a href="mailto:janusz.swol@gmail.com">Janusz Swół</a>
@@ -44,8 +42,6 @@ public class DoctorHibernateRestTest {
     private static URI        uri    = UriBuilder.fromUri("http://localhost/").port(8282).build();
     private static Client     client = ClientBuilder.newClient();
 
-    //private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-    
     // Lifecycle Methods -------------------------------------------------------         
     
     @BeforeClass
@@ -66,8 +62,7 @@ public class DoctorHibernateRestTest {
 
     @AfterClass
     public static void stop() {
-        server.stop(0); 
-        //sessionFactory.close();
+        server.stop(0);        
     }
     
     @Before
@@ -163,7 +158,7 @@ public class DoctorHibernateRestTest {
     @Test
     public void shouldCheckGetDoctorByFirstnameNameURI() {
         log.info("shouldCheckGetDoctorByFirstnameNameURI");
-        Response response = client.target("http://localhost:8282/doctors/search;firstname=Joe;surname=Doe").request().get();
+        Response response = client.target("http://localhost:8282/doctors/search;firstname=Michał;surname=Zubek").request().get();
         assertEquals(200, response.getStatus());
     }
 
@@ -171,7 +166,7 @@ public class DoctorHibernateRestTest {
     public void shouldCheckGetDoctorByFirstnameNameWithParamURI() {
         log.info("shouldCheckGetDoctorByFirstnameNameWithParamURI");
         Response response = client.target("http://localhost:8282/doctors/search")
-                                  .matrixParam("firstname", "Jane").matrixParam("surname", "Doe").request().get();
+                                  .matrixParam("firstname", "Janina").matrixParam("surname", "Jagielska").request().get();
         assertEquals(200, response.getStatus());
     }
 
