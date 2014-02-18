@@ -20,6 +20,7 @@ import java.io.StringWriter;
 import java.net.InetSocketAddress;
 import java.net.URI;
 import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
 import org.junit.After;
 
 import static org.junit.Assert.assertEquals;
@@ -27,6 +28,7 @@ import org.junit.Before;
 import org.junit.Ignore;
 
 import pl.jasox.medward.model.domainobject.Doctor;
+import pl.jasox.medward.model.util.hibernate.HibernateUtil;
 
 /**
  * @author <a href="mailto:janusz.swol@gmail.com">Janusz Swół</a>
@@ -37,11 +39,12 @@ public class DoctorHibernateRestTest {
   
     // Attributes --------------------------------------------------------------    
 
-    final   static Logger     log    = Logger.getLogger( DoctorHibernateRestTest.class.getName() );
+    final   static Logger     log    = Logger.getLogger( DoctorHibernateRestTest.class.getName() );    
     private static HttpServer server;
     private static URI        uri    = UriBuilder.fromUri("http://localhost/").port(8282).build();
     private static Client     client = ClientBuilder.newClient();
 
+    //private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
     
     // Lifecycle Methods -------------------------------------------------------         
     
@@ -58,12 +61,13 @@ public class DoctorHibernateRestTest {
         server.createContext(uri.getPath(), handler);
 
         // start the server
-        server.start();        
+        server.start();         
     }
 
     @AfterClass
     public static void stop() {
-        server.stop(0);        
+        server.stop(0); 
+        //sessionFactory.close();
     }
     
     @Before
@@ -73,7 +77,7 @@ public class DoctorHibernateRestTest {
 
 	  @After
 	  public void tearDown() throws Exception {
-		   //afterAssertions();
+		   //afterAssertions();       
 	  }
 
    
@@ -105,6 +109,7 @@ public class DoctorHibernateRestTest {
     }
     
     @Test
+    @Ignore
     public void shouldCheckGetDoctorByLoginResponse() {
         log.info("shouldCheckGetDoctorByLoginResponse");
         Response response = client.target("http://localhost:8282/doctors/0000001").request().get();
@@ -113,6 +118,7 @@ public class DoctorHibernateRestTest {
     }
     
     @Test
+    @Ignore
     public void shouldCheckGetDoctorByLogin() {
         log.info("shouldCheckGetDoctorByLogin");
         String login = "0000001";
@@ -122,6 +128,7 @@ public class DoctorHibernateRestTest {
     }    
     
     @Test
+    @Ignore
     public void shouldCheckGetDoctorByIdResponse() {
         log.info("shouldCheckGetDoctorByIdResponse");
         Response response = client.target("http://localhost:8282/doctors/0000003").request().get();
@@ -129,13 +136,14 @@ public class DoctorHibernateRestTest {
     } 
       
     @Test
+    @Ignore
     public void shouldCheckGetDoctorById() {
         log.info("shouldCheckGetDoctorById");
         String id = "0000003";
         Doctor doctor = client.target("http://localhost:8282/doctors").path(id).request().get(Doctor.class);
         assertEquals(id, doctor.getId().toString());
     }    
-   /*
+   
     @Test
     public void shouldCheckGetDoctorByEmailURI() {
         log.info("shouldCheckGetDoctorByEmailURI");
@@ -150,7 +158,8 @@ public class DoctorHibernateRestTest {
                                   .queryParam("email", "p.bilski@wp.pl").request().get();
         assertEquals(200, response.getStatus());
     }
- 
+    
+    /*
     @Test
     public void shouldCheckGetDoctorByFirstnameNameURI() {
         log.info("shouldCheckGetDoctorByFirstnameNameURI");

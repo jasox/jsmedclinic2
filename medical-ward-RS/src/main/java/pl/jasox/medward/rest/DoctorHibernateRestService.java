@@ -51,7 +51,7 @@ public class DoctorHibernateRestService {
     final   static Logger         log = Logger.getLogger(DoctorHibernateRestService.class.getName());     
     private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
     private static IDaoFactory    daoFactory; 
-    private static IDoctorDao     doctorRepository;
+    private        IDoctorDao     doctorRepository;
     private        AtomicInteger  idCounter = new AtomicInteger();
     
     protected static ValidatorFactory vf;
@@ -67,17 +67,17 @@ public class DoctorHibernateRestService {
     //private DoctorRepository repository;    
     
     @PostConstruct
-    public void init() { 
+    public void initDao() { 
       daoFactory       = HibernateDaoFactory.getInstance();      
       doctorRepository = daoFactory.getDoctorDao();          
     }
     
     @POST
     @Consumes(MediaType.APPLICATION_XML) // "application/xml")
-    public Response createDoctorXml(Doctor doctor) {
-      beginHibernateTransaction();
+    public Response createDoctorXml(Doctor doctor) {      
       doctor.setIdDoctor(idCounter.incrementAndGet());  
       doctorRepository = daoFactory.getDoctorDao();
+      beginHibernateTransaction();
       doctorRepository.saveOrUpdate(doctor);
       endHibernateTransaction();
       log.info("Created doctor : " + doctor.getId());
@@ -89,12 +89,11 @@ public class DoctorHibernateRestService {
     @Produces(MediaType.APPLICATION_XML) // "application/xml")
     //@Formatted
     public Doctor getDoctorById(@PathParam("id") String id) {    
-      log.info("in @GET by id, id     : " + id);
-      beginHibernateTransaction();  
-      doctorRepository = daoFactory.getDoctorDao();
+      log.info("in @GET by id, id     : " + id);      
+      beginHibernateTransaction();
       Doctor doctor    = doctorRepository.findById(id);
-      log.info("in @GET by id, doctor : " + doctor);
       endHibernateTransaction();
+      log.info("in @GET by id, doctor : " + doctor);      
       if (doctor == null) {
          throw new WebApplicationException(Response.Status.NOT_FOUND);
       }      
@@ -105,12 +104,11 @@ public class DoctorHibernateRestService {
     @Produces(MediaType.APPLICATION_XML) // "application/xml")
     //@Formatted
     public Doctor getDoctorByEmail(@QueryParam("email") String email) {   
-      log.info("in @GET by email, email  : " + email);
-      beginHibernateTransaction();
-      doctorRepository = daoFactory.getDoctorDao();
-      Doctor doctor    = doctorRepository.findByEmail(email);
-      log.info("in @GET by email, doctor : " + doctor);
+      log.info("in @GET by email, email  : " + email);      
+      beginHibernateTransaction();      
+      Doctor doctor    = doctorRepository.findByEmail(email);      
       endHibernateTransaction();
+      log.info("in @GET by email, doctor : " + doctor);
       if (doctor == null) {
          throw new WebApplicationException(Response.Status.NOT_FOUND);
       }      
@@ -121,9 +119,8 @@ public class DoctorHibernateRestService {
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_XML) // "application/xml")
     //@Formatted
-    public void updateDoctor(@PathParam("id") String id, Doctor update) {
-      beginHibernateTransaction();     
-      doctorRepository = daoFactory.getDoctorDao();
+    public void updateDoctor(@PathParam("id") String id, Doctor update) {        
+      beginHibernateTransaction();
       Doctor current   = doctorRepository.findById(id);
       endHibernateTransaction();
       if (current == null) { 
@@ -149,10 +146,10 @@ public class DoctorHibernateRestService {
     public Doctor lookupDoctorById(@PathParam("id") String id) {
         beginHibernateTransaction();        
         Doctor doctor = doctorRepository.findById(id);
+        endHibernateTransaction();
         if (doctor == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
-        }
-        endHibernateTransaction();
+        }        
         return doctor;
     }
     
@@ -210,14 +207,12 @@ public class DoctorHibernateRestService {
     private void validateDoctor(Doctor doctor) throws ConstraintViolationException, ValidationException {
         // Create a bean validator and check for issues.
         vf = Validation.buildDefaultValidatorFactory();
-        validator = vf.getValidator();
-       
+        validator = vf.getValidator();       
         Set<ConstraintViolation<Doctor>> violations = validator.validate(doctor);
-
+        //
         if (!violations.isEmpty()) {
             throw new ConstraintViolationException(new HashSet<ConstraintViolation<?>>(violations));
         }
-
         // Check the uniqueness of the email address
         if (emailAlreadyExists(doctor.getEmailAddress())) {
             throw new ValidationException("Unique Email Violation");
