@@ -36,7 +36,7 @@ public class DoctorCRUDRestService {
     }
 
     @GET
-    public Doctor getDoctorByZipCode(@QueryParam("email") String email) {
+    public Doctor getDoctorByEmail(@QueryParam("email") String email) {
          System.out.println("getDoctorByEmail : " + email);
          Doctor doctor = new Doctor( "1234567", "John", "Smith", "j.smith@gmail.com");
          return doctor;

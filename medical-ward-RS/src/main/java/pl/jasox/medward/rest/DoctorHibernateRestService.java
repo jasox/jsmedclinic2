@@ -22,6 +22,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -50,7 +51,7 @@ public class DoctorHibernateRestService {
     final   static Logger         log = Logger.getLogger(DoctorHibernateRestService.class.getName());     
     private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
     private static IDaoFactory    daoFactory; 
-    private        IDoctorDao     doctorRepository;
+    private static IDoctorDao     doctorRepository;
     private        AtomicInteger  idCounter = new AtomicInteger();
     
     protected static ValidatorFactory vf;
@@ -75,7 +76,8 @@ public class DoctorHibernateRestService {
     @Consumes(MediaType.APPLICATION_XML) // "application/xml")
     public Response createDoctorXml(Doctor doctor) {
       beginHibernateTransaction();
-      doctor.setIdDoctor(idCounter.incrementAndGet());           
+      doctor.setIdDoctor(idCounter.incrementAndGet());  
+      doctorRepository = daoFactory.getDoctorDao();
       doctorRepository.saveOrUpdate(doctor);
       endHibernateTransaction();
       log.info("Created doctor : " + doctor.getId());
@@ -86,11 +88,28 @@ public class DoctorHibernateRestService {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_XML) // "application/xml")
     //@Formatted
-    public Doctor getDoctor(@PathParam("id") String id) {      
-      log.info("@GET @Path(\"{id}\"), doctor id : " + id);
-      beginHibernateTransaction();     
-      Doctor doctor = doctorRepository.findById(id);
-      log.info("in @GET, doctor : " + doctor);
+    public Doctor getDoctorById(@PathParam("id") String id) {    
+      log.info("in @GET by id, id     : " + id);
+      beginHibernateTransaction();  
+      doctorRepository = daoFactory.getDoctorDao();
+      Doctor doctor    = doctorRepository.findById(id);
+      log.info("in @GET by id, doctor : " + doctor);
+      endHibernateTransaction();
+      if (doctor == null) {
+         throw new WebApplicationException(Response.Status.NOT_FOUND);
+      }      
+      return doctor;
+    }
+    
+    @GET    
+    @Produces(MediaType.APPLICATION_XML) // "application/xml")
+    //@Formatted
+    public Doctor getDoctorByEmail(@QueryParam("email") String email) {   
+      log.info("in @GET by email, email  : " + email);
+      beginHibernateTransaction();
+      doctorRepository = daoFactory.getDoctorDao();
+      Doctor doctor    = doctorRepository.findByEmail(email);
+      log.info("in @GET by email, doctor : " + doctor);
       endHibernateTransaction();
       if (doctor == null) {
          throw new WebApplicationException(Response.Status.NOT_FOUND);
@@ -102,9 +121,10 @@ public class DoctorHibernateRestService {
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_XML) // "application/xml")
     //@Formatted
-    public void updateCustomer(@PathParam("id") String id, Doctor update) {
-      beginHibernateTransaction();      
-      Doctor current = doctorRepository.findById(id);
+    public void updateDoctor(@PathParam("id") String id, Doctor update) {
+      beginHibernateTransaction();     
+      doctorRepository = daoFactory.getDoctorDao();
+      Doctor current   = doctorRepository.findById(id);
       endHibernateTransaction();
       if (current == null) { 
         throw new WebApplicationException(Response.Status.NOT_FOUND);

@@ -134,23 +134,23 @@ public class DoctorHibernateRestTest {
         String id = "0000003";
         Doctor doctor = client.target("http://localhost:8282/doctors").path(id).request().get(Doctor.class);
         assertEquals(id, doctor.getId().toString());
-    }
-    
-    /*
+    }    
+   /*
     @Test
     public void shouldCheckGetDoctorByEmailURI() {
         log.info("shouldCheckGetDoctorByEmailURI");
-        Response response = client.target("http://localhost:8282/doctors?email=j.doe@wp.pl").request().get();
+        Response response = client.target("http://localhost:8282/doctors?email=m.zubek@wp.pl").request().get();
         assertEquals(200, response.getStatus());
     }
 
     @Test
     public void shouldCheckGetDoctorByEmailWithParamURI() {
         log.info("shouldCheckGetDoctorByEmailWithParamURI");
-        Response response = client.target("http://localhost:8282/doctors").queryParam("email", "j.doe@onet.pl").request().get();
+        Response response = client.target("http://localhost:8282/doctors")
+                                  .queryParam("email", "p.bilski@wp.pl").request().get();
         assertEquals(200, response.getStatus());
     }
-
+ 
     @Test
     public void shouldCheckGetDoctorByFirstnameNameURI() {
         log.info("shouldCheckGetDoctorByFirstnameNameURI");
