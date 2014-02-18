@@ -43,6 +43,17 @@ INSERT INTO doctor(first_name, last_name, remarks, symbol_doctor) VALUES('Stanis
 INSERT INTO doctor(first_name, last_name, remarks, symbol_doctor) VALUES('Janina',   'Jagielska',   '','0000009');
 INSERT INTO doctor(first_name, last_name, remarks, symbol_doctor) VALUES('Henryk',    'Koza',       '','0000010');
 --
+UPDATE doctor SET email_adress = 'm.zubek@wp.pl'        WHERE (symbol_doctor LIKE '0000001');
+UPDATE doctor SET email_adress = 'z.moszko@wp.pl'       WHERE (symbol_doctor LIKE '0000002');
+UPDATE doctor SET email_adress = 'a.zarzeczny@wp.pl'    WHERE (symbol_doctor LIKE '0000003');
+UPDATE doctor SET email_adress = 'p.bilski@wp.pl'       WHERE (symbol_doctor LIKE '0000004');
+UPDATE doctor SET email_adress = 'r.gora@wp.pl'         WHERE (symbol_doctor LIKE '0000005');
+UPDATE doctor SET email_adress = 'g.piwowski@wp.pl'     WHERE (symbol_doctor LIKE '0000006');
+UPDATE doctor SET email_adress = 'm.sobanski@wp.pl'     WHERE (symbol_doctor LIKE '0000007');
+UPDATE doctor SET email_adress = 's.dzierzkowski@wp.pl' WHERE (symbol_doctor LIKE '0000008');
+UPDATE doctor SET email_adress = 'j.jagielska@wp.pl'    WHERE (symbol_doctor LIKE '0000009');
+UPDATE doctor SET email_adress = 'h.koza@wp.pl'         WHERE (symbol_doctor LIKE '0000010');
+--
 --
 ALTER TABLE `med_procedure` ADD `symbol_doctor` VARCHAR(10) NOT NULL DEFAULT "0000001"; 
 --
