@@ -11,8 +11,8 @@ cyklu tworzenia oprogramowania.
 
 Ilustruje użycie : 
 -------------------
- - metodologi AGILE (Scrum, Kanban) do prowadzenia projektu, A-TDD do zbierania 
-    wymagań i zdefiniowania testów akceptacyjnych. 
+ - metodologi AGILE (Scrum, Lean, Kanban) do prowadzenia projektu, 
+    A-TDD do zbierania wymagań i zdefiniowania testów akceptacyjnych. 
     Plik obiektowego projektu aplikacji w formacie Enterprprise Architect, 
     oraz inne artefakty znajdują się w katalogu ./project-design
      

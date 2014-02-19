@@ -26,3 +26,18 @@ Założenia :
    sumaryczną liczbą 28 efektywnych dni roboczych (man-days) :=
    (number-of-person-in-team)*(number-of-calendar-work-days-in-iteration)*(velocity)
 
+
+-----------
+Po jednej iteracji zespół postanowił przejść z metodyki SCRUM do ( jak się wydawało,
+bardziej odpowiadającej specyfice projektu ) metodyki Lean.
+Spowodowało to zmianę układu głównej tablicy projektu, tak aby uwidocznić ciągły
+przepływ zadań i wartości dodawane do nich na poszczególnych etapach, oraz miało 
+umożliwić śledzenie stanu całego projektu, a nie tylko poszczególnych iteracji.
+Utrzymane zostały niektóre elementy metodyki SCRUM - np. co dwa tygodnie - 
+Backlog Grooming, czyli ewaluacja PBI metodą planning poker, przypisanie osoby 
+odpowiedzialnej, ustalenie scenariusza testów akceptacyjnych.
+Również co dwa tygonie następowało planowanie, czyli wybór zadań na listę 
+"Next 5 Tasks", "Next Tech Tasks" i "Next Bugs".
+
+
+
