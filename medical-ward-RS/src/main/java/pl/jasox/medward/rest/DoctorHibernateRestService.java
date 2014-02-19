@@ -43,6 +43,7 @@ import pl.jasox.medward.model.util.hibernate.HibernateUtil;
  * JAX-RS Service <br/>
  * This class produces a RESTful service to read/write the contents of the doctors table
  * by Hibernate access layer
+ * @author <a href="mailto:janusz.swol@gmail.com">Janusz Swół</a>
  */
 @Path("/doctors")
 public class DoctorHibernateRestService {  

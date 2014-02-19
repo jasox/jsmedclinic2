@@ -2,6 +2,7 @@ package pl.jasox.medward.rest;
 
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -15,14 +16,17 @@ import javax.ws.rs.ext.RuntimeDelegate;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+
 import java.io.IOException;
 import java.io.StringWriter;
 import java.net.InetSocketAddress;
 import java.net.URI;
+
 import org.apache.log4j.Logger;
 import org.junit.After;
 
 import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.Ignore;
 
@@ -35,16 +39,19 @@ import pl.jasox.medward.model.domainobject.Doctor;
 //@Ignore
 public class DoctorHibernateRestTest {       
   
-    // Attributes --------------------------------------------------------------    
-
-    final   static Logger     log    = Logger.getLogger( DoctorHibernateRestTest.class.getName() );    
-    private static HttpServer server;
+    // Attributes --------------------------------------------------------------
+	
+    final   static Logger     log    = Logger.getLogger( DoctorHibernateRestTest.class.getName() );  
+    
+    @SuppressWarnings("restriction")
+	private static HttpServer server;
     private static URI        uri    = UriBuilder.fromUri("http://localhost/").port(8282).build();
     private static Client     client = ClientBuilder.newClient();
 
     // Lifecycle Methods -------------------------------------------------------         
     
-    @BeforeClass
+    @SuppressWarnings("restriction")
+	@BeforeClass
     public static void init() throws IOException {
         // create a new server listening at port 8080
         server = HttpServer.create(new InetSocketAddress(uri.getPort()), 0);
@@ -60,7 +67,8 @@ public class DoctorHibernateRestTest {
         server.start();         
     }
 
-    @AfterClass
+    @SuppressWarnings("restriction")
+	@AfterClass
     public static void stop() {
         server.stop(0);        
     }
