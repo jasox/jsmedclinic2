@@ -10,7 +10,7 @@ które nie jest jeszcze pełną diagnozą – taką będzie rozpoznanie ostatecz
 Rozszerza – „pierwsze przyjęcie pacjenta” i „kolejne przyjęcie pacjenta”
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 fully dressed :
-Zakres : aplikacja JSPacjent2
+Zakres : aplikacja JSMedClinic2
 
 Poziom : cel użytkownika, podprocedury
 

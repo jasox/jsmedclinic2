@@ -12,7 +12,7 @@ następnie przydzielany jest lekarz prowadzący
 
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 fully dressed :
-Zakres : aplikacja JSPacjent2
+Zakres : aplikacja JSMedClinic2
 
 Poziom : cel użytkownika
 

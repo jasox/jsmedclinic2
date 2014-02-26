@@ -4,9 +4,32 @@ Słowniczek
 projekt : JSMedClinic2 
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––-
 
+
 Lecznica – 
 placówka medyczna, ZOZ publiczny lub niepubliczny, szpital, przychodnia, 
 gabinet prywatny, nawet konkretny lekarz – wszystko to co świadczy usługi medyczne.
+
+
+
+Role / Aktorzy
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––-
+
+Lekarz -
+
+
+Sekretarka medyczna -
+
+
+Audytor medyczny -
+
+
+Audytor finansowy -
+
+
+Ordynator -
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––-
+
 
 
 

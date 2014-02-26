@@ -9,7 +9,7 @@ Sekretarka medyczna lub lekarz wpisują wykonane badania pacjenta.
 Wpis badania zawiera datę, rodzaj/kategorię badania i uwagi lekarza
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 fully dressed :
-Zakres : aplikacja JSPacjent2
+Zakres : aplikacja JSMedClinic2
 
 Poziom : cel użytkownika
 

@@ -11,7 +11,7 @@ cyklu tworzenia oprogramowania.
 
 Ilustruje użycie : 
 -------------------
- - metodologi AGILE (Scrum, Lean, Kanban) do prowadzenia projektu, 
+ - metodologi Agile/Lean (Scrum, Kanban) do prowadzenia projektu, 
     A-TDD do zbierania wymagań i zdefiniowania testów akceptacyjnych. 
     Plik obiektowego projektu aplikacji w formacie Enterprprise Architect, 
     oraz inne artefakty znajdują się w katalogu ./project-design
@@ -29,10 +29,10 @@ Ilustruje użycie :
     JSON-P 1.0          - [JSR 353]
     
  - Wzorców GoF, a przynajmniej wzorca Strategy, Template method, State, 
-     Abstract Factory
+          Abstract Factory
      
- - Test Driven Development, a w samym procesie testowania użycie JUnit4, TestNG, 
-     Mockito, Arquillian
+ - Test Driven Development, a w samym procesie testowania użycie 
+          JUnit4, TestNG, Mockito, Arquillian, FitNesse
      
  - SQL - do tworzenia schematu bazy MySQL i Hsql, oraz do wstępnego wczytania danych
           ( katalog ./db-settings )

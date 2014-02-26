@@ -13,7 +13,7 @@ gdy są dostępne wprowadzane są dane dotyczące rozpoznania,
 oraz skąd pacjent jest skierowany
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 fully dressed :
-Zakres : aplikacja JSPacjent2
+Zakres : aplikacja JSMedClinic2
 
 Poziom : cel użytkownika
 

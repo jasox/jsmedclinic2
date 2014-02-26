@@ -17,7 +17,7 @@ Rozszerza „kolejne przyjęcie pacjenta”,
 może wystąpić samodzielnie 
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 fully dressed :
-Zakres : aplikacja JSPacjent2
+Zakres : aplikacja JSMedClinic2
 
 Poziom : podprocedury, cel użytkownika
 

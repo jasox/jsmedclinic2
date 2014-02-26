@@ -10,7 +10,7 @@ dokładny czas wypisu,
 gdy są dostępne wprowadzane są dane dotyczące dokąd pacjent jest kierowany
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 fully dressed :
-Zakres : aplikacja JSPacjent2
+Zakres : aplikacja JSMedClinic2
 
 Poziom : cel użytkownika
 

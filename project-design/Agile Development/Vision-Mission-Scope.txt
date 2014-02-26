@@ -1,0 +1,55 @@
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––-
+VISION / MISSION / SCOPE - JSMedClinic PROJECT CHARTER
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––-
+
+A charter can include many sections, such as vision, mission, scope, deliverables, 
+objectives, and principles. The vision describes the end-state of the result
+of the project — why the project should be done. The mission involves the path
+that will be taken to get to the vision. The scope documents the boundaries of
+the project, including the key events that the project addresses. The deliverables
+are the tangible outputs. The objectives are measurable criteria for the success
+of the project that are visible by external observation. Principles are statement
+of values that a team uses to inform decision making. Other sections can include
+stakeholders (those affected by the project), project organization, plans for
+implementations, risks, and constraints.
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––-
+
+Vision
+------ 
+Ta przykładowa aplikacja ma za zadanie wspomagać prowadzenie lecznicy - 
+oddziału szpitalnego, małej kliniki, czy prywatnego gabinetu lekarskiego lub dentystycznego. 
+Pozwala na logowanie się użytkowników, którzy są lekarzami, upoważnionymi pracownikami 
+lub audytorami, a następnie pozwala im odczytywać i zapisywać dane pacjentów,
+szczegóły wykonanych na ich rzecz procedur medycznych oraz inne dane zebrane 
+podczas ewentualnego pobytu w lecznicy.
+
+
+Mission
+-------
+Celem projektu jest utworzenie pakietu działającego oprogramowania.
+
+
+Objectives
+----------
+Objectives should be SMART. SMART is an acronym that has many interpretations.
+In the version here, SMART means :
+• Specific   — Exactly what is going to be accomplished, or what is the specific outcome?
+• Measurable — Can the outcome be measured?
+• Achievable — Can the outcome reasonably be accomplished?
+• Relevant   — Does the outcome support the vision?
+• Time boxed — How long will it take to achieve the objective?
+
+W ciągu dwóch miesięcy od chwili wprowadzenia aplikacji : 
+ - czas przyjęcia pacjenta skróci się o 50% 
+ - czas wypełniania przez lekarzy dokumentacji medycznej skróci się o 40% 
+ - oszczędności lecznicy na działalności administracyjnej wyniosą 20%
+
+
+Principles
+----------
+Głównym zadaniem aplikacji jest zwiększenie satysfakcji pacjenta.
+Ułatwienie pracy personelowi medycznemu jest dodatkową korzyścią.
+Uzyskanie wymiernych oszczędności dla lecznicy jest ważne lecz nie najważniejsze.
+
+
+
