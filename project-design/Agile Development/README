@@ -27,7 +27,8 @@ Założenia :
    (number-of-person-in-team)*(number-of-calendar-work-days-in-iteration)*(velocity)
 
 
------------
+--------------------------------------------------------------------------------
+
 Po jednej iteracji zespół postanowił przejść z metodyki Scrum do ( jak się wydawało,
 bardziej odpowiadającej specyfice projektu ) metodyki Lean/Kanban.
 Spowodowało to zmianę układu głównej tablicy projektu, tak aby uwidocznić ciągły

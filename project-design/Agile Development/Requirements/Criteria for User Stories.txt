@@ -1,0 +1,52 @@
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
+USER STORIES CRITERIA                                     projekt : JSMedClinic2 
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
+
+INVEST Criteria
+---------------
+The INVEST criteria for requirement stories was developed by Bill Wake. 
+Stories should be compared to the criteria of independent, negotiable,
+valuable, estimable, small, and testable.
+
+•Independent 
+means that each story can be completed by itself, without dependencies on other stories. 
+Often a sequence of stories exists, such as the check-out and check-in stories. 
+Some people term this sequence a saga. Although there is a relationship between 
+the stories, check-out can be completed by itself, and later the check-in story can be done. 
+But it could be harder to do the stories in reverse (check-in first and then check-out.)
+
+•Negotiable 
+means that the triad has not made a hard and fast determination of exactly what is 
+in the story. They will collaborate on that when they start working on the story.
+
+•Valuable 
+means that the story has a business value to the customer. That’s one reason the customer 
+should put a business value on each story. If a story cannot be ascribed a business value, 
+perhaps it should not be done. Any developer story that is created should relate to 
+some story to which there is an assigned business value.
+
+•Estimable 
+implies that the developer and tester can come up with some sort of rough estimate 
+as to how long it will take to complete the story. If they lacked knowledge about 
+the business domain or were implementing the story in some completely new technology, 
+they might not be able to give an estimate. If the customer needed a rough estimate 
+to justify spending money on the story, the developer would spend some time investigating 
+the domain or the technology.
+
+•Small 
+stories can be completed in a single iteration or in a reasonable cycle time. 
+If a story cannot be completed in a single iteration, it’s hard to track progress, 
+and chances are it is too big a story to comprehend easily. Preferably, big stories 
+(which some people call epics) are broken into smaller stories, each of which 
+the customer can understand. Otherwise, the triad may need to break down the stories 
+into developer stories to facilitate coding. 
+
+•Testable 
+means that the user can confirm that the story is done. Having acceptance tests makes 
+a story testable, and passing those tests shows that the system meets the customer needs. 
+Having acceptance tests that can be automated ensures that previous stories are not 
+broken when new stories are implemented.
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
+
+

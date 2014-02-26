@@ -1,7 +1,5 @@
-
-Słowniczek
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––-
-projekt : JSMedClinic2 
+SŁOWNICZEK                                                projekt : JSMedClinic2 
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––-
 
 
@@ -11,13 +9,22 @@ gabinet prywatny, nawet konkretny lekarz – wszystko to co świadczy usługi me
 
 
 
-Role / Aktorzy
+Role / Aktorzy  
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––-
+Role Attributes :
+• Frequency of use   — This is how often someone uses the system.
+• Domain expertise   — This is in the area that the system is designed for.
+• Computer expertise — This is experience and comfort in using a computer.
+• General goals      — These are goals you desire, such as convenience and speed.
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––-
 
 Lekarz -
 
 
 Sekretarka medyczna -
+
+
+Sekretarka administracyjna -
 
 
 Audytor medyczny -
@@ -27,6 +34,10 @@ Audytor finansowy -
 
 
 Ordynator -
+
+
+Dyrektor administracyjny -
+
 
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––-
 

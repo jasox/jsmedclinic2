@@ -1,11 +1,11 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
 USER STORY                                                projekt : JSMedClinic2 
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
-Rozpoznanie ostateczne pacjenta
+Przyjęcie pacjenta
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
 
-Jako < Lekarz > chciałbym < zarejestrować rozpoznanie ostateczne pacjenta > 
-   aby < kontynuować cykl procedur medycznych pacjenta > 
+Jako < Sekretarka medyczna > chciałabym < zarejestrować dane pacjenta > 
+   aby < szybko przyjąć pacjenta do lecznicy > 
 
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
 USE CASE :
@@ -16,42 +16,46 @@ Zakres : aplikacja JSMedClinic2
 Poziom : cel użytkownika
 ------
 
-Aktor pierwszoplanowy : Lekarz
+Aktor pierwszoplanowy : Sekretarka medyczna lub Lekarz
 ---------------------
 
 Interesariusze i ich cele : 
 -------------------------
-•Pacjent chce być leczony w lecznicy szybko i sprawnie
-•Lekarz chce kontynuować cykl procedur medycznych przyjętego pacjenta
+•Pacjent chce być szybko i sprawnie przyjęty do lecznicy  
+•Sekretarka medyczna chce szybko i bez błędów wprowadzić dokładne i jak najpełniejsze 
+ dane pacjenta do systemu 
+•Lekarz chce mieć szybki dostęp do danych przyjętego pacjenta
 
-Wyzwalacz : 
+Wyzwalacz : Pacjent zgłasza się do lecznicy.
 ---------
- Lekarz dokładnie zbadał pacjenta i chce zarejestrować pełną diagnozę - 
- rozpoznanie ostateczne choroby.
- 
 
 Warunki początkowe :
 ------------------ 
- Pacjent jest przyjęty do lecznicy i zarejestrowany w systemie.
- Wystawione jest rozpoznanie wstępne.
- 
+ Pacjent posiada dokument identyfikacyjny, aktualne skierowanie, jest ubezpieczony 
+ lub dokonał stosownej opłaty, jest trzeźwy, ma niezbędne rzeczy.
 
-Gwarancja sukcesu (warunki końcowe) : 
+Gwarancja sukcesu (warunki końcowe) : Dane pacjęta są zarejestrowane w systemie.
 -----------------------------------
- Dane rozpoznania ostatecznego pacjęta są zarejestrowane w systemie.
-
 
 Główny scenariusz sukcesu :
 -------------------------
-     
- 1) Lekarz wpisuje następujące dane : 
+ 1) Sekretarka medyczna lub lekarz sprawdzają dokumenty i ogólny stan pacjenta 
+    ( czy jest trzeźwy i czy ma niezbędne rzeczy ).    
+    Jeżeli dokumenty i pacjent są w porządku -    
+    
+ 2) Sekretarka medyczna lub lekarz wpisują następujące dane : 
     ID pacjenta
     system sprawdza czy pacjent jest już zarejestrowany
-    Jeżeli tak -> 2)
-    Jeżeli nie - wyjście
+    Jeżeli tak -> 4)
+    Jeżeli nie -
     
- 2) wpisywane jest rozpoznanie ostateczne pacjenta    
- 
+ 3) wpisywane są dane osobowe pacjenta
+    
+ 4) wpisywany jest numer księgi głównej i odziałowej, 
+    dokładny czas przyjęcia,
+    oraz skąd pacjent jest skierowany, ewentualne uwagi o skierowaniu
+    
+ 5) przydzielany jest lekarz prowadzący 
 
 Rozszerzenia :
 ------------
@@ -71,7 +75,15 @@ Otwarte problemy :
 Testy Akceptacyjne :
 ------------------
 
-1) Ściężka główna - rejestracja rozpoznania ostatecznego pacjenta
+1) Ściężka główna - przyjęcie pacjenta
+
+2) Inny pacjent o danym ID jest już w systemie
+
+3) ID pacjenta jest nieprawidłowe
+
+4) Czas przyjęcia jest nieprawidłowy
+
+
 
 
 

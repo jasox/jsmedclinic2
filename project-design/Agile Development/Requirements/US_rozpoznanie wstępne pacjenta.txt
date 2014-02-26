@@ -1,42 +1,72 @@
-USER STORY
-projekt : JSMedClinic2 
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
+USER STORY                                                projekt : JSMedClinic2 
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
 Rozpoznanie wstępne pacjenta
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-brief :
-Pacjent jest przyjmowany lub już przyjęty do szpitala na oddział.
-Sekretarka medyczna lub lekarz wpisują rozpoznanie wstępne schorzenia, 
-które nie jest jeszcze pełną diagnozą – taką będzie rozpoznanie ostateczne.
-Rozszerza – „pierwsze przyjęcie pacjenta” i „kolejne przyjęcie pacjenta”
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-fully dressed :
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
+
+Jako < Lekarz > chciałbym < zarejestrować rozpoznanie wstępne pacjenta > 
+   aby < rozpocząć cykl procedur medycznych pacjenta > 
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
+USE CASE :
+
 Zakres : aplikacja JSMedClinic2
+------
 
-Poziom : cel użytkownika, podprocedury
+Poziom : cel użytkownika
+------
 
-Aktor pierwszoplanowy :
+Aktor pierwszoplanowy : Lekarz
+---------------------
 
-Interesariusze i ich cele :
+Interesariusze i ich cele : 
+-------------------------
+•Pacjent chce szybko i sprawnie rozpocząć leczenie w lecznicy 
+•Lekarz chce rozpocząć cykl procedur medycznych przyjętego pacjenta
+
+Wyzwalacz : Pacjent jest przyjęty do lecznicy.
+---------
 
 Warunki początkowe :
+------------------ 
+ Pacjent jest przyjęty do lecznicy i zarejestrowany w systemie.
 
-Wyzwalacz :
+Gwarancja sukcesu (warunki końcowe) : 
+-----------------------------------
+ Dane rozpoznania wstępnego pacjęta są zarejestrowane w systemie.
 
-Gwarancja sukcesu (warunki końcowe) :
 
 Główny scenariusz sukcesu :
+-------------------------
+     
+ 1) Lekarz wpisuje następujące dane : 
+    ID pacjenta
+    system sprawdza czy pacjent jest już zarejestrowany
+    Jeżeli tak -> 2)
+    Jeżeli nie - wyjście
+    
+ 2) wpisywane jest rozpoznanie wstępne pacjenta    
+ 
 
 Rozszerzenia :
+------------
 
 Dodatkowe wymagania :
+-------------------
 
-Częstość występowania :
+Częstość występowania : bardzo często
+---------------------
 
 Otwarte problemy :
+----------------
 
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
 
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Testy Akceptacyjne :
+------------------
+
+1) Ściężka główna - rejestracja rozpoznania wstępnego pacjenta
+
 
 
