@@ -1,0 +1,42 @@
+USER STORY
+projekt : JSMedClinic2 
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Wypisanie pacjenta
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+brief :
+Pacjent jest wypisywany z oddziału szpitalnego.
+Sekretarka medyczna lub lekarz wpisują następujące dane : 
+dokładny czas wypisu, 
+gdy są dostępne wprowadzane są dane dotyczące dokąd pacjent jest kierowany
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+fully dressed :
+Zakres : aplikacja JSPacjent2
+
+Poziom : cel użytkownika
+
+Aktor pierwszoplanowy :
+
+Interesariusze i ich cele :
+
+Warunki początkowe :
+
+Wyzwalacz :
+
+Gwarancja sukcesu (warunki końcowe) :
+
+Główny scenariusz sukcesu :
+
+Rozszerzenia :
+
+Dodatkowe wymagania :
+
+Częstość występowania :
+
+Otwarte problemy :
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+

@@ -11,7 +11,7 @@ ekspertów podnosi zalety klasycznej formy dokumentowania postępów projektu, w
 na funkcję motywującą i konsolidującą zespół, na korzyści szybkiej wymiany informacji
 w dyskusjach pod tablicą.
  
-Na początku tworzyłem program w iteracjach według metodyki SCRUM z elementami XP, 
+Na początku tworzyłem program w iteracjach według metodyki Scrum z elementami XP, 
 i co ważniejsze - planowałem tylko następną iterację. Po jej zakończeniu planowałem 
 co zrobić dalej. Nie zakładałem z góry jaka architektura będzie najlepsza dla danego 
 problemu, dlatego tworzyłem ją w miarę rozszerzania programu - to podejście XP  
@@ -28,12 +28,12 @@ Założenia :
 
 
 -----------
-Po jednej iteracji zespół postanowił przejść z metodyki SCRUM do ( jak się wydawało,
-bardziej odpowiadającej specyfice projektu ) metodyki Lean.
+Po jednej iteracji zespół postanowił przejść z metodyki Scrum do ( jak się wydawało,
+bardziej odpowiadającej specyfice projektu ) metodyki Lean/Kanban.
 Spowodowało to zmianę układu głównej tablicy projektu, tak aby uwidocznić ciągły
 przepływ zadań i wartości dodawane do nich na poszczególnych etapach, oraz miało 
 umożliwić śledzenie stanu całego projektu, a nie tylko poszczególnych iteracji.
-Utrzymane zostały niektóre elementy metodyki SCRUM - np. co dwa tygodnie - 
+Utrzymane zostały niektóre elementy metodyki Scrum - np. co dwa tygodnie - 
 Backlog Grooming, czyli ewaluacja PBI metodą planning poker, przypisanie osoby 
 odpowiedzialnej, ustalenie scenariusza testów akceptacyjnych.
 Również co dwa tygonie następowało planowanie, czyli wybór zadań na listę 

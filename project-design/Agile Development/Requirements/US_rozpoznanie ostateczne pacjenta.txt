@@ -1,0 +1,42 @@
+USER STORY
+projekt : JSMedClinic2 
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Rozpoznanie ostateczne pacjenta
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+brief :
+Pacjent jest już przyjęty do szpitala na oddział, wystawione jest rozpoznanie wstępne.
+Sekretarka medyczna lub lekarz wpisują rozpoznanie ostateczne schorzenia, 
+które jest już pełną diagnozą – przynajmniej na tym etapie leczenia. 
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+fully dressed :
+Zakres : aplikacja JSPacjent2
+
+Poziom : cel użytkownika
+
+Aktor pierwszoplanowy :
+
+Interesariusze i ich cele :
+
+Warunki początkowe :
+
+Wyzwalacz :
+
+Gwarancja sukcesu (warunki końcowe) :
+
+Główny scenariusz sukcesu :
+
+Rozszerzenia :
+
+Dodatkowe wymagania :
+
+Częstość występowania :
+
+Otwarte problemy :
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+
+

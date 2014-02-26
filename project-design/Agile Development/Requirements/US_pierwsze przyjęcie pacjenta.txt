@@ -1,0 +1,47 @@
+USER STORY
+projekt : JSMedClinic2 
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Pierwsze przyjęcie pacjenta
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+brief :
+Pacjent po raz pierwszy zgłasza się do szpitala na oddział.
+Sekretarka medyczna lub lekarz wpisują następujące dane : 
+numer księgi głównej i odziałowej,  dokładny czas przyjęcia, dane osobowe pacjenta,
+oraz skąd pacjent jest skierowany
+następnie przydzielany jest lekarz prowadzący
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+fully dressed :
+Zakres : aplikacja JSPacjent2
+
+Poziom : cel użytkownika
+
+Aktor pierwszoplanowy : Sekretarka medyczna lub Lekarz
+
+Interesariusze i ich cele : 
+Pacjent chce być szybko i sprawnie przyjęty na oddział szpitalny, 
+Sekretarka medyczna chce szybko i bez błędów wprowadzić dokładne i jak najpełniejsze dane pacjenta do systemu, 
+Lekarz chce mieć szybki dostęp do danych przyjętego pacjenta
+
+Warunki początkowe :
+
+Wyzwalacz :
+
+Gwarancja sukcesu (warunki końcowe) :
+
+Główny scenariusz sukcesu :
+
+Rozszerzenia :
+
+Dodatkowe wymagania :
+
+Częstość występowania :
+
+Otwarte problemy :
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+

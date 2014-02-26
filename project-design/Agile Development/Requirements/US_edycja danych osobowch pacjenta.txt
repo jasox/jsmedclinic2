@@ -1,0 +1,50 @@
+USER STORY
+projekt : JSMedClinic2
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Edycja danych osobowych pacjenta
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+brief :
+Pacjent zgłasza się po raz pierwszy do szpitala na oddział. 
+Pacjent zgłasza zmianę danych osobowych przy kolejnym przyjęciu.
+Podczas pobytu na oddziale pacjent uzupełnia brakujące dane.
+Sekretarka medyczna lub lekarz wpisują/edytują następujące dane : 
+PESEL, imię i nazwisko, wiek pacjenta, adres zamieszkania pacjenta, kontakt 
+czyli osobę którą można informować o stanie pacjenta, telefon kontaktowy, kasę chorych 
+oraz ewentualne uwagi 
+
+Zawiera się w „pierwsze przyjęcie pacjenta” 
+Rozszerza „kolejne przyjęcie pacjenta”,
+może wystąpić samodzielnie 
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+fully dressed :
+Zakres : aplikacja JSPacjent2
+
+Poziom : podprocedury, cel użytkownika
+
+Aktor pierwszoplanowy :
+
+Interesariusze i ich cele :
+
+Warunki początkowe :
+
+Wyzwalacz :
+
+Gwarancja sukcesu (warunki końcowe) :
+
+Główny scenariusz sukcesu :
+
+Rozszerzenia :
+
+Dodatkowe wymagania :
+
+Częstość występowania :
+
+Otwarte problemy :
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+
+

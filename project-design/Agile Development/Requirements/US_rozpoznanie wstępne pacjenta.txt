@@ -1,0 +1,42 @@
+USER STORY
+projekt : JSMedClinic2 
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Rozpoznanie wstępne pacjenta
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+brief :
+Pacjent jest przyjmowany lub już przyjęty do szpitala na oddział.
+Sekretarka medyczna lub lekarz wpisują rozpoznanie wstępne schorzenia, 
+które nie jest jeszcze pełną diagnozą – taką będzie rozpoznanie ostateczne.
+Rozszerza – „pierwsze przyjęcie pacjenta” i „kolejne przyjęcie pacjenta”
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+fully dressed :
+Zakres : aplikacja JSPacjent2
+
+Poziom : cel użytkownika, podprocedury
+
+Aktor pierwszoplanowy :
+
+Interesariusze i ich cele :
+
+Warunki początkowe :
+
+Wyzwalacz :
+
+Gwarancja sukcesu (warunki końcowe) :
+
+Główny scenariusz sukcesu :
+
+Rozszerzenia :
+
+Dodatkowe wymagania :
+
+Częstość występowania :
+
+Otwarte problemy :
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+
