@@ -75,7 +75,7 @@ Otwarte problemy :
 Testy Akceptacyjne :
 ------------------
 
-1) Ściężka główna - przyjęcie pacjenta
+1) Ścieżka główna - przyjęcie pacjenta
 
 2) Inny pacjent o danym ID jest już w systemie
 

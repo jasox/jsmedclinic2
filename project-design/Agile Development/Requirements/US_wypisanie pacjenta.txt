@@ -1,42 +1,80 @@
-USER STORY
-projekt : JSMedClinic2 
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
+USER STORY                                                projekt : JSMedClinic2 
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
 Wypisanie pacjenta
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-brief :
-Pacjent jest wypisywany z oddziału szpitalnego.
-Sekretarka medyczna lub lekarz wpisują następujące dane : 
-dokładny czas wypisu, 
-gdy są dostępne wprowadzane są dane dotyczące dokąd pacjent jest kierowany
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-fully dressed :
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
+
+Jako < Sekretarka medyczna > chciałabym < zarejestrować dane wypisu pacjenta > 
+   aby < szybko wypisać pacjenta z lecznicy > 
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
+USE CASE :
+
 Zakres : aplikacja JSMedClinic2
+------
 
 Poziom : cel użytkownika
+------
 
-Aktor pierwszoplanowy :
+Aktor pierwszoplanowy : Sekretarka medyczna lub Lekarz
+---------------------
 
-Interesariusze i ich cele :
+Interesariusze i ich cele : 
+-------------------------
+•Pacjent chce być szybko i sprawnie wypisany z lecznicy  
+•Sekretarka medyczna chce szybko i bez błędów wprowadzić dokładne i jak najpełniejsze 
+ dane wypisu pacjenta do systemu 
+
+Wyzwalacz : Pacjent zakończył cykl procedur medycznych w lecznicy.
+---------
 
 Warunki początkowe :
+------------------ 
+ Pacjent posiada dokument identyfikacyjny, jest ubezpieczony.
+ 
 
-Wyzwalacz :
-
-Gwarancja sukcesu (warunki końcowe) :
+Gwarancja sukcesu (warunki końcowe) : 
+-----------------------------------
+ Dane wypisu pacjęta są zarejestrowane w systemie.
+ 
 
 Główny scenariusz sukcesu :
-
+-------------------------
+ 1) Sekretarka medyczna lub lekarz sprawdzają dokumenty pacjenta       
+    Jeżeli dokumenty są w porządku -    
+    
+ 2) Sekretarka medyczna lub lekarz wpisują następujące dane : 
+    ID pacjenta
+    system sprawdza czy pacjent jest już zarejestrowany
+    Jeżeli tak -> 3)
+    Jeżeli nie - wyjście
+    
+ 3) wpisywane są dane wypisu pacjenta :
+    dokładny czas wypisu, 
+    gdy są dostępne, wprowadzane są dane dotyczące dokąd pacjent jest kierowany
+    
+ 
 Rozszerzenia :
+------------
 
 Dodatkowe wymagania :
+-------------------
 
-Częstość występowania :
+Częstość występowania : bardzo często
+---------------------
 
 Otwarte problemy :
+----------------
 
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
 
-–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Testy Akceptacyjne :
+------------------
+
+1) Ścieżka główna - wypis pacjenta
+
+2) Czas wypisu jest nieprawidłowy
+
 
 

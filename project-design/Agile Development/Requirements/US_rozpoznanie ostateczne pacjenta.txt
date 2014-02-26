@@ -71,7 +71,7 @@ Otwarte problemy :
 Testy Akceptacyjne :
 ------------------
 
-1) Ściężka główna - rejestracja rozpoznania ostatecznego pacjenta
+1) Ścieżka główna - rejestracja rozpoznania ostatecznego pacjenta
 
 
 
