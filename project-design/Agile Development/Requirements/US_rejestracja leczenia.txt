@@ -72,7 +72,15 @@ Otwarte problemy :
 Testy Akceptacyjne :
 ------------------
 
-1) Ścieżka główna - rejestracja wykonanej procedury medycznej dla pacjenta
+Ścieżka główna :
+
+1) Rejestracja wykonanej procedury medycznej dla pacjenta
+
+
+Ścieżki alternatywne :
+
+
+Wyjątki :
 
 
 

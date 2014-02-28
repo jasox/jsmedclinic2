@@ -4,18 +4,26 @@ ACCEPTANCE TESTS                                          projekt : JSMedClinic2
 For USER STORY : Planowanie leczenia pacjenta
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
 
-Warunki początkowe :
+
+Warunki początkowe :   ( GIVEN )
 ------------------ 
- Pacjent jest przyjęty do lecznicy i zarejestrowany w systemie.
+ Pacjent jest przyjęty do lecznicy i zarejestrowany w systemie - ma ID.
  Wystawione jest rozpoznanie wstępne.
  Wystawione jest rozpoznanie ostateczne.
+ Procedura medyczna wybrana dla pacjenta jest dostępna w systemie - ma ID
+ Procedura medyczna wybrana dla pacjenta jest dostępna dla pacjenta.
  
+Akcja : ( WHEN )
+-----
+Lekarz wpisuje zaplanowaną procedurę 
 
-Gwarancja sukcesu (warunki końcowe) : 
+
+Gwarancja sukcesu (warunki końcowe) :  ( THEN )
 -----------------------------------
  Zaplanowana procedura medyczna dla pacjenta jest zarejestrowane w systemie.
 
 
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
 
 
 

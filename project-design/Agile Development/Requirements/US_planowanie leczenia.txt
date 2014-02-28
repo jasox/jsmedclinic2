@@ -34,6 +34,8 @@ Warunki początkowe :
  Pacjent jest przyjęty do lecznicy i zarejestrowany w systemie.
  Wystawione jest rozpoznanie wstępne.
  Wystawione jest rozpoznanie ostateczne.
+ Procedura medyczna wybrana dla pacjenta jest dostępna w systemie.
+ Procedura medyczna wybrana dla pacjenta jest dostępna dla pacjenta.
  
 
 Gwarancja sukcesu (warunki końcowe) : 
@@ -50,7 +52,8 @@ Główny scenariusz sukcesu :
     Jeżeli tak -> 2)
     Jeżeli nie - wyjście
     
- 2) wpisywane jest zaplanowana procedura medyczna    
+ 2) wpisywane jest zaplanowana procedura medyczna
+    Jeżeli jest dostępna w systemie i dostępna dla danego pacjenta      
  
 
 Rozszerzenia :
@@ -71,9 +74,21 @@ Otwarte problemy :
 Testy Akceptacyjne :
 ------------------
 
-1) Ścieżka główna - rejestracja zaplanowanej procedury medycznej dla pacjenta
+Ścieżka główna :
+
+1) rejestracja zaplanowanej procedury medycznej dla pacjenta
 
 
+Ścieżki alternatywne :
+
+
+Wyjątki :
+
+2) Procedura nie jest dostępna w systemie
+
+3) Procedura nie jest dostępna dla pacjenta
+
+4) Brak rozpoznania ostatecznego dla pacjenta
 
 
 

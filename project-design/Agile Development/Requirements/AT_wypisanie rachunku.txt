@@ -17,18 +17,18 @@ Gwarancja sukcesu (warunki końcowe) :
 --------------------------------------------------------------------------------
 
 
-Business rule
--------------
+Business rule - Discount calculation
+------------------------------------
 Discount amount is always rounded down.
-If Patient Type is Regular,
-Then do not give a discount,
-If Patient Type is Good and Item Total is less than or equal to 10.00€,
-Then do not give a discount,
-Otherwise, give a 1% discount.
-If Patient Type is Excellent,
-Then give a discount of 1% for any order.
-If Item Total is greater than 50.00€,
-Then give a discount of 5%.
+If Patient Rating is Regular,
+  Then do not give a discount,
+If Patient Rating is Good and Item Total is less than or equal to 10.00€,
+  Then do not give a discount,
+  Otherwise, give a 1% discount.
+If Patient Rating is Excellent,
+  Then give a discount of 1% for any Item Total.
+  If Item Total is greater than 50.00€,
+    Then give a discount of 5%.
 
 
 | Discount Calculation                                     |

@@ -72,7 +72,14 @@ Otwarte problemy :
 Testy Akceptacyjne :
 ------------------
 
-1) Ścieżka główna - wypis pacjenta
+Ścieżka główna :
+1) Wypis pacjenta
+
+
+Ścieżki alternatywne :
+
+
+Wyjątki :
 
 2) Czas wypisu jest nieprawidłowy
 
