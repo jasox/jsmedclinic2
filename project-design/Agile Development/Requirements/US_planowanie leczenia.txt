@@ -1,11 +1,11 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
 USER STORY                                                projekt : JSMedClinic2 
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
-Wypisanie pacjenta
+Planowanie leczenia pacjenta
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
 
-Jako < Sekretarka medyczna > chciałabym < zarejestrować dane wypisu pacjenta > 
-   aby < szybko wypisać pacjenta z lecznicy > 
+Jako < Lekarz > chciałbym < zaplanować konkretną procedurę medyczną dla pacjenta > 
+   aby < realizować leczenie pacjenta > 
 
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
 USE CASE :
@@ -16,44 +16,43 @@ Zakres : aplikacja JSMedClinic2
 Poziom : cel użytkownika
 ------
 
-Aktor pierwszoplanowy : Sekretarka medyczna
+Aktor pierwszoplanowy : Lekarz
 ---------------------
 
 Interesariusze i ich cele : 
 -------------------------
-•Pacjent chce być szybko i sprawnie wypisany z lecznicy  
-•Sekretarka medyczna chce szybko i bez błędów wprowadzić dokładne i jak najpełniejsze 
- dane wypisu pacjenta do systemu 
+•Pacjent chce być leczony w lecznicy szybko i sprawnie
+•Lekarz chce rozpocząć cykl procedur medycznych przyjętego pacjenta
 
-Wyzwalacz : Pacjent zakończył cykl procedur medycznych w lecznicy.
+Wyzwalacz : 
 ---------
+ Decyzja lekarza po wystawieniu diagnozy.
+ 
 
 Warunki początkowe :
 ------------------ 
- Pacjent posiada dokument identyfikacyjny, jest ubezpieczony.
+ Pacjent jest przyjęty do lecznicy i zarejestrowany w systemie.
+ Wystawione jest rozpoznanie wstępne.
+ Wystawione jest rozpoznanie ostateczne.
  
 
 Gwarancja sukcesu (warunki końcowe) : 
 -----------------------------------
- Dane wypisu pacjenta są zarejestrowane w systemie.
- 
+ Zaplanowana procedura medyczna dla pacjenta jest zarejestrowane w systemie.
+
 
 Główny scenariusz sukcesu :
 -------------------------
- 1) Sekretarka medyczna sprawdza dokumenty pacjenta       
-    Jeżeli dokumenty są w porządku -    
-    
- 2) Sekretarka medyczna wpisuje następujące dane : 
+     
+ 1) Lekarz wpisuje następujące dane : 
     ID pacjenta
     system sprawdza czy pacjent jest już zarejestrowany
-    Jeżeli tak -> 3)
+    Jeżeli tak -> 2)
     Jeżeli nie - wyjście
     
- 3) wpisywane są dane wypisu pacjenta :
-    dokładny czas wypisu, 
-    gdy są dostępne, wprowadzane są dane dotyczące dokąd pacjent jest kierowany
-    
+ 2) wpisywane jest zaplanowana procedura medyczna    
  
+
 Rozszerzenia :
 ------------
 
@@ -72,9 +71,12 @@ Otwarte problemy :
 Testy Akceptacyjne :
 ------------------
 
-1) Ścieżka główna - wypis pacjenta
+1) Ścieżka główna - rejestracja zaplanowanej procedury medycznej dla pacjenta
 
-2) Czas wypisu jest nieprawidłowy
+
+
+
+
 
 
 

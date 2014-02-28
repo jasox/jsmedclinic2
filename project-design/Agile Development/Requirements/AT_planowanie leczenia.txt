@@ -1,0 +1,27 @@
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
+ACCEPTANCE TESTS                                          projekt : JSMedClinic2 
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
+For USER STORY : Planowanie leczenia pacjenta
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
+
+Warunki początkowe :
+------------------ 
+ Pacjent jest przyjęty do lecznicy i zarejestrowany w systemie.
+ Wystawione jest rozpoznanie wstępne.
+ Wystawione jest rozpoznanie ostateczne.
+ 
+
+Gwarancja sukcesu (warunki końcowe) : 
+-----------------------------------
+ Zaplanowana procedura medyczna dla pacjenta jest zarejestrowane w systemie.
+
+
+
+
+
+
+
+
+
+
+

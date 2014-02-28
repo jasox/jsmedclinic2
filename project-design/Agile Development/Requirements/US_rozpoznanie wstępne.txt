@@ -1,7 +1,7 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
 USER STORY                                                projekt : JSMedClinic2 
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
-Rozpoznanie wstępne pacjenta
+Rozpoznanie wstępne pacjenta 
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
 
 Jako < Lekarz > chciałbym < zarejestrować rozpoznanie wstępne pacjenta > 
@@ -33,7 +33,7 @@ Warunki początkowe :
 
 Gwarancja sukcesu (warunki końcowe) : 
 -----------------------------------
- Dane rozpoznania wstępnego pacjęta są zarejestrowane w systemie.
+ Dane rozpoznania wstępnego pacjenta są zarejestrowane w systemie.
 
 
 Główny scenariusz sukcesu :

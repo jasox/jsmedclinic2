@@ -1,0 +1,50 @@
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
+ACCEPTANCE TESTS                                          projekt : JSMedClinic2 
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
+For USER STORY : Wypisanie rachunku i pacjenta
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
+
+Warunki początkowe :
+------------------ 
+ Pacjent posiada dokument identyfikacyjny, nie jest ubezpieczony.
+ 
+
+Gwarancja sukcesu (warunki końcowe) : 
+-----------------------------------
+ Dane wypisu pacjenta są zarejestrowane w systemie, rachunek jest wydrukowany.
+
+
+--------------------------------------------------------------------------------
+
+
+Business rule
+-------------
+Discount amount is always rounded down.
+If Patient Type is Regular,
+Then do not give a discount,
+If Patient Type is Good and Item Total is less than or equal to 10.00€,
+Then do not give a discount,
+Otherwise, give a 1% discount.
+If Patient Type is Excellent,
+Then give a discount of 1% for any order.
+If Item Total is greater than 50.00€,
+Then give a discount of 5%.
+
+
+| Discount Calculation                                     |
+| Item Total | Patient Rating | Discount Percentage? | Discount Amount? |
+| 10.00€     | Regular        | 0%                   | 0€               |
+| 50.00€     | Regular        | 0%                   | 0€               |
+| 10.00€     | Good           | 0%                   | 0€               |
+| 10.01€     | Good           | 1%                   | 0.1€             |
+| 50.01€     | Good           | 1%                   | 0.5€             |
+|   .01€     | Excellent      | 1%                   | 0€               |
+| 50.00€     | Excellent      | 1%                   | 0.5€             |
+| 50.01€     | Excellent      | 5%                   | 2.5€             |
+
+
+
+
+
+
+

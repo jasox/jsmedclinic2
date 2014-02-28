@@ -5,7 +5,7 @@ Rozpoznanie ostateczne pacjenta
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
 
 Jako < Lekarz > chciałbym < zarejestrować rozpoznanie ostateczne pacjenta > 
-   aby < kontynuować cykl procedur medycznych pacjenta > 
+   aby < rozpocząć cykl procedur medycznych pacjenta > 
 
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
 USE CASE :
@@ -22,7 +22,7 @@ Aktor pierwszoplanowy : Lekarz
 Interesariusze i ich cele : 
 -------------------------
 •Pacjent chce być leczony w lecznicy szybko i sprawnie
-•Lekarz chce kontynuować cykl procedur medycznych przyjętego pacjenta
+•Lekarz chce rozpocząć cykl procedur medycznych przyjętego pacjenta
 
 Wyzwalacz : 
 ---------
@@ -38,7 +38,7 @@ Warunki początkowe :
 
 Gwarancja sukcesu (warunki końcowe) : 
 -----------------------------------
- Dane rozpoznania ostatecznego pacjęta są zarejestrowane w systemie.
+ Dane rozpoznania ostatecznego pacjenta są zarejestrowane w systemie.
 
 
 Główny scenariusz sukcesu :

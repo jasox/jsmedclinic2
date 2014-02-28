@@ -34,7 +34,7 @@ Warunki początkowe :
  Pacjent posiada dokument identyfikacyjny, aktualne skierowanie, jest ubezpieczony 
  lub dokonał stosownej opłaty, jest trzeźwy, ma niezbędne rzeczy.
 
-Gwarancja sukcesu (warunki końcowe) : Dane pacjęta są zarejestrowane w systemie.
+Gwarancja sukcesu (warunki końcowe) : Dane pacjenta są zarejestrowane w systemie.
 -----------------------------------
 
 Główny scenariusz sukcesu :
