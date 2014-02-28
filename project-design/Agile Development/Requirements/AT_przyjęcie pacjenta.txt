@@ -1,0 +1,44 @@
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
+ACCEPTANCE TESTS                                          projekt : JSMedClinic2 
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
+For USER STORY : Przyjęcie pacjenta
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
+
+Warunki początkowe ( GIVEN ):
+------------------ 
+ Pacjent posiada dokument identyfikacyjny, aktualne skierowanie, jest ubezpieczony 
+ lub dokonał stosownej opłaty, jest trzeźwy, ma niezbędne rzeczy.
+ 
+ 
+Akcja : ( WHEN )
+-----
+Sekretarka medyczna przyjmuje pacjenta  
+
+
+Gwarancja sukcesu (warunki końcowe) :  ( THEN )
+-----------------------------------
+Dane pacjenta są zarejestrowane w systemie.
+
+
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
+
+GIVEN :
+
+| Patient Data                                           |
+| Name       | Surname        | ID          | Is Insured |
+| Jan        | Kowalski       | 00000000001 | Yes        |
+| Janina     | Nowak          | 00000000002 | No         |
+
+| Test Date        |
+| Admission Date   |
+| 22/02/2014 10:00 | 
+
+
+THEN:
+
+| Admission Data                                |
+| Admission Date   | Admission ID | Patient ID  | 
+| 22/02/2014 10:00 | 1            | 00000000001 |
+| 22/02/2014 10:00 | 2            | 00000000002 | 
+
+

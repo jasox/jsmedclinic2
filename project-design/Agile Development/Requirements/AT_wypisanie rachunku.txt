@@ -4,12 +4,16 @@ ACCEPTANCE TESTS                                          projekt : JSMedClinic2
 For USER STORY : Wypisanie rachunku i pacjenta
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––---
 
-Warunki początkowe :
+Warunki początkowe : ( GIVEN )
 ------------------ 
  Pacjent posiada dokument identyfikacyjny, nie jest ubezpieczony.
  
+Akcja : ( WHEN )
+-----
+Sekretarka medyczna wypisuje rachunek 
+ 
 
-Gwarancja sukcesu (warunki końcowe) : 
+Gwarancja sukcesu (warunki końcowe) : ( THEN )
 -----------------------------------
  Dane wypisu pacjenta są zarejestrowane w systemie, rachunek jest wydrukowany.
 
@@ -31,7 +35,7 @@ If Patient Rating is Excellent,
     Then give a discount of 5%.
 
 
-| Discount Calculation                                     |
+| Discount Calculation                                                  |
 | Item Total | Patient Rating | Discount Percentage? | Discount Amount? |
 | 10.00€     | Regular        | 0%                   | 0€               |
 | 50.00€     | Regular        | 0%                   | 0€               |
