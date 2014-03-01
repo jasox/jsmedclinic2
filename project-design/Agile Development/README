@@ -32,13 +32,20 @@ Założenia :
 Po jednej iteracji zespół postanowił przejść z metodyki Scrum do ( jak się wydawało,
 bardziej odpowiadającej specyfice projektu ) metodyki Lean/Kanban.
 Spowodowało to zmianę układu głównej tablicy projektu, tak aby uwidocznić ciągły
-przepływ zadań i wartości dodawane do nich na poszczególnych etapach, oraz miało 
-umożliwić śledzenie stanu całego projektu, a nie tylko poszczególnych iteracji.
+przepływ zadań i wartości dodane do nich na poszczególnych etapach procesu tworzenia 
+aplikacji; oraz miało umożliwić śledzenie stanu całego projektu, a nie tylko 
+poszczególnych iteracji.
 Utrzymane zostały niektóre elementy metodyki Scrum - np. co dwa tygodnie - 
 Backlog Grooming, czyli ewaluacja PBI metodą planning poker, przypisanie osoby 
-odpowiedzialnej, ustalenie scenariusza testów akceptacyjnych.
+odpowiedzialnej, ustalenie scenariusza testów akceptacyjnych, podział na zadania.
 Również co dwa tygonie następowało planowanie, czyli wybór zadań na listę 
 "Next 5 Tasks", "Next Tech Tasks" i "Next Bugs".
+Po wykonaniu pewnego etapu pracy, również co dwa tygodnie zaplanowane były spotkania :
+Review - przegląd wykonanej pracy w obecności product owner'a, prezentacja wykonanych
+funkcjonalności i
+Retrospective - dyskusja w gronie zespołu nad stylem pracy i procedurami które 
+można ulepszyć, aby poprawiła się komunikacja w zespole i wzrosło zbiorowe poczucie 
+odpowiedzialności za wykonaną pracę, przez co i produktywność.
 
 
 
