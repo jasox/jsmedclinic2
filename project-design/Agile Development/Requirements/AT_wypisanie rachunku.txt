@@ -21,30 +21,58 @@ Gwarancja sukcesu (warunki końcowe) : ( THEN )
 --------------------------------------------------------------------------------
 
 
+Business rule - Patient Rating
+------------------------------
+If Cumulative Bills > 1000.00€ or Bills Past Year > 500.00€
+  Then Patient Rating is Excellent
+If Cumulative Bills > 500.00€ or Bills Past Year > 200.00€
+  Then Patient Rating is Good  
+Othervise
+  Patient Rating is Regular  
+
+| Patient Rating Calculation                           |
+| Cumulative Bills | Bills Past Year | Patient Rating? |
+|    0.00€         |   0.00€         | Regular         |
+|  500.00€         |   0.00€         | Regular         |
+|    0.00€         | 200.00€         | Regular         |
+|  500.00€         | 200.00€         | Regular         |
+|  500.01€         |   0.00€         | Good            |
+|    0.00€         | 200.01€         | Good            |
+|  500.01€         | 200.01€         | Good            | 
+| 1000.00€         |   0.00€         | Good            | 
+|    0.00€         | 500.00€         | Good            | 
+| 1000.00€         | 500.00€         | Good            |
+| 1000.01€         |   0.00€         | Excellent       | 
+|    0.00€         | 500.01€         | Excellent       | 
+| 1000.01€         | 500.01€         | Excellent       |
+
+
+
+
 Business rule - Discount calculation
 ------------------------------------
 Discount amount is always rounded down.
 If Patient Rating is Regular,
   Then do not give a discount,
-If Patient Rating is Good and Item Total is less than or equal to 10.00€,
+If Patient Rating is Good and Item Total is less than or equal to 100.00€,
   Then do not give a discount,
   Otherwise, give a 1% discount.
 If Patient Rating is Excellent,
   Then give a discount of 1% for any Item Total.
-  If Item Total is greater than 50.00€,
+  If Item Total is greater than 500.00€,
     Then give a discount of 5%.
 
 
 | Discount Calculation                                                  |
 | Item Total | Patient Rating | Discount Percentage? | Discount Amount? |
-| 10.00€     | Regular        | 0%                   | 0€               |
-| 50.00€     | Regular        | 0%                   | 0€               |
-| 10.00€     | Good           | 0%                   | 0€               |
-| 10.01€     | Good           | 1%                   | 0.1€             |
-| 50.01€     | Good           | 1%                   | 0.5€             |
-|   .01€     | Excellent      | 1%                   | 0€               |
-| 50.00€     | Excellent      | 1%                   | 0.5€             |
-| 50.01€     | Excellent      | 5%                   | 2.5€             |
+| 100.00€    | Regular        | 0%                   |  0.00€           |
+| 500.00€    | Regular        | 0%                   |  0.00€           |
+| 100.00€    | Good           | 0%                   |  0.00€           |
+| 100.01€    | Good           | 1%                   |  1.00€           |
+| 500.01€    | Good           | 1%                   |  5.00€           |
+|    .01€    | Excellent      | 1%                   |  0.00€           |
+| 500.00€    | Excellent      | 1%                   |  5.00€           |
+| 500.01€    | Excellent      | 5%                   | 25.00€           |
 
 
 

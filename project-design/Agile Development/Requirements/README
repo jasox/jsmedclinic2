@@ -3,6 +3,6 @@ SETTINGS - Requirements                                   projekt : JSMedClinic2
 --------------------------------------------------------------------------------
 
 files US - user stories
-      AT - acceptance tests at FitNesse format
+      AT - acceptance tests in FitNesse format
       
 --------------------------------------------------------------------------------      
