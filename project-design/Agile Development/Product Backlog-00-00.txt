@@ -1,0 +1,102 @@
+--------------------------------------------------------------------------------                                                                               
+
+               PRODUCT BACKLOG  -  on :  Sprint  00  Day  00
+                      ( on beginning of the project )
+
+--------------------------------------------------------------------------------
+
+
+
+---------------------------------- SPRINT-1 ------------------------------------
+
+PBI #1
+Name        Inception Project Tasks
+Description Project Tasks at the beginning of the project : SCM, CI, Task Management etc. 
+State       To Do               
+Effort (Rough estimate)    5 Days
+Type        Technical
+Created By  Jaoss     
+Assigned To Jaoss           
+Sprint      Sprint1                
+Total estimate    6 Days              
+Backlog Priority  10           
+Business Value                     
+Acceptance Criteria                      
+Tasks    
+1) #10 – Create SVN Repo - create SVN repository for project code at ProjectLocker, assign it 
+         for Jenkins instance in CloudBees – 
+         estimate : 2 Days – assigned to : Jaoss  –  state : To Do     
+2) #11 – Create Project Architecture - create project modules according to program layers, 
+         create POM files for it – 
+         estimate : 2 Days – assigned to : Jaoss  –  state : To Do      
+3) #12 – Create Issue/Bug Tracker - Create issue and bug tracker at Bugzilla hosted in BugHeaven – 
+         estimate : 1 Days – assigned to : Jaoss  –  state : To Do   
+4) #13 – Synchronize IDE's with project - Synchronizing Eclipse and NetBeans for project, setting connection 
+         for SCM, CI, Issue Management ect. – 
+         estimate : 1 Days – assigned to : Jasox  –  state : To Do
+
+
+
+PBI #2
+Name         Inception Database Tasks
+Description  Create DB schema for production database MySQL and test fake-database HSQL, 
+             transfer sample data from legacy database. 
+State        To Do               
+Effort (Rough estimate)    10 Days
+Type         Feature
+Created By   Jaoss     
+Assigned To  Jaoss           
+Sprint       Sprint1                
+Total estimate    10 Days              
+Backlog Priority  10           
+Business Value                     
+Acceptance Criteria                      
+Tasks    
+1) #14 – Create MySQL Schema - Create MySQL production database schema from legacy database –
+         estimate : 4 Days – assigned to : Jasox  –  state : To Do    
+2) #15 – Create HSQL Schema - Create HSQL test fake-database schema from legacy database – 
+         estimate : 2 Days – assigned to : Jasox  –  state : To Do     
+3) #16 – Transfer production data - Transfer production data from legacy database to MySQL database – 
+         estimate : 3 Days – assigned to : Jasox  –  state : To Do  
+4) #17 – Create test data - Create test data for HSQL fake-database – 
+         estimate : 1 Days – assigned to : Jasox  –  state : To Do
+
+
+
+PBI #3
+Name         Authentication and Authorisation Tasks
+Description  Different tasks connected to authentication and authorization of users in this system.
+	Należy sprawdzić, czy do tych zadań da się wykorzystać wcześniej napisaną usługę LoginService, 
+  czy	możliwe będzie użycie wbudowanych w Seam klas PicketLink Identity Managament API.
+	Również trzeba pamiętać, że użytkownikami systemu mogą być lekarze, upoważnieni pracownicy, 
+  czy	zewnętrzni audytorzy finansowi i medyczni. Pod względem biznesowym są oni odrębnymi bytami/encjami 
+  więc na etapie projektowania obiektowego należy zadbać aby wszystkie te klasy implementowały 
+  wspólny	interfejs 	użytkownika systemu.
+State       To Do               
+Effort (Rough estimate)    10 Days
+Type        Feature
+Created By  Jaoss     
+Assigned To Jaoss           
+Sprint      Sprint1                
+Total estimate    12 Days              
+Backlog Priority  20           
+Business Value                     
+Acceptance Criteria                      
+Tasks    
+1) #18 – Create Doctor Class – one of main class that is going to implement interface of system user – 
+         estimate : 2 Days – assigned to : Jaoss  –  state : To Do   
+2) #19 – Create Interface of System User – create a interface of common functionality of system user – 
+         estimate : 3 Days – assigned to : Jaoss  –  state : To Do    
+3) #20 – Add PicketLink User – study if it is possible to use Picketlink user interface to increase 
+         functionality of system user – 
+         estimate : 3 Days – assigned to : Jasox  –  state : To Do 
+4) #21 – Use Seam IDM – study if using Seam Identity Management can improve security of  the system – 
+         estimate : 4 Days – assigned to : Jaoss  –  state : To Do
+5) #22 – Use LoginService – assessment of possible use of already developed LoginService – 
+         estimate : 3 Days – assigned to : Jasox  –  state : Postponed
+
+
+--------------------------------------------------------------------------------
+
+                                                                            
+

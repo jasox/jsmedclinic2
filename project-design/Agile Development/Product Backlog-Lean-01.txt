@@ -1,0 +1,111 @@
+--------------------------------------------------------------------------------                                                                              
+
+                     PRODUCT BACKLOG  -  on :  Day 20 
+                        ( Lean / Kanban Version  )
+
+--------------------------------------------------------------------------------                                                             
+
+
+------------------------------ LEAN / KANBAN -----------------------------------
+
+PBI #4
+Name   Przyjęcie pacjenta - User Story 
+Description     	
+   Jako < Sekretarka medyczna > chciałabym < zarejestrować dane pacjenta > 
+      aby < szybko przyjąć pacjenta do lecznicy >
+State        To Do              
+Effort (Rough estimate)    12 Days
+Type         Feature
+Created By   Jasox     
+Assigned To  Jasox         
+Total estimate    16 Days              
+Backlog Priority  20           
+Business Value    High              
+Acceptance Criteria     in file ./Requirements/AT_przyjęcie pacjenta.txt                 
+Tasks    
+1) #23 – Create Patient Class – one of main class of the system, as JPA entity, and with JAXB annotations, 
+         and Patient DAO interface  – 
+         estimate : 2 Days – assigned to : Jaoss  –  state : To Do
+2) #24 – Create Admission Class – as JPA entity, and with JAXB annotations, and Admission DAO interface – 
+         estimate : 2 Days – assigned to : Jasox  –  state : To Do 
+3) #25 – Create Patient EJB Dao – DAO to access a patient data by EJB layer to database – 
+         estimate : 3 Days – assigned to : Jasox  –  state : To Do
+4) #26 – Create Admission EJB Dao – DAO to access a admission data by EJB layer to database – 
+         estimate : 3 Days – assigned to : Jaoss  –  state : To Do
+5) #27 – Create Patient JSF page – page to insert patient data – 
+         estimate : 3 Days – assigned to : Jasox  –  state : To Do
+6) #28 – Create Admission JSF page – page to insert admission data – 
+         estimate : 3 Days – assigned to : Jaoss  –  state : To Do
+
+
+
+
+PBI #5
+Name   Rozpoznanie wstępne pacjenta - User Story 
+Description     	
+   Jako < Lekarz > chciałbym < zarejestrować rozpoznanie wstępne pacjenta > 
+     aby < rozpocząć cykl procedur medycznych pacjenta > 
+State        To Do              
+Effort (Rough estimate)    10 Days
+Type         Feature
+Created By   Jaoss     
+Assigned To  Jaoss         
+Total estimate    12 Days              
+Backlog Priority  20           
+Business Value    Medium              
+Acceptance Criteria     in file ./Requirements/AT_rozpoznanie wstępne .txt                 
+Tasks    
+1) #29 – Create Diagnosis Class – as JPA entity, and with JAXB annotations, and Diagnosis DAO interface  – 
+         estimate : 2 Days – assigned to : Jaoss  –  state : To Do
+2) #30 – Create Diagnosis Table – in test Hsql database, and production MySQL database – 
+         estimate : 2 Days – assigned to : Jasox  –  state : To Do 
+3) #31 – Prepopulate Diagnosis Table – with test data – 
+         estimate : 1 Days – assigned to : Jasox  –  state : To Do
+4) #32 – Create Dignosis EJB Dao – DAO to access a diagnosis data by EJB layer to database – 
+         estimate : 3 Days – assigned to : Jaoss  –  state : To Do
+5) #33 – Create Diagnosis JSF page – page to insert diagnosis data – 
+         estimate : 3 Days – assigned to : Jasox  –  state : To Do
+6) #34 – Update Admission JSF page – page to insert admission data, to pick initial diagnosis from list – 
+         estimate : 1 Days – assigned to : Jaoss  –  state : To Do
+
+
+
+
+PBI #6
+Name   Rozpoznanie ostateczne pacjenta - User Story 
+Description     	
+   Jako < Lekarz > chciałbym < zarejestrować rozpoznanie ostateczne pacjenta > 
+      aby < rozpocząć cykl procedur medycznych pacjenta >  
+State        To Do              
+Effort (Rough estimate)    6 Days
+Type         Feature
+Created By   Jasox    
+Assigned To  Jaoss         
+Total estimate    7 Days              
+Backlog Priority  20           
+Business Value    Medium              
+Acceptance Criteria     in file ./Requirements/AT_rozpoznanie ostateczne .txt                 
+Tasks    
+1) #35 – Update Diagnosis Class – as JPA entity, and with JAXB annotations, and Diagnosis DAO interface 
+         to fit with final diagnosis requirements  – 
+         estimate : 2 Days – assigned to : Jaoss  –  state : To Do
+2) #36 – Update Diagnosis Table – in test Hsql database, and production MySQL database – 
+         estimate : 1 Days – assigned to : Jasox  –  state : To Do 
+3) #37 – Prepopulate Diagnosis Table – with test data of final diagnosis – 
+         estimate : 1 Days – assigned to : Jasox  –  state : To Do
+4) #38 – Update Dignosis EJB Dao – DAO to access a diagnosis data by EJB layer to database – 
+         estimate : 1 Days – assigned to : Jaoss  –  state : To Do
+5) #39 – Update Diagnosis JSF page – page to insert diagnosis data, to also insert final diagnosis – 
+         estimate : 1 Days – assigned to : Jasox  –  state : To Do
+6) #40 – Update Admission JSF page – page to insert admission data, to pick final diagnosis from list – 
+         estimate : 1 Days – assigned to : Jaoss  –  state : To Do
+
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+                                                    
+
