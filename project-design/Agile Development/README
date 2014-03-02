@@ -39,7 +39,7 @@ Utrzymane zostały niektóre elementy metodyki Scrum - np. co dwa tygodnie -
 Backlog Grooming, czyli ewaluacja PBI metodą planning poker, przypisanie osoby 
 odpowiedzialnej, ustalenie scenariusza testów akceptacyjnych, podział na zadania.
 Również co dwa tygonie następowało planowanie, czyli wybór zadań na listę 
-"Next 5 Tasks", "Next Tech Tasks" i "Next Bugs".
+"Next 3 Tasks", "Next Tech Tasks" i "Next Bugs".
 Po wykonaniu pewnego etapu pracy, również co dwa tygodnie zaplanowane były spotkania :
 Review - przegląd wykonanej pracy w obecności product owner'a, prezentacja wykonanych
 funkcjonalności i
@@ -47,5 +47,9 @@ Retrospective - dyskusja w gronie zespołu nad stylem pracy i procedurami które
 można ulepszyć, aby poprawiła się komunikacja w zespole i wzrosło zbiorowe poczucie 
 odpowiedzialności za wykonaną pracę, przez co i produktywność.
 
+Stosujemy następujące miary postępu procesu :
+ Velocity   := sum ( feature_effort ) - done in given week 
+ Cycle time := How long did it take for feature X to move from "Next 3 Features" 
+                 to "Ready for Acceptance Test"
 
 

@@ -23,8 +23,8 @@ Backlog Priority  20
 Business Value    High              
 Acceptance Criteria     in file ./Requirements/AT_przyjęcie pacjenta.txt                 
 Tasks    
-1) #23 – Create Patient Class – one of main class of the system, as JPA entity, and with JAXB annotations, 
-         and Patient DAO interface  – 
+1) #23 – Create Patient Class – one of main class of the system, as JPA entity, 
+         and with JAXB annotations, and Patient DAO interface  – 
          estimate : 2 Days – assigned to : Jaoss  –  state : To Do
 2) #24 – Create Admission Class – as JPA entity, and with JAXB annotations, and Admission DAO interface – 
          estimate : 2 Days – assigned to : Jasox  –  state : To Do 
@@ -53,7 +53,7 @@ Assigned To  Jaoss
 Total estimate    12 Days              
 Backlog Priority  20           
 Business Value    Medium              
-Acceptance Criteria     in file ./Requirements/AT_rozpoznanie wstępne .txt                 
+Acceptance Criteria     in file ./Requirements/AT_rozpoznanie wstępne.txt                 
 Tasks    
 1) #29 – Create Diagnosis Class – as JPA entity, and with JAXB annotations, and Diagnosis DAO interface  – 
          estimate : 2 Days – assigned to : Jaoss  –  state : To Do
@@ -84,10 +84,10 @@ Assigned To  Jaoss
 Total estimate    7 Days              
 Backlog Priority  20           
 Business Value    Medium              
-Acceptance Criteria     in file ./Requirements/AT_rozpoznanie ostateczne .txt                 
+Acceptance Criteria     in file ./Requirements/AT_rozpoznanie ostateczne.txt                 
 Tasks    
-1) #35 – Update Diagnosis Class – as JPA entity, and with JAXB annotations, and Diagnosis DAO interface 
-         to fit with final diagnosis requirements  – 
+1) #35 – Update Diagnosis Class – as JPA entity, and with JAXB annotations, 
+         and Diagnosis DAO interface to fit with final diagnosis requirements  – 
          estimate : 2 Days – assigned to : Jaoss  –  state : To Do
 2) #36 – Update Diagnosis Table – in test Hsql database, and production MySQL database – 
          estimate : 1 Days – assigned to : Jasox  –  state : To Do 

@@ -65,13 +65,14 @@ Tasks
 
 PBI #3
 Name         Authentication and Authorisation Tasks
-Description  Different tasks connected to authentication and authorization of users in this system.
-	Należy sprawdzić, czy do tych zadań da się wykorzystać wcześniej napisaną usługę LoginService, 
-  czy	możliwe będzie użycie wbudowanych w Seam klas PicketLink Identity Managament API.
-	Również trzeba pamiętać, że użytkownikami systemu mogą być lekarze, upoważnieni pracownicy, 
+Description  
+  Different tasks connected to authentication and authorization of users in this system.
+  Należy sprawdzić, czy do tych zadań da się wykorzystać wcześniej napisaną usługę LoginService, 
+  czy	możliwe będzie użycie wbudowanych w Seam klas PicketLink Identity Managament API. 
+  Również trzeba pamiętać, że użytkownikami systemu mogą być lekarze, upoważnieni pracownicy, 
   czy	zewnętrzni audytorzy finansowi i medyczni. Pod względem biznesowym są oni odrębnymi bytami/encjami 
-  więc na etapie projektowania obiektowego należy zadbać aby wszystkie te klasy implementowały 
-  wspólny	interfejs 	użytkownika systemu.
+  więc na etapie projektowania obiektowego należy zadbać aby wszystkie te klasy implementowały wspólny 
+  interfejs użytkownika systemu.
 State       To Do               
 Effort (Rough estimate)    10 Days
 Type        Feature
