@@ -50,6 +50,6 @@ odpowiedzialności za wykonaną pracę, przez co i produktywność.
 Stosujemy następujące miary postępu procesu :
  Velocity   := sum ( feature_effort ) - done in given week 
  Cycle time := How long did it take for feature X to move from "Next 3 Features" 
-                 to "Ready for Acceptance Test"
+                 to "Ready for System Test"
 
 
