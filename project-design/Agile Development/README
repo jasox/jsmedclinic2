@@ -58,4 +58,10 @@ Postęp procesu mierzony jest za pomocą :
  Cycle time := How long did it take for feature X to move from "Next 4 Tasks" 
                  to "Ready for System Test"
 
+Jeżeli przepływ zadania jest zablokowany, zaznacza się go różową nalepką.
+Szczególnie pilne zadanie zaznaczane jest zieloną nalepką.
+Ważne jest też ustalenie jasnych definicji kiedy dany etap pracy nad zadaniem 
+uważa się za skończony ( Definition of Done ).
+
+--------------------------------------------------------------------------------
 
