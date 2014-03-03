@@ -1,5 +1,5 @@
 #---------------------------------------
-# ignoruj w projekcie JMedicalClinic
+#   ignoruj w projekcie JSMedClinic2
 #---------------------------------------
 
 # podkatalogi katalogu głównego
@@ -8,6 +8,8 @@
 .svn/
 target/
 test-output/
+tmp/
+bak/
 
 *~
 .DS_Store

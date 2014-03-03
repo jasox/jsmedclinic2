@@ -35,21 +35,27 @@ Spowodowało to zmianę układu głównej tablicy projektu, tak aby uwidocznić 
 przepływ zadań i wartości dodane do nich na poszczególnych etapach procesu tworzenia 
 aplikacji; oraz miało umożliwić śledzenie stanu całego projektu, a nie tylko 
 poszczególnych iteracji.
+
 Utrzymane zostały niektóre elementy metodyki Scrum - np. co dwa tygodnie - 
 Backlog Grooming, czyli ewaluacja PBI metodą planning poker, przypisanie osoby 
 odpowiedzialnej, ustalenie scenariusza testów akceptacyjnych, podział na zadania.
-Również co dwa tygonie następowało planowanie, czyli wybór zadań na listę 
-"Next 3 Tasks", "Next Tech Tasks" i "Next Bugs".
-Po wykonaniu pewnego etapu pracy, również co dwa tygodnie zaplanowane były spotkania :
+
+Co tydzień następowało planowanie, czyli wybór zadań na listę "Next 4 Tasks", 
+"Next Tech Tasks" i "Next Bugs".
+Stosowana była zasada że w fazie development praca może odbywać się nad maksymalnie
+czterema zadaniami
+Max WIP := 4   ( Max Work in Progress ) 
+
+Po wykonaniu pewnego etapu pracy, co dwa tygodnie zaplanowane były spotkania :
 Review - przegląd wykonanej pracy w obecności product owner'a, prezentacja wykonanych
 funkcjonalności i
 Retrospective - dyskusja w gronie zespołu nad stylem pracy i procedurami które 
 można ulepszyć, aby poprawiła się komunikacja w zespole i wzrosło zbiorowe poczucie 
 odpowiedzialności za wykonaną pracę, przez co i produktywność.
 
-Stosujemy następujące miary postępu procesu :
+Postęp procesu mierzony jest za pomocą :
  Velocity   := sum ( feature_effort ) - done in given week 
- Cycle time := How long did it take for feature X to move from "Next 3 Features" 
+ Cycle time := How long did it take for feature X to move from "Next 4 Tasks" 
                  to "Ready for System Test"
 
 
