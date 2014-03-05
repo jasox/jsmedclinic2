@@ -21,10 +21,7 @@
 	<artifactId>medical-ward</artifactId>
 	<packaging>war</packaging>
 	<name>Medical Ward</name>
-	<description>
-      The Seam Medical Ward example using the simplified Java EE 6 
-      programming model and packaging structure (i.e., web archive)
-  </description>
+	<description> JS Medical Clinic Application Web Module </description>
 	
 	<properties>		
 	  <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>

@@ -19,7 +19,7 @@
 	<artifactId>medical-ward-simple</artifactId>	
 	<packaging>jar</packaging>
 	<name>Medical Ward Simple DAO's</name>
-	<description></description>
+	<description> JS Medical Clinic Application Hibernate DAO Module </description>
 	
 	<properties>
     <projectScope>compile</projectScope>

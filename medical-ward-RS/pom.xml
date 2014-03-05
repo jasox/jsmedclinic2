@@ -19,7 +19,7 @@
 	<artifactId>medical-ward-rest</artifactId>	
 	<packaging>jar</packaging>
 	<name>Medical Ward REST Module</name>
-	<description></description>	
+	<description> JS Medical Clinic Application REST Module </description>	
   
   <!-- ===================================================================== -->
   

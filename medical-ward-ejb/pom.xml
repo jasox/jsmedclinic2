@@ -19,7 +19,7 @@
 	<artifactId>medical-ward-ejb</artifactId>	
 	<packaging>jar</packaging>
 	<name>Medical Ward EJB Module</name>
-	<description></description>	
+	<description> JS Medical Clinic Application EJB Module </description>	
   
   <!-- ===================================================================== -->
   
