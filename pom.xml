@@ -1,123 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project 
-  xmlns="http://maven.apache.org/POM/4.0.0" 
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                       http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
-  
-	<groupId>pl.jasox</groupId>
-	<artifactId>medclinic</artifactId>
-	<packaging>pom</packaging>
-	<version>1.1.1</version>
-	<name>JS Medical Clinic 2</name>
-	<description> JS Medical Clinic Application </description>
-	<url>http://github.com/jasox/jsmedclinic2.git</url>
-	 
-	<!-- ===================================================================== -->
+  <modelVersion>4.0.0</modelVersion>
 
-	<properties>
-    
+  <groupId>pl.jasox</groupId>
+  <artifactId>medclinic</artifactId>
+  <packaging>pom</packaging>
+  <version>1.1.1</version>
+  <name>JS Medical Clinic 2</name>
+  <description> JS Medical Clinic Application </description>
+  <url>http://github.com/jasox/jsmedclinic2.git</url>
+
+  <!-- ===================================================================== -->
+
+  <properties>
+
     <!-- JBoss dependency versions -->
-    <jboss.maven.plugin.version>7.4.Final</jboss.maven.plugin.version>    
+    <jboss.maven.plugin.version>7.4.Final</jboss.maven.plugin.version>
     <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
-    <jboss.bom.version>1.0.7.Final</jboss.bom.version>    
-     
-		<seam.version>3.1.0.Final</seam.version>    
+    <jboss.bom.version>1.0.7.Final</jboss.bom.version>
+
+    <seam.version>3.1.0.Final</seam.version>
     <org.richfaces.bom.version>4.3.3.Final</org.richfaces.bom.version>
-    <surefire.version>2.13</surefire.version>   
-    <jpamodelgen.version>1.2.0.Final</jpamodelgen.version> 
-    <!--   
+    <surefire.version>2.13</surefire.version>
+    <jpamodelgen.version>1.2.0.Final</jpamodelgen.version>
+    <!--
     <jersey.version>1.8</jersey.version>
     -->
     <!-- Maven Plugins -->
-    <maven.source.plugin.version>2.2.1</maven.source.plugin.version>  
+    <maven.source.plugin.version>2.2.1</maven.source.plugin.version>
     <maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
     <maven.compiler.target>1.6</maven.compiler.target>
-    <maven.compiler.source>1.6</maven.compiler.source>   
-    
+    <maven.compiler.source>1.6</maven.compiler.source>
+
     <maven.jar.plugin.version>2.4</maven.jar.plugin.version>
     <maven.war.plugin.version>2.4</maven.war.plugin.version>
     <maven.processor.plugin.version>2.2.4</maven.processor.plugin.version>
     <maven.dependency.plugin>2.8</maven.dependency.plugin>
     <maven.help.plugin.version>2.2</maven.help.plugin.version>
     <maven.exec.plugin.version>1.2.1</maven.exec.plugin.version>
-    <maven.jaxws.plugin.version>2.2</maven.jaxws.plugin.version>    
+    <maven.jaxws.plugin.version>2.2</maven.jaxws.plugin.version>
     <maven.failsafe.plugin.version>2.16</maven.failsafe.plugin.version>
-    <maven.javadoc.plugin.version>2.9.1</maven.javadoc.plugin.version> 
-    
-    <version.java>1.6</version.java>     
+    <maven.javadoc.plugin.version>2.9.1</maven.javadoc.plugin.version>
+
+    <version.java>1.6</version.java>
     <version.javaee>6.0</version.javaee>
     <version.glassfish>3.1.2</version.glassfish>
-    <version.weld>2.1.0.Final</version.weld> 
+    <version.weld>2.1.0.Final</version.weld>
      <!--  <version.jersey>1.8</version.jersey> -->
-    <version.jersey>2.3.1</version.jersey> 
+    <version.jersey>2.3.1</version.jersey>
     <version.eclipselink>2.5.1</version.eclipselink>
-    <version.hibernate.validator>4.1.0.Final</version.hibernate.validator> 
+    <version.hibernate.validator>4.1.0.Final</version.hibernate.validator>
     <version.el>3.0.0</version.el>
     <version.json>1.0.2</version.json>
-    <version.ejb>3.1</version.ejb>     
-    <version.shrinkwrap.resolvers>2.0.0</version.shrinkwrap.resolvers>      
+    <version.ejb>3.1</version.ejb>
+    <version.shrinkwrap.resolvers>2.0.0</version.shrinkwrap.resolvers>
     <version.arquillian.bom>1.0.3.Final</version.arquillian.bom>  <!-- 1.1.2.Final -->
     <version.xmlunit>1.4</version.xmlunit>
     <version.slf4j>1.5.10</version.slf4j>
-    <version.maven.jrebel.plugin>1.1.5</version.maven.jrebel.plugin> 
-    
+    <version.maven.jrebel.plugin>1.1.5</version.maven.jrebel.plugin>
+
     <!-- Databases -->
     <version.derby>10.10.1.1</version.derby>
     <version.mysql>5.1.21</version.mysql>
-    
+
     <!-- Application properties -->
-    <projectGroup>pl.jasox.medclinic</projectGroup> 
-		<projectName>medical-ward</projectName>
-		<projectVersion>1.1.1</projectVersion>    
-		<projectScope>compile</projectScope>    		
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>	
-    
+    <projectGroup>pl.jasox.medclinic</projectGroup>
+    <projectName>medical-ward</projectName>
+    <projectVersion>1.1.1</projectVersion>
+    <projectScope>compile</projectScope>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
     <!-- Konfiguracja dla Tomcata (default) -->
-		<tomcat.home>${env.CATALINA_HOME}</tomcat.home>
-		
-		<!-- Konfiguracja dla JBoss AS 6 (default) -->
-		<jboss.home>${env.JBOSS_HOME_6}</jboss.home>
-		<jboss.hostName>localhost</jboss.hostName>
-		<jboss.serverId>default</jboss.serverId>
-		<jboss.serverName>default</jboss.serverName>
-		
-		<!-- Konfiguracja dla JBoss AS 7 (default) -->
-		<jboss-as.home>${env.JBOSS_HOME_7}</jboss-as.home>
-		<jboss-as.hostname>localhost</jboss-as.hostname>	
-    	
-		<!-- 
+    <tomcat.home>${env.CATALINA_HOME}</tomcat.home>
+
+    <!-- Konfiguracja dla JBoss AS 6 (default) -->
+    <jboss.home>${env.JBOSS_HOME_6}</jboss.home>
+    <jboss.hostName>localhost</jboss.hostName>
+    <jboss.serverId>default</jboss.serverId>
+    <jboss.serverName>default</jboss.serverName>
+
+    <!-- Konfiguracja dla JBoss AS 7 (default) -->
+    <jboss-as.home>${env.JBOSS_HOME_7}</jboss-as.home>
+    <jboss-as.hostname>localhost</jboss-as.hostname>
+
+    <!--
       Scieżki do baz testowych HSQL
       potrzebne są dwie bazy testowe z powodu niepełnej kompatybilności
-      HSQL do dwóch implementacji utrwalania : Hibernate i EclipseLink  
+      HSQL do dwóch implementacji utrwalania : Hibernate i EclipseLink
     -->
-		<fake-test-hsql-file>
+    <fake-test-hsql-file>
       /${basedir}/../db-settings/fake-database-hsql/jsmedclinic
-    </fake-test-hsql-file>    
+    </fake-test-hsql-file>
     <fake-test-hsql-file-2>
       /${basedir}/../db-settings/fake-database-hsql-2/jsmedclinic
     </fake-test-hsql-file-2>
     <fake-test-hsql-dir-2>
       /${basedir}/../db-settings/fake-database-hsql-2
-    </fake-test-hsql-dir-2>    
-    
-	</properties>
+    </fake-test-hsql-dir-2>
 
-	<modules>
-    	
-		<module>medical-ward</module>    
-		<module>medical-ward-ejb</module>
-		<module>medical-ward-RS</module>
-		<module>medical-ward-simple</module>
-		
-	</modules>
-  
+  </properties>
+
+  <modules>
+
+    <module>medical-ward</module>
+    <module>medical-ward-ejb</module>
+    <module>medical-ward-RS</module>
+    <module>medical-ward-simple</module>
+
+  </modules>
+
   <!-- ===================================================================== -->
-  
+
   <repositories>
 
       <!-- These repositories are needed for CloudBees Jenkins instance -->
@@ -135,10 +135,10 @@
           <updatePolicy>never</updatePolicy>
         </snapshots>
       </repository>
-        
+
       <repository>
         <id>nuxeo-public-repository-group</id>
-        <name>Nuxeo Public Maven Repository Group</name>          
+        <name>Nuxeo Public Maven Repository Group</name>
         <url>https://maven.nuxeo.org/nexus/content/groups/public/</url>
         <layout>default</layout>
         <releases>
@@ -153,7 +153,7 @@
 
       <repository>
         <id>java.net-repository</id>
-        <name>Java.net Repository for Maven</name>          
+        <name>Java.net Repository for Maven</name>
         <url>http://download.java.net/maven/2/</url>
         <layout>default</layout>
         <releases>
@@ -165,7 +165,7 @@
           <updatePolicy>never</updatePolicy>
         </snapshots>
       </repository>
-      
+
       <repository>
           <id>jboss-deprecated-repository</id>
           <name>JBoss Deprecated Maven Repository</name>
@@ -180,9 +180,9 @@
             <updatePolicy>never</updatePolicy>
           </snapshots>
         </repository>
-        
+
     </repositories>
-      
+
     <pluginRepositories>
 
       <pluginRepository>
@@ -201,32 +201,32 @@
       </pluginRepository>
 
     </pluginRepositories>
-	
-  
+
+
   <!-- ===================================================================== -->
 
-	<dependencyManagement>
+  <dependencyManagement>
 
-		<dependencies>
-      
-      <!-- Override dependency resolver with latest version. 
+    <dependencies>
+
+      <!-- Override dependency resolver with latest version.
            This must go *BEFORE* the Arquillian BOM.  -->
       <dependency>
         <groupId>org.jboss.shrinkwrap.resolver</groupId>
         <artifactId>shrinkwrap-resolver-bom</artifactId>
         <version>${version.shrinkwrap.resolvers}</version>
-        <scope>import</scope> 
+        <scope>import</scope>
         <type>pom</type>
-      </dependency> 
-       
+      </dependency>
+
       <dependency>
         <groupId>org.jboss.arquillian</groupId>
         <artifactId>arquillian-bom</artifactId>
         <version>${version.arquillian.bom}</version>
         <type>pom</type>
         <scope>import</scope>
-      </dependency>  
-      
+      </dependency>
+
       <dependency>
         <groupId>org.jboss.bom</groupId>
         <artifactId>jboss-javaee-6.0-with-tools</artifactId>
@@ -234,15 +234,15 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      
+
       <dependency>
         <groupId>org.jboss.bom</groupId>
         <artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
         <version>${jboss.bom.version}</version>
         <type>pom</type>
         <scope>import</scope>
-      </dependency>    
-      
+      </dependency>
+
 			<dependency>
 				<groupId>org.jboss.seam</groupId>
 				<artifactId>seam-bom</artifactId>
@@ -250,7 +250,7 @@
 				<scope>import</scope>
 				<type>pom</type>
 			</dependency>
-      
+
 			<dependency>
 				<groupId>org.jboss.seam.remoting</groupId>
 				<artifactId>seam-remoting-parent</artifactId>
@@ -266,29 +266,29 @@
 				<scope>import</scope>
 				<type>pom</type>
 			</dependency>
-			
-			<dependency>
+
+      <dependency>
         <groupId>org.richfaces</groupId>
         <artifactId>richfaces-bom</artifactId>
         <version>${org.richfaces.bom.version}</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>
-      
-		</dependencies>
 
-	</dependencyManagement>
-  
+    </dependencies>
+
+  </dependencyManagement>
+
   <!-- ===================================================================== -->
 
-	<build>
+  <build>
 
-		<defaultGoal>package</defaultGoal>
+    <defaultGoal>package</defaultGoal>
 
-		<pluginManagement>
+    <pluginManagement>
 
-			<plugins>
-        
+      <plugins>
+
        <plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-eclipse-plugin</artifactId>
@@ -299,8 +299,8 @@
 							</classpathContainer>
 						</classpathContainers>
 					</configuration>
-				</plugin>
-        
+        </plugin>
+
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-ejb-plugin</artifactId>
@@ -312,23 +312,23 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
-          <version>${maven.compiler.plugin.version}</version>
+					<version>${maven.compiler.plugin.version}</version>
 					<configuration>
 						<source>${maven.compiler.source}</source>
 						<target>${maven.compiler.target}</target>
 					</configuration>
 				</plugin>
 
-			</plugins>
+      </plugins>
 
-		</pluginManagement>
+    </pluginManagement>
 
-		<plugins>
+    <plugins>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-        <version>${maven.source.plugin.version}</version>
+				<version>${maven.source.plugin.version}</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -339,32 +339,32 @@
 					</execution>
 				</executions>
 			</plugin>
-      
+
     </plugins>
-    
+
     <extensions>
 		  <extension>
-			  <groupId>org.apache.maven.wagon</groupId>
-		  	<artifactId>wagon-webdav-jackrabbit</artifactId>
-			  <version>1.0-beta-7</version>
+		    <groupId>org.apache.maven.wagon</groupId>
+		    <artifactId>wagon-webdav-jackrabbit</artifactId>
+		    <version>1.0-beta-7</version>
 		  </extension>
-	  </extensions>
+    </extensions>
 
-	</build>
-  
+  </build>
+
   <!-- ===================================================================== -->
 
-	<profiles>
-		
+  <profiles>
+
 		<!-- preferable configuration for workstation : pc-6B678BCA3390 -->
 		<profile>
 			<id>remote_JBoss</id>
 			<activation>
 				<activeByDefault>false</activeByDefault>
-        <property>
-  				<name>arquillian</name>
-  				<value>jbossas-remote-6</value>
-  			</property>
+				<property>
+					<name>arquillian</name>
+					<value>jbossas-remote-6</value>
+				</property>
 			</activation>
 			<properties>
 				<jboss.home>\\Js-laptop-hp\jboss-6.1.0.Final</jboss.home>
@@ -373,32 +373,32 @@
 				<jboss.serverName>default</jboss.serverName>
 			</properties>
 		</profile>
-		
+
 		<!-- preferable configuration for workstation : pc-6B678BCA3390 -->
 		<profile>
 			<id>remote_JBoss7</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
-        <property>
-  				<name>arquillian</name>
-  				<value>jbossas-remote-7</value>
-  			</property>
+				<property>
+					<name>arquillian</name>
+					<value>jbossas-remote-7</value>
+				</property>
 			</activation>
 			<properties>
 				<jboss-as.home>\\Js-laptop-hp\jboss-as-7.1.1.Final</jboss-as.home>
-				<jboss-as.hostname>10.23.14.95</jboss-as.hostname>				
+				<jboss-as.hostname>10.23.14.95</jboss-as.hostname>
 				<jboss-as.username>admin</jboss-as.username>
-				<jboss-as.password>1234</jboss-as.password>				
+				<jboss-as.password>1234</jboss-as.password>
 			</properties>
 		</profile>
 
-		<!-- configuration for workstation : Js-laptop-hp 
+		<!-- configuration for workstation : Js-laptop-hp
                    also applicable for : pc-6B678BCA3390 -->
 		<profile>
 			<id>local_JBoss</id>
 			<activation>
-          <activeByDefault>false</activeByDefault>
-      </activation> 
+				<activeByDefault>false</activeByDefault>
+			</activation>
 			<properties>
 				<jboss.home>${env.JBOSS_HOME_6}</jboss.home>
 				<jboss.hostName>localhost</jboss.hostName>
@@ -406,51 +406,51 @@
 				<jboss.serverName>default</jboss.serverName>
 			</properties>
 		</profile>
-    
-    <profile>
-			  <!-- MySQL runs on the same workstation -->
-				<id>local_MySQL</id>						
-	      <properties>				
-					<dbName>MySQL</dbName> 
+
+		<profile>
+				<!-- MySQL runs on the same workstation -->
+				<id>local_MySQL</id>
+				<properties>
+					<dbName>MySQL</dbName>
 					<dbHost>localhost</dbHost>
-			    <dbUser>jasox</dbUser>
-			    <dbSchema>jsmedclinic</dbSchema>
-			    <dbPassword>jasox</dbPassword>					
-				</properties>		
-		 </profile>
-			
-		 <profile>
-			  <!-- MySQL runs on remote server CloudBees on AWS -->
-				<id>aws_MySQL</id>	
-        <activation>
-          <activeByDefault>true</activeByDefault>
-        </activation>		
-	      <properties>
-	        <dbName>MySQL</dbName> 
+					<dbUser>jasox</dbUser>
+					<dbSchema>jsmedclinic</dbSchema>
+					<dbPassword>jasox</dbPassword>
+				</properties>
+		</profile>
+
+		<profile>
+				<!-- MySQL runs on remote server CloudBees on AWS -->
+				<id>aws_MySQL</id>
+				<activation>
+					<activeByDefault>true</activeByDefault>
+				</activation>
+				<properties>
+					<dbName>MySQL</dbName>
 					<dbHost>ec2-23-21-211-172.compute-1.amazonaws.com</dbHost>
-			    <dbUser>jasox02</dbUser>
-			    <dbSchema>jasox02-mysql</dbSchema>
-			    <dbPassword>jasox-02</dbPassword>							
-				</properties>			
-		 </profile>
+					<dbUser>jasox02</dbUser>
+					<dbSchema>jasox02-mysql</dbSchema>
+					<dbPassword>jasox-02</dbPassword>
+				</properties>
+		</profile>
 
-	</profiles>
+  </profiles>
 
-	<scm> 
-    <!--    
-    <connection>https://pl5.projectlocker.com/jasox/JSMedClinic/svn</connection> 
-    --> 
+  <scm>
+    <!--
+    <connection>https://pl5.projectlocker.com/jasox/JSMedClinic/svn</connection>
+    -->
     <!-- Since 25.01.2014, after migration from Svn -->
-		<connection>scm:git:git://github.com/jasox/jsmedclinic2.git</connection>
-		<developerConnection>
+    <connection>scm:git:git://github.com/jasox/jsmedclinic2.git</connection>
+    <developerConnection>
         scm:git:git@github.com:jasox/jsmedclinic2.git
     </developerConnection>
-		<url>http://github.com/jasox/jsmedclinic2.git</url>		
-	</scm>
-	
-	<developers>
-	    
-	  <developer>
+    <url>http://github.com/jasox/jsmedclinic2.git</url>
+  </scm>
+
+  <developers>
+
+		<developer>
 			<id>ja</id>
 			<name>Janusz Swół</name>
 			<email>janusz.swol@gmail.com</email>
@@ -458,14 +458,14 @@
 			<organization>jasox.pl</organization>
 			<organizationUrl></organizationUrl>
 			<roles>
-			  <role>Manager</role>
-			  <role>Architect</role>
+				<role>Manager</role>
+				<role>Architect</role>
 			</roles>
 			<timezone>-1</timezone>
 			<properties>
-			  <picUrl></picUrl>
+				<picUrl></picUrl>
 			</properties>
-		</developer>  
+		</developer>
 
 		<developer>
 			<id>jaoss</id>
@@ -475,15 +475,15 @@
 			<organization>jasox.pl</organization>
 			<organizationUrl></organizationUrl>
 			<roles>
-			  <role>Architect</role>
-			  <role>Developer</role>			  
+				<role>Architect</role>
+				<role>Developer</role>
 			</roles>
 			<timezone>-1</timezone>
 			<properties>
-			  <picUrl></picUrl>
+				<picUrl></picUrl>
 			</properties>
 		</developer>
-		
+
 		<developer>
 			<id>jasox</id>
 			<name>Janusz Janowski</name>
@@ -492,39 +492,35 @@
 			<organization>jasox.pl</organization>
 			<organizationUrl></organizationUrl>
 			<roles>
-			  <role>Architect</role>
-			  <role>Developer</role>			  
+				<role>Architect</role>
+				<role>Developer</role>
 			</roles>
 			<timezone>-1</timezone>
 			<properties>
-			  <picUrl></picUrl>
+				<picUrl></picUrl>
 			</properties>
 		</developer>
 
   </developers>
-  
-  
+
+
 	<issueManagement>
     <system>Bugzilla</system>
     <url>http://www.bugheaven.com/bugzilla/jasox/</url>
   </issueManagement>
-  
-		 
-	 <distributionManagement>
-	 <!-- The “dav” prefix is added before the HTTP protocol, it means deploy your site via WebDAV mechanism.
-	      Alternately, you can replace it with “scp” if your server is supported “scp” access.
-        Tell Maven to use “wagon-webdav-jackrabbit” extension for deployment. --> 
+
+
+  <distributionManagement>
+  <!-- The “dav” prefix is added before the HTTP protocol, it means deploy your site via WebDAV mechanism.
+        Alternately, you can replace it with “scp” if your server is supported “scp” access.
+        Tell Maven to use “wagon-webdav-jackrabbit” extension for deployment. -->
 			<repository>
-			  <id>cloudbees.jasox.repository</id>
-			  <name>CloudBees Jasox Repository</name>
-			  <url>dav:https://repository-jasox.forge.cloudbees.com/private/</url>
+				<id>cloudbees.jasox.repository</id>
+				<name>CloudBees Jasox Repository</name>
+				<url>dav:https://repository-jasox.forge.cloudbees.com/private/</url>
 			</repository>
-			
-   </distributionManagement> 
-   
+
+  </distributionManagement>
+
 
 </project>
-
-<!-- 
- 
--->

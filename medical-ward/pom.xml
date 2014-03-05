@@ -5,7 +5,7 @@
 <project 
   xmlns="http://maven.apache.org/POM/4.0.0" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                       http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
@@ -30,9 +30,9 @@
   
   <!-- ===================================================================== -->
 
-	<dependencies>
-	    
-	  <dependency>
+  <dependencies>
+    
+    <dependency>
       <groupId>${projectGroup}</groupId>
       <artifactId>${projectName}-ejb</artifactId>
       <version>${projectVersion}</version>
@@ -51,7 +51,7 @@
 			<artifactId>jboss-javaee-6.0</artifactId>
 			<type>pom</type>
 			<scope>provided</scope>
-		</dependency>
+    </dependency>
     
     <!--
       Mixing JUnit and TestNG in one module can be done just by adding both
@@ -181,7 +181,7 @@
         <scope>test</scope>
     </dependency>
     
-		<!-- Obtaining ShrinkWrap Resolvers for use in your system can be done in 
+    <!-- Obtaining ShrinkWrap Resolvers for use in your system can be done in 
          a single pass by declaring a dependency upon the depchain module  -->
     <dependency> 
       <groupId>org.jboss.shrinkwrap.resolver</groupId>
@@ -190,17 +190,17 @@
       <type>pom</type>
     </dependency> 
 
-	</dependencies>
+  </dependencies>
   
   <!-- ===================================================================== -->
 
-	<build>
+  <build>
 
-		<defaultGoal>package</defaultGoal>
+    <defaultGoal>package</defaultGoal>
 
-		<finalName>${projectName}-${projectVersion}</finalName>
+    <finalName>${projectName}-${projectVersion}</finalName>
 
-		<plugins>
+    <plugins>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -218,7 +218,7 @@
 					<additionalBuildcommands>
 						<!-- annoyingly creates a bin directory 
 						<buildCommand> 
-              <name>org.eclipse.wst.jsdt.core.javascriptValidator</name> 
+							<name>org.eclipse.wst.jsdt.core.javascriptValidator</name> 
 						</buildCommand> -->
 						<buildCommand>
 							<name>
@@ -261,15 +261,15 @@
 
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
-        <version>${surefire.version}</version>
+				<version>${surefire.version}</version>
 				<configuration>
 					<skip>true</skip>          
-          <suiteXmlFiles>
-             <suiteXmlFile>
-                ${project.build.directory}/test-classes/testng.xml
-             </suiteXmlFile>
-          </suiteXmlFiles>
- 				</configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>
+							${project.build.directory}/test-classes/testng.xml
+						</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
 			</plugin>
 			
       
@@ -311,7 +311,7 @@
   
     </plugins>
 
-	</build>
+  </build>
   
   <!-- ===================================================================== -->
 
@@ -348,7 +348,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-war-plugin</artifactId>
-            <version>${maven.war.plugin.version}</version>
+							<version>${maven.war.plugin.version}</version>
 						<configuration>
 							<webResources>
 								<resource>
@@ -375,7 +375,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-war-plugin</artifactId>
-            <version>${maven.war.plugin.version}</version>
+							<version>${maven.war.plugin.version}</version>
 						<configuration>
 							<webResources>
 								<resource>
@@ -402,7 +402,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-war-plugin</artifactId>
-            <version>${maven.war.plugin.version}</version>
+							<version>${maven.war.plugin.version}</version>
 						<configuration>
 							<webResources>
 								<resource>
@@ -420,7 +420,7 @@
 		<profile>
 			<id>ftest</id>
 			<activation>
-        <activeByDefault>false</activeByDefault>       
+				<activeByDefault>false</activeByDefault>       
 				<property>
 					<name>arquillian</name>
 				</property>       

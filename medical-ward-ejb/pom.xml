@@ -6,7 +6,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                       http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<groupId>pl.jasox</groupId>
@@ -68,9 +68,9 @@
     </dependency>
     
     <dependency>
-	     <groupId>org.jboss.spec.javax.ws.rs</groupId>
-	     <artifactId>jboss-jaxrs-api_2.0_spec</artifactId>
-	     <version>1.0.0.Alpha1</version>
+       <groupId>org.jboss.spec.javax.ws.rs</groupId>
+       <artifactId>jboss-jaxrs-api_2.0_spec</artifactId>
+       <version>1.0.0.Alpha1</version>
        <scope>provided</scope>
     </dependency>
     -->
@@ -248,7 +248,7 @@
 			<artifactId>picketlink-idm-core</artifactId>
 		</dependency>
     
-    <dependency>
+		<dependency>
 			<groupId>com.ocpsoft</groupId>
 			<artifactId>ocpsoft-pretty-time</artifactId>			
 		</dependency>
@@ -329,13 +329,13 @@
   
   <!-- ===================================================================== -->
 
-	<build>
+  <build>
 
-		<defaultGoal>package</defaultGoal>
+    <defaultGoal>package</defaultGoal>
 
-		<finalName>${projectName}-ejb-${projectVersion}</finalName>
+    <finalName>${projectName}-ejb-${projectVersion}</finalName>
 
-		<plugins>				
+    <plugins>				
      
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
@@ -344,9 +344,9 @@
 					<additionalBuildcommands>
 						<!-- annoyingly creates a bin directory 
 						<buildCommand> 
-              <name>org.eclipse.wst.jsdt.core.javascriptValidator</name> 
+							<name>org.eclipse.wst.jsdt.core.javascriptValidator</name> 
 						</buildCommand> 
-            -->
+						-->
 						<buildCommand>
 							<name>
 								org.jboss.tools.common.verification.verifybuilder
@@ -388,11 +388,11 @@
       
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
-        <version>${surefire.version}</version>
+				<version>${surefire.version}</version>
 				<configuration>
 					<skip>${skipUTs}</skip>
-          <!--
-					<suiteXmlFiles>
+					<!--
+          <suiteXmlFiles>
              <suiteXmlFile>
                  ${basedir}/src/test/resources/testng.xml
              </suiteXmlFile>
@@ -429,7 +429,7 @@
           </plugin>
         </plugins>
       </build>
-  	</profile>
+    </profile>
   
   	<profile>
   		<id>jbossas6</id>
@@ -477,11 +477,11 @@
               </includes>
            </testResource>
         </testResources>	
-       </build>					
-  	</profile>
+       </build>
+    </profile>
   
-  	<profile>
-  		<id>jbossas7</id>
+    <profile>
+      <id>jbossas7</id>
   		<activation>
   			<activeByDefault>false</activeByDefault>
   			<property>
@@ -537,8 +537,8 @@
       </build>
   	</profile>
   
-  	<profile>
-  		<id>glassfish</id>
+    <profile>
+      <id>glassfish</id>
   		<activation>
   			<activeByDefault>false</activeByDefault>
   			<property>
@@ -555,8 +555,8 @@
               <include>**/*.xml</include> 
               <include>**/*.properties</include>
             </includes>
-    			</resource>
-    			<resource>
+          </resource>
+          <resource>
             <directory>${basedir}/src/main/resources-glassfish</directory>
             <filtering>false</filtering>
             <excludes>
@@ -584,10 +584,10 @@
            </testResource>
         </testResources>
       </build>
-  	</profile>
+    </profile>
   	
-  	<profile>
-  		<id>openshift</id>
+    <profile>
+      <id>openshift</id>
   		<activation>
   			<activeByDefault>false</activeByDefault>
   			<property>
@@ -596,7 +596,7 @@
   			</property>
   		</activation>
       <build>
-  			<resources>
+        <resources>
     			<resource>
     				<directory>${basedir}/src/main/resources-openshift-express</directory>
     				<filtering>true</filtering>
@@ -604,8 +604,8 @@
               <include>**/*.xml</include> 
               <include>**/*.properties</include>
             </includes>
-    			</resource>
-    			<resource>
+          </resource>
+          <resource>
             <directory>${basedir}/src/main/resources-openshift-express</directory>
             <filtering>false</filtering>
             <excludes>
@@ -633,7 +633,7 @@
            </testResource>
         </testResources>
       </build>
-  	</profile>
+    </profile>
     
     <profile>
       <!-- -->
