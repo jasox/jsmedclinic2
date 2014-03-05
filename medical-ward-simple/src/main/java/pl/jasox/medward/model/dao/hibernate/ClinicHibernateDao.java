@@ -9,22 +9,22 @@ import pl.jasox.medward.model.domainobject.Clinic;
 
 public class ClinicHibernateDao extends AGenericHibernateDao implements IClinicDao {
 
-	public ClinicHibernateDao() {
-		super(Clinic.class);
-	}
+  public ClinicHibernateDao() {
+    super(Clinic.class);
+  }
 
-	@Override
-	public List<Clinic> getAll() {
-		List<Clinic> clinic = null;
-	    try { 
-	        Query query = getSession().getNamedQuery("getClinicAll");       
-	        clinic     = query.list();
-	    }
-	    finally {
-	        //session.getTransaction().commit();
-	    }
-		return clinic;
-	}
+  @Override
+  public List<Clinic> getAll() {
+    List<Clinic> clinic = null;
+      try { 
+          Query query = getSession().getNamedQuery("getClinicAll");       
+          clinic     = query.list();
+      }
+      finally {
+          //session.getTransaction().commit();
+      }
+    return clinic;
+  }
 
   @Override
   public Clinic findById(int id) {

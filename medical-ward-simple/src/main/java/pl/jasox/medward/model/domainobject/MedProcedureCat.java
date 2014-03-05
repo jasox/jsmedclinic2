@@ -18,8 +18,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="med_procedure_cat")
 public class MedProcedureCat implements java.io.Serializable { 
-	
-	private static final long serialVersionUID = 1L;
+  
+  private static final long serialVersionUID = 1L;
   
   private Integer idMedProcedureCat;
   private String  symbolMedProcedureCat;
@@ -28,7 +28,7 @@ public class MedProcedureCat implements java.io.Serializable {
   private Kasach  kasach;  
 
   @Id
-	@Column(name="id_med_proc_cat")
+  @Column(name="id_med_proc_cat")
   public Integer getIdMedProcedureCat() {
     return idMedProcedureCat;
   }
@@ -61,7 +61,7 @@ public class MedProcedureCat implements java.io.Serializable {
   }
 
   @ManyToOne
-	@JoinColumn(name="symbol_kasa", nullable=false)
+  @JoinColumn(name="symbol_kasa", nullable=false)
   public Kasach getKasach() {
     return kasach;
   }
@@ -93,9 +93,9 @@ public class MedProcedureCat implements java.io.Serializable {
   public String toString() {
     return "MedProcedureCat{" + "idMedProcedureCat=" + idMedProcedureCat + 
             ", symbolMedProcedureCat=" + symbolMedProcedureCat + ", description=" 
-    		    + description + ", remarks=" + remarks + ", kasach=" + kasach + '}';
+            + description + ", remarks=" + remarks + ", kasach=" + kasach + '}';
   }  
   
-	
+  
 }
 

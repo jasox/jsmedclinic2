@@ -8,26 +8,26 @@ import pl.jasox.medward.model.domainobject.Kasach;
 
 
 public class KasachHibernateDao extends AGenericHibernateDao implements IKasachDao {
-	
-	static Logger log = Logger.getLogger( KasachHibernateDao.class.getName() );
+  
+  static Logger log = Logger.getLogger( KasachHibernateDao.class.getName() );
 
-	public KasachHibernateDao() {		
-		super(Kasach.class);		
-	}
+  public KasachHibernateDao() {    
+    super(Kasach.class);    
+  }
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Kasach> getAll() {
-		List<Kasach> kasachs = null;
-	    try { 
-	        Query query = getSession().getNamedQuery("getKasach");       
-	        kasachs     = query.list();
-	    }
-	    finally {
-	        //session.getTransaction().commit();
-	    }
-		return kasachs;
-	}
+  @SuppressWarnings("unchecked")
+  @Override
+  public List<Kasach> getAll() {
+    List<Kasach> kasachs = null;
+      try { 
+          Query query = getSession().getNamedQuery("getKasach");       
+          kasachs     = query.list();
+      }
+      finally {
+          //session.getTransaction().commit();
+      }
+    return kasachs;
+  }
 
   @Override
   public Kasach findById(String id) {

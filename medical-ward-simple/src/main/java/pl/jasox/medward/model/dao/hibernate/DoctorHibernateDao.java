@@ -11,37 +11,37 @@ import pl.jasox.medward.model.domainobject.Doctor;
 public class DoctorHibernateDao extends AGenericHibernateDao implements IDoctorDao {
 
   /** */
-	public DoctorHibernateDao() {
-		super(Doctor.class);
-	}
+  public DoctorHibernateDao() {
+    super(Doctor.class);
+  }
 
-	@Override
-	public void delete(Doctor doctor) {
-		getSession().delete(doctor);		
-	}
+  @Override
+  public void delete(Doctor doctor) {
+    getSession().delete(doctor);    
+  }
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Doctor> getAll() {		
-		List<Doctor> doctors = null;
-	    try { 
-	        Query query = getSession().getNamedQuery("getDoctorAll");       
-	        doctors     = query.list();   
-	    }
-	    finally {
-	        //session.getTransaction().commit();
-	    }
-		return doctors;
-	}
+  @SuppressWarnings("unchecked")
+  @Override
+  public List<Doctor> getAll() {    
+    List<Doctor> doctors = null;
+      try { 
+          Query query = getSession().getNamedQuery("getDoctorAll");       
+          doctors     = query.list();   
+      }
+      finally {
+          //session.getTransaction().commit();
+      }
+    return doctors;
+  }
 
-	@Override
-	public IMedwardUser find(String id) {		
-		return findById(id);
-	}
+  @Override
+  public IMedwardUser find(String id) {    
+    return findById(id);
+  }
 
-	@Override
-	public Doctor findById(String id) {
-		List<Doctor> doctors = null;
+  @Override
+  public Doctor findById(String id) {
+    List<Doctor> doctors = null;
     Doctor doctor = null;
     try { 
         Query query = getSession().getNamedQuery("getDoctorById");  
@@ -56,12 +56,12 @@ public class DoctorHibernateDao extends AGenericHibernateDao implements IDoctorD
             doctor = (Doctor)doctors.toArray()[0];
         }
     }   
-    return doctor;	    
-	}
+    return doctor;      
+  }
   
   @Override
-	public Doctor findByEmail(String email) {
-		List<Doctor> doctors = null;
+  public Doctor findByEmail(String email) {
+    List<Doctor> doctors = null;
     Doctor doctor = null;
     try { 
         Query query = getSession().getNamedQuery("getDoctorByEmail");  
@@ -76,17 +76,17 @@ public class DoctorHibernateDao extends AGenericHibernateDao implements IDoctorD
             doctor = (Doctor)doctors.toArray()[0];
         }
     }   
-    return doctor;	
-	}
+    return doctor;  
+  }
  
-	@Override
-	public void save(Doctor doctor) {
-		getSession().save(doctor);		
-	}
+  @Override
+  public void save(Doctor doctor) {
+    getSession().save(doctor);    
+  }
 
-	@Override
-	public void saveOrUpdate(Doctor doctor) {
-		getSession().saveOrUpdate(doctor);		
-	}	 
+  @Override
+  public void saveOrUpdate(Doctor doctor) {
+    getSession().saveOrUpdate(doctor);    
+  }   
   
 }

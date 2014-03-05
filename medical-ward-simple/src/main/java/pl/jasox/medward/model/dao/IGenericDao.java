@@ -6,12 +6,12 @@ package pl.jasox.medward.model.dao;
 
 public interface IGenericDao {
 
-	public abstract Object findById(int id);
+  public abstract Object findById(int id);
 
-	public abstract void   save(Object object);
+  public abstract void   save(Object object);
 
-	public abstract void   saveOrUpdate(Object object);
+  public abstract void   saveOrUpdate(Object object);
 
-	public abstract void   delete(Object object);
+  public abstract void   delete(Object object);
 
 }

@@ -18,24 +18,24 @@ import pl.jasox.medward.model.domainobject.Doctor;
 
 /** TestNG Test Class */
 public class DoctorDaoTest extends HibernateDaoTest {
-	
-	final static Logger log = Logger.getLogger( DoctorDaoTest.class.getName() );
   
-	/** @BeforeMethod - before a test method is run */
+  final static Logger log = Logger.getLogger( DoctorDaoTest.class.getName() );
+  
+  /** @BeforeMethod - before a test method is run */
   @BeforeMethod
   public void beforeMethod() {
-  	beforeAssertions();
+    beforeAssertions();
   }
 
   /** @AfterMethod - after a test method has been run */
   @AfterMethod
   public void afterMethod() {
-  	afterAssertions();
+    afterAssertions();
   }
 
   /** @BeforeClass - before a test class starts */
   @BeforeClass
-  public void beforeClass() {  	
+  public void beforeClass() {    
   }
 
   /** @AfterClass - after all the test methods in a certain class have been run */
@@ -49,7 +49,7 @@ public class DoctorDaoTest extends HibernateDaoTest {
   /** @BeforeTest - before a test starts <br/>
    *                (remember that a test is made of one or more classes) */
   @BeforeTest
-  public void beforeTest() {  	
+  public void beforeTest() {    
   }
   
   /** @AfterTest - after all the test methods in a certain test have been run <br/>
@@ -71,34 +71,34 @@ public class DoctorDaoTest extends HibernateDaoTest {
   }
   
   @Test
-	public void testGetAllDoctor() {
-	  // fail("Not yet implemented");
-	  // dostęp do tabeli 'Doctor'
+  public void testGetAllDoctor() {
+    // fail("Not yet implemented");
+    // dostęp do tabeli 'Doctor'
       log.info("> begin Doctor all");      
       List<Doctor> listDoctor = getDaoFactory().getDoctorDao().getAll();      
       for ( Doctor doctor : listDoctor ) {
-    	  log.info(doctor);  
+        log.info(doctor);  
       }     
-	}  
+  }  
   
    @Test
-	 public void testFindById() {
-	  // fail("Not yet implemented");	  
+   public void testFindById() {
+    // fail("Not yet implemented");    
       log.info("> begin Doctor - getById"); 
       String id = "0000001";
       Doctor doctor = getDaoFactory().getDoctorDao().findById(id);
       assertEquals(id, doctor.getSymbolDoctor());
-    	log.info(doctor);     
-	} 
+      log.info(doctor);     
+  } 
    
   @Test
-	public void testFindByEmail() {
-	  // fail("Not yet implemented");	  
+  public void testFindByEmail() {
+    // fail("Not yet implemented");    
       log.info("> begin Doctor - getByEmail"); 
       String email = null;
       Doctor doctor = getDaoFactory().getDoctorDao().findByEmail(email);
       //assertEquals(email, doctor.getEmailAddress());
-    	log.info(doctor);     
-	}
+      log.info(doctor);     
+  }
   
 }

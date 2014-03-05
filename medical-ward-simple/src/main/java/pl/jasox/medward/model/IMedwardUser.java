@@ -6,14 +6,14 @@ package pl.jasox.medward.model;
  */
 public interface IMedwardUser extends org.picketlink.idm.api.User {
 
-	public abstract String getName();
+  public abstract String getName();
 
-	public abstract String getUsername();
+  public abstract String getUsername();
 
-	public abstract void   setUsername(String username);
+  public abstract void   setUsername(String username);
 
-	public abstract String getPassword();
+  public abstract String getPassword();
 
-	public abstract void   setPassword(String password);
+  public abstract void   setPassword(String password);
 
 }

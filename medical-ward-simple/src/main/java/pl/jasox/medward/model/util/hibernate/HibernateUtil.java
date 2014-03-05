@@ -23,16 +23,16 @@ public class HibernateUtil {
   // ...
   private static Configuration  configuration;
   private static SessionFactory sessionFactory;
-	
+  
   private static final Logger log = Logger.getLogger(HibernateUtil.class.getName());
-	
+  
   static {
     try {
       // Tworzy obiekt SessionFactory (na podstawie hibernate.cfg.xml)
       //  if you don't use annotations or JDK 5.0
       configuration  = new Configuration();
       // configuration = new AnnotationConfiguration()
-      sessionFactory = configuration.configure().buildSessionFactory();    		       
+      sessionFactory = configuration.configure().buildSessionFactory();               
     } 
     catch (HibernateException ex) {
       // Log the exception. 

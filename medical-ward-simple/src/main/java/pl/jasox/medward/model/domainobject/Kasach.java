@@ -21,55 +21,55 @@ public class Kasach implements java.io.Serializable {
   private String remarks;    
   
   @Id
-	@Column(name="symbol_kasa")
-	public String getSymbolKasa() {
-		return symbolKasa;
-	}
-	public void setSymbolKasa(String symbolKasa) {
-		this.symbolKasa = symbolKasa;
-	}
-	
-	@Column(name="description", nullable=false, unique=true)
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
-	@Column(name="remarks")
-	public String getRemarks() {
-		return remarks;
-	}
-	public void setRemarks(String remarks) {
-		this.remarks = remarks;
-	}
-	
-	// ---------------------------------------------------------------------------
-	
-  public Kasach() {
-		super();
-	}
+  @Column(name="symbol_kasa")
+  public String getSymbolKasa() {
+    return symbolKasa;
+  }
+  public void setSymbolKasa(String symbolKasa) {
+    this.symbolKasa = symbolKasa;
+  }
   
-	/**
-	 * @param symbolKasa
-	 * @param description
-	 * @param remarks
-	 */
-	public Kasach(String symbolKasa, String description, String remarks) {
-		super();
-		this.symbolKasa  = symbolKasa;
-		this.description = description;
-		this.remarks     = remarks;
-	}
-	
-	// ---------------------------------------------------------------------------
-	
-	@Override
-	public String toString() {
-		return "Kasach [symbolKasa=" + symbolKasa + ", description="
-				+ description + ", remarks=" + remarks + "]";
-	}  
+  @Column(name="description", nullable=false, unique=true)
+  public String getDescription() {
+    return description;
+  }
+  public void setDescription(String description) {
+    this.description = description;
+  }
+  
+  @Column(name="remarks")
+  public String getRemarks() {
+    return remarks;
+  }
+  public void setRemarks(String remarks) {
+    this.remarks = remarks;
+  }
+  
+  // ---------------------------------------------------------------------------
+  
+  public Kasach() {
+    super();
+  }
+  
+  /**
+   * @param symbolKasa
+   * @param description
+   * @param remarks
+   */
+  public Kasach(String symbolKasa, String description, String remarks) {
+    super();
+    this.symbolKasa  = symbolKasa;
+    this.description = description;
+    this.remarks     = remarks;
+  }
+  
+  // ---------------------------------------------------------------------------
+  
+  @Override
+  public String toString() {
+    return "Kasach [symbolKasa=" + symbolKasa + ", description="
+        + description + ", remarks=" + remarks + "]";
+  }  
 
   
 }

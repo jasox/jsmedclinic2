@@ -243,29 +243,29 @@
         <scope>import</scope>
       </dependency>
 
-			<dependency>
-				<groupId>org.jboss.seam</groupId>
-				<artifactId>seam-bom</artifactId>
-				<version>${seam.version}</version>
-				<scope>import</scope>
-				<type>pom</type>
-			</dependency>
+      <dependency>
+        <groupId>org.jboss.seam</groupId>
+        <artifactId>seam-bom</artifactId>
+        <version>${seam.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
 
-			<dependency>
-				<groupId>org.jboss.seam.remoting</groupId>
-				<artifactId>seam-remoting-parent</artifactId>
-				<version>3.0.0-Beta1</version>
-				<scope>import</scope>
-				<type>pom</type>
-			</dependency>
+      <dependency>
+        <groupId>org.jboss.seam.remoting</groupId>
+        <artifactId>seam-remoting-parent</artifactId>
+        <version>3.0.0-Beta1</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
 
-			<dependency>
-				<groupId>org.jboss.seam.rest</groupId>
-				<artifactId>seam-rest-parent</artifactId>
-				<version>${seam.version}</version>
-				<scope>import</scope>
-				<type>pom</type>
-			</dependency>
+      <dependency>
+        <groupId>org.jboss.seam.rest</groupId>
+        <artifactId>seam-rest-parent</artifactId>
+        <version>${seam.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
 
       <dependency>
         <groupId>org.richfaces</groupId>
@@ -290,34 +290,34 @@
       <plugins>
 
        <plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-eclipse-plugin</artifactId>
-					<configuration>
-						<classpathContainers>
-							<classpathContainer>
-								org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5
-							</classpathContainer>
-						</classpathContainers>
-					</configuration>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-eclipse-plugin</artifactId>
+          <configuration>
+            <classpathContainers>
+              <classpathContainer>
+                org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5
+              </classpathContainer>
+            </classpathContainers>
+          </configuration>
         </plugin>
 
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-ejb-plugin</artifactId>
-					<configuration>
-						<ejbVersion>${version.ejb}</ejbVersion>
-					</configuration>
-				</plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-ejb-plugin</artifactId>
+          <configuration>
+            <ejbVersion>${version.ejb}</ejbVersion>
+          </configuration>
+        </plugin>
 
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>${maven.compiler.plugin.version}</version>
-					<configuration>
-						<source>${maven.compiler.source}</source>
-						<target>${maven.compiler.target}</target>
-					</configuration>
-				</plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${maven.compiler.plugin.version}</version>
+          <configuration>
+            <source>${maven.compiler.source}</source>
+            <target>${maven.compiler.target}</target>
+          </configuration>
+        </plugin>
 
       </plugins>
 
@@ -325,29 +325,29 @@
 
     <plugins>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>${maven.source.plugin.version}</version>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>${maven.source.plugin.version}</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
 
     </plugins>
 
     <extensions>
-		  <extension>
-		    <groupId>org.apache.maven.wagon</groupId>
-		    <artifactId>wagon-webdav-jackrabbit</artifactId>
-		    <version>1.0-beta-7</version>
-		  </extension>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-webdav-jackrabbit</artifactId>
+        <version>1.0-beta-7</version>
+      </extension>
     </extensions>
 
   </build>
@@ -356,83 +356,83 @@
 
   <profiles>
 
-		<!-- preferable configuration for workstation : pc-6B678BCA3390 -->
-		<profile>
-			<id>remote_JBoss</id>
-			<activation>
-				<activeByDefault>false</activeByDefault>
-				<property>
-					<name>arquillian</name>
-					<value>jbossas-remote-6</value>
-				</property>
-			</activation>
-			<properties>
-				<jboss.home>\\Js-laptop-hp\jboss-6.1.0.Final</jboss.home>
-				<jboss.hostName>10.23.14.95</jboss.hostName>
-				<jboss.serverId>js-laptop-hp</jboss.serverId>
-				<jboss.serverName>default</jboss.serverName>
-			</properties>
-		</profile>
+    <!-- preferable configuration for workstation : pc-6B678BCA3390 -->
+    <profile>
+      <id>remote_JBoss</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+        <property>
+          <name>arquillian</name>
+          <value>jbossas-remote-6</value>
+        </property>
+      </activation>
+      <properties>
+        <jboss.home>\\Js-laptop-hp\jboss-6.1.0.Final</jboss.home>
+        <jboss.hostName>10.23.14.95</jboss.hostName>
+        <jboss.serverId>js-laptop-hp</jboss.serverId>
+        <jboss.serverName>default</jboss.serverName>
+      </properties>
+    </profile>
 
-		<!-- preferable configuration for workstation : pc-6B678BCA3390 -->
-		<profile>
-			<id>remote_JBoss7</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-				<property>
-					<name>arquillian</name>
-					<value>jbossas-remote-7</value>
-				</property>
-			</activation>
-			<properties>
-				<jboss-as.home>\\Js-laptop-hp\jboss-as-7.1.1.Final</jboss-as.home>
-				<jboss-as.hostname>10.23.14.95</jboss-as.hostname>
-				<jboss-as.username>admin</jboss-as.username>
-				<jboss-as.password>1234</jboss-as.password>
-			</properties>
-		</profile>
+    <!-- preferable configuration for workstation : pc-6B678BCA3390 -->
+    <profile>
+      <id>remote_JBoss7</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+        <property>
+          <name>arquillian</name>
+          <value>jbossas-remote-7</value>
+        </property>
+      </activation>
+      <properties>
+        <jboss-as.home>\\Js-laptop-hp\jboss-as-7.1.1.Final</jboss-as.home>
+        <jboss-as.hostname>10.23.14.95</jboss-as.hostname>
+        <jboss-as.username>admin</jboss-as.username>
+        <jboss-as.password>1234</jboss-as.password>
+      </properties>
+    </profile>
 
-		<!-- configuration for workstation : Js-laptop-hp
+    <!-- configuration for workstation : Js-laptop-hp
                    also applicable for : pc-6B678BCA3390 -->
-		<profile>
-			<id>local_JBoss</id>
-			<activation>
-				<activeByDefault>false</activeByDefault>
-			</activation>
-			<properties>
-				<jboss.home>${env.JBOSS_HOME_6}</jboss.home>
-				<jboss.hostName>localhost</jboss.hostName>
-				<jboss.serverId>default</jboss.serverId>
-				<jboss.serverName>default</jboss.serverName>
-			</properties>
-		</profile>
+    <profile>
+      <id>local_JBoss</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <properties>
+        <jboss.home>${env.JBOSS_HOME_6}</jboss.home>
+        <jboss.hostName>localhost</jboss.hostName>
+        <jboss.serverId>default</jboss.serverId>
+        <jboss.serverName>default</jboss.serverName>
+      </properties>
+    </profile>
 
-		<profile>
-				<!-- MySQL runs on the same workstation -->
-				<id>local_MySQL</id>
-				<properties>
-					<dbName>MySQL</dbName>
-					<dbHost>localhost</dbHost>
-					<dbUser>jasox</dbUser>
-					<dbSchema>jsmedclinic</dbSchema>
-					<dbPassword>jasox</dbPassword>
-				</properties>
-		</profile>
+    <profile>
+        <!-- MySQL runs on the same workstation -->
+        <id>local_MySQL</id>
+        <properties>
+          <dbName>MySQL</dbName>
+          <dbHost>localhost</dbHost>
+          <dbUser>jasox</dbUser>
+          <dbSchema>jsmedclinic</dbSchema>
+          <dbPassword>jasox</dbPassword>
+        </properties>
+    </profile>
 
-		<profile>
-				<!-- MySQL runs on remote server CloudBees on AWS -->
-				<id>aws_MySQL</id>
-				<activation>
-					<activeByDefault>true</activeByDefault>
-				</activation>
-				<properties>
-					<dbName>MySQL</dbName>
-					<dbHost>ec2-23-21-211-172.compute-1.amazonaws.com</dbHost>
-					<dbUser>jasox02</dbUser>
-					<dbSchema>jasox02-mysql</dbSchema>
-					<dbPassword>jasox-02</dbPassword>
-				</properties>
-		</profile>
+    <profile>
+        <!-- MySQL runs on remote server CloudBees on AWS -->
+        <id>aws_MySQL</id>
+        <activation>
+          <activeByDefault>true</activeByDefault>
+        </activation>
+        <properties>
+          <dbName>MySQL</dbName>
+          <dbHost>ec2-23-21-211-172.compute-1.amazonaws.com</dbHost>
+          <dbUser>jasox02</dbUser>
+          <dbSchema>jasox02-mysql</dbSchema>
+          <dbPassword>jasox-02</dbPassword>
+        </properties>
+    </profile>
 
   </profiles>
 
@@ -450,61 +450,61 @@
 
   <developers>
 
-		<developer>
-			<id>ja</id>
-			<name>Janusz Swół</name>
-			<email>janusz.swol@gmail.com</email>
-			<url></url>
-			<organization>jasox.pl</organization>
-			<organizationUrl></organizationUrl>
-			<roles>
-				<role>Manager</role>
-				<role>Architect</role>
-			</roles>
-			<timezone>-1</timezone>
-			<properties>
-				<picUrl></picUrl>
-			</properties>
-		</developer>
+    <developer>
+      <id>ja</id>
+      <name>Janusz Swół</name>
+      <email>janusz.swol@gmail.com</email>
+      <url></url>
+      <organization>jasox.pl</organization>
+      <organizationUrl></organizationUrl>
+      <roles>
+        <role>Manager</role>
+        <role>Architect</role>
+      </roles>
+      <timezone>-1</timezone>
+      <properties>
+        <picUrl></picUrl>
+      </properties>
+    </developer>
 
-		<developer>
-			<id>jaoss</id>
-			<name>Jan Osowski</name>
-			<email>jan.osowski@gmail.com</email>
-			<url></url>
-			<organization>jasox.pl</organization>
-			<organizationUrl></organizationUrl>
-			<roles>
-				<role>Architect</role>
-				<role>Developer</role>
-			</roles>
-			<timezone>-1</timezone>
-			<properties>
-				<picUrl></picUrl>
-			</properties>
-		</developer>
+    <developer>
+      <id>jaoss</id>
+      <name>Jan Osowski</name>
+      <email>jan.osowski@gmail.com</email>
+      <url></url>
+      <organization>jasox.pl</organization>
+      <organizationUrl></organizationUrl>
+      <roles>
+        <role>Architect</role>
+        <role>Developer</role>
+      </roles>
+      <timezone>-1</timezone>
+      <properties>
+        <picUrl></picUrl>
+      </properties>
+    </developer>
 
-		<developer>
-			<id>jasox</id>
-			<name>Janusz Janowski</name>
-			<email>jasox@gazeta.pl</email>
-			<url></url>
-			<organization>jasox.pl</organization>
-			<organizationUrl></organizationUrl>
-			<roles>
-				<role>Architect</role>
-				<role>Developer</role>
-			</roles>
-			<timezone>-1</timezone>
-			<properties>
-				<picUrl></picUrl>
-			</properties>
-		</developer>
+    <developer>
+      <id>jasox</id>
+      <name>Janusz Janowski</name>
+      <email>jasox@gazeta.pl</email>
+      <url></url>
+      <organization>jasox.pl</organization>
+      <organizationUrl></organizationUrl>
+      <roles>
+        <role>Architect</role>
+        <role>Developer</role>
+      </roles>
+      <timezone>-1</timezone>
+      <properties>
+        <picUrl></picUrl>
+      </properties>
+    </developer>
 
   </developers>
 
 
-	<issueManagement>
+  <issueManagement>
     <system>Bugzilla</system>
     <url>http://www.bugheaven.com/bugzilla/jasox/</url>
   </issueManagement>
@@ -514,11 +514,11 @@
   <!-- The “dav” prefix is added before the HTTP protocol, it means deploy your site via WebDAV mechanism.
         Alternately, you can replace it with “scp” if your server is supported “scp” access.
         Tell Maven to use “wagon-webdav-jackrabbit” extension for deployment. -->
-			<repository>
-				<id>cloudbees.jasox.repository</id>
-				<name>CloudBees Jasox Repository</name>
-				<url>dav:https://repository-jasox.forge.cloudbees.com/private/</url>
-			</repository>
+      <repository>
+        <id>cloudbees.jasox.repository</id>
+        <name>CloudBees Jasox Repository</name>
+        <url>dav:https://repository-jasox.forge.cloudbees.com/private/</url>
+      </repository>
 
   </distributionManagement>
 

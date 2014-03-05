@@ -19,20 +19,20 @@ import pl.jasox.medward.model.dao.IPatientDao;
  *  IClinicDao, IAdmissionDao, IClinicDao <br/>
  */
 public abstract class ADaoFactory implements IDaoFactory {
-	
-	protected static volatile ADaoFactory instance;
-	
-	public static void setInstance(ADaoFactory inst) {
-		instance = inst;
-	}
-	public static ADaoFactory getInstance() {
-		return instance;
-	}
-	
-	@Override
-	public String toString() {
-		return "DaoFactory [" + super.toString() + "]";
-	}	
-	
+  
+  protected static volatile ADaoFactory instance;
+  
+  public static void setInstance(ADaoFactory inst) {
+    instance = inst;
+  }
+  public static ADaoFactory getInstance() {
+    return instance;
+  }
+  
+  @Override
+  public String toString() {
+    return "DaoFactory [" + super.toString() + "]";
+  }  
+  
 }
 //--------------------------------------------------------------------

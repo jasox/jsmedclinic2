@@ -9,22 +9,22 @@ import pl.jasox.medward.model.domainobject.MedProcedureCat;
 
 public class MedProcedureCatHibernateDao extends AGenericHibernateDao implements IMedProcedureCatDao {
 
-	public MedProcedureCatHibernateDao() {
-		super(MedProcedureCat.class);
-	}
-	
-	@Override
-	public List<MedProcedureCat> getAll() {
-		List<MedProcedureCat> list = null;
-	    try { 
-	        Query query = getSession().getNamedQuery("getMedProcedureCatAll");       
-	        list = query.list();
-	    }
-	    finally {
-	        //session.getTransaction().commit();
-	    }
-		return list;
-	}
+  public MedProcedureCatHibernateDao() {
+    super(MedProcedureCat.class);
+  }
+  
+  @Override
+  public List<MedProcedureCat> getAll() {
+    List<MedProcedureCat> list = null;
+      try { 
+          Query query = getSession().getNamedQuery("getMedProcedureCatAll");       
+          list = query.list();
+      }
+      finally {
+          //session.getTransaction().commit();
+      }
+    return list;
+  }
 
   @Override
   public MedProcedureCat findById(int id) {

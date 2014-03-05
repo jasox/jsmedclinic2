@@ -25,76 +25,76 @@ import pl.jasox.medward.model.dao.hibernate.PatientHibernateDao;
  * this persistence layer is set on <b>clear</b> Hibernate 
  */
 public class HibernateDaoFactory extends ADaoFactory {
-	
-	 final static Logger log = Logger.getLogger( HibernateDaoFactory.class.getName() );	
-	
-	 public static ADaoFactory getInstance() {  
-		if ( instance == null ) {
+  
+   final static Logger log = Logger.getLogger( HibernateDaoFactory.class.getName() );  
+  
+   public static ADaoFactory getInstance() {  
+    if ( instance == null ) {
       synchronized ( HibernateDaoFactory.class ) {
         if ( instance == null ) {
-			    instance = new HibernateDaoFactory();		
+          instance = new HibernateDaoFactory();    
         }
       }
-		}		
-		return instance;
-	}
+    }    
+    return instance;
+  }
    
   public HibernateDaoFactory() {
     log.info("> HibernateDaoFactory initialized ");
   } 
-	
-	@Override
-	public IPatientDao getPatientDao() {
-		IPatientDao pdao = new PatientHibernateDao();
-		//log.info(pdao);
-		return pdao;
-	}
+  
+  @Override
+  public IPatientDao getPatientDao() {
+    IPatientDao pdao = new PatientHibernateDao();
+    //log.info(pdao);
+    return pdao;
+  }
 
-	@Override
-	public IKasachDao getKasachDao() {		
-		IKasachDao kdao = new KasachHibernateDao();
-		//log.info(kdao);
-		return kdao;
-	}
+  @Override
+  public IKasachDao getKasachDao() {    
+    IKasachDao kdao = new KasachHibernateDao();
+    //log.info(kdao);
+    return kdao;
+  }
 
-	@Override
-	public IDoctorDao getDoctorDao() {
-		IDoctorDao ddao = new DoctorHibernateDao();
-		//log.info(ddao);
-		return ddao;
-	}
+  @Override
+  public IDoctorDao getDoctorDao() {
+    IDoctorDao ddao = new DoctorHibernateDao();
+    //log.info(ddao);
+    return ddao;
+  }
 
-	@Override
-	public IMedProcedureDao getMedProcedureDao() {
-		return new MedProcedureHibernateDao();
-	}
+  @Override
+  public IMedProcedureDao getMedProcedureDao() {
+    return new MedProcedureHibernateDao();
+  }
 
-	@Override
-	public IMedProcedureTypeDao getMedProcedureTypeDao() {
-		return new MedProcedureTypeHibernateDao();
-	}
-	
-	@Override
-	public IMedProcedureCatDao getMedProcedureCatDao() {
-		return new MedProcedureCatHibernateDao();
-	}
-	
-	@Override
-	public IAdmissionDao getAdmissionDao() {
-		return new AdmissionHibernateDao();
-	}
+  @Override
+  public IMedProcedureTypeDao getMedProcedureTypeDao() {
+    return new MedProcedureTypeHibernateDao();
+  }
+  
+  @Override
+  public IMedProcedureCatDao getMedProcedureCatDao() {
+    return new MedProcedureCatHibernateDao();
+  }
+  
+  @Override
+  public IAdmissionDao getAdmissionDao() {
+    return new AdmissionHibernateDao();
+  }
 
-	@Override
-	public IClinicDao getClinicDao() {
-		return new ClinicHibernateDao();
-	}
+  @Override
+  public IClinicDao getClinicDao() {
+    return new ClinicHibernateDao();
+  }
   
   // ---------------------------------------------------------------------------
-	
-	@Override
-	public String toString() {
-		return "HibernateDaoFactory [" + super.toString() + "]";
-	}
-	
+  
+  @Override
+  public String toString() {
+    return "HibernateDaoFactory [" + super.toString() + "]";
+  }
+  
 }
 

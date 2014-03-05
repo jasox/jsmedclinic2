@@ -3,23 +3,23 @@
 <project 
   xmlns="http://maven.apache.org/POM/4.0.0" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                       http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>pl.jasox</groupId>
-		<artifactId>medclinic</artifactId>
-		<version>1.1.1</version>
-		<relativePath>../pom.xml</relativePath>
-	</parent>
+  <parent>
+    <groupId>pl.jasox</groupId>
+    <artifactId>medclinic</artifactId>
+    <version>1.1.1</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
 
-	<groupId>pl.jasox.medclinic</groupId>
-	<artifactId>medical-ward-ejb</artifactId>	
-	<packaging>jar</packaging>
-	<name>Medical Ward EJB Module</name>
-	<description> JS Medical Clinic Application EJB Module </description>	
+  <groupId>pl.jasox.medclinic</groupId>
+  <artifactId>medical-ward-ejb</artifactId>  
+  <packaging>jar</packaging>
+  <name>Medical Ward EJB Module</name>
+  <description> JS Medical Clinic Application EJB Module </description>  
   
   <!-- ===================================================================== -->
   
@@ -175,7 +175,7 @@
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>      
       <scope>test</scope>
-    </dependency>	    
+    </dependency>      
     -->
     
     <dependency>
@@ -197,7 +197,7 @@
       <artifactId>mockito-core</artifactId>
       <version>1.9.5</version>
       <scope>test</scope>
-    </dependency>	  
+    </dependency>    
     
     <dependency>
       <groupId>xmlunit</groupId>
@@ -205,59 +205,59 @@
       <version>${version.xmlunit}</version>
       <scope>test</scope>
     </dependency>  
-	    
-		<!-- Annotation processor for generating typed loggers -->
-		<dependency>
-			<groupId>org.jboss.solder</groupId>
-			<artifactId>solder-tooling</artifactId>
-			<scope>provided</scope>
-			<optional>true</optional>
-		</dependency>
+      
+    <!-- Annotation processor for generating typed loggers -->
+    <dependency>
+      <groupId>org.jboss.solder</groupId>
+      <artifactId>solder-tooling</artifactId>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
 
-		<dependency>
-			<groupId>org.jboss.solder</groupId>
-			<artifactId>solder-impl</artifactId>
-		</dependency>
+    <dependency>
+      <groupId>org.jboss.solder</groupId>
+      <artifactId>solder-impl</artifactId>
+    </dependency>
     
     <!-- Seam -->
-		<dependency>
-			<groupId>org.jboss.seam.faces</groupId>
-			<artifactId>seam-faces</artifactId>
-			<scope>compile</scope>
-		</dependency>
+    <dependency>
+      <groupId>org.jboss.seam.faces</groupId>
+      <artifactId>seam-faces</artifactId>
+      <scope>compile</scope>
+    </dependency>
 
-		<dependency>
-			<groupId>org.jboss.seam.international</groupId>
-			<artifactId>seam-international</artifactId>
-		</dependency>
+    <dependency>
+      <groupId>org.jboss.seam.international</groupId>
+      <artifactId>seam-international</artifactId>
+    </dependency>
 
-		<dependency>
-			<groupId>org.jboss.seam.security</groupId>
-			<artifactId>seam-security</artifactId>
-			<scope>compile</scope>
-		</dependency>
+    <dependency>
+      <groupId>org.jboss.seam.security</groupId>
+      <artifactId>seam-security</artifactId>
+      <scope>compile</scope>
+    </dependency>
 
-		<dependency>
-			<groupId>org.jboss.seam.transaction</groupId>
-			<artifactId>seam-transaction</artifactId>
-			<scope>compile</scope>
-		</dependency>	
-		
-		<dependency>
-			<groupId>org.picketlink.idm</groupId>
-			<artifactId>picketlink-idm-core</artifactId>
-		</dependency>
+    <dependency>
+      <groupId>org.jboss.seam.transaction</groupId>
+      <artifactId>seam-transaction</artifactId>
+      <scope>compile</scope>
+    </dependency>  
     
-		<dependency>
-			<groupId>com.ocpsoft</groupId>
-			<artifactId>ocpsoft-pretty-time</artifactId>			
-		</dependency>
-    		
-		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
-		</dependency>
-    		
+    <dependency>
+      <groupId>org.picketlink.idm</groupId>
+      <artifactId>picketlink-idm-core</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.ocpsoft</groupId>
+      <artifactId>ocpsoft-pretty-time</artifactId>      
+    </dependency>
+        
+    <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+    </dependency>
+        
     
     <!-- Obtaining ShrinkWrap Resolvers for use in your system can be done in 
          a single pass by declaring a dependency upon the depchain module  -->
@@ -325,7 +325,7 @@
       <version>${version.derby}</version>
     </dependency>
     
-	</dependencies>
+  </dependencies>
   
   <!-- ===================================================================== -->
 
@@ -335,63 +335,63 @@
 
     <finalName>${projectName}-ejb-${projectVersion}</finalName>
 
-    <plugins>				
+    <plugins>        
      
-			<plugin>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.8</version>
-				<configuration>
-					<additionalBuildcommands>
-						<!-- annoyingly creates a bin directory 
-						<buildCommand> 
-							<name>org.eclipse.wst.jsdt.core.javascriptValidator</name> 
-						</buildCommand> 
-						-->
-						<buildCommand>
-							<name>
-								org.jboss.tools.common.verification.verifybuilder
-							</name>
-						</buildCommand>
-					</additionalBuildcommands>
+      <plugin>
+        <artifactId>maven-eclipse-plugin</artifactId>
+        <version>2.8</version>
+        <configuration>
+          <additionalBuildcommands>
+            <!-- annoyingly creates a bin directory 
+            <buildCommand> 
+              <name>org.eclipse.wst.jsdt.core.javascriptValidator</name> 
+            </buildCommand> 
+            -->
+            <buildCommand>
+              <name>
+                org.jboss.tools.common.verification.verifybuilder
+              </name>
+            </buildCommand>
+          </additionalBuildcommands>
 
-					<additionalConfig>
-						<file>
-							<name>.settings/org.maven.ide.eclipse.prefs</name>
-							<content>
-								eclipse.preferences.version=1
-								fullBuildGoals=process-test-resources
-								includeModules=false
-								resolveWorkspaceProjects=true
-								resourceFilterGoals=process-resources
-								resources\:testResources
-								skipCompilerPlugin=true
-								version=1
-							</content>
-						</file>
-					</additionalConfig>
+          <additionalConfig>
+            <file>
+              <name>.settings/org.maven.ide.eclipse.prefs</name>
+              <content>
+                eclipse.preferences.version=1
+                fullBuildGoals=process-test-resources
+                includeModules=false
+                resolveWorkspaceProjects=true
+                resourceFilterGoals=process-resources
+                resources\:testResources
+                skipCompilerPlugin=true
+                version=1
+              </content>
+            </file>
+          </additionalConfig>
 
-					<additionalProjectFacets>
-						<jst.jsf>2.0</jst.jsf>
-					</additionalProjectFacets>
-					<additionalProjectnatures>
-						<projectnature>org.eclipse.wst.jsdt.core.jsNature</projectnature>
-						<projectnature>org.jboss.tools.jsf.jsfnature</projectnature>
-					</additionalProjectnatures>
-					<workspace>${user.home}/.eclipse/workspace</workspace>
-					<wtpdefaultserver>JBossAS</wtpdefaultserver>
-					<wtpversion>2.0</wtpversion>
-					<downloadSources>true</downloadSources>
-					<downloadJavadocs>true</downloadJavadocs>
+          <additionalProjectFacets>
+            <jst.jsf>2.0</jst.jsf>
+          </additionalProjectFacets>
+          <additionalProjectnatures>
+            <projectnature>org.eclipse.wst.jsdt.core.jsNature</projectnature>
+            <projectnature>org.jboss.tools.jsf.jsfnature</projectnature>
+          </additionalProjectnatures>
+          <workspace>${user.home}/.eclipse/workspace</workspace>
+          <wtpdefaultserver>JBossAS</wtpdefaultserver>
+          <wtpversion>2.0</wtpversion>
+          <downloadSources>true</downloadSources>
+          <downloadJavadocs>true</downloadJavadocs>
 
-				</configuration>
-			</plugin>
+        </configuration>
+      </plugin>
       
-			<plugin>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>${surefire.version}</version>
-				<configuration>
-					<skip>${skipUTs}</skip>
-					<!--
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${surefire.version}</version>
+        <configuration>
+          <skip>${skipUTs}</skip>
+          <!--
           <suiteXmlFiles>
              <suiteXmlFile>
                  ${basedir}/src/test/resources/testng.xml
@@ -403,8 +403,8 @@
                  ${basedir}/src/test/resources/logging.properties               
              </java.util.logging.config.file>
           </systemPropertyVariables>
-				</configuration>
-			</plugin>
+        </configuration>
+      </plugin>
   
     </plugins>
     
@@ -431,33 +431,33 @@
       </build>
     </profile>
   
-  	<profile>
-  		<id>jbossas6</id>
-  		<activation>
-  			<activeByDefault>false</activeByDefault>
-  			<property>
-  				<name>arquillian</name>
-  				<value>jbossas-remote-6</value>
-  			</property>
-  		</activation>
+    <profile>
+      <id>jbossas6</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+        <property>
+          <name>arquillian</name>
+          <value>jbossas-remote-6</value>
+        </property>
+      </activation>
        <build>  
-        <resources>			
-    			<resource>
-    				<directory>${basedir}/src/main/resources-jbossas6</directory>
-    				<filtering>true</filtering>
-    				<includes> 
+        <resources>      
+          <resource>
+            <directory>${basedir}/src/main/resources-jbossas6</directory>
+            <filtering>true</filtering>
+            <includes> 
               <include>**/*.xml</include> 
               <include>**/*.properties</include>
             </includes>
-    			</resource>
-    			<resource>
+          </resource>
+          <resource>
             <directory>${basedir}/src/main/resources-jbossas6</directory>
             <filtering>false</filtering>
             <excludes>
               <exclude>**/*.xml</exclude>
               <exclude>**/*.properties</exclude>
             </excludes>
-          </resource>  	
+          </resource>    
         </resources>
         <testResources>           
            <testResource>
@@ -476,30 +476,30 @@
                 <include>**/*.properties</include>
               </includes>
            </testResource>
-        </testResources>	
+        </testResources>  
        </build>
     </profile>
   
     <profile>
       <id>jbossas7</id>
-  		<activation>
-  			<activeByDefault>false</activeByDefault>
-  			<property>
-  				<name>arquillian</name>
-  				<value>jbossas-remote-7</value>
-  			</property>
-  		</activation>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+        <property>
+          <name>arquillian</name>
+          <value>jbossas-remote-7</value>
+        </property>
+      </activation>
       <build>
-  			<resources>
-    			<resource>
-    				<directory>${basedir}/src/main/resources-jbossas7</directory>
-    				<filtering>true</filtering>
-    				<includes> 
+        <resources>
+          <resource>
+            <directory>${basedir}/src/main/resources-jbossas7</directory>
+            <filtering>true</filtering>
+            <includes> 
               <include>**/*.xml</include> 
               <include>**/*.properties</include>
             </includes>
-    			</resource>
-    			<resource>
+          </resource>
+          <resource>
             <directory>${basedir}/src/main/resources-jbossas7</directory>
             <filtering>false</filtering>
             <excludes>
@@ -535,23 +535,23 @@
            </testResource>           
         </testResources>
       </build>
-  	</profile>
+    </profile>
   
     <profile>
       <id>glassfish</id>
-  		<activation>
-  			<activeByDefault>false</activeByDefault>
-  			<property>
-  				<name>arquillian</name>
-  				<value>glassfish-remote-3.1</value>
-  			</property>
-  		</activation>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+        <property>
+          <name>arquillian</name>
+          <value>glassfish-remote-3.1</value>
+        </property>
+      </activation>
       <build>
-  			<resources>
-    			<resource>
-    				<directory>${basedir}/src/main/resources-glassfish</directory>
-    				<filtering>true</filtering>
-    				<includes> 
+        <resources>
+          <resource>
+            <directory>${basedir}/src/main/resources-glassfish</directory>
+            <filtering>true</filtering>
+            <includes> 
               <include>**/*.xml</include> 
               <include>**/*.properties</include>
             </includes>
@@ -585,22 +585,22 @@
         </testResources>
       </build>
     </profile>
-  	
+    
     <profile>
       <id>openshift</id>
-  		<activation>
-  			<activeByDefault>false</activeByDefault>
-  			<property>
-  				<name>arquillian</name>
-  				<value>openshift-express</value>
-  			</property>
-  		</activation>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+        <property>
+          <name>arquillian</name>
+          <value>openshift-express</value>
+        </property>
+      </activation>
       <build>
         <resources>
-    			<resource>
-    				<directory>${basedir}/src/main/resources-openshift-express</directory>
-    				<filtering>true</filtering>
-    				<includes> 
+          <resource>
+            <directory>${basedir}/src/main/resources-openshift-express</directory>
+            <filtering>true</filtering>
+            <includes> 
               <include>**/*.xml</include> 
               <include>**/*.properties</include>
             </includes>

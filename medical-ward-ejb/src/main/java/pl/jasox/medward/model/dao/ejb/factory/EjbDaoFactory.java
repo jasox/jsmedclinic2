@@ -25,17 +25,17 @@ import pl.jasox.medward.model.dao.factory.IDaoFactory;
 
 @Stateless
 public class EjbDaoFactory implements IDaoFactory, Serializable {	
-	
-	private static final long serialVersionUID = 8562456009982938311L;
+  
+  private static final long serialVersionUID = 8562456009982938311L;
 
   //@Inject
   //private Logger log;
   
-  @EJB	private IDoctorDao           doctorDao; 
+  @EJB  private IDoctorDao           doctorDao; 
   
-  @EJB	private IPatientDao          patientDao; 
+  @EJB  private IPatientDao          patientDao; 
   
-  @EJB	private IKasachDao           kasachDao;
+  @EJB  private IKasachDao           kasachDao;
   
   @EJB  private IClinicDao           clinicDao;
   
@@ -74,58 +74,58 @@ public class EjbDaoFactory implements IDaoFactory, Serializable {
   */ 
   
   @PostConstruct
-	public void init() {
-		// ...
-	}
+  public void init() {
+    // ...
+  }
   
   // ---------------------------------------------------------------------------
-	
-	@Override
-	public IPatientDao getPatientDao() {		
-		return patientDao;
-	}
+  
+  @Override
+  public IPatientDao getPatientDao() {    
+    return patientDao;
+  }
 
-	@Override
-	public IKasachDao getKasachDao() {			
-		return kasachDao;
-	}
+  @Override
+  public IKasachDao getKasachDao() {      
+    return kasachDao;
+  }
 
-	@Override
-	public IDoctorDao getDoctorDao() {		
-		return doctorDao;
+  @Override
+  public IDoctorDao getDoctorDao() {    
+    return doctorDao;
   }  
 
-	@Override
-	public IMedProcedureDao getMedProcedureDao() {    
-		return medProcedureDao;
-	}
+  @Override
+  public IMedProcedureDao getMedProcedureDao() {    
+    return medProcedureDao;
+  }
 
-	@Override
-	public IMedProcedureTypeDao getMedProcedureTypeDao() {    
-		return medProcedureTypeDao;
-	}
-	
-	@Override
-	public IMedProcedureCatDao getMedProcedureCatDao() {    
-		return medProcedureCatDao;
-	}
-	
-	@Override
-	public IAdmissionDao getAdmissionDao() {    
-		return admissionDao;
-	}
+  @Override
+  public IMedProcedureTypeDao getMedProcedureTypeDao() {    
+    return medProcedureTypeDao;
+  }
+  
+  @Override
+  public IMedProcedureCatDao getMedProcedureCatDao() {    
+    return medProcedureCatDao;
+  }
+  
+  @Override
+  public IAdmissionDao getAdmissionDao() {    
+    return admissionDao;
+  }
 
-	@Override
-	public IClinicDao getClinicDao() {    
-		return clinicDao;
-	}
+  @Override
+  public IClinicDao getClinicDao() {    
+    return clinicDao;
+  }
   
   // ---------------------------------------------------------------------------
-		
+    
   @Override
-	public String toString() {
-		return "EjbDaoFactory [" + super.toString() + "]";
-	}
-	
+  public String toString() {
+    return "EjbDaoFactory [" + super.toString() + "]";
+  }
+  
 }
 

@@ -17,70 +17,70 @@ import pl.jasox.medward.model.domainobject.Doctor;
 
 @Stateless
 public class DoctorEjbDao implements IDoctorDao, Serializable {
-	
-	private static final long serialVersionUID = -2046140499998287419L;
+  
+  private static final long serialVersionUID = -2046140499998287419L;
 
-	//@Inject
+  //@Inject
   //Logger log;
-	 
+   
   @Inject
   @ApplicationDatabase
-	private EntityManager em;
+  private EntityManager em;
 
-	/** */
-	public DoctorEjbDao() {		
-	}
-	
-	@PostConstruct
-	public void init() {
-		// ...
-	}
+  /** */
+  public DoctorEjbDao() {    
+  }
+  
+  @PostConstruct
+  public void init() {
+    // ...
+  }
   
   // ---------------------------------------------------------------------------
   
   @Override
-	public void delete(Doctor doctor) {
-		em.remove(doctor);		
-	}
+  public void delete(Doctor doctor) {
+    em.remove(doctor);    
+  }
   
   @Override
-	public Doctor findById(String id) {
-		Doctor doctor = em.find(Doctor.class, id);
-		return doctor;
-	}
+  public Doctor findById(String id) {
+    Doctor doctor = em.find(Doctor.class, id);
+    return doctor;
+  }
   
   @Override
-	public Doctor findByEmail(String email) {
-		Doctor doctor = null; // em.find(Doctor.class, id);
-		return doctor;
-	}
+  public Doctor findByEmail(String email) {
+    Doctor doctor = null; // em.find(Doctor.class, id);
+    return doctor;
+  }
   
   @Override
-	public void saveOrUpdate(Doctor doctor) {
-		em.merge(doctor);
-	}
+  public void saveOrUpdate(Doctor doctor) {
+    em.merge(doctor);
+  }
   
   @Override
-	public void save(Doctor doctor) {
-		em.persist(doctor);
-	}   
+  public void save(Doctor doctor) {
+    em.persist(doctor);
+  }   
 
-	// ---------------------------------------------------------------------------
-	
-	@Override
-	public List<Doctor> getAll() {			
-		String query = "SELECT d FROM Doctor d";
-		List<Doctor> doctors = em.createQuery(query, Doctor.class).getResultList();		 
-		return doctors;
-	}
-
-	@Override
-	public IMedwardUser find(String username) {
-		return findById(username);
-	}
+  // ---------------------------------------------------------------------------
   
-  // ---------------------------------------------------------------------------	
-	
+  @Override
+  public List<Doctor> getAll() {      
+    String query = "SELECT d FROM Doctor d";
+    List<Doctor> doctors = em.createQuery(query, Doctor.class).getResultList();     
+    return doctors;
+  }
+
+  @Override
+  public IMedwardUser find(String username) {
+    return findById(username);
+  }
+  
+  // ---------------------------------------------------------------------------  
+  
   public EntityManager getEntityManager() {
     return em;
   }

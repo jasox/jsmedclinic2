@@ -18,19 +18,19 @@ import pl.jasox.medward.model.util.hibernate.HibernateUtil;
  */
 @Ignore
 public class HibernateDaoTest extends ADaoTest {
-	
+  
   final static Logger log = Logger.getLogger( HibernateDaoTest.class.getName() );
   private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
   
-  protected static void createDaoFactory() {	  
-		if ( getDaoFactory() == null ) {
-		  setDaoFactory( HibernateDaoFactory.getInstance() );	  
-		} 
+  protected static void createDaoFactory() {    
+    if ( getDaoFactory() == null ) {
+      setDaoFactory( HibernateDaoFactory.getInstance() );    
+    } 
   }
   
   @Override
-  protected void beforeAssertions() {	
-	
+  protected void beforeAssertions() {  
+  
     if ( getDaoFactory() == null ) {
       createDaoFactory();
     }  
@@ -39,53 +39,53 @@ public class HibernateDaoTest extends ADaoTest {
       session.beginTransaction();      
     }
     catch ( Exception e ) {
-   	  try {
-		    if ( session.getTransaction().isActive() ) {
-	        session.getTransaction().rollback();
-		    }
-	    } 
+       try {
+        if ( session.getTransaction().isActive() ) {
+          session.getTransaction().rollback();
+        }
+      } 
       catch ( HibernateException eh ) {
-		    log.error("Could not rollback after exception!", eh);
-		    eh.printStackTrace();
-	    }
+        log.error("Could not rollback after exception!", eh);
+        eh.printStackTrace();
+      }
     }
     
   }
   
   @Override
   protected void afterAssertions() {
-	
+  
     if ( getDaoFactory() != null ) {
       Session session = sessionFactory.getCurrentSession();   
-	    try {
+      try {
         session.getTransaction().commit();
       }
       catch ( Exception e ) {
         try {
-	  		  if ( session.getTransaction().isActive() ) {
-	  		    session.getTransaction().rollback();
-	  		  }
-  		  } 
+          if ( session.getTransaction().isActive() ) {
+            session.getTransaction().rollback();
+          }
+        } 
         catch ( HibernateException eh ) {
-  		    log.error("Could not commit after exception!", eh);
-  		    eh.printStackTrace();
-  		  }
+          log.error("Could not commit after exception!", eh);
+          eh.printStackTrace();
+        }
       }      
     } 
        
   }
 
   public static SessionFactory getSessionFactory() {
-		return sessionFactory;
+    return sessionFactory;
   }
-	
+  
   public static void setSessionFactory(SessionFactory factory) {
-		sessionFactory = factory;
+    sessionFactory = factory;
   }
 
   @Override
   protected void onSetUpInTransaction() throws Exception {
-		// TODO Auto-generated method stub		
+    // TODO Auto-generated method stub    
   } 
   
 }

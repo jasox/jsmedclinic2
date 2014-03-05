@@ -9,9 +9,9 @@ import pl.jasox.medward.model.domainobject.MedProcedureType;
 
 public class MedProcedureTypeHibernateDao extends AGenericHibernateDao implements IMedProcedureTypeDao {
 
-	public MedProcedureTypeHibernateDao() {
-		super(MedProcedureType.class);
-	}	
+  public MedProcedureTypeHibernateDao() {
+    super(MedProcedureType.class);
+  }  
 
   @Override
   public MedProcedureType findById(int id) {
@@ -34,16 +34,16 @@ public class MedProcedureTypeHibernateDao extends AGenericHibernateDao implement
   }
   
   @Override
-	public List<MedProcedureType> getAll() {
-		List<MedProcedureType> list = null;
-	    try { 
-	        Query query = getSession().getNamedQuery("getMedProcedureTypeAll");       
-	        list = query.list();
-	    }
-	    finally {
-	        //session.getTransaction().commit();
-	    }
-		return list;
-	}
+  public List<MedProcedureType> getAll() {
+    List<MedProcedureType> list = null;
+      try { 
+          Query query = getSession().getNamedQuery("getMedProcedureTypeAll");       
+          list = query.list();
+      }
+      finally {
+          //session.getTransaction().commit();
+      }
+    return list;
+  }
 
 }

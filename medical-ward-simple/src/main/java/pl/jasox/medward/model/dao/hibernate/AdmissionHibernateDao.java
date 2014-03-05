@@ -10,22 +10,22 @@ import pl.jasox.medward.model.domainobject.Admission;
 
 public class AdmissionHibernateDao extends AGenericHibernateDao implements IAdmissionDao {
 
-	public AdmissionHibernateDao() {
-		super(Admission.class);	}
+  public AdmissionHibernateDao() {
+    super(Admission.class);  }
 
-	
-	@Override
-	public List<Admission> getAll() {
-		List<Admission> list = null;
-	    try { 
-	        Query query = getSession().getNamedQuery("getAdmissionAll");       
-	        list = query.list();
-	    }
-	    finally {
-	        //session.getTransaction().commit();
-	    }
-		return list;
-	}
+  
+  @Override
+  public List<Admission> getAll() {
+    List<Admission> list = null;
+      try { 
+          Query query = getSession().getNamedQuery("getAdmissionAll");       
+          list = query.list();
+      }
+      finally {
+          //session.getTransaction().commit();
+      }
+    return list;
+  }
 
   @Override
   public Admission findById(int id) {

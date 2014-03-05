@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project 
      xmlns="http://maven.apache.org/POM/4.0.0"
-		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation=
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation=
        "http://maven.apache.org/POM/4.0.0 
         http://maven.apache.org/maven-v4_0_0.xsd">
        
-	<modelVersion>4.0.0</modelVersion>
-	
-	<parent>
-		<groupId>pl.jasox</groupId>
-		<artifactId>medclinic</artifactId>
-		<version>1.1.1</version>
-		<relativePath>../pom.xml</relativePath>
-	</parent>
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>pl.jasox</groupId>
+    <artifactId>medclinic</artifactId>
+    <version>1.1.1</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
 
   <groupId>pl.jasox.medclinic</groupId>
-	<artifactId>medical-ward-simple</artifactId>	
-	<packaging>jar</packaging>
-	<name>Medical Ward Simple DAO's</name>
-	<description> JS Medical Clinic Application Hibernate DAO Module </description>
-	
-	<properties>
+  <artifactId>medical-ward-simple</artifactId>  
+  <packaging>jar</packaging>
+  <name>Medical Ward Simple DAO's</name>
+  <description> JS Medical Clinic Application Hibernate DAO Module </description>
+  
+  <properties>
     <projectScope>compile</projectScope>
     <surefire.version>2.13</surefire.version>    
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>    
-		<!-- do testów filtrowania z zachowaniem odpowiedniego kodowania -->
+    <!-- do testów filtrowania z zachowaniem odpowiedniego kodowania -->
     <projectOwner>Janusz Swół - (POM)</projectOwner>
     <skipUTs>true</skipUTs>
   </properties>
   
   <!-- ===================================================================== -->
       
-	<dependencies>
-	    
+  <dependencies>
+      
     <!--
      Mixing JUnit and TestNG in one module can be done just by adding both
      as a plugin dependencies (not only as project dependencies): 
@@ -82,19 +82,19 @@
     </dependency>
     
     <!-- HSQL database driver -->
-	  <dependency> 
-	    <groupId>org.hsqldb</groupId>  
-	    <artifactId>hsqldb</artifactId>  
-	    <version>2.2.7</version>
-	    <scope>runtime</scope> 
-	  </dependency>
+    <dependency> 
+      <groupId>org.hsqldb</groupId>  
+      <artifactId>hsqldb</artifactId>  
+      <version>2.2.7</version>
+      <scope>runtime</scope> 
+    </dependency>
     
     <!-- MySQL database driver -->
     <dependency>
-		  <groupId>mysql</groupId> 
-		  <artifactId>mysql-connector-java</artifactId> 
-		  <version>5.1.5</version>  
-		  <scope>runtime</scope>
+      <groupId>mysql</groupId> 
+      <artifactId>mysql-connector-java</artifactId> 
+      <version>5.1.5</version>  
+      <scope>runtime</scope>
     </dependency>     
     
     <!-- c3p0 connection management -->    
@@ -122,23 +122,23 @@
     </dependency>    
     
     <!-- Hibernate reference -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>			
-			<scope>${projectScope}</scope>
-		</dependency>
-		 
-		<dependency>     
-		  <groupId>org.hibernate</groupId>     
-		  <artifactId>hibernate-c3p0</artifactId>		   
-		  <scope>${projectScope}</scope>
-		</dependency>	
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>      
+      <scope>${projectScope}</scope>
+    </dependency>
+     
+    <dependency>     
+      <groupId>org.hibernate</groupId>     
+      <artifactId>hibernate-c3p0</artifactId>       
+      <scope>${projectScope}</scope>
+    </dependency>  
     
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>						
-			<scope>${projectScope}</scope>
-		</dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>            
+      <scope>${projectScope}</scope>
+    </dependency>
     
     <!-- JSR-303 (Bean Validation) Implementation -->
     <!-- Provides portable constraints such as @Email -->
@@ -161,12 +161,12 @@
        <groupId>org.hibernate</groupId>
        <artifactId>hibernate-validator-annotation-processor</artifactId>       
     </dependency>
-		
-		<dependency>
+    
+    <dependency>
       <groupId>org.picketlink.idm</groupId>
       <artifactId>picketlink-idm-core</artifactId>      
     </dependency>
-		
+    
     <dependency>          
       <groupId>log4j</groupId>          
       <artifactId>log4j</artifactId>         
@@ -180,36 +180,36 @@
        <scope>${projectScope}</scope>
     </dependency>
        
-	</dependencies>
+  </dependencies>
   
   <!-- ===================================================================== -->
 
-	<build>
-	
-	  <filters>
+  <build>
+  
+    <filters>
       <filter>${basedir}/src/test/resources/test.properties</filter>      
     </filters>
-	
-		<resources>
-		    
-		  <resource> 
+  
+    <resources>
+        
+      <resource> 
         <directory>${basedir}/src/main/java</directory> 
         <includes> 
           <include>**/*.xml</include> 
           <include>**/*.properties</include>
         </includes> 
       </resource>  
-		    
-			<resource>
-				<directory>${basedir}/src/main/resources</directory>
-				<filtering>true</filtering>
-				<includes>
+        
+      <resource>
+        <directory>${basedir}/src/main/resources</directory>
+        <filtering>true</filtering>
+        <includes>
           <include>**/*.xml</include>
           <include>**/*.properties</include>
         </includes>
-			</resource>	
-			
-			<resource>
+      </resource>  
+      
+      <resource>
         <directory>${basedir}/src/main/resources</directory>
         <filtering>false</filtering>
         <excludes>
@@ -217,8 +217,8 @@
           <exclude>**/*.properties</exclude>
         </excludes>
       </resource>
-			
-		</resources>	      	
+      
+    </resources>          
       
     <testResources>
       <!-- Kopiowanie zasobów testowych -->
@@ -243,8 +243,8 @@
     </testResources>
              
 
-		<plugins>  		      
-		        
+    <plugins>            
+            
       <!--
        @author : Marcin Zajączkowski
           How to use TestNG with JUnit together? 
@@ -260,21 +260,21 @@
           the JUnit’s XML format all the tools compatible with JUnit (Jenkins, Sonar, …) 
           will merge test results from JUnit and TestNG and display all of them properly. 
       -->       
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>${surefire.version}</version>
-				
-				<configuration>
-				   <skip>${skipUTs}</skip>           
-	         <suiteXmlFiles>
-	            <suiteXmlFile> 
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${surefire.version}</version>
+        
+        <configuration>
+           <skip>${skipUTs}</skip>           
+           <suiteXmlFiles>
+              <suiteXmlFile> 
                 ${project.build.directory}/test-classes/testng.xml
               </suiteXmlFile>
-	         </suiteXmlFiles>
-	         <!-- <groups>functest,perftest</groups> -->
-	      </configuration> 
-	      
+           </suiteXmlFiles>
+           <!-- <groups>functest,perftest</groups> -->
+        </configuration> 
+        
         <dependencies> 
           <!--  -->         
           <dependency>
@@ -289,11 +289,11 @@
               <version>${surefire.version}</version>               
           </dependency>                  
         </dependencies>
-			</plugin>		
-						     			
-		</plugins>
-		
-	</build>
-	
-		
+      </plugin>    
+                       
+    </plugins>
+    
+  </build>
+  
+    
 </project>
