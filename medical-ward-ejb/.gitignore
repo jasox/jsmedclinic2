@@ -5,6 +5,7 @@
 # podkatalogi katalogu głównego
 
 .settings/
+.externalToolBuilders/
 target/
 test-output/
 jdbc/

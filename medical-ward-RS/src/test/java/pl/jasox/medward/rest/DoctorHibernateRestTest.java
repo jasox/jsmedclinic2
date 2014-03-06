@@ -44,14 +44,14 @@ public class DoctorHibernateRestTest {
     final   static Logger     log    = Logger.getLogger( DoctorHibernateRestTest.class.getName() );  
     
     @SuppressWarnings("restriction")
-  private static HttpServer server;
+    private static HttpServer server;
     private static URI        uri    = UriBuilder.fromUri("http://localhost/").port(8282).build();
     private static Client     client = ClientBuilder.newClient();
 
     // Lifecycle Methods -------------------------------------------------------         
     
     @SuppressWarnings("restriction")
-  @BeforeClass
+    @BeforeClass
     public static void init() throws IOException {
         // create a new server listening at port 8080
         server = HttpServer.create(new InetSocketAddress(uri.getPort()), 0);
@@ -68,7 +68,7 @@ public class DoctorHibernateRestTest {
     }
 
     @SuppressWarnings("restriction")
-  @AfterClass
+    @AfterClass
     public static void stop() {
         server.stop(0);        
     }
@@ -98,7 +98,7 @@ public class DoctorHibernateRestTest {
               + "<remarks>test</remarks>"
               + "</doctor>";
     */    
-      
+     
     @Test
     public void shouldMarshallADoctor() throws JAXBException {
         // given
