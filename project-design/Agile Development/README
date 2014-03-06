@@ -20,7 +20,7 @@ problemu, dlatego tworzyłem ją w miarę rozszerzania programu - to podejście 
   definicji doskonale się mieści. ) 
 
 Założenia :
-- Zespół składa się z dwóch osób
+- "Zespół" składa się z dwóch osób
 - Sprinty/iteracje są czterotygodniowe czyli zawierają 20 kalendarzowych dni roboczych
 - Początkowa prędkość (velocity) zespołu wynosi 0.70 - czyli na sprint dysponujemy
    sumaryczną liczbą 28 efektywnych dni roboczych (man-days) :=
@@ -29,8 +29,8 @@ Założenia :
 
 --------------------------------------------------------------------------------
 
-Po jednej iteracji zespół postanowił przejść z metodyki Scrum do ( jak się wydawało,
-bardziej odpowiadającej specyfice projektu ) metodyki Lean/Kanban.
+Po jednej iteracji "zespół" postanowił przejść z metodyki Scrum do ( jak się 
+wydawało, bardziej odpowiadającej specyfice projektu ) metodyki Lean/Kanban.
 Spowodowało to zmianę układu głównej tablicy projektu, tak aby uwidocznić ciągły
 przepływ zadań i wartości dodane do nich na poszczególnych etapach procesu tworzenia 
 aplikacji; oraz miało umożliwić śledzenie stanu całego projektu, a nie tylko 
@@ -49,7 +49,7 @@ Max WIP := 4   ( Max Work in Progress )
 Po wykonaniu pewnego etapu pracy, co dwa tygodnie zaplanowane były spotkania :
 Review - przegląd wykonanej pracy w obecności product owner'a, prezentacja wykonanych
 funkcjonalności i
-Retrospective - dyskusja w gronie zespołu nad stylem pracy i procedurami które 
+Retrospective - dyskusja w gronie developerów nad stylem pracy i procedurami które 
 można ulepszyć, aby poprawiła się komunikacja w zespole i wzrosło zbiorowe poczucie 
 odpowiedzialności za wykonaną pracę, przez co i produktywność.
 

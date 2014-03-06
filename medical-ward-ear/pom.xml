@@ -129,16 +129,16 @@
             <ejbModule>
               <groupId>${projectGroup}</groupId>                           
               <artifactId>${projectName}-simple</artifactId>
-            </ejbModule>
-            <!--
+            </ejbModule>            
             <ejbModule>
               <groupId>${projectGroup}</groupId>
-              <artifactId>${projectName}-api</artifactId>              
+              <artifactId>${projectName}-RS</artifactId>              
             </ejbModule>
             <ejbModule>
               <groupId>${projectGroup}</groupId>              
               <artifactId>${projectName}-ejb</artifactId>              
             </ejbModule>
+            <!--
             <ejbModule>
               <groupId>org.jboss.seam</groupId>
               <artifactId>jboss-seam</artifactId>

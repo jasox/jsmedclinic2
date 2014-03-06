@@ -12,6 +12,8 @@
   </module>
   <module>
     <ejb>${projectName}-simple-${projectVersion}.jar</ejb>
+    <ejb>${projectName}-ejb-${projectVersion}.jar</ejb>
+    <ejb>${projectName}-RS-${projectVersion}.jar</ejb>
   </module>
   <!--
   <module>
