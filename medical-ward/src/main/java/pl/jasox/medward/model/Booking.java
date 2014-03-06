@@ -30,9 +30,9 @@ import org.jboss.solder.core.Veto;
 @Veto
 public class Booking implements Serializable {
    
-	private static final long serialVersionUID = -3578673980805688091L;
-	
-	  private Long    id;
+  private static final long serialVersionUID = -3578673980805688091L;
+  
+    private Long    id;
     private User    user;
     private Hotel   hotel;
     private Date    checkinDate;

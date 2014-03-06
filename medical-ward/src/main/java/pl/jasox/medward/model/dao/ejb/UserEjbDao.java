@@ -20,44 +20,44 @@ import pl.jasox.medward.model.User;
 @Named("userEjbDao")
 public class UserEjbDao implements IUserDao, Serializable {
 
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-	@Inject
-	private Logger log;
+  @Inject
+  private Logger log;
 
-	@PersistenceContext(unitName="booking")
-	private EntityManager em;
+  @PersistenceContext(unitName="booking")
+  private EntityManager em;
   
   
   /** */  
-	public UserEjbDao() {    
-	} 
+  public UserEjbDao() {    
+  } 
   
-	/*
-	@Override
-	public void delete(User user) {
-		// TODO Auto-generated method stub
-		
-	}
-	*/
+  /*
+  @Override
+  public void delete(User user) {
+    // TODO Auto-generated method stub
+    
+  }
+  */
 
-	/*
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<User> getAll() {		
-		List<User> users = null;
-		  
-		return users;
-	}
+  /*
+  @SuppressWarnings("unchecked")
+  @Override
+  public List<User> getAll() {    
+    List<User> users = null;
+      
+    return users;
+  }
   */
   
-	@Override
-	public IMedwardUser find(String id) {
-		// 
-		String username = id;
-		User user = em.find( User.class, username );
-		return user;
-	}
-	
+  @Override
+  public IMedwardUser find(String id) {
+    // 
+    String username = id;
+    User user = em.find( User.class, username );
+    return user;
+  }
+  
 
 }

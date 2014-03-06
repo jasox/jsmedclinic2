@@ -6,12 +6,12 @@ import pl.jasox.medward.services.loginservice.exceptions.AccountLoginLimitReache
 import pl.jasox.medward.services.loginservice.exceptions.AccountRevokedException;
 
 public abstract class LoginServiceState {
-	
-	protected int    failedAttempts;
-	protected String previousAccountId = "";
+  
+  protected int    failedAttempts;
+  protected String previousAccountId = "";
 
-	public void login(LoginServiceContext context, IAccount account, String password) {
-		if (account.passwordMatches(password)) {
+  public void login(LoginServiceContext context, IAccount account, String password) {
+    if (account.passwordMatches(password)) {
            if (account.isLoggedIn()) {
               throw new AccountLoginLimitReachedException();
            }   
@@ -20,13 +20,13 @@ public abstract class LoginServiceState {
            }   
            account.setLoggedIn(true);
            context.setState(new AwaitingFirstLoginAttempt());
-	    } 
-		else {
-	       handleIncorrectPassword(context, account, password);
-		}
-	}
+      } 
+    else {
+         handleIncorrectPassword(context, account, password);
+    }
+  }
 
-	public abstract void handleIncorrectPassword( 
-			LoginServiceContext context, IAccount account, String password);
+  public abstract void handleIncorrectPassword( 
+      LoginServiceContext context, IAccount account, String password);
 
 }

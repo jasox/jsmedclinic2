@@ -90,7 +90,7 @@ public class HotelSearch {
            builder.like( builder.lower(hotel.get(Hotel_.address)), criteria.getSearchPattern())));
 
       List<Hotel> results = 
-     		 em.createQuery(cquery)
+          em.createQuery(cquery)
            .setMaxResults(criteria.getFetchSize())
            .setFirstResult(criteria.getFetchOffset()).getResultList();
 

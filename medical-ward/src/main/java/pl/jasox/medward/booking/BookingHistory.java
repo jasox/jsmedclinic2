@@ -84,7 +84,7 @@ public class BookingHistory {
             @Observes(during = TransactionPhase.AFTER_SUCCESS, notifyObserver = Reception.IF_EXISTS) 
             @Confirmed Booking booking) {
         // optimization, save the db call
-    	  // do bazy zapisuje się tylko nowo utworzony booking, nie ściąga się całej historii
+        // do bazy zapisuje się tylko nowo utworzony booking, nie ściąga się całej historii
         if (bookingsForUser != null) {
             log.info("Adding new booking to user's cached booking history");
             bookingsForUser.add(booking);
@@ -99,8 +99,8 @@ public class BookingHistory {
      *  lub na stronie "search.xhtml" w kolumnie 'action' tabeli rezerwacji */
     public void cancelBooking(final Booking selectedBooking) {
         log.infov("Canceling booking {0} for {1}", 
-        		       selectedBooking.getId(), 
-        		       currentUserInstance.get().getName());
+                   selectedBooking.getId(), 
+                   currentUserInstance.get().getName());
         Booking booking = entityManager.find(Booking.class, selectedBooking.getId());
         if (booking != null) {
             entityManager.remove(booking);

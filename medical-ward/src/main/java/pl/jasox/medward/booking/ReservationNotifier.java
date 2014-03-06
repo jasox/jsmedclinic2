@@ -21,7 +21,7 @@ import pl.jasox.medward.model.Booking;
 //      @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic")
 //})
 public class ReservationNotifier implements MessageListener {
-	
+  
     @Inject
     private Logger log;
 

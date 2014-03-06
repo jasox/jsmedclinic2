@@ -11,9 +11,9 @@ import javax.enterprise.inject.Produces;
 @Singleton
 @Startup
 public class DatabaseTypeProducer implements Serializable {
-	 
+   
     @Produces
     @ApplicationDatabase 
     static DatabaseType actualDatabaseType = DatabaseType.HSQL;
-	
+  
 }

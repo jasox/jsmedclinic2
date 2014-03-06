@@ -7,8 +7,8 @@ import java.util.logging.Logger;
 /** */
 public class Md5HashCode {
   // ...
-	private static Logger logger = Logger.getLogger(Md5HashCode.class.getName());
-	
+  private static Logger logger = Logger.getLogger(Md5HashCode.class.getName());
+  
   /**
    * Koduje dany String MD5 
    * @param  text     String do zakodowania

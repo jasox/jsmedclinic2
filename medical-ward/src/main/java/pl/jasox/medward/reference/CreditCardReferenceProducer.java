@@ -23,7 +23,7 @@ import pl.jasox.medward.model.CreditCardType;
  * @author <a href="http://community.jboss.org/people/dan.j.allen">Dan Allen</a>
  */
 public class CreditCardReferenceProducer {
-	
+
     @Produces
     @Named
     @ConversationScoped

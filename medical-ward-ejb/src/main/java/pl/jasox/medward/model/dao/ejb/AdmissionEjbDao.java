@@ -16,33 +16,33 @@ public class AdmissionEjbDao implements IAdmissionDao, Serializable {
 
   //@Inject
   //Logger log;
-	 
+   
   @Inject
   @ApplicationDatabase
-	private EntityManager em;
+  private EntityManager em;
   
 
-	public AdmissionEjbDao() {		
-	}
+  public AdmissionEjbDao() {    
+  }
   
   @PostConstruct
-	public void init() {
-		// ...
-	}
+  public void init() {
+    // ...
+  }
 
-	// ---------------------------------------------------------------------------
-		
-	@Override
-	public List<Admission> getAll() {		
+  // ---------------------------------------------------------------------------
+    
+  @Override
+  public List<Admission> getAll() {    
     String query = "SELECT a FROM Admission a";
-		List<Admission> admissions = em.createQuery(query, Admission.class).getResultList();	
-		return admissions;
-	}
+    List<Admission> admissions = em.createQuery(query, Admission.class).getResultList();  
+    return admissions;
+  }
 
   @Override
   public Admission findById(int id) {
     Admission admission = em.find(Admission.class, id);
-		return admission;  
+    return admission;  
   }
 
   @Override

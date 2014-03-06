@@ -16,26 +16,26 @@ public class MedProcedureTypeEjbDao implements IMedProcedureTypeDao, Serializabl
    
   //@Inject
   //Logger log;
-	 
+   
   @Inject
   @ApplicationDatabase
-	private EntityManager em;
+  private EntityManager em;
   
 
-	public MedProcedureTypeEjbDao() {		
-	}
+  public MedProcedureTypeEjbDao() {    
+  }
   
   @PostConstruct
-	public void init() {
-		// ...
-	}
+  public void init() {
+    // ...
+  }
 
-	// ---------------------------------------------------------------------------
-	  
-	@Override
+  // ---------------------------------------------------------------------------
+    
+  @Override
   public MedProcedureType findById(int id) {
     MedProcedureType medProcedureType = em.find(MedProcedureType.class, id);
-		return medProcedureType;
+    return medProcedureType;
   }
 
   @Override
@@ -54,11 +54,11 @@ public class MedProcedureTypeEjbDao implements IMedProcedureTypeDao, Serializabl
   }
   
   @Override
-	public List<MedProcedureType> getAll() {		
+  public List<MedProcedureType> getAll() {    
     String query = "SELECT p FROM MedProcedureType p";
-		List<MedProcedureType> medProcedureTypes = 
-            em.createQuery(query, MedProcedureType.class).getResultList();	
-		return medProcedureTypes;			
-	}
+    List<MedProcedureType> medProcedureTypes = 
+            em.createQuery(query, MedProcedureType.class).getResultList();  
+    return medProcedureTypes;      
+  }
   
 }

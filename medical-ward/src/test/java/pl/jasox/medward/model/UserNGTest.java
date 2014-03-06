@@ -48,9 +48,9 @@ public class UserNGTest {
   }
   
   @Test
-	public void test() {
-		//fail("Not yet implemented");
+  public void test() {
+    //fail("Not yet implemented");
     assertTrue(true);
-	}
+  }
   
 }

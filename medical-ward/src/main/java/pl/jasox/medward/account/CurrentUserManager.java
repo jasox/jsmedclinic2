@@ -17,7 +17,7 @@ import pl.jasox.medward.model.User;
 @Stateful
 @SessionScoped
 public class CurrentUserManager {
-	
+  
     private User currentUser;
 
     @Produces

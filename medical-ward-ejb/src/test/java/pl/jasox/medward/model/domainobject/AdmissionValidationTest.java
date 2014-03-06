@@ -69,11 +69,11 @@ public class AdmissionValidationTest {
   // ======================================
 
   @Test  // 1
-  public void shouldRaiseNoConstraintsViolation() {  	
+  public void shouldRaiseNoConstraintsViolation() {    
     Admission admission = new Admission();   
     admission.setAdmissionDate(admissionDate);
     Set<ConstraintViolation<Admission>> violations = 
-    		validator.validate(admission, Default.class, Creation.class);
+        validator.validate(admission, Default.class, Creation.class);
     assertEquals(0, violations.size());
     admission.setDischargeDate(dischargeDate);
     violations = validator.validate(admission, Default.class, Completion.class);
@@ -81,11 +81,11 @@ public class AdmissionValidationTest {
   }
  
   @Test  // 2
-  public void shouldRaiseConstraintsViolationCauseAdmissionDateIsThenSetToNull() {  	
+  public void shouldRaiseConstraintsViolationCauseAdmissionDateIsThenSetToNull() {    
     Admission admission = new Admission(); 
     admission.setAdmissionDate(admissionDate);
     Set<ConstraintViolation<Admission>> violations = 
-    		validator.validate(admission, Default.class, Creation.class);
+        validator.validate(admission, Default.class, Creation.class);
     assertEquals(0, violations.size());
     admission.setAdmissionDate(null);
     admission.setDischargeDate(dischargeDate);
@@ -95,17 +95,17 @@ public class AdmissionValidationTest {
   }
   
   @Test // 3-1
-  public void shouldRaiseConstraintsViolationCauseAdmissionDateDischargeDateAreThenSetToNull_1() {  	
+  public void shouldRaiseConstraintsViolationCauseAdmissionDateDischargeDateAreThenSetToNull_1() {    
     Admission admission = new Admission();
     admission.setAdmissionDate(admissionDate);
     Set<ConstraintViolation<Admission>> violations = 
-    		validator.validate(admission, Default.class, Creation.class);
+        validator.validate(admission, Default.class, Creation.class);
     assertEquals(0, violations.size()); // w fazie kreacji @ChronologicalDates 
                                         // oraz @NotNull nie jest sprawdzane    
   }  
   
   @Test // 3-2
-  public void shouldRaiseConstraintsViolationCauseAdmissionDateDischargeDateAreThenSetToNull_2() {  	
+  public void shouldRaiseConstraintsViolationCauseAdmissionDateDischargeDateAreThenSetToNull_2() {    
     Admission admission = new Admission();      
     admission.setAdmissionDate(null);    
     admission.setDischargeDate(null);

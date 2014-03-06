@@ -34,7 +34,7 @@ import org.jboss.solder.core.Veto;
 @Table(name = "traveler")
 @Veto
 public class User implements IMedwardUser, Serializable {
-	
+  
     private static final long serialVersionUID = -602733026033932730L;
     
     private String username;
@@ -113,16 +113,16 @@ public class User implements IMedwardUser, Serializable {
         return "User(" + username + ")";
     }
 
-		@Override
-		public String getId() {
-			// 
-			return getUsername();
-		}
+    @Override
+    public String getId() {
+      // 
+      return getUsername();
+    }
     
-		@Override
-		public String getKey() {
-			// 
-			return getId();
-		}
-		
+    @Override
+    public String getKey() {
+      // 
+      return getId();
+    }
+    
 }

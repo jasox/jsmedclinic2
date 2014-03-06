@@ -62,7 +62,7 @@ public class AdmissionPersistentTest extends AbstractPersistentTest {
   @Test // 2
   public void shouldFindAdmission() throws Exception {
 
-  	admissionDate = dateFormat.parse("02.12.2013 00:00");
+    admissionDate = dateFormat.parse("02.12.2013 00:00");
     dischargeDate = dateFormat.parse("13.12.2013 00:00");
     
     Kasach    kasach    = new Kasach("2", "Przykładowa2", null);
@@ -97,7 +97,7 @@ public class AdmissionPersistentTest extends AbstractPersistentTest {
   @Test // 3
   public void shouldGetAReferenceToAdmission() throws Exception {
     
-  	admissionDate = dateFormat.parse("02.12.2013 00:00");
+    admissionDate = dateFormat.parse("02.12.2013 00:00");
     dischargeDate = dateFormat.parse("13.12.2013 00:00");
     
     Kasach    kasach    = new Kasach("3", "Przykładowa3", null);
@@ -124,7 +124,7 @@ public class AdmissionPersistentTest extends AbstractPersistentTest {
   @Test // 4
   public void shouldPersistAdmissionAndThenRefreshIt() throws Exception {
 
-  	admissionDate = dateFormat.parse("02.12.2013 00:00");
+    admissionDate = dateFormat.parse("02.12.2013 00:00");
     dischargeDate = dateFormat.parse("13.12.2013 00:00");
     
     Kasach    kasach    = new Kasach("4", "Przykładowa4", null);
@@ -154,7 +154,7 @@ public class AdmissionPersistentTest extends AbstractPersistentTest {
   @Test // 5
   public void shouldCheckIfItContainsAdmission() throws Exception {
 
-  	admissionDate = dateFormat.parse("02.12.2013 00:00");
+    admissionDate = dateFormat.parse("02.12.2013 00:00");
     dischargeDate = dateFormat.parse("13.12.2013 00:00");
     
     Kasach    kasach    = new Kasach("5", "Przykładowa5", null);
@@ -192,7 +192,7 @@ public class AdmissionPersistentTest extends AbstractPersistentTest {
   @Test // 6
   public void shouldDetachAdmission() throws Exception {
 
-  	admissionDate = dateFormat.parse("02.12.2013 00:00");
+    admissionDate = dateFormat.parse("02.12.2013 00:00");
     dischargeDate = dateFormat.parse("13.12.2013 00:00");
     
     Kasach    kasach    = new Kasach("6", "Przykładowa6", null);
@@ -219,7 +219,7 @@ public class AdmissionPersistentTest extends AbstractPersistentTest {
   @Test // 7
   public void shouldClearAndThenMergeAdmission() throws Exception {
 
-  	admissionDate = dateFormat.parse("02.12.2013 00:00");
+    admissionDate = dateFormat.parse("02.12.2013 00:00");
     dischargeDate = dateFormat.parse("13.12.2013 00:00");
     
     Kasach    kasach    = new Kasach("7", "Przykładowa7", null);

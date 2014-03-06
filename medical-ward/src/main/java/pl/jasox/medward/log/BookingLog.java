@@ -16,7 +16,7 @@ import org.jboss.solder.messages.Message;
  */
 @MessageLogger
 public interface BookingLog {
-	
+  
     @Log(level = Level.INFO)
     @Message("%s selected the %s in %s.")
     void hotelSelected(String customerName, String hotelName, String city);

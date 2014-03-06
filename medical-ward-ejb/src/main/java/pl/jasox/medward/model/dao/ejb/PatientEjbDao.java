@@ -20,26 +20,26 @@ public class PatientEjbDao implements IPatientDao, Serializable {
   
   //@Inject
   //Logger log;
-	 
+   
   @Inject
   @ApplicationDatabase
-	private EntityManager em;
+  private EntityManager em;
   
 
-	public PatientEjbDao() {		
-	}
+  public PatientEjbDao() {    
+  }
   
   @PostConstruct
-	public void init() {
-		// ...
-	}
+  public void init() {
+    // ...
+  }
 
-	// ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
 
   @Override
   public Patient findById(Double pesel) {
      Patient patient = em.find(Patient.class, pesel);
-		 return patient;
+     return patient;
   }
 
   @Override
@@ -57,12 +57,12 @@ public class PatientEjbDao implements IPatientDao, Serializable {
      em.remove(patient); 
   }  
   
-	@Override
-	public List<Patient> getAll() {		  
+  @Override
+  public List<Patient> getAll() {      
     String query = "SELECT p FROM Patient p";
-		List<Patient> patients = em.createQuery(query, Patient.class).getResultList();	
-		return patients;
-	}
+    List<Patient> patients = em.createQuery(query, Patient.class).getResultList();  
+    return patients;
+  }
 
 }
 

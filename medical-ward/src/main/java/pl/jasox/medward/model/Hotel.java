@@ -36,9 +36,9 @@ import org.jboss.solder.core.Veto;
 @Veto
 public class Hotel implements Serializable {
     
-	private static final long serialVersionUID = 5177658886862461065L;
-	
-	private Long id;
+  private static final long serialVersionUID = 5177658886862461065L;
+  
+  private Long id;
     private String name;
     private String address;
     private String city;

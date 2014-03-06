@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.jboss.seam.international.status.Messages;
-//import org.jboss.seam.international.status.builder.BundleKey;
+//import org.jboss.seam.international.status.builder.BundleKey; 
 
 import pl.jasox.medward.i18n.DefaultBundleKey;
 import pl.jasox.medward.model.User;

@@ -40,30 +40,30 @@ import pl.jasox.medward.model.dao.ejb.UserEjbDao;
 @Named("customAuthenticator")
 public class MedwardAuthenticator extends BaseAuthenticator implements Authenticator {
 
-	@Inject
-	private Logger log;
+  @Inject
+  private Logger log;
 
-	@PersistenceContext(unitName="booking")
-	private EntityManager em;
+  @PersistenceContext(unitName="booking")
+  private EntityManager em;
 
-	@Inject
-	private Credentials credentials;
+  @Inject
+  private Credentials credentials;
 
-	@Inject
-	private Messages messages;
+  @Inject
+  private Messages messages;
 
-	@Inject
-	@Authenticated
-	private Event<User> loginEvent;	
-	
-	@Inject
-	private UserEjbDao userEjbDao;
-	
-	
-	public void authenticate() {
+  @Inject
+  @Authenticated
+  private Event<User> loginEvent;  
+  
+  @Inject
+  private UserEjbDao userEjbDao;
+  
+  
+  public void authenticate() {
     log.info("Logging in " + credentials.getUsername());
     if ( (credentials.getUsername()   == null) || 
-    		 (credentials.getCredential() == null) ) {
+         (credentials.getCredential() == null) ) {
       messages.error(new DefaultBundleKey("identity_loginFailed"))
               .defaults("Invalid username or password");
       this.setStatus(AuthenticationStatus.FAILURE);
@@ -76,7 +76,7 @@ public class MedwardAuthenticator extends BaseAuthenticator implements Authentic
         loginEvent.fire((User) user);
         messages.info(new DefaultBundleKey("identity_loggedIn"), user.getName())
                 .defaults("You're signed in as {0}")
-    		        .params(user.getName());
+                .params(user.getName());
         this.setStatus(AuthenticationStatus.SUCCESS);
         // TODO confirm the need for this set method
         // org.picketlink.idm.impl.api.model.SimpleUser

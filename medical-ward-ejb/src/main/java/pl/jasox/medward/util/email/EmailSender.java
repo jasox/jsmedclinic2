@@ -21,58 +21,58 @@ import javax.mail.internet.MimeMessage;
  */
 public class EmailSender {
   // ...
-	private EmailConfiguration emailConfiguration;
-	private Logger logger = Logger.getLogger(this.getClass().getName());
+  private EmailConfiguration emailConfiguration;
+  private Logger logger = Logger.getLogger(this.getClass().getName());
 
-	/** */
-	public EmailSender(EmailConfiguration emailConfiguration) {
-		this.emailConfiguration = emailConfiguration;
-	}
+  /** */
+  public EmailSender(EmailConfiguration emailConfiguration) {
+    this.emailConfiguration = emailConfiguration;
+  }
 
-	/** */
-	public boolean sendEMail(EmailContent emailContent) {
-		// check emailConfiguration
-		if ( this.emailConfiguration == null ) {
-			return false;
-		}
-		// send e-mail
-		try {
-			String copyAddress = 
-			  emailConfiguration.getEmailAddressForTesting();
-			Properties props = new Properties();
-			props.put("mail.smtps.auth", "true");
-			Session session = Session.getDefaultInstance(props);
-			MimeMessage msg = new MimeMessage(session);
-			msg.setFrom( 
-			  new InternetAddress(
-			    emailConfiguration.getEmailUsername() + '@' + 
-			    emailConfiguration.getEmailHost(),
-					"Internetowy system recenzowania publikacji"));
-			msg.addRecipient( 
-			  Message.RecipientType.BCC, 
-			  new InternetAddress(copyAddress) );
-			msg.addRecipient(
-			  Message.RecipientType.TO, 
-			  new InternetAddress(
-			    emailContent.getToAddress(), emailContent.getToName()));
-			msg.setSubject(emailContent.getTitle());
-			msg.setText(emailContent.getMessage());
-			Transport t = session.getTransport("smtps");
-			t.connect(
-			    emailConfiguration.getEmailHost(), 
-			    emailConfiguration.getEmailUsername(), 
-			    emailConfiguration.getEmailPassword());
-			t.sendMessage(msg, msg.getAllRecipients());
-			t.close();
-		} 
-		catch (MessagingException ex) {
-			logger.severe(ex.getMessage());
-		} 
-		catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		return true;
-	}
+  /** */
+  public boolean sendEMail(EmailContent emailContent) {
+    // check emailConfiguration
+    if ( this.emailConfiguration == null ) {
+      return false;
+    }
+    // send e-mail
+    try {
+      String copyAddress = 
+        emailConfiguration.getEmailAddressForTesting();
+      Properties props = new Properties();
+      props.put("mail.smtps.auth", "true");
+      Session session = Session.getDefaultInstance(props);
+      MimeMessage msg = new MimeMessage(session);
+      msg.setFrom( 
+        new InternetAddress(
+          emailConfiguration.getEmailUsername() + '@' + 
+          emailConfiguration.getEmailHost(),
+          "Internetowy system recenzowania publikacji"));
+      msg.addRecipient( 
+        Message.RecipientType.BCC, 
+        new InternetAddress(copyAddress) );
+      msg.addRecipient(
+        Message.RecipientType.TO, 
+        new InternetAddress(
+          emailContent.getToAddress(), emailContent.getToName()));
+      msg.setSubject(emailContent.getTitle());
+      msg.setText(emailContent.getMessage());
+      Transport t = session.getTransport("smtps");
+      t.connect(
+          emailConfiguration.getEmailHost(), 
+          emailConfiguration.getEmailUsername(), 
+          emailConfiguration.getEmailPassword());
+      t.sendMessage(msg, msg.getAllRecipients());
+      t.close();
+    } 
+    catch (MessagingException ex) {
+      logger.severe(ex.getMessage());
+    } 
+    catch (UnsupportedEncodingException e) {
+      e.printStackTrace();
+    }
+    return true;
+  }
 
 }
 

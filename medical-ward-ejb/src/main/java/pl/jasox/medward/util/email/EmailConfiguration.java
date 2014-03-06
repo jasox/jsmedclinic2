@@ -14,60 +14,60 @@ import java.io.Serializable;
  *           emailAddressForTesting
  */
 public class EmailConfiguration implements Serializable {
-	private static final long serialVersionUID = 1L;
-	// ...
-	private String emailHost;
-	private String emailUsername;
-	private String emailPassword;
-	private String emailAddressForTesting;
+  private static final long serialVersionUID = 1L;
+  // ...
+  private String emailHost;
+  private String emailUsername;
+  private String emailPassword;
+  private String emailAddressForTesting;
 
-	/** */
-	public EmailConfiguration() {
-	}
+  /** */
+  public EmailConfiguration() {
+  }
 
-	/** */
-	public EmailConfiguration(
-	    String emailHost, 
-	    String emailUsername,
-			String emailPassword, 
-			String emailAddressForTesting ) {
-		this.emailHost     = emailHost;
-		this.emailUsername = emailUsername;
-		this.emailPassword = emailPassword;
-		this.emailAddressForTesting = emailAddressForTesting;
-	}
-	
+  /** */
+  public EmailConfiguration(
+      String emailHost, 
+      String emailUsername,
+      String emailPassword, 
+      String emailAddressForTesting ) {
+    this.emailHost     = emailHost;
+    this.emailUsername = emailUsername;
+    this.emailPassword = emailPassword;
+    this.emailAddressForTesting = emailAddressForTesting;
+  }
+  
   public String getEmailAddressForTesting() {
-		return emailAddressForTesting;
-	}
+    return emailAddressForTesting;
+  }
 
-	public String getEmailHost() {
-		return emailHost;
-	}
+  public String getEmailHost() {
+    return emailHost;
+  }
 
-	public String getEmailPassword() {
-		return emailPassword;
-	}
+  public String getEmailPassword() {
+    return emailPassword;
+  }
 
-	public String getEmailUsername() {
-		return emailUsername;
-	}
+  public String getEmailUsername() {
+    return emailUsername;
+  }
 
-	public void setEmailAddressForTesting(String emailAddressForTesting) {
-		this.emailAddressForTesting = emailAddressForTesting;
-	}
+  public void setEmailAddressForTesting(String emailAddressForTesting) {
+    this.emailAddressForTesting = emailAddressForTesting;
+  }
 
-	public void setEmailHost(String emailHost) {
-		this.emailHost = emailHost;
-	}
+  public void setEmailHost(String emailHost) {
+    this.emailHost = emailHost;
+  }
 
-	public void setEmailPassword(String emailPassword) {
-		this.emailPassword = emailPassword;
-	}
+  public void setEmailPassword(String emailPassword) {
+    this.emailPassword = emailPassword;
+  }
 
-	public void setEmailUsername(String emailUsername) {
-		this.emailUsername = emailUsername;
-	}
-	
+  public void setEmailUsername(String emailUsername) {
+    this.emailUsername = emailUsername;
+  }
+  
 }
 //--------------------------------------------------------------------

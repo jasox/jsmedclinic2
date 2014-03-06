@@ -54,7 +54,7 @@ public class MedProcedureCatEjbDaoTest {
   private Logger log;
   
   @Inject
-  private UserTransaction utx; 	
+  private UserTransaction utx;   
   
   @EJB
   private IDaoFactory daoFactory;
@@ -88,12 +88,12 @@ public class MedProcedureCatEjbDaoTest {
       utx.commit();
     } 
     catch (RollbackException ex ) {
-    	log.severe( ex.toString() );	
+      log.severe( ex.toString() );  
     }
     catch ( HeuristicMixedException ex ) {
-    	 log.severe( ex.toString() ); 
+       log.severe( ex.toString() ); 
     }
-    catch ( HeuristicRollbackException ex ){    	
+    catch ( HeuristicRollbackException ex ){      
       log.severe( ex.toString() );
     }  
   }
@@ -183,17 +183,17 @@ public class MedProcedureCatEjbDaoTest {
    * Test of getAll method, of class MedProcedureCatEjbDao.
    */
   @Test
-  public void testGetAll() {  	
+  public void testGetAll() {    
     log.info("getAll");
     MedProcedureCat medProcedureCat; 
     int i = 0;
     List<MedProcedureCat> result = medProcedureCatDao.getAll();
     Iterator<MedProcedureCat> iter = result.iterator();
     while ( iter.hasNext() ) {   
-	      medProcedureCat = iter.next();        
-	      log.info(medProcedureCat.toString());
+        medProcedureCat = iter.next();        
+        log.info(medProcedureCat.toString());
         i++;
-	  }    
+    }    
     assertEquals(NUMBER_OF_PROCEDURES, i);
   }
   

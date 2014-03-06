@@ -50,7 +50,7 @@ public class MedProcedureEjbDao2Test {
   private Logger log;
   
   @Inject
-  private UserTransaction utx; 	
+  private UserTransaction utx;   
   
   @EJB
   private IDaoFactory daoFactory;
@@ -84,12 +84,12 @@ public class MedProcedureEjbDao2Test {
       utx.commit();
     } 
     catch (RollbackException ex ) {
-    	log.severe( ex.toString() );	
+      log.severe( ex.toString() );  
     }
     catch ( HeuristicMixedException ex ) {
-    	 log.severe( ex.toString() ); 
+       log.severe( ex.toString() ); 
     }
-    catch ( HeuristicRollbackException ex ){    	
+    catch ( HeuristicRollbackException ex ){      
       log.severe( ex.toString() );
     }  
   }

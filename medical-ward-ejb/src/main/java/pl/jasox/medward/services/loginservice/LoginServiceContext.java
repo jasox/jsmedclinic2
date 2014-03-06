@@ -3,15 +3,15 @@ package pl.jasox.medward.services.loginservice;
 import pl.jasox.medward.services.loginservice.states.LoginServiceState;
 
 public abstract class LoginServiceContext {
-	
+  
    protected LoginServiceState state;
    
    public LoginServiceContext() {
-	   super(); 	     
+     super();        
    }
-	 
+   
    public LoginServiceContext(LoginServiceState state) {
-	   this(); 
+     this(); 
      this.state = state;
    }
  

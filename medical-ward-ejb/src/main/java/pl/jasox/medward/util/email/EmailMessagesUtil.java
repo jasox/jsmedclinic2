@@ -16,11 +16,11 @@ import pl.jasox.medward.model.domainobject.Patient;
  */
 public class EmailMessagesUtil {
   // ...
-	private static ResourceBundle resource = 
-	  ResourceBundle.getBundle("isrp.messages.Messages");
-	
-	/** */
-	public static String getString(String key, Object... params  ) {
+  private static ResourceBundle resource = 
+    ResourceBundle.getBundle("isrp.messages.Messages");
+  
+  /** */
+  public static String getString(String key, Object... params  ) {
     try {
       return MessageFormat.format(resource.getString(key), params);
     } 
@@ -28,24 +28,24 @@ public class EmailMessagesUtil {
       return '!' + key + '!';
     }
   }
-	
+  
   /** */
-	public static EmailContent newPaperVersionMessage(
-	    Patient author, 
-	    Doctor  doctor,
-			String toAddress, 
-			String toName) {
-		String title   = resource.getString("new.version");
-		String message = null;
-		/*
-		String message = getString(
-		    "new.version.msg",
-		    author.getFirstName(), 
-		    author.getLastName(),
-		    doctor.getSymbolDoctor(), 
-		    doctor.getSymbolSpec(), 
-		    doctor.getRemarks());
-		    */
-		return new EmailContent(toAddress, toName, title, message);
-	}
+  public static EmailContent newPaperVersionMessage(
+      Patient author, 
+      Doctor  doctor,
+      String toAddress, 
+      String toName) {
+    String title   = resource.getString("new.version");
+    String message = null;
+    /*
+    String message = getString(
+        "new.version.msg",
+        author.getFirstName(), 
+        author.getLastName(),
+        doctor.getSymbolDoctor(), 
+        doctor.getSymbolSpec(), 
+        doctor.getRemarks());
+        */
+    return new EmailContent(toAddress, toName, title, message);
+  }
 }

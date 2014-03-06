@@ -30,7 +30,7 @@ import pl.jasox.medward.i18n.DefaultBundleKey;
  */
 @FacesValidator("reservationDateRange")
 public class ReservationDateRangeValidator implements Validator {
-	
+  
     @Inject
     private InputElement<Date> startDateElement;
 

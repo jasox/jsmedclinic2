@@ -16,21 +16,21 @@ public class ClinicEjbDao implements IClinicDao, Serializable {
 
   //@Inject
   //Logger log;
-	 
+   
   @Inject
   @ApplicationDatabase
-	private EntityManager em;
+  private EntityManager em;
   
 
-	public ClinicEjbDao() {		
-	}
+  public ClinicEjbDao() {    
+  }
   
   @PostConstruct
-	public void init() {
-		// ...
-	}
+  public void init() {
+    // ...
+  }
 
-	// ---------------------------------------------------------------------------	
+  // ---------------------------------------------------------------------------  
 
   @Override
   public Clinic findById(int id) {
@@ -54,10 +54,10 @@ public class ClinicEjbDao implements IClinicDao, Serializable {
   }
   
   @Override
-	public List<Clinic> getAll() {
+  public List<Clinic> getAll() {
     String query = "SELECT c FROM Clinic c";
-		List<Clinic> clinics = em.createQuery(query, Clinic.class).getResultList();		
-		return clinics;
-	}
+    List<Clinic> clinics = em.createQuery(query, Clinic.class).getResultList();    
+    return clinics;
+  }
   
 }

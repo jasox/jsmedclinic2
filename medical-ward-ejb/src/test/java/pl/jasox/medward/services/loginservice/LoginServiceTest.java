@@ -21,8 +21,8 @@ All types used or needed by the underling LoginService will be created via Mocki
 I'm going to use Loose mocks - you can call anything you want and the underling object will not complain <br/>
 I'm going to minimally verify the expected resulting interactions (one assertion per test)               <br/>   
 */ 
-public class LoginServiceTest {   	
-	
+public class LoginServiceTest {     
+  
    static Logger log = Logger.getLogger( LoginServiceTest.class.getName() );
    
    // Mock's
@@ -34,13 +34,13 @@ public class LoginServiceTest {
    /** */
    @BeforeClass
    public static void setUp() {
-	  log.setLevel(Level.WARN);
-	  log.info("Init before class done..." );
-   }	      
-	  
+    log.setLevel(Level.WARN);
+    log.info("Init before class done..." );
+   }        
+    
    /** */
    @Before
-   public void init() {	  
+   public void init() {    
       account = mock(IAccount.class);
       when(account.getId()).thenReturn("brett");
       accountRepository = mock(IAccountRepository.class);      

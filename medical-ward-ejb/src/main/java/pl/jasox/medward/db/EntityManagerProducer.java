@@ -20,8 +20,8 @@ import javax.persistence.PersistenceContext;
 @Singleton
 @Startup
 public class EntityManagerProducer implements Serializable {
-	
-	  private static final long serialVersionUID = 6970822929709709751L;
+  
+    private static final long serialVersionUID = 6970822929709709751L;
     
     // Baza produkcyjna, baza defaultowa dla aplikacji = DatabaseType.MySQL;
     @Inject
@@ -33,17 +33,17 @@ public class EntityManagerProducer implements Serializable {
     // wbudowana baza na serwerze aplikacji
     // (DatabaseType.AS)
     @PersistenceContext(unitName="medward_AS")    
-	  private EntityManager entityManagerAs;
-	  
+    private EntityManager entityManagerAs;
+    
     // testowa baza Hsql w lokalnym pliku tekstowym
     // (DatabaseType.HSQL)
     @PersistenceContext(unitName="medward_Hsql")    
-	  private EntityManager entityManagerHsql;
+    private EntityManager entityManagerHsql;
     
     // produkcyjna baza na Amazon WS
     // (DatabaseType.MySQL)
     @PersistenceContext(unitName="medward_MySQL")    
-	  private EntityManager entityManagerMySQL;
+    private EntityManager entityManagerMySQL;
     
     // -------------------------------------------------------------------------
     // @ApplicationDatabase  

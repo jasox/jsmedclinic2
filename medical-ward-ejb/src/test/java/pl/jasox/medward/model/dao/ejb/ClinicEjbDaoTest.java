@@ -53,7 +53,7 @@ public class ClinicEjbDaoTest {
   private Logger log;
   
   @Inject
-  private UserTransaction utx; 	
+  private UserTransaction utx;   
   
   @EJB
   private IDaoFactory daoFactory;
@@ -86,12 +86,12 @@ public class ClinicEjbDaoTest {
       utx.commit();
     } 
     catch (RollbackException ex ) {
-    	log.severe( ex.toString() );	
+      log.severe( ex.toString() );  
     }
     catch ( HeuristicMixedException ex ) {
-    	 log.severe( ex.toString() ); 
+       log.severe( ex.toString() ); 
     }
-    catch ( HeuristicRollbackException ex ){    	
+    catch ( HeuristicRollbackException ex ){      
       log.severe( ex.toString() );
     }    
   }
@@ -180,17 +180,17 @@ public class ClinicEjbDaoTest {
    * Test of getAll method, of class ClinicEjbDao.
    */
   @Test
-  public void testGetAll() {  	
+  public void testGetAll() {    
     log.info("testGetAll");
     Clinic clinic; 
     int i = 0;
     List<Clinic> result = clinicDao.getAll();
     Iterator<Clinic> iter = result.iterator();
     while ( iter.hasNext() ) {   
-	      clinic = iter.next();        
-	      log.info(clinic.toString());
+        clinic = iter.next();        
+        log.info(clinic.toString());
         i++;
-	  }    
+    }    
     assertEquals(NUMBER_OF_CLINICS, i);
   }
   

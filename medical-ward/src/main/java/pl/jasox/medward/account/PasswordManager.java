@@ -23,7 +23,7 @@ import pl.jasox.medward.model.User;
 @Stateful
 @Model
 public class PasswordManager {
-	
+  
     @PersistenceContext(unitName="booking")
     private EntityManager em;
 
@@ -41,16 +41,16 @@ public class PasswordManager {
     private boolean changed;
     
 
-	public void changePassword() {
+  public void changePassword() {
         em.merge(user);
         messages.info(
           new DefaultBundleKey("account_passwordChanged")).defaults("Password successfully updated.");
         this.setChanged( true );
     }
-	
+  
     public void setChanged(boolean changed) {
-		this.changed = changed;
-	}
+    this.changed = changed;
+  }
     
     public boolean isChanged() {
         return changed;

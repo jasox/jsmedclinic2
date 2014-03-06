@@ -23,7 +23,7 @@ import pl.jasox.medward.model.User;
  */
 @FacesValidator("currentPassword")
 public class CurrentPasswordValidator implements Validator {
-	
+  
     @Inject
     private BundleTemplateMessage messageBuilder;
 
@@ -35,20 +35,20 @@ public class CurrentPasswordValidator implements Validator {
     Messages messages;
 
     public void validate(final FacesContext ctx, 
-    		             final UIComponent comp, 
-    		             final Object value) 
+                     final UIComponent comp, 
+                     final Object value) 
     throws ValidatorException 
     {
         String currentPassword = (String) value;
         if ( (currentUser.getPassword() != null) && 
-         	 !currentUser.getPassword().equals(currentPassword) ) {
-	        /*
-	         * FIXME: This is an ugly way to put i18n in FacesMessages: 
-	         *        https://jira.jboss.org/browse/SEAMFACES-24
-	         */
+            !currentUser.getPassword().equals(currentPassword) ) {
+          /*
+           * FIXME: This is an ugly way to put i18n in FacesMessages: 
+           *        https://jira.jboss.org/browse/SEAMFACES-24
+           */
             throw new ValidatorException(
               new FacesMessage(
-            	messageBuilder
+              messageBuilder
                     .key( new DefaultBundleKey("account_passwordsDoNotMatch") )
                     .defaults("Passwords do not match")
                     .build()

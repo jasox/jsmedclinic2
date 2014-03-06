@@ -14,11 +14,11 @@ import pl.jasox.medward.services.loginservice.states.AwaitingFirstLoginAttempt;
    aby uniknąć komplikacji przy obsłudze programu który jest tylko przykładem   
 */
 public class LoginService extends LoginServiceContext {
-	
+  
    private final IAccountRepository accountRepository;
    
    public LoginService(IAccountRepository accountRepository ) {
-	  super( new AwaitingFirstLoginAttempt() ); 
+    super( new AwaitingFirstLoginAttempt() ); 
       this.accountRepository = accountRepository;
    }   
  
@@ -29,11 +29,11 @@ public class LoginService extends LoginServiceContext {
     *   AwaitingFirstLoginAttempt, 
     *   AfterFirstFailedLoginAttempt,
     *   AfterSecondFailedLoginAttempt */
-   public IAccount login(String accountId, String password) {	   
-	  IAccount account = accountRepository.find(accountId);
-	  if (account == null) {
-		 throw new AccountNotFoundException();
-	  }
+   public IAccount login(String accountId, String password) {     
+    IAccount account = accountRepository.find(accountId);
+    if (account == null) {
+     throw new AccountNotFoundException();
+    }
       getState().login(this, account, password);      
       return account;
    }
@@ -41,11 +41,11 @@ public class LoginService extends LoginServiceContext {
    /** logowanie na podstawie istniejcej instancji :IAccount i hasła </br>
     *  zwracana jest wejściowa instancja :IAccount z odpowiednimi wartościami loggedIn lub revoked </br>
     *   logika metody delegowana jest do obiektu stanu */
-   public IAccount login(IAccount account, String password) {		  
-	  if (account == null) {
-		 throw new AccountNotFoundException();
-	  }
+   public IAccount login(IAccount account, String password) {      
+    if (account == null) {
+     throw new AccountNotFoundException();
+    }
       getState().login(this, account, password);       
       return account;
-   }	
+   }  
 }

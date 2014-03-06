@@ -17,29 +17,29 @@ import pl.jasox.medward.model.domainobject.Kasach;
 
 @Stateless
 public class KasachEjbDao implements IKasachDao, Serializable {
-	
-	//@Inject
+  
+  //@Inject
   //Logger log;
-	 
+   
   @Inject
   @ApplicationDatabase
-	private EntityManager em;
+  private EntityManager em;
   
   
   public KasachEjbDao() {    
   }
   
   @PostConstruct
-	public void init() {
-		// ...
-	}
+  public void init() {
+    // ...
+  }
 
-	// ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
 
   @Override
   public Kasach findById(String id) {
     Kasach kasach = em.find(Kasach.class, id);
-		return kasach;
+    return kasach;
   }
 
   @Override
@@ -54,14 +54,14 @@ public class KasachEjbDao implements IKasachDao, Serializable {
 
   @Override
   public void delete(Kasach kasach) {
-     em.remove(kasach);	
+     em.remove(kasach);  
   }  
   
-	@Override
-	public List<Kasach> getAll() {
+  @Override
+  public List<Kasach> getAll() {
     String query = "SELECT k FROM Kasach k";
-		List<Kasach> kasachs =  em.createQuery(query, Kasach.class).getResultList();    
-		return kasachs;
-	}
+    List<Kasach> kasachs =  em.createQuery(query, Kasach.class).getResultList();    
+    return kasachs;
+  }
 
 }
