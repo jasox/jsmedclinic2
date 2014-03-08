@@ -31,7 +31,8 @@ Ilustruje użycie :
  - Wzorców GoF, a przynajmniej wzorca Strategy, Template method, State, 
           Abstract Factory
           
- - Real World Java EE Patterns : Service Façade, Service, Persistent Domain Object
+ - Real World Java EE Patterns : Service Façade, Service, Persistent Domain Object,
+          Data Access Object (DAO) 
      
  - Test Driven Development, a w samym procesie testowania użycie 
           JUnit4, TestNG, Mockito, Arquillian, FitNesse
