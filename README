@@ -1,7 +1,7 @@
-----------------------------------------------------------------------
+--------------------------------------------------------------------------------
  Application : JSMedClinic
       Author : Janusz Swół <janusz.swol@gmail.com>
-----------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 Program ten jest studium przypadku, który ma za cel pokazanie użycia 
 idei, technik, narzędzi - do analizy, projektowania i tworzenia oprogramowania.
@@ -11,12 +11,13 @@ cyklu tworzenia oprogramowania.
 
 Ilustruje użycie : 
 -------------------
+
  - metodologi Agile/Lean (Scrum, Kanban) do prowadzenia projektu, 
     ATDD do zbierania wymagań i zdefiniowania testów akceptacyjnych. 
     Plik obiektowego projektu aplikacji w formacie Enterprprise Architect, 
     oraz inne artefakty znajdują się w katalogu ./project-design
      
- - Java EE 6/7, oraz SOA i REST - a w szczególności :
+ - Java EE 6/7 - a w szczególności :
     EJB 3.2             - [JSR 345]
     CDI 1.1             - [JSR 346]
     Bean Validation 1.1 - [JSR 349]  
@@ -25,11 +26,12 @@ Ilustruje użycie :
     Servlet 3.1         - [JSR 340]
     RichFaces 4
     JAXB 2.2            - [JSR 222]
-    JAX-RS 2.0          - [JSR 339]
-    JSON-P 1.0          - [JSR 353]
+    JAX-RS 2.0          - [JSR 339]    
     
  - Wzorców GoF, a przynajmniej wzorca Strategy, Template method, State, 
           Abstract Factory
+          
+ - Real World Java EE Patterns : Service Façade, Service, Persistent Domain Object
      
  - Test Driven Development, a w samym procesie testowania użycie 
           JUnit4, TestNG, Mockito, Arquillian, FitNesse
@@ -57,11 +59,6 @@ Dla ilustracji współdziałania w zespole wg. metodologii AGILE wprowadziłem
    w istocie to ja, tylko z różnych kont, gdzie mam dostęp do repozytoriów przez 
    odpowiednio skonfigurowane IDE - ( za pomocą zapisanych haseł i kluczy SSH )   
  
- 
- 
-   
+--------------------------------------------------------------------------------
 
-
-
-   
 
