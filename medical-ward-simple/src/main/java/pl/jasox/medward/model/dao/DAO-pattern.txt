@@ -1,0 +1,28 @@
+--------------------------------------------------------------------------------
+ Data Access Object
+--------------------------------------------------------------------------------
+
+The motivation for this pattern was the decoupling of the business logic from the concrete 
+realization of the data store mechanisms. This is no longer the main motivation for 
+the majority of current applications.
+The real problem of this pattern is its overuse. The idea of decoupling from the database, 
+and even its vendor, is neither realistic nor, in most cases, necessary.
+
+Forces
+•You have to access a legacy (that is, JPA incompatible) data source or resource.
+•You have to keep the data access abstraction testable and mockable.
+•You want to decouple the proprietary implementation of the resource access from the rest of the application.
+•Your application is service oriented: the business logic and the data access are separated.
+•You have to deal with non-standard, legacy data sources.
+•Your queries are too complex; you want to maintain them in a dedicated place.
+
+Solution
+ Use a stateless session bean with a dedicated, local business interface to abstract and encapsulate 
+ the interactions with the data store. A no-interface view session bean can be used as well; 
+ the realization, however, is harder to replace then. The additional @Local interface allows easy 
+ replacement of the bean implementation and thus provides additional fexibility. A business interface 
+ simplifes the testing of the DAO outside of the container.
+   
+--------------------------------------------------------------------------------
+
+

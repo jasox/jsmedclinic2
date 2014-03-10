@@ -1,0 +1,53 @@
+--------------------------------------------------------------------------------
+ Persistent Domain Object (Business Object) 
+--------------------------------------------------------------------------------
+
+The PDO plays the most important role in a domain-driven architecture. It represents a concept 
+from the target domain. Its responsibility is to express and implement the business logic 
+as simple and explicit as possible. The PDO’s state is persisted to the database by the EntityManager.
+
+Solution
+Model your application with real objects and don’t care about the persistence at the beginning. 
+Real objects means cohesive classes with encapsulated state, related behavior, and inheritance. 
+Just put business logic into the domain objects and use inheritance were appropriate. 
+JPA turns out to be really fexible in mapping rich domain objects into relational tables. 
+The more complex logic you have to realize, the easier object-oriented persistence can be maintained 
+and developed.
+
+Conventions
+•PDOs are JPA entities with emphasis on domain logic and not the technology.
+•PDOs reside in a component that is realized as a Java package with a domain-specific name, 
+  for example, ordermgmt.
+•The PDO resides in a subpackage (layer) with the name domain or entity, for example, 
+  ordermgmt.domain or ordermgmt.entity. 
+  This makes the automatic verification of the architecture easier.
+•The name of the domain object is derived from the target domain.
+•Getters and setters are not obligatory—they should be used only in justified cases.
+•The methods are not only accessors, but they model behavior which also changes the state of the domain objects.
+•All methods are named in a fluent way.
+
+Consequences
+•Usability: The whole idea behind PDO is improving the maintainability of complex logic by providing 
+  an easy-to-use API, a so-called fluent interface. The PDO API is clean, concise, and should be 
+  transparent to domain experts and not just developers. There is only a fraction of code needed 
+  to interact with a PDO when compared to the anemic or procedural approaches.
+•Domain expertise: The most important prerequisite to build maintainable PDOs is to have profound 
+  domain knowledge. The domain concepts should be reflected directly in the PDO. Ideally a domain expert 
+  should understand the business logic just looking at the PDO code.
+•Core essential responsibilities: A PDO has to reflect only the key concepts and should not realize 
+  the cross-cutting aspects. A PDO can be used potentially by a variety of different applications and clients. 
+  Client-specific needs and requirements should be reflected in, for example, Services and not in 
+  the implementation of the PDO.
+•Testability: PDOs are just annotated Java classes. They can be unit tested inside, as well as, 
+  outside the EJB container. Furthermore their functionality can be tested in attached or detached state.
+•Tool support: The IDE support for building PDOs is superb. Code completion, refactoring, and debugging 
+  work really well. Some IDEs come with support for code completion and syntax highlighting of JPA QL queries, 
+  generation of persistence.xml and so on. 
+•Extensibility: PDOs can be easily extended using object-oriented mechanisms and inheritance in particular. 
+  JPA supports inheritance and polymorphic queries so it fits well with the PDO idea.
+•Data transfer capabilities: A PDO can be easily transferred between layers, even remotely as 
+  detached objects. The only requirement is the implementation of the java.io.Serializable interface. 
+   
+--------------------------------------------------------------------------------
+
+
