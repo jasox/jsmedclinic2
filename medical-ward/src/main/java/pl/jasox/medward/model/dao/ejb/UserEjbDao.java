@@ -33,13 +33,13 @@ public class UserEjbDao implements IUserDao, Serializable {
   public UserEjbDao() {    
   } 
   
-  /*
+ 
   @Override
-  public void delete(User user) {
+  public void delete(IMedwardUser user) {
     // TODO Auto-generated method stub
     
   }
-  */
+  
 
   /*
   @SuppressWarnings("unchecked")
@@ -57,6 +57,16 @@ public class UserEjbDao implements IUserDao, Serializable {
     String username = id;
     User user = em.find( User.class, username );
     return user;
+  }
+
+  @Override
+  public void save(IMedwardUser user) {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  }
+
+  @Override
+  public void saveOrUpdate(IMedwardUser user) {
+    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   }
   
 

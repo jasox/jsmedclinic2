@@ -18,7 +18,6 @@ import pl.jasox.medward.model.User;
 /**
  * The view controller for changing the user password
  *
- * @author Janusz Swół
  */
 @Stateful
 @Model

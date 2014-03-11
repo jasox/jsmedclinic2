@@ -1,0 +1,20 @@
+--------------------------------------------------------------------------------
+ Data Access Object ( DAO )
+--------------------------------------------------------------------------------
+
+Domain-specific DAO
+Nothing prevents us to provide a type-safe DAO, which is designed to operate on a particular 
+domain object. Such a DAO could be extended with domain-specifc extensions and additional 
+functionality such as prefetching of dependent objects, managing common relations, creating 
+domain-specifc queries on the fy, or fltering the results to match a specifc user. 
+Those extensions are application specifc and cannot be generalized in a reusable pattern. 
+A well-designed, domain-specifc DAO provides added value beyond wrapping the EntityManager 
+and casting its parameters and return values.
+In contrast to a generic DAO, this variant has to be deployed once for an entity type, whereby 
+one instance of a generic DAO can manage any number of different entities. In practice, 
+these two variants are used together. The generic one is perfectly suitable for master 
+data management and simpler CRUD use cases. A domain-specifc DAO, on the other hand, realizes 
+specifc functionality. It can even access generic DAOs for reusing basic functionality.
+--------------------------------------------------------------------------------
+
+

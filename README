@@ -28,29 +28,29 @@ Ilustruje użycie :
     JAXB 2.2            - [JSR 222]
     JAX-RS 2.0          - [JSR 339]    
     
- - Wzorców GoF, a przynajmniej wzorca Strategy, Template method, State, 
+ - Wzorców GoF : a przynajmniej wzorca Strategy, Template method, State, 
           Abstract Factory
           
- - Real World Java EE Patterns : Service Façade, Service, Persistent Domain Object,
-          Data Access Object (DAO) 
+ - Real World Java EE Patterns : Service Façade, Service, Service Starter, 
+          Persistent Domain Object, Data Access Object (DAO), Singleton 
      
- - Test Driven Development, a w samym procesie testowania użycie 
+ - Test Driven Development : a w samym procesie testowania użycie 
           JUnit4, TestNG, Mockito, Arquillian, FitNesse
      
- - SQL - do tworzenia schematu bazy MySQL i Hsql, oraz do wstępnego wczytania danych
+ - SQL : do tworzenia schematu bazy MySQL i Hsql, oraz do wstępnego wczytania danych
           ( katalog ./db-settings )
  
- - SCM - kod źródłowy jest przechowywany w zewnętrznym repozytorium na GitHub
+ - SCM : kod źródłowy jest przechowywany w zewnętrznym repozytorium na GitHub
           oraz na serwerze Subversion (ProjectLocker.com)
           
- - CI  - kod jest budowany i testowany w instancji Jenkins'a na CloudBees.com, 
+ - CI  : kod jest budowany i testowany w instancji Jenkins'a na CloudBees.com, 
           gdzie też znajduje się moje prywatne repozytorium Maven'a 
           
- - CQ  - kod jest analizowany pod względem jakości przez lokalną instancję 
+ - QA  : kod jest analizowany pod względem jakości przez lokalną instancję 
          programu Sonar który jak wiadomo integruje w jednym pakiecie programy 
          Checkstyle, PMD, FindBugs, Cobertura i Clover. 
      
- - Cloud Computing - aplikacja jest przeznaczona do uruchomienia na platformie 
+ - Cloud Computing : aplikacja jest przeznaczona do uruchomienia na platformie 
          OpenShift.RedHat.com    
  
 Dla ilustracji współdziałania w zespole wg. metodologii AGILE wprowadziłem 

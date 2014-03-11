@@ -19,7 +19,6 @@ import pl.jasox.medward.i18n.DefaultBundleKey;
  * Validate that both the password fields contain the same value.
  * Implements the classic password change validation.
  *
- * @author Janusz Swół
  */
 @FacesValidator("confirmPassword")
 public class ConfirmPasswordValidator implements Validator {

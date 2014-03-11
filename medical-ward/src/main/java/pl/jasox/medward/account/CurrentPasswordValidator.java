@@ -19,7 +19,6 @@ import pl.jasox.medward.model.User;
 /**
  * A JSF Validator, used to check that the password the user submits matches that on record.
  *
- * @author Janusz Swół
  */
 @FacesValidator("currentPassword")
 public class CurrentPasswordValidator implements Validator {

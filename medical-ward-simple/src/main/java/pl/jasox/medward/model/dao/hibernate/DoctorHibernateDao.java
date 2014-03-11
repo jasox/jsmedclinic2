@@ -89,4 +89,21 @@ public class DoctorHibernateDao extends AGenericHibernateDao implements IDoctorD
     getSession().saveOrUpdate(doctor);    
   }   
   
+  // ---------------------------------------------------------------------------
+
+  @Override
+  public void save(IMedwardUser user) {
+    this.save( (Doctor)user );
+  }
+
+  @Override
+  public void saveOrUpdate(IMedwardUser user) {
+    this.saveOrUpdate( (Doctor)user );  
+  }
+
+  @Override
+  public void delete(IMedwardUser user) {
+    this.delete( (Doctor)user );  
+  }
+  
 }

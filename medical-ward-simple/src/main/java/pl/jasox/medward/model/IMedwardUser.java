@@ -1,7 +1,8 @@
 package pl.jasox.medward.model;
 
 /**
- * <p> is the interface that represents a <i>user</i> of med-ward Application.</p> *
+ * <p> is the interface that represents a <i>user</i> of med-ward Application.</p> 
+ * 
  * @author Janusz Swół
  */
 public interface IMedwardUser extends org.picketlink.idm.api.User {

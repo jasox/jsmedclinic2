@@ -11,7 +11,7 @@
  requirements, whereas the local view could be extended on demand in a more pragmatic manner. 
  The local business interface extends the remote interface, which makes maintenance easy.
  It is enough to declare the additional functionality in the local interface—all methods 
- will be inherited from the remote method
+ will be inherited from the remote method.
  */
 
 package pl.jasox.medward.facade;

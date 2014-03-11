@@ -76,7 +76,22 @@ public class DoctorEjbDao implements IDoctorDao, Serializable {
 
   @Override
   public IMedwardUser find(String username) {
-    return findById(username);
+    return findById(username);    
+  }
+  
+  @Override
+  public void save(IMedwardUser user) {
+    this.save( (Doctor)user );
+  }
+
+  @Override
+  public void saveOrUpdate(IMedwardUser user) {
+    this.saveOrUpdate( (Doctor)user );  
+  }
+
+  @Override
+  public void delete(IMedwardUser user) {
+    this.delete( (Doctor)user );  
   }
   
   // ---------------------------------------------------------------------------  

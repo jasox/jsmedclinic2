@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
- Data Access Object
+ Data Access Object ( DAO )
 --------------------------------------------------------------------------------
 
 The motivation for this pattern was the decoupling of the business logic from the concrete 
@@ -7,6 +7,13 @@ realization of the data store mechanisms. This is no longer the main motivation 
 the majority of current applications.
 The real problem of this pattern is its overuse. The idea of decoupling from the database, 
 and even its vendor, is neither realistic nor, in most cases, necessary.
+The EntityManager can be considered as a generic implementation of the DAO pattern. 
+It can be used as a DAO and be injected to existing services. 
+In Java EE, the DAO pattern is optional and no longer the only way to access the data store. 
+EntityManager as an abstraction is suffcient for most in-house software projects. In product 
+development, however, a dedicated DAO as an additional layer of abstraction could be necessary. 
+Nonetheless, the introduction of such a layer without clear requirement is always suspicions 
+and should be justifed with hard requirements.
 
 Forces
 •You have to access a legacy (that is, JPA incompatible) data source or resource.
@@ -17,12 +24,12 @@ Forces
 •Your queries are too complex; you want to maintain them in a dedicated place.
 
 Solution
- Use a stateless session bean with a dedicated, local business interface to abstract and encapsulate 
- the interactions with the data store. A no-interface view session bean can be used as well; 
- the realization, however, is harder to replace then. The additional @Local interface allows easy 
- replacement of the bean implementation and thus provides additional fexibility. A business interface 
- simplifes the testing of the DAO outside of the container.
-   
+ Use a stateless session bean with MANDATORY transaction setting. The DAO expects to be invoked 
+ in a context of already active transaction, and with a dedicated, local business interface 
+ to abstract and encapsulate the interactions with the data store. A no-interface view session bean 
+ can be used as well; the realization, however, is harder to replace then. 
+ The additional @Local interface allows easy replacement of the bean implementation and thus provides 
+ additional fexibility. A business interface simplifes the testing of the DAO outside of the container.
 --------------------------------------------------------------------------------
 
 
