@@ -92,17 +92,12 @@ public class DoctorHibernateDao extends AGenericHibernateDao implements IDoctorD
   // ---------------------------------------------------------------------------
 
   @Override
-  public void save(IMedwardUser user) {
-    this.save( (Doctor)user );
+  public void store(IMedwardUser user) {
+    this.saveOrUpdate( (Doctor)user );
   }
 
   @Override
-  public void saveOrUpdate(IMedwardUser user) {
-    this.saveOrUpdate( (Doctor)user );  
-  }
-
-  @Override
-  public void delete(IMedwardUser user) {
+  public void remove(IMedwardUser user) {
     this.delete( (Doctor)user );  
   }
   

@@ -1,9 +1,6 @@
 package pl.jasox.medward.model.dao.ejb;
 
 import java.io.Serializable;
-import java.util.List;
-
-import javax.ejb.Stateful;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -33,14 +30,6 @@ public class UserEjbDao implements IUserDao, Serializable {
   public UserEjbDao() {    
   } 
   
- 
-  @Override
-  public void delete(IMedwardUser user) {
-    // TODO Auto-generated method stub
-    
-  }
-  
-
   /*
   @SuppressWarnings("unchecked")
   @Override
@@ -51,23 +40,24 @@ public class UserEjbDao implements IUserDao, Serializable {
   }
   */
   
+  // ---------------------------------------------------------------------------
+  
   @Override
   public IMedwardUser find(String id) {
-    // 
+    // ... 
     String username = id;
     User user = em.find( User.class, username );
     return user;
   }
 
   @Override
-  public void save(IMedwardUser user) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-  }
-
-  @Override
-  public void saveOrUpdate(IMedwardUser user) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-  }
+  public void store(IMedwardUser user) {
+    throw new UnsupportedOperationException("Not supported yet."); 
+  }  
   
+  @Override
+  public void remove(IMedwardUser user) {
+    throw new UnsupportedOperationException("Not supported yet.");     
+  }
 
 }
