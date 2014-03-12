@@ -69,4 +69,26 @@
                 <activatedProfile>aws_MySQL</activatedProfile>
             </activatedProfiles>
         </action>
-    </actions>
+        <action>
+            <actionName>CUSTOM-jboss-as-deploy</actionName>
+            <displayName>jboss-as7-deploy</displayName>
+            <goals>
+                <goal>jboss-as:deploy</goal>
+            </goals>
+            <activatedProfiles>
+                <activatedProfile>jbossas7</activatedProfile>
+                <activatedProfile>aws_MySQL</activatedProfile>
+            </activatedProfiles>
+        </action>
+        <action>
+            <actionName>CUSTOM-glassfish-deploy</actionName>
+            <displayName>glassfish3-deploy</displayName>
+            <goals>
+                <goal>cargo:deploy</goal>
+            </goals>
+            <activatedProfiles>
+                <activatedProfile>glassfish</activatedProfile>
+                <activatedProfile>aws_MySQL</activatedProfile>
+            </activatedProfiles>
+        </action>
+</actions>

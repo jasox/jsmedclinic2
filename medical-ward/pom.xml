@@ -23,7 +23,24 @@
 	<name>Medical Ward</name>
 	<description> JS Medical Clinic Application Web Module </description>
 	
-	<properties>		
+	<properties>    
+    <jboss.as.plugin.version>7.3.Final</jboss.as.plugin.version>
+    
+    <!-- Deployment ( to remote JBoss AS 7 )
+    <jboss-as.deploy.host>10.23.14.95</jboss-as.deploy.host> 
+     --> 
+    <jboss-as.deploy.host>127.0.0.1</jboss-as.deploy.host>  
+    <jboss-as.deploy.user>admin</jboss-as.deploy.user>
+    <jboss-as.deploy.pass>1234</jboss-as.deploy.pass>
+
+    <!-- Deployment ( to remote GlassFish 3.1.1, js-laptop-hp, secure -->
+    <cargo.hostname>js-laptop-hp</cargo.hostname>
+    <cargo.username>admin</cargo.username>
+    <cargo.password></cargo.password> 
+    <!--
+    <cargo.username>jaoss</cargo.username>
+    <cargo.password>1234</cargo.password>    
+    -->		
 	  <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
 	  <netbeans.hint.j2eeVersion>1.6</netbeans.hint.j2eeVersion>
 	</properties>
@@ -31,14 +48,14 @@
   <!-- ===================================================================== -->
 
   <dependencies>
-    
+    <!--
     <dependency>
       <groupId>${projectGroup}</groupId>
       <artifactId>${projectName}-ejb</artifactId>
       <version>${projectVersion}</version>
       <type>ejb</type>
     </dependency>
-        
+    -->    
     <dependency>
       <groupId>${projectGroup}</groupId>
       <artifactId>${projectName}-simple</artifactId>
@@ -270,11 +287,10 @@
             </suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
-      </plugin>
-      
+      </plugin>      
       
       <!-- remote deployment on production server is not a good idea; 
-           hard-deploy by local network on test server is better -->
+           hard-deploy by local network on test server is better 
       <plugin>
         <groupId>org.codehaus.mojo</groupId>        
         <artifactId>jboss-maven-plugin</artifactId>
@@ -291,11 +307,14 @@
           </fileNames>
         </configuration>
       </plugin>
+      -->
       
+      <!-- The JBoss AS plugin deploys your war to a local JBoss AS container -->
+      <!-- To use, run: mvn package jboss-as:deploy                           -->
       <plugin>
         <groupId>org.jboss.as.plugins</groupId>
         <artifactId>jboss-as-maven-plugin</artifactId>
-        <version>7.3.Final</version>
+        <version>${jboss.as.plugin.version}</version>
         <configuration>
           <!-- The execute-commands goal allows you to execute commands, 
                in the CLI format, on the running JBoss Application Server. -->
@@ -307,6 +326,38 @@
             </commands>
           </execute-commands>
         </configuration>
+      </plugin>
+      
+      <!-- The cargo plugin deploys your war to a remote Glassfish 3 AS container -->
+      <!-- To use, run: mvn package cargo:deploy                                  -->
+      <plugin>
+        <groupId>org.codehaus.cargo</groupId>
+        <artifactId>cargo-maven2-plugin</artifactId>
+        <version>1.4.2</version>
+        <configuration>
+          <!-- works after `enable-secure-admin` on asadmin in Glassfish! -->
+          <container>
+              <containerId>glassfish3x</containerId>
+              <type>remote</type>
+          </container>
+          <configuration>
+            <type>runtime</type>
+            <properties>
+              <cargo.runtime.args>force=true</cargo.runtime.args>
+              <cargo.remote.username>${cargo.username}</cargo.remote.username>
+              <cargo.remote.password>${cargo.password}</cargo.remote.password>                           
+              <cargo.glassfish.admin.port>4848</cargo.glassfish.admin.port> 
+              <cargo.hostname>${cargo.hostname}</cargo.hostname>
+            </properties>
+          </configuration>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.glassfish.deployment</groupId>
+            <artifactId>deployment-client</artifactId>
+            <version>3.1.1</version>
+          </dependency>
+        </dependencies>                
       </plugin>
   
     </plugins>

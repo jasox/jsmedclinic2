@@ -32,7 +32,7 @@ Ilustruje użycie :
           Abstract Factory
           
  - Real World Java EE Patterns : Service Façade, Service, Service Starter, 
-          Persistent Domain Object, Data Access Object (DAO), Singleton 
+          Persistent Domain Object (PDO), Data Access Object (DAO), Singleton 
      
  - Test Driven Development : a w samym procesie testowania użycie 
           JUnit4, TestNG, Mockito, Arquillian, FitNesse
