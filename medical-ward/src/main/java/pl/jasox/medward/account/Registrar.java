@@ -13,7 +13,7 @@ import org.jboss.seam.international.status.Messages;
 import pl.jasox.medward.i18n.DefaultBundleKey;
 import pl.jasox.medward.model.IMedwardUser;
 import pl.jasox.medward.model.IMedwardUserRepository;
-import pl.jasox.medward.model.domainobject.Doctor;
+import pl.jasox.medward.model.User;
 
 /**
  * The view controller for registering a new user
@@ -30,18 +30,28 @@ public class Registrar {
 
   @Inject
   private FacesContext facesContext;
+  
+  // ---------------------------------------------------------------------------
 
-  private UIInput usernameInput;
-
-  private final IMedwardUser newUser = new Doctor(); // FIXME ! 
+  private UIInput usernameInput;  
 
   @NotNull
   @Size(min = 5, max = 15)
-  private String confirmPassword;
+  private String  confirmPassword;
 
   private boolean registered;
 
   private boolean registrationInvalid;
+  
+  private final IMedwardUser newUser = new User(); // FIXME !  
+  
+  // ---------------------------------------------------------------------------  
+  
+  @Produces
+  @Named
+  public IMedwardUser getNewUser() {
+    return newUser;
+  }
 
   public void register() {
     if (verifyUsernameIsAvailable()) {
@@ -76,12 +86,6 @@ public class Registrar {
       messages.warn( new DefaultBundleKey("registration_invalid"))
               .defaults( "Invalid registration. Please correct the errors and try again.");
     }
-  }
-
-  @Produces
-  @Named
-  public IMedwardUser getNewUser() {
-    return newUser;
   }
 
   public boolean isRegistered() {

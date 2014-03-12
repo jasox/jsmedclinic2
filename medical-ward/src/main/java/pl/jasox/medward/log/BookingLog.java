@@ -1,9 +1,3 @@
-/*
- * JBoss, Home of Professional Open Source
- * Copyright 2010, Red Hat Middleware LLC, and individual contributors
- * by the @authors tag. See the copyright.txt in the distribution for a
- * full listing of individual contributors.
- */
 package pl.jasox.medward.log;
 
 import org.jboss.solder.logging.Log;

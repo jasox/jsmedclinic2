@@ -30,6 +30,7 @@ public class CurrentPasswordValidator implements Validator {
   
   // ---------------------------------------------------------------------------
 
+  @Override
   public void validate(final FacesContext ctx, final UIComponent comp, final Object value) 
   throws ValidatorException 
   {

@@ -33,7 +33,8 @@ public class ConfirmPasswordValidator implements Validator {
 
   @Override
   public void validate(final FacesContext ctx, final UIComponent form, final Object components)
-  throws ValidatorException {    
+  throws ValidatorException 
+  {    
     if (password == null || confirmPassword == null) {
       return;
     }

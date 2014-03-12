@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--  -->
-
 <project 
   xmlns="http://maven.apache.org/POM/4.0.0" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -426,7 +424,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
-              <version>${maven.war.plugin.version}</version>
+            <version>${maven.war.plugin.version}</version>
             <configuration>
               <webResources>
                 <resource>
@@ -453,7 +451,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
-              <version>${maven.war.plugin.version}</version>
+            <version>${maven.war.plugin.version}</version>
             <configuration>
               <webResources>
                 <resource>

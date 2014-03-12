@@ -1,14 +1,7 @@
-/*
- * JBoss, Home of Professional Open Source
- * Copyright 2010, Red Hat Middleware LLC, and individual contributors
- * by the @authors tag. See the copyright.txt in the distribution for a
- * full listing of individual contributors.
- *
- */
 package pl.jasox.medward.booking;
 
+import com.ocpsoft.pretty.time.PrettyTime;
 import java.util.Locale;
-
 import javax.ejb.Stateful;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
@@ -24,24 +17,19 @@ import javax.interceptor.Interceptors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import static javax.persistence.PersistenceContextType.EXTENDED;
-
-import com.ocpsoft.pretty.time.PrettyTime;
-
-
 import org.jboss.seam.faces.context.conversation.Begin;
 import org.jboss.seam.faces.context.conversation.ConversationBoundaryInterceptor;
 import org.jboss.seam.faces.context.conversation.End;
 import org.jboss.seam.international.status.Messages;
 import org.jboss.seam.international.status.builder.TemplateMessage;
 import org.jboss.solder.logging.TypedCategory;
-
 import pl.jasox.medward.account.Authenticated;
 import pl.jasox.medward.i18n.DefaultBundleKey;
 import pl.jasox.medward.log.BookingLog;
 import pl.jasox.medward.model.Booking;
 import pl.jasox.medward.model.Hotel;
+import pl.jasox.medward.model.IMedwardUser;
 import pl.jasox.medward.model.User;
-
 
 /**
  * @author <a href="http://community.jboss.org/people/dan.j.allen">Dan Allen</a>
@@ -67,7 +55,7 @@ public class BookingAgent {                          // workaround for GLASSFISH
 
     @Inject
     @Authenticated
-    private User user;
+    private IMedwardUser user;
 
     @Inject
     private Locale locale;
@@ -103,7 +91,7 @@ public class BookingAgent {                          // workaround for GLASSFISH
 
     /** Utworzenie nowej rezerwacji dla wybranego hotelu i bieżącego użytkownika */
     public void bookHotel() {
-        booking        = new Booking(hotelSelection, user, 7, 2);
+        booking        = new Booking(hotelSelection, (User)user, 7, 2);
         hotelSelection = null;
 
         // for demo convenience

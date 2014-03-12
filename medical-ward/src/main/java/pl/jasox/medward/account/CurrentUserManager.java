@@ -20,7 +20,7 @@ public class CurrentUserManager {
   @Produces
   @Authenticated
   @Named("currentUser")
-  public IMedwardUser getCurrentAccount() {
+  public IMedwardUser getCurrentUser() {
       return currentUser;
   }
 

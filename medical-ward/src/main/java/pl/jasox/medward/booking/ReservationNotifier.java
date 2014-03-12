@@ -1,9 +1,3 @@
-/*
- * JBoss, Home of Professional Open Source
- * Copyright 2010, Red Hat Middleware LLC, and individual contributors
- * by the @authors tag. See the copyright.txt in the distribution for a
- * full listing of individual contributors. 
- */
 package pl.jasox.medward.booking;
 
 import javax.inject.Inject;
@@ -29,7 +23,7 @@ public class ReservationNotifier implements MessageListener {
         try {
             Booking booking = (Booking) ((ObjectMessage) message).getObject();
             log.info("In a real-world application, send e-mail containing reservation information to "
-                    + booking.getUser().getEmailWithName());
+                    + booking.getUser() );
         } 
         catch (JMSException ex) {
             log.error("Error reading booking from topic");

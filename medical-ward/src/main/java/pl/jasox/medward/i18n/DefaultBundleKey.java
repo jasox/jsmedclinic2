@@ -1,6 +1,3 @@
-/*
- * 
- */
 package pl.jasox.medward.i18n;
 
 import org.jboss.seam.international.status.builder.BundleKey;

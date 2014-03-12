@@ -1,9 +1,3 @@
-/*
- * JBoss, Home of Professional Open Source
- * Copyright 2010, Red Hat Middleware LLC, and individual contributors
- * by the @authors tag. See the copyright.txt in the distribution for a
- * full listing of individual contributors.
- */
 package pl.jasox.medward.model;
 
 import java.io.Serializable;
@@ -47,7 +41,7 @@ public class Booking implements Serializable {
 
     public Booking() {
     }
-
+    
     public Booking(Hotel hotel, User user, int daysFromNow, int nights) {
         this.hotel = hotel;
         this.user  = user;
@@ -57,7 +51,7 @@ public class Booking implements Serializable {
         setReservationDates(daysFromNow, nights);
         creditCardExpiryMonth = Calendar.getInstance().get(Calendar.MONTH) + 1;
     }
-
+    
     @Id
     @GeneratedValue
     public Long getId() {

@@ -1,15 +1,8 @@
-/*
- * JBoss, Home of Professional Open Source
- * Copyright 2010, Red Hat Middleware LLC, and individual contributors
- * by the @authors tag. See the copyright.txt in the distribution for a
- * full listing of individual contributors. 
- */
 package pl.jasox.medward.booking;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
-
 import javax.ejb.Stateful;
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Observes;
@@ -25,15 +18,14 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Root;
-
-import org.jboss.solder.logging.Logger;
 import org.jboss.seam.international.status.Messages;
 import org.jboss.seam.security.Identity;
-
+import org.jboss.solder.logging.Logger;
 import pl.jasox.medward.account.Authenticated;
 import pl.jasox.medward.i18n.DefaultBundleKey;
 import pl.jasox.medward.model.Booking;
 import pl.jasox.medward.model.Booking_;
+import pl.jasox.medward.model.IMedwardUser;
 import pl.jasox.medward.model.User;
 import pl.jasox.medward.model.User_;
 
@@ -61,7 +53,7 @@ public class BookingHistory {
 
     @Inject
     @Authenticated
-    private Instance<User> currentUserInstance;
+    private Instance<IMedwardUser> currentUserInstance;
 
     /** "bookings" - wszystkie rezerwacje dla zalogowanego użytkownika */
     private List<Booking> bookingsForUser = null;
