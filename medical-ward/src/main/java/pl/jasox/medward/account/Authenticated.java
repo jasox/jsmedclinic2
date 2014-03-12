@@ -1,10 +1,3 @@
-/*
- * JBoss, Home of Professional Open Source
- * Copyright 2010, Red Hat Middleware LLC, and individual contributors
- * by the @authors tag. See the copyright.txt in the distribution for a
- * full listing of individual contributors.
- * 
- */
 package pl.jasox.medward.account;
 
 import java.lang.annotation.Documented;
@@ -19,7 +12,7 @@ import javax.inject.Qualifier;
 
 /**
  * A qualifier, which indicates that the user has been successfully authenticated
- *
+ * 
  * @author pmuir
  */
 @Target({TYPE, METHOD, PARAMETER, FIELD})

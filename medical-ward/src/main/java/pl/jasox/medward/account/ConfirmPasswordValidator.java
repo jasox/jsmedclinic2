@@ -1,5 +1,3 @@
-/*
- */
 package pl.jasox.medward.account;
 
 import javax.faces.application.FacesMessage;
@@ -18,7 +16,6 @@ import pl.jasox.medward.i18n.DefaultBundleKey;
 /**
  * Validate that both the password fields contain the same value.
  * Implements the classic password change validation.
- *
  */
 @FacesValidator("confirmPassword")
 public class ConfirmPasswordValidator implements Validator {
@@ -35,15 +32,11 @@ public class ConfirmPasswordValidator implements Validator {
   private String confirmPassword;
 
   @Override
-  public void validate(          
-          final FacesContext ctx,
-          final UIComponent form,
-          final Object components)
-  throws ValidatorException {
+  public void validate(final FacesContext ctx, final UIComponent form, final Object components)
+  throws ValidatorException {    
     if (password == null || confirmPassword == null) {
       return;
     }
-
     if (!password.equals(confirmPassword)) {
       throw new ValidatorException(
         new FacesMessage(

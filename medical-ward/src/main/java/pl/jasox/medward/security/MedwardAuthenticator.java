@@ -1,30 +1,19 @@
-/*
- */
 package pl.jasox.medward.security;
 
 import javax.ejb.Stateful;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
-
 import org.jboss.seam.international.status.Messages;
 import org.jboss.seam.security.Authenticator;
 import org.jboss.seam.security.BaseAuthenticator;
 import org.jboss.seam.security.Credentials;
-
 import org.jboss.solder.logging.Logger;
-
 import org.picketlink.idm.impl.api.PasswordCredential;
-//import org.picketlink.idm.impl.api.model.SimpleUser;
-
 import pl.jasox.medward.account.Authenticated;
 import pl.jasox.medward.i18n.DefaultBundleKey;
 import pl.jasox.medward.model.IMedwardUser;
-import pl.jasox.medward.model.User;
-import pl.jasox.medward.model.dao.ejb.UserEjbDao;
+import pl.jasox.medward.model.IMedwardUserRepository;
 
 /**
  * This implementation of a <strong>Authenticator</strong> that uses Seam security.</br>
@@ -42,10 +31,7 @@ public class MedwardAuthenticator extends BaseAuthenticator implements Authentic
 
   @Inject
   private Logger log;
-
-  @PersistenceContext(unitName="booking")
-  private EntityManager em;
-
+  
   @Inject
   private Credentials credentials;
 
@@ -54,10 +40,10 @@ public class MedwardAuthenticator extends BaseAuthenticator implements Authentic
 
   @Inject
   @Authenticated
-  private Event<User> loginEvent;  
+  private Event<IMedwardUser> loginEvent;  
   
   @Inject
-  private UserEjbDao userEjbDao;
+  private IMedwardUserRepository userRepository;
   
   
   public void authenticate() {
@@ -67,22 +53,21 @@ public class MedwardAuthenticator extends BaseAuthenticator implements Authentic
       messages.error(new DefaultBundleKey("identity_loginFailed"))
               .defaults("Invalid username or password");
       this.setStatus(AuthenticationStatus.FAILURE);
-    }
-    //User user = em.find( User.class, credentials.getUsername() );
-    IMedwardUser user = userEjbDao.find( credentials.getUsername() );  // NOTE  12.11.2013
+    }    
+    IMedwardUser user = userRepository.find( credentials.getUsername() );  // NOTE  12.11.2013
     if ( ( user != null ) && ( credentials.getCredential() instanceof PasswordCredential ) && 
-         user.getPassword().equals(((PasswordCredential)credentials.getCredential()).getValue()))        
-     {
-        loginEvent.fire((User) user);
-        messages.info(new DefaultBundleKey("identity_loggedIn"), user.getName())
-                .defaults("You're signed in as {0}")
-                .params(user.getName());
-        this.setStatus(AuthenticationStatus.SUCCESS);
-        // TODO confirm the need for this set method
-        // org.picketlink.idm.impl.api.model.SimpleUser
-        // this.setUser(new SimpleUser(user.getUsername())); 
-        this.setUser(user);  // NOTE  user implementuje org.picketlink.idm.api.User  8.11.2013 
-        return;
+        user.getPassword().equals(((PasswordCredential)credentials.getCredential()).getValue()))        
+    {
+      loginEvent.fire((IMedwardUser) user);
+      messages.info(new DefaultBundleKey("identity_loggedIn"), user.getName())
+              .defaults("You're signed in as {0}")
+              .params(user.getName());
+      this.setStatus(AuthenticationStatus.SUCCESS);
+      // TODO confirm the need for this set method
+      // org.picketlink.idm.impl.api.model.SimpleUser
+      // this.setUser(new SimpleUser(user.getUsername())); 
+      this.setUser(user);  // NOTE  user implementuje org.picketlink.idm.api.User  8.11.2013 
+      return;
     }
     messages.error(new DefaultBundleKey("identity_loginFailed")).defaults("Invalid username or password");
     setStatus(AuthenticationStatus.FAILURE);

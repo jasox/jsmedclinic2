@@ -52,12 +52,12 @@ public class UserEjbDao implements IUserDao, Serializable {
 
   @Override
   public void store(IMedwardUser user) {
-    throw new UnsupportedOperationException("Not supported yet."); 
+    em.merge(user);    
   }  
   
   @Override
   public void remove(IMedwardUser user) {
-    throw new UnsupportedOperationException("Not supported yet.");     
+    em.remove(user);
   }
 
 }
