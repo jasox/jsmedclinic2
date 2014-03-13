@@ -11,12 +11,12 @@ import pl.jasox.medward.db.ApplicationDatabase;
 import pl.jasox.medward.model.dao.IClinicDao;
 import pl.jasox.medward.model.domainobject.Clinic;
 
+
+@ApplicationDatabase
 @Stateless
 public class ClinicEjbDao implements IClinicDao, Serializable {
 
-  //@Inject
-  //Logger log;
-   
+
   @Inject
   @ApplicationDatabase
   private EntityManager em;

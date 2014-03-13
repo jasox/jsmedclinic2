@@ -11,17 +11,17 @@ import pl.jasox.medward.db.ApplicationDatabase;
 import pl.jasox.medward.model.dao.IMedProcedureDao;
 import pl.jasox.medward.model.domainobject.MedProcedure;
 
+
+@ApplicationDatabase
 @Stateless
 public class MedProcedureEjbDao implements IMedProcedureDao, Serializable {
 
-  //@Inject
-  //Logger log;
-   
+
   @Inject
   @ApplicationDatabase
   private EntityManager em;
   
-
+  
   public MedProcedureEjbDao() {    
   }
   

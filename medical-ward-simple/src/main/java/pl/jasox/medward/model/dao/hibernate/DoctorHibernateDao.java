@@ -8,6 +8,7 @@ import pl.jasox.medward.model.IMedwardUser;
 import pl.jasox.medward.model.dao.IDoctorDao;
 import pl.jasox.medward.model.domainobject.Doctor;
 
+
 public class DoctorHibernateDao extends AGenericHibernateDao implements IDoctorDao {
 
   /** */

@@ -6,22 +6,22 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                       http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>pl.jasox</groupId>
-		<artifactId>medclinic</artifactId>
-		<version>1.1.1</version>
-		<relativePath>../pom.xml</relativePath>
-	</parent>
+  <parent>
+    <groupId>pl.jasox</groupId>
+    <artifactId>medclinic</artifactId>
+    <version>1.1.1</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
 
-	<groupId>pl.jasox.medclinic</groupId>
-	<artifactId>medical-ward</artifactId>
-	<packaging>war</packaging>
-	<name>Medical Ward</name>
-	<description> JS Medical Clinic Application Web Module </description>
-	
-	<properties>    
+  <groupId>pl.jasox.medclinic</groupId>
+  <artifactId>medical-ward</artifactId>
+  <packaging>war</packaging>
+  <name>Medical Ward</name>
+  <description> JS Medical Clinic Application Web Module </description>
+  
+  <properties>    
     <jboss.as.plugin.version>7.3.Final</jboss.as.plugin.version>
     
     <!-- Deployment ( to remote JBoss AS 7 )
@@ -38,22 +38,22 @@
     <!--
     <cargo.username>jaoss</cargo.username>
     <cargo.password>1234</cargo.password>    
-    -->		
-	  <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
-	  <netbeans.hint.j2eeVersion>1.6</netbeans.hint.j2eeVersion>
-	</properties>
+    -->    
+    <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
+    <netbeans.hint.j2eeVersion>1.6</netbeans.hint.j2eeVersion>
+  </properties>
   
   <!-- ===================================================================== -->
 
   <dependencies>
-    <!--
+    
     <dependency>
       <groupId>${projectGroup}</groupId>
       <artifactId>${projectName}-ejb</artifactId>
       <version>${projectVersion}</version>
       <type>ejb</type>
     </dependency>
-    -->    
+    <!-- -->    
     <dependency>
       <groupId>${projectGroup}</groupId>
       <artifactId>${projectName}-simple</artifactId>
@@ -73,15 +73,15 @@
       as a plugin dependencies (not only as project dependencies):
     -->
     <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <scope>test</scope>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
     </dependency>
     
     <dependency>
-        <groupId>org.testng</groupId>
-        <artifactId>testng</artifactId>       
-        <scope>test</scope>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>       
+      <scope>test</scope>
     </dependency>          
       
     <!-- Annotation processor for generating typed loggers -->
@@ -127,12 +127,12 @@
        <artifactId>richfaces-core-impl</artifactId>
        <exclusions>
           <exclusion>
-              <artifactId>cssparser</artifactId>
-              <groupId>net.sourceforge.cssparser</groupId>
+            <artifactId>cssparser</artifactId>
+            <groupId>net.sourceforge.cssparser</groupId>
           </exclusion>
-           <exclusion>
-              <artifactId>guava</artifactId>
-              <groupId>com.google.guava</groupId>
+          <exclusion>
+            <artifactId>guava</artifactId>
+            <groupId>com.google.guava</groupId>
           </exclusion>
        </exclusions>
     </dependency>
@@ -148,10 +148,10 @@
        <groupId>org.atmosphere</groupId>
        <artifactId>atmosphere-runtime</artifactId>
        <exclusions>
-           <exclusion>
-               <groupId>org.slf4j</groupId>
-               <artifactId>slf4j-api</artifactId>
-           </exclusion>
+         <exclusion>
+           <groupId>org.slf4j</groupId>
+           <artifactId>slf4j-api</artifactId>
+         </exclusion>
        </exclusions>
     </dependency>
 
@@ -185,15 +185,15 @@
     <!-- Arquillian allows you to test enterprise code such as EJBs and 
          Transactional(JTA) JPA from JUnit/TestNG -->
     <dependency>
-        <groupId>org.jboss.arquillian.junit</groupId>
-        <artifactId>arquillian-junit-container</artifactId>
-        <scope>test</scope>
+      <groupId>org.jboss.arquillian.junit</groupId>
+      <artifactId>arquillian-junit-container</artifactId>
+      <scope>test</scope>
     </dependency>
 
     <dependency>
-        <groupId>org.jboss.arquillian.protocol</groupId>
-        <artifactId>arquillian-protocol-servlet</artifactId>
-        <scope>test</scope>
+      <groupId>org.jboss.arquillian.protocol</groupId>
+      <artifactId>arquillian-protocol-servlet</artifactId>
+      <scope>test</scope>
     </dependency>
     
     <!-- Obtaining ShrinkWrap Resolvers for use in your system can be done in 
@@ -335,8 +335,8 @@
         <configuration>
           <!-- works after `enable-secure-admin` on asadmin in Glassfish! -->
           <container>
-              <containerId>glassfish3x</containerId>
-              <type>remote</type>
+            <containerId>glassfish3x</containerId>
+            <type>remote</type>
           </container>
           <configuration>
             <type>runtime</type>

@@ -2,7 +2,6 @@ package pl.jasox.medward.model.dao.ejb;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
@@ -15,14 +14,13 @@ import pl.jasox.medward.model.dao.IDoctorDao;
 import pl.jasox.medward.model.domainobject.Doctor;
 
 
+@ApplicationDatabase
 @Stateless
 public class DoctorEjbDao implements IDoctorDao, Serializable {
   
   private static final long serialVersionUID = -2046140499998287419L;
 
-  //@Inject
-  //Logger log;
-   
+
   @Inject
   @ApplicationDatabase
   private EntityManager em;

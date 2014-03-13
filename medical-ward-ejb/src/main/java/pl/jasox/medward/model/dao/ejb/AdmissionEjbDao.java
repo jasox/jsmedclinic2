@@ -11,12 +11,12 @@ import pl.jasox.medward.db.ApplicationDatabase;
 import pl.jasox.medward.model.dao.IAdmissionDao;
 import pl.jasox.medward.model.domainobject.Admission;
 
+
+@ApplicationDatabase
 @Stateless
 public class AdmissionEjbDao implements IAdmissionDao, Serializable {
 
-  //@Inject
-  //Logger log;
-   
+
   @Inject
   @ApplicationDatabase
   private EntityManager em;

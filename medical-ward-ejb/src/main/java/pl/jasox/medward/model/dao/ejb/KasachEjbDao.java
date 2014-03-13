@@ -2,12 +2,9 @@ package pl.jasox.medward.model.dao.ejb;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.logging.Logger;
+
 import javax.annotation.PostConstruct;
-import javax.ejb.Startup;
 import javax.ejb.Stateless;
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
@@ -15,12 +12,12 @@ import pl.jasox.medward.db.ApplicationDatabase;
 import pl.jasox.medward.model.dao.IKasachDao;
 import pl.jasox.medward.model.domainobject.Kasach;
 
+
+@ApplicationDatabase
 @Stateless
 public class KasachEjbDao implements IKasachDao, Serializable {
   
-  //@Inject
-  //Logger log;
-   
+
   @Inject
   @ApplicationDatabase
   private EntityManager em;

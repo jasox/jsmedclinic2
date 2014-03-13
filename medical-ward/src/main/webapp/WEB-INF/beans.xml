@@ -11,11 +11,11 @@
           org.jboss.seam.faces.context.conversation.ConversationBoundaryInterceptor
        </class>
     </interceptors>
-    
+    <!--
     <alternatives>
        <class>
           pl.jasox.medward.bootstrap.ApplicationInitializer
        </class>
     </alternatives>
-    
+    -->
 </beans>

@@ -9,11 +9,14 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 import org.jboss.seam.international.status.Messages;
+
+import pl.jasox.medward.db.ApplicationDatabase;
 import pl.jasox.medward.i18n.DefaultBundleKey;
 import pl.jasox.medward.model.IMedwardUser;
 import pl.jasox.medward.model.IMedwardUserRepository;
-import pl.jasox.medward.model.User;
+import pl.jasox.medward.model.domainobject.Doctor;
 
 /**
  * The view controller for registering a new user
@@ -23,6 +26,7 @@ import pl.jasox.medward.model.User;
 public class Registrar {
 
   @Inject 
+  @ApplicationDatabase 
   private IMedwardUserRepository userRepository;  
 
   @Inject
@@ -43,7 +47,7 @@ public class Registrar {
 
   private boolean registrationInvalid;
   
-  private final IMedwardUser newUser = new User(); // FIXME !  
+  private final IMedwardUser newUser = new Doctor(); // FIXME !  
   
   // ---------------------------------------------------------------------------  
   

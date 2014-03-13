@@ -9,7 +9,6 @@ import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Named;
 
-import pl.jasox.medward.model.CreditCardType;
 
 /**
  * A bean that produces credit card reference data for user-interface forms.

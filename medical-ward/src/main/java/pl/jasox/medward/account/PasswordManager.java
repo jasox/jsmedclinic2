@@ -9,6 +9,7 @@ import org.jboss.seam.international.status.Messages;
 import pl.jasox.medward.i18n.DefaultBundleKey;
 import pl.jasox.medward.model.IMedwardUser;
 import pl.jasox.medward.model.IMedwardUserRepository;
+import pl.jasox.medward.db.ApplicationDatabase;
 
 /**
  * The view controller for changing the user password
@@ -18,7 +19,8 @@ import pl.jasox.medward.model.IMedwardUserRepository;
 public class PasswordManager {
       
   @Inject 
-  private IMedwardUserRepository userRepository;            
+  @ApplicationDatabase 
+  private IMedwardUserRepository userRepository;
 
   @Inject
   private Messages messages;
