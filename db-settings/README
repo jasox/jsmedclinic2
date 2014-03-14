@@ -1,0 +1,15 @@
+--------------------------------------------------------------------------------
+ Application : JSMedClinic
+      Author : Janusz Swół <janusz.swol@gmail.com>
+--------------------------------------------------------------------------------
+
+Test databases HSQL - in directory :
+ ./fake-database-hsql
+ ./fake-database-hsql-2
+ 
+SQL files - in : 
+./sql   
+ 
+--------------------------------------------------------------------------------
+
+
