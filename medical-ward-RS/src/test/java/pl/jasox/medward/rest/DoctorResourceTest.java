@@ -40,6 +40,11 @@ public class DoctorResourceTest {
   
   @Deployment
   public static Archive<?> createDeployment() {
+    
+    File[] medical_ward_domain = 
+        Maven.resolver().loadPomFromFile("pom.xml")
+       .resolve("pl.jasox.medclinic:medical-ward-domain")
+       .withoutTransitivity().asFile();
 
     File[] medical_ward_simple = 
         Maven.resolver().loadPomFromFile("pom.xml")
@@ -80,7 +85,8 @@ public class DoctorResourceTest {
        //.addClass(TestDatabase.class)   
        //.addClass(DatabaseType.class)      
        //.addClass(TestEntityManagerProducer.class) 
-       .addClass(DoctorHibernateRestService.class)     
+       .addClass(DoctorHibernateRestService.class)
+       .addAsLibraries(medical_ward_domain)
        .addAsLibraries(medical_ward_simple)       
        .addAsLibraries(picketlink_idm)  
        .addAsLibraries(medical_ward_ejb)

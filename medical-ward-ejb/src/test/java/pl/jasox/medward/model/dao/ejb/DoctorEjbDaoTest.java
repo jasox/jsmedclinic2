@@ -103,6 +103,11 @@ public class DoctorEjbDaoTest {
   
   @Deployment
   public static Archive<?> createDeployment() {
+    
+    File[] medical_ward_domain = 
+        Maven.resolver().loadPomFromFile("pom.xml")
+       .resolve("pl.jasox.medclinic:medical-ward-domain")
+       .withoutTransitivity().asFile();
 
     File[] medical_ward_simple = 
         Maven.resolver().loadPomFromFile("pom.xml")
@@ -124,7 +129,7 @@ public class DoctorEjbDaoTest {
        .addClass(DatabaseType.class)      
        .addClass(DatabaseTypeProducer.class)   
        .addClass(EntityManagerProducer.class)
-       .addAsLibraries(medical_ward_simple)       
+       .addAsLibraries(medical_ward_domain)       
        .addAsLibraries(picketlink_idm)       
        .addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")
        .addAsResource("log4j.properties", "log4j.properties")

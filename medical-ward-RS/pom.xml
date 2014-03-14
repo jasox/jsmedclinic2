@@ -18,8 +18,8 @@
   <groupId>pl.jasox.medclinic</groupId>
   <artifactId>medical-ward-rest</artifactId>  
   <packaging>jar</packaging>
-  <name>Medical Ward REST Module</name>
-  <description> JS Medical Clinic Application REST Module </description>  
+  <name>Medical Ward REST Services</name>
+  <description> JS Medical Clinic Application REST Services </description>  
   
   <!-- ===================================================================== -->
   
@@ -37,6 +37,13 @@
   <!-- ===================================================================== -->
     
   <dependencies>
+  
+    <dependency>
+      <groupId>${projectGroup}</groupId>
+      <artifactId>${projectName}-domain</artifactId>
+      <version>${projectVersion}</version>
+      <type>jar</type>
+    </dependency> 
     
     <dependency>
       <groupId>${projectGroup}</groupId>

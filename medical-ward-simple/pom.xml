@@ -18,7 +18,7 @@
   <groupId>pl.jasox.medclinic</groupId>
   <artifactId>medical-ward-simple</artifactId>  
   <packaging>jar</packaging>
-  <name>Medical Ward Simple DAO's</name>
+  <name>Medical Ward Hibernate</name>
   <description> JS Medical Clinic Application Hibernate DAO Module </description>
   
   <properties>
@@ -33,6 +33,13 @@
   <!-- ===================================================================== -->
       
   <dependencies>
+  
+    <dependency>
+      <groupId>${projectGroup}</groupId>
+      <artifactId>${projectName}-domain</artifactId>
+      <version>${projectVersion}</version>
+      <type>jar</type>
+    </dependency> 
       
     <!--
      Mixing JUnit and TestNG in one module can be done just by adding both

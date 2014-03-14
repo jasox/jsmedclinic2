@@ -18,7 +18,7 @@
   <groupId>pl.jasox.medclinic</groupId>
   <artifactId>medical-ward</artifactId>
   <packaging>war</packaging>
-  <name>Medical Ward</name>
+  <name>Medical Ward Web</name>
   <description> JS Medical Clinic Application Web Module </description>
   
   <properties>    
@@ -48,27 +48,35 @@
   <!-- ===================================================================== -->
 
   <dependencies>
+  
+    <dependency>
+      <groupId>${projectGroup}</groupId>
+      <artifactId>${projectName}-domain</artifactId>
+      <version>${projectVersion}</version>
+      <type>jar</type>
+    </dependency>
     <!--
     <dependency>
       <groupId>${projectGroup}</groupId>
       <artifactId>${projectName}-rest</artifactId>
       <version>${projectVersion}</version>
-      <type>ejb</type>
+      <type>jar</type>
     </dependency>
      --> 
     <dependency>
       <groupId>${projectGroup}</groupId>
       <artifactId>${projectName}-ejb</artifactId>
       <version>${projectVersion}</version>
-      <type>ejb</type>
+      <type>jar</type>
     </dependency>
-    <!-- -->    
+    <!--    
     <dependency>
       <groupId>${projectGroup}</groupId>
       <artifactId>${projectName}-simple</artifactId>
       <version>${projectVersion}</version>
       <type>jar</type>
     </dependency>  
+    --> 
     
     <dependency>
       <groupId>org.jboss.spec</groupId>

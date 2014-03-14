@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project 
+     xmlns="http://maven.apache.org/POM/4.0.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation=
+       "http://maven.apache.org/POM/4.0.0 
+        http://maven.apache.org/maven-v4_0_0.xsd">
+       
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>pl.jasox</groupId>
+    <artifactId>medclinic</artifactId>
+    <version>1.1.1</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <groupId>pl.jasox.medclinic</groupId>
+  <artifactId>medical-ward-domain</artifactId>  
+  <packaging>jar</packaging>
+  <name>Medical Ward Domain</name>
+  <description> JS Medical Clinic Application PDO's and DAO's Module </description>
+  
+  <properties>        
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>     
+  </properties>
+  
+  <!-- ===================================================================== -->
+      
+  <dependencies>
+    
+    <!-- Import the JPA API, we use provided scope as the API is included in JBoss AS 7 -->
+    <dependency>
+       <groupId>org.hibernate.javax.persistence</groupId>
+       <artifactId>hibernate-jpa-2.0-api</artifactId>
+       <scope>provided</scope>
+    </dependency>      
+    
+    <!-- JSR-303 (Bean Validation) Implementation     -->
+    <!-- Provides portable constraints such as @Email -->
+    <!-- Hibernate Validator is shipped in JBoss AS 7 -->
+    <dependency>
+       <groupId>org.hibernate</groupId>
+       <artifactId>hibernate-validator</artifactId> 
+       <scope>${projectScope}</scope>     
+       <exclusions>
+           <exclusion>
+               <groupId>org.slf4j</groupId>
+               <artifactId>slf4j-api</artifactId>
+           </exclusion>
+       </exclusions>
+    </dependency>
+    
+    <!-- Annotation processor that raising compilation errors whenever 
+         constraint annotations are incorrectly used. -->
+    <dependency>
+       <groupId>org.hibernate</groupId>
+       <artifactId>hibernate-validator-annotation-processor</artifactId>       
+    </dependency>
+    
+    <dependency>
+      <groupId>org.picketlink.idm</groupId>
+      <artifactId>picketlink-idm-core</artifactId>      
+    </dependency>
+    
+    <dependency>          
+      <groupId>log4j</groupId>          
+      <artifactId>log4j</artifactId>         
+      <scope>${projectScope}</scope>                    
+    </dependency>    
+    
+    <dependency> 
+       <groupId>org.slf4j</groupId>
+       <artifactId>slf4j-simple</artifactId>
+       <version>${version.slf4j}</version>
+       <scope>${projectScope}</scope>
+    </dependency>
+       
+  </dependencies>
+  
+  <!-- ===================================================================== -->
+
+  <build>
+    
+    <resources>
+        
+      <resource> 
+        <directory>${basedir}/src/main/java</directory> 
+        <includes> 
+          <include>**/*.xml</include> 
+          <include>**/*.properties</include>
+        </includes> 
+      </resource>  
+        
+      <resource>
+        <directory>${basedir}/src/main/resources</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>**/*.xml</include>
+          <include>**/*.properties</include>
+        </includes>
+      </resource>  
+      
+      <resource>
+        <directory>${basedir}/src/main/resources</directory>
+        <filtering>false</filtering>
+        <excludes>
+          <exclude>**/*.xml</exclude>
+          <exclude>**/*.properties</exclude>
+        </excludes>
+      </resource>
+      
+    </resources>          
+      
+    <testResources>
+      <!-- Kopiowanie zasobów testowych -->
+      <testResource>
+        <directory>${basedir}/src/test/resources</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>**/*.xml</include>
+          <include>**/*.properties</include>
+        </includes>
+      </testResource>
+      
+      <testResource>
+        <directory>${basedir}/src/test/resources</directory>
+        <filtering>false</filtering>
+        <excludes>
+          <exclude>**/*.xml</exclude>
+          <exclude>**/*.properties</exclude>
+        </excludes>
+      </testResource>
+
+    </testResources>           
+      
+    
+  </build>
+  
+    
+</project>

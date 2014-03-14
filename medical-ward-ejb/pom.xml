@@ -37,13 +37,28 @@
   <!-- ===================================================================== -->
   
   <dependencies>
-    
+  
+    <dependency>
+      <groupId>${projectGroup}</groupId>
+      <artifactId>${projectName}-domain</artifactId>
+      <version>${projectVersion}</version>
+      <type>jar</type>
+    </dependency> 
+    <!--
     <dependency>
        <groupId>${projectGroup}</groupId>
        <artifactId>${projectName}-simple</artifactId>
        <version>${projectVersion}</version>
        <type>jar</type>
     </dependency>   
+    -->    
+     
+    <dependency>    
+      <groupId>com.sun.mail</groupId>    
+      <artifactId>javax.mail</artifactId>    
+      <version>1.4.5</version>
+      <scope>${projectScope}</scope>
+    </dependency>
     
     <!-- Import the CDI API, we use provided scope as the API is included in JBoss AS 7 -->
     <dependency>
@@ -79,6 +94,13 @@
        <groupId>org.hibernate.javax.persistence</groupId>
        <artifactId>hibernate-jpa-2.0-api</artifactId>
        <scope>provided</scope>
+    </dependency>
+    
+    <!-- Hibernate reference -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>      
+      <scope>compile</scope>
     </dependency>
     
     <!-- Import the EJB API, we use provided scope as the API is included in JBoss AS 7 -->

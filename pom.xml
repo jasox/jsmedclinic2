@@ -110,6 +110,7 @@
   <modules>
 
     <module>medical-ward</module>
+    <module>medical-ward-domain</module>
     <module>medical-ward-ejb</module>
     <module>medical-ward-RS</module>
     <module>medical-ward-simple</module>
