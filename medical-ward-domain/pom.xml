@@ -132,10 +132,9 @@
         </excludes>
       </testResource>
 
-    </testResources>           
-      
+    </testResources>        
     
-  </build>
-  
+  </build>  
     
 </project>
+
