@@ -28,8 +28,8 @@
                 <goal>install</goal>
             </goals>
             <activatedProfiles>
-                <activatedProfile>glassfish</activatedProfile>
                 <activatedProfile>aws_MySQL</activatedProfile>
+                <activatedProfile>glassfish</activatedProfile>
             </activatedProfiles>
         </action>
         <action>
@@ -42,8 +42,8 @@
                 <goal>install</goal>
             </goals>
             <activatedProfiles>
-                <activatedProfile>glassfish</activatedProfile>
                 <activatedProfile>aws_MySQL</activatedProfile>
+                <activatedProfile>glassfish</activatedProfile>
             </activatedProfiles>
         </action>
         <action>
@@ -73,6 +73,7 @@
             </goals>
             <activatedProfiles>
                 <activatedProfile>aws_MySQL</activatedProfile>
+                <activatedProfile>glassfish</activatedProfile>
             </activatedProfiles>
         </action>
     </actions>

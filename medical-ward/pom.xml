@@ -24,7 +24,8 @@
   <properties>    
     <jboss.as.plugin.version>7.3.Final</jboss.as.plugin.version>
     
-    <!-- Deployment ( to remote JBoss AS 7 )
+    <!-- Deployment ( to remote JBoss AS 7 ) -->
+    <!--
     <jboss-as.deploy.host>10.23.14.95</jboss-as.deploy.host> 
      --> 
     <jboss-as.deploy.host>127.0.0.1</jboss-as.deploy.host>  
@@ -32,6 +33,7 @@
     <jboss-as.deploy.pass>1234</jboss-as.deploy.pass>
 
     <!-- Deployment ( to remote GlassFish 3.1.1, js-laptop-hp, secure -->
+    <!-- works after `enable-secure-admin` on asadmin in Glassfish!   -->
     <cargo.hostname>js-laptop-hp</cargo.hostname>
     <cargo.username>admin</cargo.username>
     <cargo.password></cargo.password> 
@@ -46,7 +48,14 @@
   <!-- ===================================================================== -->
 
   <dependencies>
-    
+    <!--
+    <dependency>
+      <groupId>${projectGroup}</groupId>
+      <artifactId>${projectName}-rest</artifactId>
+      <version>${projectVersion}</version>
+      <type>ejb</type>
+    </dependency>
+     --> 
     <dependency>
       <groupId>${projectGroup}</groupId>
       <artifactId>${projectName}-ejb</artifactId>

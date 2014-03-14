@@ -25,4 +25,31 @@
                 <activatedProfile>test-RS</activatedProfile>
             </activatedProfiles>
         </action>
+        <action>
+            <actionName>build</actionName>
+            <packagings>
+                <packaging>*</packaging>
+            </packagings>
+            <goals>
+                <goal>install</goal>
+            </goals>
+            <activatedProfiles>
+                <activatedProfile>aws_MySQL</activatedProfile>
+                <activatedProfile>glassfish</activatedProfile>
+            </activatedProfiles>
+        </action>
+        <action>
+            <actionName>rebuild</actionName>
+            <packagings>
+                <packaging>*</packaging>
+            </packagings>
+            <goals>
+                <goal>clean</goal>
+                <goal>install</goal>
+            </goals>
+            <activatedProfiles>
+                <activatedProfile>aws_MySQL</activatedProfile>
+                <activatedProfile>glassfish</activatedProfile>
+            </activatedProfiles>
+        </action>
     </actions>

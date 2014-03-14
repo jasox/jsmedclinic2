@@ -9,6 +9,9 @@
                 <goal>install</goal>
                 
             </goals>
+            <activatedProfiles>
+                <activatedProfile>aws_MySQL</activatedProfile>
+            </activatedProfiles>
         </action>
         <action>
             <actionName>rebuild</actionName>
@@ -20,6 +23,9 @@
                 <goal>install</goal>
                 
             </goals>
+            <activatedProfiles>
+                <activatedProfile>aws_MySQL</activatedProfile>
+            </activatedProfiles>
         </action>
         <action>
             <actionName>CUSTOM-install</actionName>
