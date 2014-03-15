@@ -21,7 +21,7 @@ public class CurrentUserManager {
   @Authenticated
   @Named("currentUser")
   public IMedwardUser getCurrentUser() {
-      return currentUser;
+    return currentUser;
   }
 
   // Injecting HttpServletRequest instead of HttpSession as the latter conflicts

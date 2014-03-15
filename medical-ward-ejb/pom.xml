@@ -174,20 +174,20 @@
        </exclusions>
     </dependency>
     
-    <!-- Import the JSF API, we use provided scope as the API is included in JBoss AS 7 -->
+    <!-- Import the JSF API, we use provided scope as the API is included in JBoss AS 7 
     <dependency>
        <groupId>org.jboss.spec.javax.faces</groupId>
        <artifactId>jboss-jsf-api_2.1_spec</artifactId>
        <scope>provided</scope>
     </dependency>
-    
-    <!-- Import the Servlet API, we use provided scope as the API is included in JBoss AS 7 -->
+    -->
+    <!-- Import the Servlet API, we use provided scope as the API is included in JBoss AS 7 
     <dependency>
        <groupId>org.jboss.spec.javax.servlet</groupId>
        <artifactId>jboss-servlet-api_3.0_spec</artifactId>
        <scope>provided</scope>
     </dependency>
-    
+    -->
     <!-- Annotation processor to generate the JPA 2.0 metamodel classes 
          for typesafe criteria queries -->
     <dependency>
@@ -277,7 +277,7 @@
       <scope>test</scope>
     </dependency>  
       
-    <!-- Annotation processor for generating typed loggers -->
+    <!-- Annotation processor for generating typed loggers 
     <dependency>
       <groupId>org.jboss.solder</groupId>
       <artifactId>solder-tooling</artifactId>
@@ -290,7 +290,7 @@
       <artifactId>solder-impl</artifactId>
       <scope>provided</scope>
     </dependency>
-    
+    -->
     <!-- Seam 
     <dependency>
       <groupId>org.jboss.seam.faces</groupId>
@@ -320,8 +320,9 @@
     <dependency>
       <groupId>org.picketlink.idm</groupId>
       <artifactId>picketlink-idm-core</artifactId>
+      <version>${picketlink.idm.version}</version>
     </dependency>
-    
+    <!--
     <dependency>
       <groupId>com.ocpsoft</groupId>
       <artifactId>ocpsoft-pretty-time</artifactId>      
@@ -331,7 +332,7 @@
       <groupId>joda-time</groupId>
       <artifactId>joda-time</artifactId>
     </dependency>
-        
+    -->    
     
     <!-- Obtaining ShrinkWrap Resolvers for use in your system can be done in 
          a single pass by declaring a dependency upon the depchain module  -->
@@ -367,8 +368,9 @@
     
     <dependency>          
       <groupId>log4j</groupId>          
-      <artifactId>log4j</artifactId>       
-      <scope>${projectScope}</scope>                    
+      <artifactId>log4j</artifactId> 
+      <version>${log4j.version}</version>       
+      <scope>${projectScope}</scope>                      
     </dependency>
     
         

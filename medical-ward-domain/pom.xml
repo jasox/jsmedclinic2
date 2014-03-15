@@ -61,12 +61,14 @@
     
     <dependency>
       <groupId>org.picketlink.idm</groupId>
-      <artifactId>picketlink-idm-core</artifactId>      
+      <artifactId>picketlink-idm-core</artifactId> 
+      <version>${picketlink.idm.version}</version>    
     </dependency>
     
     <dependency>          
       <groupId>log4j</groupId>          
-      <artifactId>log4j</artifactId>         
+      <artifactId>log4j</artifactId> 
+      <version>${log4j.version}</version>        
       <scope>${projectScope}</scope>                    
     </dependency>    
     

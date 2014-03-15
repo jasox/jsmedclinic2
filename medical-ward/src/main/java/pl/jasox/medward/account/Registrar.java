@@ -3,17 +3,14 @@ package pl.jasox.medward.account;
 import javax.ejb.Stateful;
 import javax.enterprise.inject.Model;
 import javax.enterprise.inject.Produces;
+import javax.faces.application.FacesMessage;
 import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import org.jboss.seam.international.status.Messages;
-
 import pl.jasox.medward.db.ApplicationDatabase;
-import pl.jasox.medward.i18n.DefaultBundleKey;
 import pl.jasox.medward.model.IMedwardUser;
 import pl.jasox.medward.model.IMedwardUserRepository;
 import pl.jasox.medward.model.domainobject.Doctor;
@@ -28,9 +25,6 @@ public class Registrar {
   @Inject 
   @ApplicationDatabase 
   private IMedwardUserRepository userRepository;  
-
-  @Inject
-  private Messages messages;
 
   @Inject
   private FacesContext facesContext;
@@ -61,10 +55,9 @@ public class Registrar {
     if (verifyUsernameIsAvailable()) {
       registered = true;
       userRepository.store(newUser);
-      messages.info(new DefaultBundleKey("registration_registered"))
-              .defaults("You have been successfully registered as the user {0}! " +
-                        "You can now login.")
-              .params(newUser.getUsername());
+      FacesMessage m = 
+          new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful");
+      facesContext.addMessage(null, m);      
     } 
     else {
       registrationInvalid = true;
@@ -87,8 +80,9 @@ public class Registrar {
    */
   public void notifyIfRegistrationIsInvalid() {
     if (facesContext.isValidationFailed() || registrationInvalid) {
-      messages.warn( new DefaultBundleKey("registration_invalid"))
-              .defaults( "Invalid registration. Please correct the errors and try again.");
+      FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_WARN, 
+              "Invalid registration!", "Please correct the errors and try again.");
+      facesContext.addMessage(null, m);     
     }
   }
 
@@ -115,11 +109,9 @@ public class Registrar {
   private boolean verifyUsernameIsAvailable() {
     IMedwardUser existing = userRepository.find(newUser.getUsername());
     if (existing != null) {
-      messages.warn(new DefaultBundleKey("account_usernameTaken"))
-              .defaults("The username '{0}' is already taken. " +
-                        "Please choose another username.")
-              .targets(usernameInput.getClientId())
-              .params(newUser.getUsername());
+      FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_WARN, 
+              "Invalid registration!", 
+              "The username is already taken. Please choose another username");      
       return false;
     }
     return true;

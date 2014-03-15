@@ -25,10 +25,15 @@
     <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
     <jboss.bom.version>1.0.7.Final</jboss.bom.version>
 
+    <jboss.javaee.version>2.0.0.Final</jboss.javaee.version>
     <seam.version>3.1.0.Final</seam.version>
     <org.richfaces.bom.version>4.3.3.Final</org.richfaces.bom.version>
     <surefire.version>2.13</surefire.version>
     <jpamodelgen.version>1.2.0.Final</jpamodelgen.version>
+    <picketlink.idm.version>1.5.0.Alpha02</picketlink.idm.version>
+    <dom4j.version>1.6.1</dom4j.version>
+    <javassist.version>3.13.0-GA</javassist.version>
+    <log4j.version>1.2.17</log4j.version>
     <!--
     <jersey.version>1.8</jersey.version>
     -->
@@ -244,7 +249,7 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-
+      <!--
       <dependency>
         <groupId>org.jboss.seam</groupId>
         <artifactId>seam-bom</artifactId>
@@ -268,7 +273,7 @@
         <scope>import</scope>
         <type>pom</type>
       </dependency>
-
+      -->
       <dependency>
         <groupId>org.richfaces</groupId>
         <artifactId>richfaces-bom</artifactId>

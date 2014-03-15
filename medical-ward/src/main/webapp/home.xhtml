@@ -16,35 +16,16 @@
             <p> #{bundles.messages.home_body}  </p>
             <p> #{bundles.messages.home_note}  </p>            
         </div>
-    </ui:define>
-    
- <!--  
- The majority of the Seam Security API is centered around the Identity bean. 
- This bean represents the identity of the current user, the default implementation of which is 
- a session-scoped, named bean. 
- This means that once logged in, a user's identity is scoped to the lifecycle of their current session. 
- The two most important methods that you need to know about at this stage in regard to authentication 
- are login() and logout(), which as the names suggest are used to log the user in and out, respectively.
- As the default implementation of the Identity bean is named, it may be referenced via an EL expression, 
- or be used as the target of an EL action.
+    </ui:define>    
  
- The other important bean to know about right now is the Credentials bean. 
- Its' purpose is to hold the user's credentials (such as their username and password) before the user 
- logs in. 
- The default implementation of the Credentials bean is also a session-scoped, named bean (just like
- the Identity bean). The Credentials bean has two properties, username and credential that are used 
- to hold the current user's username and credential (e.g. a password) values. The default implementation 
- of the Credentials bean provides an additional convenience property called password, which may be used 
- in lieu of the credential property when a simple password is required.    
- -->
     <ui:define name="sidebar">
-        <h:form id="login" rendered="#{! identity.loggedIn}">
+        <h:form id="login" rendered="#{ empty currentUser }">
             <fieldset>
                 <div>
                     <h:outputLabel for="username" 
                                    value="#{bundles.messages.home_usernameLabel}"/>
                     <h:inputText id="username"  
-                                 value="#{credentials.username}" style="width: 175px;"/>
+                                 value="#{newUser.username}" style="width: 175px;"/>
                     <div class="errors">
                         <h:message for="username"/>
                     </div>
@@ -54,7 +35,7 @@
                     <h:outputLabel for="password" 
                                    value="#{bundles.messages.home_passwordLabel}"/>
                     <h:inputSecret id="password"  
-                                   value="#{credentials.password}" style="width: 175px;"/>
+                                   value="#{newUser.password}" style="width: 175px;"/>
                 </div>
                 
 		            <span class="errors">
@@ -63,7 +44,7 @@
 
                 <div class="buttonBox">
                     <h:commandButton id="login" 
-                                     action="#{identity.login}" 
+                                     action="#{customAuthenticator.authenticate()}" 
                                      value="#{bundles.messages.home_loginAction}"/>
                 </div>
                 

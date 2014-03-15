@@ -2,14 +2,14 @@ package pl.jasox.medward.account;
 
 import javax.ejb.Stateful;
 import javax.enterprise.inject.Model;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import org.jboss.seam.international.status.Messages;
-import pl.jasox.medward.i18n.DefaultBundleKey;
+import pl.jasox.medward.db.ApplicationDatabase;
 import pl.jasox.medward.model.IMedwardUser;
 import pl.jasox.medward.model.IMedwardUserRepository;
-import pl.jasox.medward.db.ApplicationDatabase;
 
 /**
  * The view controller for changing the user password
@@ -17,13 +17,13 @@ import pl.jasox.medward.db.ApplicationDatabase;
 @Stateful
 @Model
 public class PasswordManager {
+  
+  @Inject
+  private FacesContext facesContext;
       
   @Inject 
   @ApplicationDatabase 
   private IMedwardUserRepository userRepository;
-
-  @Inject
-  private Messages messages;
 
   @Inject
   @Authenticated
@@ -39,8 +39,9 @@ public class PasswordManager {
 
   public void changePassword() {
     userRepository.store(user);
-    messages.info(
-      new DefaultBundleKey("account_passwordChanged")).defaults("Password successfully updated.");
+    FacesMessage m = 
+        new FacesMessage(FacesMessage.SEVERITY_INFO, "Changed!", "Password successfully updated.");
+    facesContext.addMessage(null, m);    
     this.setChanged( true );
   }
   

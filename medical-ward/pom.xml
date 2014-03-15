@@ -81,6 +81,7 @@
     <dependency>
       <groupId>org.jboss.spec</groupId>
       <artifactId>jboss-javaee-6.0</artifactId>
+      <version>${jboss.javaee.version}</version>
       <type>pom</type>
       <scope>provided</scope>
     </dependency>
@@ -101,31 +102,31 @@
       <scope>test</scope>
     </dependency>          
       
-    <!-- Annotation processor for generating typed loggers -->
+    <!-- Annotation processor for generating typed loggers 
     <dependency>
       <groupId>org.jboss.solder</groupId>
       <artifactId>solder-tooling</artifactId>
-      <scope>provided</scope>
+      <scope>provided</scope>      
       <optional>true</optional>
     </dependency>
 
     <dependency>
       <groupId>org.jboss.solder</groupId>
       <artifactId>solder-impl</artifactId>
-      <scope>provided</scope>
+      <scope>provided</scope>      
     </dependency>
-
-    <!-- Seam -->
+    -->
+    <!-- Seam 
     <dependency>
       <groupId>org.jboss.seam.faces</groupId>
       <artifactId>seam-faces</artifactId>
-      <scope>compile</scope><!-- Temporary workaround for GLASSFISH-17184 -->
+      <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>org.jboss.seam.international</groupId>
       <artifactId>seam-international</artifactId>
-      <scope>compile</scope>
+      <scope>compile</scope>      
     </dependency>
 
     <dependency>
@@ -139,46 +140,47 @@
       <artifactId>seam-transaction</artifactId>
       <scope>compile</scope>
     </dependency>    
-    
+    -->
     <!-- Import the RichFaces core library -->
     <dependency>
-       <groupId>org.richfaces.core</groupId>
-       <artifactId>richfaces-core-impl</artifactId>
-       <exclusions>
-          <exclusion>
-            <artifactId>cssparser</artifactId>
-            <groupId>net.sourceforge.cssparser</groupId>
-          </exclusion>
-          <exclusion>
-            <artifactId>guava</artifactId>
-            <groupId>com.google.guava</groupId>
-          </exclusion>
-       </exclusions>
+      <groupId>org.richfaces.core</groupId>
+      <artifactId>richfaces-core-impl</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>cssparser</artifactId>
+          <groupId>net.sourceforge.cssparser</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>guava</artifactId>
+          <groupId>com.google.guava</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <!-- Import the RichFaces components -->
     <dependency>
-       <groupId>org.richfaces.ui</groupId>
-       <artifactId>richfaces-components-ui</artifactId>
+      <groupId>org.richfaces.ui</groupId>
+      <artifactId>richfaces-components-ui</artifactId>
     </dependency>
 
      <!-- Import the Atmosphere framework for a4j:push -->
     <dependency>
-       <groupId>org.atmosphere</groupId>
-       <artifactId>atmosphere-runtime</artifactId>
-       <exclusions>
-         <exclusion>
-           <groupId>org.slf4j</groupId>
-           <artifactId>slf4j-api</artifactId>
-         </exclusion>
-       </exclusions>
+      <groupId>org.atmosphere</groupId>
+      <artifactId>atmosphere-runtime</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
       <groupId>org.picketlink.idm</groupId>
       <artifactId>picketlink-idm-core</artifactId>
+      <version>${picketlink.idm.version}</version>
     </dependency>
-
+    <!--
     <dependency>
       <groupId>com.ocpsoft</groupId>
       <artifactId>ocpsoft-pretty-time</artifactId>
@@ -188,19 +190,18 @@
       <groupId>com.ocpsoft</groupId>
       <artifactId>prettyfaces-jsf2</artifactId>
     </dependency>
-
+    -->
     <dependency>
       <groupId>commons-digester</groupId>
       <artifactId>commons-digester</artifactId>
       <version>2.1</version>
     </dependency>
-
-        
+    <!--    
     <dependency>
       <groupId>joda-time</groupId>
       <artifactId>joda-time</artifactId>
     </dependency>    
-  
+    -->
     <!-- Arquillian allows you to test enterprise code such as EJBs and 
          Transactional(JTA) JPA from JUnit/TestNG -->
     <dependency>
