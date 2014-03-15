@@ -52,7 +52,7 @@
             </goals>
             <activatedProfiles>
                 <activatedProfile>aws_MySQL</activatedProfile>
-                <activatedProfile>glassfish</activatedProfile>
+                <activatedProfile>jbossas7</activatedProfile>
             </activatedProfiles>
         </action>
         <action>
@@ -66,13 +66,14 @@
             </goals>
             <activatedProfiles>
                 <activatedProfile>aws_MySQL</activatedProfile>
-                <activatedProfile>glassfish</activatedProfile>
+                <activatedProfile>jbossas7</activatedProfile>
             </activatedProfiles>
         </action>
         <action>
             <actionName>CUSTOM-jboss-as-deploy</actionName>
             <displayName>jboss-as7-deploy</displayName>
             <goals>
+                <goal>clean</goal>
                 <goal>jboss-as:deploy</goal>
             </goals>
             <activatedProfiles>

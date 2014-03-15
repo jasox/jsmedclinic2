@@ -10,8 +10,8 @@
     <!-- copy from standalone.xml 
          trzeba też ustawić sterowniki jako moduły -->
     
-          <datasources>
-                <datasource 
+            <datasources>
+               <datasource 
                     jndi-name="java:jboss/datasources/ExampleDS" 
                     pool-name="ExampleDS" 
                     enabled="true" 
@@ -22,8 +22,8 @@
                         <user-name>sa</user-name>
                         <password>sa</password>
                     </security>
-                </datasource>
-                <datasource 
+               </datasource>
+               <datasource 
                   jndi-name="java:jboss/datasources/medward_MySQL_Datasource" 
                   pool-name="medward_MySQL_Pool"
                   enabled="true"
@@ -70,7 +70,7 @@
                     <driver-class>org.hsqldb.jdbcDriver</driver-class>
                   </driver>  
                </drivers>
-            </datasources>
+           </datasources>
     
     
     

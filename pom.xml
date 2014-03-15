@@ -68,6 +68,7 @@
     <!-- Databases -->
     <version.derby>10.10.1.1</version.derby>
     <version.mysql>5.1.21</version.mysql>
+    <version.hsql>2.2.7</version.hsql>
 
     <!-- Application properties -->
     <projectGroup>pl.jasox.medclinic</projectGroup>

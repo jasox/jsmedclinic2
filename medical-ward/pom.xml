@@ -32,8 +32,8 @@
     <jboss-as.deploy.user>admin</jboss-as.deploy.user>
     <jboss-as.deploy.pass>1234</jboss-as.deploy.pass>
 
-    <!-- Deployment ( to remote GlassFish 3.1.1, js-laptop-hp, secure -->
-    <!-- works after `enable-secure-admin` on asadmin in Glassfish!   -->
+    <!-- Deployment ( to remote GlassFish 3.1.1, js-laptop-hp, secure ) -->
+    <!-- works after `enable-secure-admin` on asadmin in Glassfish!     -->
     <cargo.hostname>js-laptop-hp</cargo.hostname>
     <cargo.username>admin</cargo.username>
     <cargo.password></cargo.password> 
@@ -67,7 +67,7 @@
       <groupId>${projectGroup}</groupId>
       <artifactId>${projectName}-ejb</artifactId>
       <version>${projectVersion}</version>
-      <type>jar</type>
+      <type>ejb</type>
     </dependency>
     <!--    
     <dependency>
@@ -112,6 +112,7 @@
     <dependency>
       <groupId>org.jboss.solder</groupId>
       <artifactId>solder-impl</artifactId>
+      <scope>provided</scope>
     </dependency>
 
     <!-- Seam -->
@@ -124,6 +125,7 @@
     <dependency>
       <groupId>org.jboss.seam.international</groupId>
       <artifactId>seam-international</artifactId>
+      <scope>compile</scope>
     </dependency>
 
     <dependency>

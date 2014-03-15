@@ -33,5 +33,8 @@
             <goals>
                 <goal>clean install</goal>
             </goals>
+            <activatedProfiles>
+                <activatedProfile>aws_MySQL</activatedProfile>
+            </activatedProfiles>
         </action>
     </actions>

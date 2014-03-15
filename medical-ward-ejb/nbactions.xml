@@ -29,7 +29,7 @@
             </goals>
             <activatedProfiles>
                 <activatedProfile>aws_MySQL</activatedProfile>
-                <activatedProfile>glassfish</activatedProfile>
+                <activatedProfile>jbossas7</activatedProfile>
             </activatedProfiles>
         </action>
         <action>
@@ -43,7 +43,7 @@
             </goals>
             <activatedProfiles>
                 <activatedProfile>aws_MySQL</activatedProfile>
-                <activatedProfile>glassfish</activatedProfile>
+                <activatedProfile>jbossas7</activatedProfile>
             </activatedProfiles>
         </action>
         <action>
@@ -73,7 +73,7 @@
             </goals>
             <activatedProfiles>
                 <activatedProfile>aws_MySQL</activatedProfile>
-                <activatedProfile>glassfish</activatedProfile>
+                <activatedProfile>jbossas7</activatedProfile>
             </activatedProfiles>
         </action>
     </actions>

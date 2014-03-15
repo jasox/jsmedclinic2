@@ -38,6 +38,7 @@
   
   <dependencies>
   
+     <!-- Project dependencies -->
     <dependency>
       <groupId>${projectGroup}</groupId>
       <artifactId>${projectName}-domain</artifactId>
@@ -89,6 +90,7 @@
        <scope>provided</scope>
     </dependency>
     -->
+    
     <!-- Import the JPA API, we use provided scope as the API is included in JBoss AS 7 -->
     <dependency>
        <groupId>org.hibernate.javax.persistence</groupId>
@@ -100,9 +102,56 @@
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>      
-      <scope>compile</scope>
+      <scope>provided</scope>
     </dependency>
     
+    <dependency>     
+      <groupId>org.hibernate</groupId>     
+      <artifactId>hibernate-c3p0</artifactId>       
+      <scope>provided</scope>
+    </dependency>
+    
+    <!-- c3p0 connection management -->    
+    <dependency> 
+      <groupId>c3p0</groupId> 
+      <artifactId>c3p0</artifactId> 
+      <version>0.9.1.2</version> 
+      <scope>runtime</scope>
+    </dependency>   
+    
+    <!-- p6spy connection management -->
+    <dependency>
+      <groupId>p6spy</groupId>
+      <artifactId>p6spy</artifactId>
+      <version>1.3</version>
+      <scope>runtime</scope>
+    </dependency>
+
+     <!-- DBCP connection management -->
+    <dependency>
+      <groupId>commons-dbcp</groupId>
+      <artifactId>commons-dbcp</artifactId>
+      <version>1.2.2</version>
+      <scope>runtime</scope>
+    </dependency>  
+    
+    <!-- HSQL database driver -->
+    <dependency> 
+      <groupId>org.hsqldb</groupId>  
+      <artifactId>hsqldb</artifactId>  
+      <version>${version.hsql}</version>
+      <scope>provided</scope> 
+    </dependency>
+    
+    <!-- MySQL database driver -->
+    <dependency>
+      <groupId>mysql</groupId> 
+      <artifactId>mysql-connector-java</artifactId> 
+      <version>${version.mysql}</version>  
+      <scope>provided</scope>
+    </dependency>     
+    
+     
     <!-- Import the EJB API, we use provided scope as the API is included in JBoss AS 7 -->
     <dependency>
        <groupId>org.jboss.spec.javax.ejb</groupId>
@@ -239,9 +288,10 @@
     <dependency>
       <groupId>org.jboss.solder</groupId>
       <artifactId>solder-impl</artifactId>
+      <scope>provided</scope>
     </dependency>
     
-    <!-- Seam -->
+    <!-- Seam 
     <dependency>
       <groupId>org.jboss.seam.faces</groupId>
       <artifactId>seam-faces</artifactId>
@@ -251,6 +301,7 @@
     <dependency>
       <groupId>org.jboss.seam.international</groupId>
       <artifactId>seam-international</artifactId>
+      <scope>compile</scope>
     </dependency>
 
     <dependency>
@@ -264,6 +315,7 @@
       <artifactId>seam-transaction</artifactId>
       <scope>compile</scope>
     </dependency>  
+    -->
     
     <dependency>
       <groupId>org.picketlink.idm</groupId>
@@ -345,6 +397,7 @@
       <groupId>org.apache.derby</groupId>
       <artifactId>derbyclient</artifactId>
       <version>${version.derby}</version>
+      <scope>test</scope>
     </dependency>
     
   </dependencies>

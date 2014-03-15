@@ -34,6 +34,7 @@
       
   <dependencies>
   
+     <!-- Project dependencies -->
     <dependency>
       <groupId>${projectGroup}</groupId>
       <artifactId>${projectName}-domain</artifactId>
@@ -92,16 +93,16 @@
     <dependency> 
       <groupId>org.hsqldb</groupId>  
       <artifactId>hsqldb</artifactId>  
-      <version>2.2.7</version>
-      <scope>runtime</scope> 
+      <version>${version.hsql}</version>
+      <scope>provided</scope> 
     </dependency>
     
     <!-- MySQL database driver -->
     <dependency>
       <groupId>mysql</groupId> 
       <artifactId>mysql-connector-java</artifactId> 
-      <version>5.1.5</version>  
-      <scope>runtime</scope>
+      <version>${version.mysql}</version>  
+      <scope>provided</scope>
     </dependency>     
     
     <!-- c3p0 connection management -->    
@@ -132,28 +133,28 @@
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>      
-      <scope>${projectScope}</scope>
+      <scope>provided</scope>
     </dependency>
      
     <dependency>     
       <groupId>org.hibernate</groupId>     
       <artifactId>hibernate-c3p0</artifactId>       
-      <scope>${projectScope}</scope>
+      <scope>provided</scope>
     </dependency>  
-    
+    <!--
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-validator</artifactId>            
       <scope>${projectScope}</scope>
     </dependency>
-    
-    <!-- JSR-303 (Bean Validation) Implementation -->
+    -->
+    <!-- JSR-303 (Bean Validation) Implementation     -->
     <!-- Provides portable constraints such as @Email -->
-    <!-- Hibernate Validator is shipped in JBoss AS 7
+    <!-- Hibernate Validator is shipped in JBoss AS 7 -->
     <dependency>
        <groupId>org.hibernate</groupId>
        <artifactId>hibernate-validator</artifactId> 
-       <scope>${projectScope}</scope>     
+       <scope>provided</scope>     
        <exclusions>
            <exclusion>
                <groupId>org.slf4j</groupId>
@@ -161,12 +162,13 @@
            </exclusion>
        </exclusions>
     </dependency>
-    -->
+    
     <!-- Annotation processor that raising compilation errors whenever 
          constraint annotations are incorrectly used. -->
     <dependency>
        <groupId>org.hibernate</groupId>
-       <artifactId>hibernate-validator-annotation-processor</artifactId>       
+       <artifactId>hibernate-validator-annotation-processor</artifactId>
+       <scope>provided</scope>       
     </dependency>
     
     <dependency>

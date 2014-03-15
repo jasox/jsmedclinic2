@@ -42,7 +42,7 @@
     <dependency>
        <groupId>org.hibernate</groupId>
        <artifactId>hibernate-validator</artifactId> 
-       <scope>${projectScope}</scope>     
+       <scope>provided</scope>     
        <exclusions>
            <exclusion>
                <groupId>org.slf4j</groupId>
@@ -55,7 +55,8 @@
          constraint annotations are incorrectly used. -->
     <dependency>
        <groupId>org.hibernate</groupId>
-       <artifactId>hibernate-validator-annotation-processor</artifactId>       
+       <artifactId>hibernate-validator-annotation-processor</artifactId>
+       <scope>provided</scope>       
     </dependency>
     
     <dependency>
