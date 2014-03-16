@@ -1,12 +1,13 @@
 package pl.jasox.medward.account;
 
-import javax.ejb.Stateful;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 import pl.jasox.medward.db.ApplicationDatabase;
 import pl.jasox.medward.model.IMedwardUser;
 import pl.jasox.medward.model.IMedwardUserRepository;
@@ -14,12 +15,12 @@ import pl.jasox.medward.model.IMedwardUserRepository;
 /**
  * The view controller for changing the user password
  */
-@Stateful
+//@Stateful
 @Model
 public class PasswordManager {
   
-  @Inject
-  private FacesContext facesContext;
+  //@Inject  
+  private FacesContext facesContext = FacesContext.getCurrentInstance();  
       
   @Inject 
   @ApplicationDatabase 

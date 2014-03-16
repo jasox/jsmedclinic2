@@ -1,24 +1,22 @@
 package pl.jasox.medward.account;
 
-import javax.ejb.Stateful;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Model;
-import javax.enterprise.inject.Produces;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 import pl.jasox.medward.db.ApplicationDatabase;
 import pl.jasox.medward.model.IMedwardUser;
 import pl.jasox.medward.model.IMedwardUserRepository;
-import pl.jasox.medward.model.domainobject.Doctor;
 
 /**
  * The view controller for registering a new user
  */
-@Stateful
+//@Stateful
 @Model
 public class Registrar {
 
@@ -26,8 +24,12 @@ public class Registrar {
   @ApplicationDatabase 
   private IMedwardUserRepository userRepository;  
 
+  //@Inject  
+  private FacesContext facesContext = FacesContext.getCurrentInstance();
+  
   @Inject
-  private FacesContext facesContext;
+  @NotAuthenticated
+  private IMedwardUser newUser; 
   
   // ---------------------------------------------------------------------------
 
@@ -41,16 +43,8 @@ public class Registrar {
 
   private boolean registrationInvalid;
   
-  private final IMedwardUser newUser = new Doctor(); // FIXME !  
-  
   // ---------------------------------------------------------------------------  
   
-  @Produces
-  @Named
-  public IMedwardUser getNewUser() {
-    return newUser;
-  }
-
   public void register() {
     if (verifyUsernameIsAvailable()) {
       registered = true;

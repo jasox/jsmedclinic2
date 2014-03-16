@@ -3,7 +3,11 @@
       Author : Janusz Swół <janusz.swol@gmail.com>
 --------------------------------------------------------------------------------
 
- Web Module     
+ Web Module 
+ 
+ use : JSF 2.0
+       Richfaces 4  // applicable in future   - 16.03.2013 
+       Seam 3.1     // deleted for simplicity - 15.03.2013 
  
 --------------------------------------------------------------------------------
 

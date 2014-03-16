@@ -8,10 +8,6 @@
 
     <display-name>Medical Ward Example(Java EE Environment)</display-name>
 
-    <!--
-      Set project stage to Production for production deployments!!
-      Production mode also allows all exceptions to propagate to Seam Catch
-    -->
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
@@ -31,23 +27,5 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
-
-    <!-- Use Seam Catch for these -->
-    <!--
-    <error-page>
-        <exception-type>org.jboss.seam.security.NotLoggedInException</exception-type>
-        <location>/home.xhtml</location>
-    </error-page>
-
-    <error-page>
-        <exception-type>org.jboss.seam.security.AuthorizationException</exception-type>
-        <location>/denied.xhtml</location>
-    </error-page>
-
-    <error-page>
-        <error-code>500</error-code>
-        <location>/error.xhtml</location>
-    </error-page>
-    -->
 
 </web-app>

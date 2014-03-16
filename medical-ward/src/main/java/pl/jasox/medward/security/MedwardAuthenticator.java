@@ -1,11 +1,13 @@
 package pl.jasox.medward.security;
 
 import javax.ejb.Stateful;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.event.Event;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+
 import pl.jasox.medward.account.Authenticated;
 import pl.jasox.medward.account.NotAuthenticated;
 import pl.jasox.medward.db.ApplicationDatabase;
@@ -23,8 +25,8 @@ import pl.jasox.medward.model.IMedwardUserRepository;
 @Named("customAuthenticator")
 public class MedwardAuthenticator {
   
-  @Inject
-  private FacesContext facesContext;
+  //@Inject  
+  private FacesContext facesContext = FacesContext.getCurrentInstance();
   
   @Inject
   @NotAuthenticated

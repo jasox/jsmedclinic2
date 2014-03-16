@@ -26,10 +26,7 @@ public class UserNGTest {
   }
 
   // TODO add test methods here.
-  // The methods must be annotated with annotation @Test. For example:
-  //
-  // @Test
-  // public void hello() {}
+  // The methods must be annotated with annotation @Test. For example:  
 
   @BeforeClass
   public static void setUpClass() throws Exception {

@@ -25,17 +25,7 @@
     <url-mapping>
         <pattern value="/search"></pattern>
         <view-id>/search.xhtml</view-id>
-    </url-mapping>
-
-    <url-mapping>
-        <pattern value="/hotel/#{/\\d+/ id }"></pattern>
-        <view-id>/hotel.xhtml</view-id>
-    </url-mapping>
-
-    <url-mapping>
-        <pattern value="/book"></pattern>
-        <view-id>/book.xhtml</view-id>
-    </url-mapping>
+    </url-mapping>    
 
     <url-mapping>
         <pattern value="/confirm"></pattern>

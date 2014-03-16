@@ -9,6 +9,7 @@ import java.util.Locale;
 
 import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -19,13 +20,18 @@ import javax.inject.Named;
  */
 public class CalendarReferenceProducer {
 
+    @Inject 
+    Locale locale;
+
     @Produces
     @Named
     @ConversationScoped
     public List<Month> getMonths(Locale locale) {
         List<Month> months = new ArrayList<Month>(12);
+        // TODO - injectable locale bean
         DateFormat longNameFormat  = new SimpleDateFormat("MMMM", locale);
-        DateFormat shortNameFormat = new SimpleDateFormat("MMM", locale);
+        DateFormat shortNameFormat = new SimpleDateFormat("MMM",  locale);
+        
         Calendar cal = Calendar.getInstance();
         for (int m = 0; m < 12; m++) {
             cal.set(Calendar.MONTH, m);
