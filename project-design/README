@@ -10,4 +10,44 @@ directory:
     
   AgileDevelopment\Requirements - users stories, acceptance tests in FitNesse format
     
---------------------------------------------------------------------------------      
+--------------------------------------------------------------------------------   
+
+ ważniejsze źródła :
+ 
+ [1] Craig Larman - UML i wzorce projektowe, Helion 2011
+ 
+ [2] Bernard Bruegge, Allen H. Dutoit - Inżynieria programowania w ujęciu obiektowym,
+     Helion 2011
+     
+ [3] Grady Booch, James Rumbaugh, Ivar Jacobson - UML przewodnik użytkownika, WNT 2001
+ 
+ [4] Stanisław Wrycza, Bartosz Marcinkowski, Krzysztof Wyrzykowski -
+     Język UML 2.0 w modelowaniu systemów informatycznych, Helion 2005
+     
+ [5] Włodzimierz Dąbrowski, Andrzej Stasiak, Michał Wolski - Modelowanie systemów
+     informatycznych w języku UML 2.1, PWN 2009
+     
+ [6] Patrick Graessle, Henriette Bauman, Philippe Bauman - UML 2.0 w akcji, Helion 2006           
+ 
+ [7] Brett McLaughlin, Gary Pollice, David West - Head First Object-Oriented Analysis and Design,
+     O'Reilly 2006
+     
+ [8] Eric Freeman, Elisabeth Robson, Bert Bates, Kathy Sierra - Head First Design Patterns,
+     O'Reilly 2004
+     
+ [9] Dan Pilone, Russ Miles - Head First Software Development, O'Reilly 2008
+ 
+[10] Lasse Koskela - Practical TDD and Acceptance TDD for Java Developers, Manning 2008
+     
+[11] Ken Pugh - Lean-Agile Acceptance Test Driven Development, Addison-Wesley 2011    
+     
+[12] Gojko Adzic - Specification by Example, Manning 2011
+
+[13] Henrik Kniberg - Lean from the Trenches. Managing Large-Scale Projects with Kanban,
+     The Pragmatic Bookshelf 2011
+     
+[14] Steve Resnick, Aaron Bjork, Michael de la Maza - Proffesional Scrum with 
+     Team Foundation Server 2010, Wiley 2011
+
+--------------------------------------------------------------------------------  
+  

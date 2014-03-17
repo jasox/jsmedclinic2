@@ -4,11 +4,25 @@
 --------------------------------------------------------------------------------
 
  Web Module 
+ ----------
  
  use : JSF 2.0
-       Richfaces 4  // applicable in future   - 16.03.2013 
-       Seam 3.1     // deleted for simplicity - 15.03.2013 
+ 
+ deleted :
+       Richfaces 4  // applicable in future   - 16.03.2014 
+       Seam 3.1     // deleted for simplicity - 15.03.2014 
  
 --------------------------------------------------------------------------------
 
-
+ ważniejsze źródła :
+ 
+ [1] Ed Burns, Chris Schalk - JavaServer Faces 2.0: The Complete Reference,
+     McGraw-Hill 2010
+     
+ [2] Bruno Aranda, Zubin Wadia - Facelets Essentials: Guide to JavaServer™ Faces 
+     View Definition Framework, Apress 
+     
+ [3] Max Katz - Practical RichFaces, Apress 2008         
+ 
+ 
+--------------------------------------------------------------------------------
