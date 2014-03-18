@@ -7,51 +7,52 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 template="/WEB-INF/layout/template.xhtml">
 
-    <ui:param name="pageClass" value="home"/>
+  <ui:param name="pageClass" value="home"/>
 
-    <ui:define name="content">
-    
-        <div class="section">
-            <h1>#{bundles.messages.home_header}</h1>
-            <p> #{bundles.messages.home_body}  </p>
-            <p> #{bundles.messages.home_note}  </p>            
+  <ui:define name="content">
+
+      <div class="section">
+          <h1>#{msg.home_header}</h1>
+          <p> #{msg.home_body}  </p>
+          <p> #{msg.home_note}  </p>            
+      </div>
+  </ui:define>    
+
+  <ui:define name="sidebar">
+    <h:form id="login" rendered="#{ !currentUser.loggedIn }">
+      <fieldset>
+        <div>
+          <h:outputLabel for="username" 
+                         value="#{msg.home_usernameLabel}"/>
+          <h:inputText id="username"  
+                       value="#{newUser.username}" style="width: 175px;"/>
+          <div class="errors">
+              <h:message for="username"/>
+          </div>
         </div>
-    </ui:define>    
- 
-    <ui:define name="sidebar">
-        <h:form id="login" rendered="#{ empty currentUser }">
-            <fieldset>
-                <div>
-                    <h:outputLabel for="username" 
-                                   value="#{bundles.messages.home_usernameLabel}"/>
-                    <h:inputText id="username"  
-                                 value="#{newUser.username}" style="width: 175px;"/>
-                    <div class="errors">
-                        <h:message for="username"/>
-                    </div>
-                </div>
-                
-                <div>
-                    <h:outputLabel for="password" 
-                                   value="#{bundles.messages.home_passwordLabel}"/>
-                    <h:inputSecret id="password"  
-                                   value="#{newUser.password}" style="width: 175px;"/>
-                </div>
-                
-		            <span class="errors">
-		               <h:messages errorClass="error" styleClass="messages" id="messages" globalOnly="true"/>
-		            </span>
 
-                <div class="buttonBox">
-                    <h:commandButton id="login" 
-                                     action="#{customAuthenticator.authenticate()}" 
-                                     value="#{bundles.messages.home_loginAction}"/>
-                </div>
-                
-            </fieldset>
-        </h:form>
+        <div>
+          <h:outputLabel for="password" 
+                         value="#{msg.home_passwordLabel}"/>
+          <h:inputSecret id="password"  
+                         value="#{newUser.password}" style="width: 175px;"/>
+        </div>
 
-    </ui:define>
+        <span class="errors">
+          <h:messages errorClass="error" styleClass="messages" id="messages" globalOnly="true"/>
+        </span>
+
+        <div class="buttonBox">
+          <h:commandButton id="login" 
+                           action="#{customAuthenticator.authenticate()}" 
+                           value="#{msg.home_loginAction}"/>
+        </div>
+
+      </fieldset>
+
+    </h:form>
+
+  </ui:define>
 
 </ui:composition>
 

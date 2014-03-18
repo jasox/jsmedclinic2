@@ -3,8 +3,11 @@ package pl.jasox.medward.account;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
 import javax.inject.Named;
+import pl.jasox.medward.db.ApplicationDatabase;
 import pl.jasox.medward.model.IMedwardUser;
+import pl.jasox.medward.model.IMedwardUserRepository;
 import pl.jasox.medward.model.domainobject.Doctor;
 
 /**
@@ -12,6 +15,10 @@ import pl.jasox.medward.model.domainobject.Doctor;
  */
 @Stateless
 public class NewUserProducer {
+  
+  @Inject
+  @ApplicationDatabase
+  private IMedwardUserRepository userRepository;
   
   private IMedwardUser newUser;
 
@@ -24,7 +31,10 @@ public class NewUserProducer {
   
   @PostConstruct
   private void init() {
-    newUser = new Doctor(); // FIXME - Zakładamy wstępnie, że użytkownicy to lekarze
+    // FIXME!
+    // Zakładamy wstępnie, że użytkownicy to lekarze
+    // do logowania, dla ułatwienia testowania wybieramy pierwszego z listy 
+    newUser = userRepository.find("0000001");   
   }
   
 }

@@ -3,7 +3,7 @@
         
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:h= "http://java.sun.com/jsf/html"
       xmlns:pretty="http://ocpsoft.com/prettyfaces"
       xmlns:f="http://java.sun.com/jsf/core">
   
@@ -12,7 +12,7 @@
     
     <h:head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-      <title>#{bundles.messages.template_title}</title>
+      <title>#{msg.template_title}</title>
       <link rel="shortcut icon" href="#{request.contextPath}/favicon.ico"/>
 
       <h:outputStylesheet library="css" name="medward.css"/>
@@ -28,29 +28,29 @@
           <h:form id="menuForm">
             <div id="status">
               <h:outputText value="(#{currentUser.name})" 
-                            rendered="#{ currentUser.loggedIn }" 
+                            rendered="#{currentUser.loggedIn}" 
                             styleClass="user"/>
                         #{' '}
-              <pretty:link mappingId="home">#{bundles.messages.template_linkHome}</pretty:link>
+              <pretty:link mappingId="home">#{msg.template_linkHome}</pretty:link>
                         #{' | '}
               <h:link id="search" 
                       outcome="/search.xhtml" 
-                      value="#{bundles.messages.template_linkHotels}"/>
-              <h:panelGroup rendered="#{! currentUser.loggedIn}">
+                      value="#{msg.template_linkClinics}"/>
+              <h:panelGroup rendered="#{!currentUser.loggedIn}">
                         #{' | '}
-                <pretty:link mappingId="home">#{bundles.messages.template_linkLogin}</pretty:link>
+                <pretty:link mappingId="home">#{msg.template_linkLogin}</pretty:link>
               </h:panelGroup>
-              <h:panelGroup rendered="#{ currentUser.loggedIn}">
+              <h:panelGroup rendered="#{currentUser.loggedIn}">
                         #{' | '}
-                <pretty:link mappingId="account">#{bundles.messages.template_linkAccount}</pretty:link>
+                <pretty:link mappingId="account">#{msg.template_linkAccount}</pretty:link>
                         #{' | '}
-                <pretty:link mappingId="logout">#{bundles.messages.template_linkLogout}</pretty:link>
+                <pretty:link mappingId="logout">#{msg.template_linkLogout}</pretty:link>
               </h:panelGroup>
               <h:panelGroup rendered="#{facesContext.application.projectStage == 'Development'}">
                         #{' | '}
                 <h:commandLink action="pretty:home"
                                actionListener="#{facesContext.externalContext.invalidateSession}"
-                               value="#{bundles.messages.template_linkReset}"/>
+                               value="#{msg.template_linkReset}"/>
               </h:panelGroup>
             </div>
           </h:form>
@@ -66,11 +66,11 @@
         </div>
         
         <div id="footer">
-                #{bundles.messages.template_createdWith}<br/>
-                #{bundles.messages.template_projectStage}: #{initParam['javax.faces.PROJECT_STAGE']}
+                #{msg.template_createdWith}<br/>
+                #{msg.template_projectStage}: #{initParam['javax.faces.PROJECT_STAGE']}
                 #{' | '}
                 <!--
-                #{bundles.messages.template_currentConversation}:
+                #{msg.template_currentConversation}:
                 #{conversation.transient ? 'transient' : 'long-running, id: '.concat(conversation.id)}
                 -->
         </div>

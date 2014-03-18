@@ -8,10 +8,10 @@
        xsi:schemaLocation="
         http://java.sun.com/xml/ns/javaee
         http://docs.jboss.org/cdi/beans_1_0.xsd">
-
+    <!--
     <ss:IdentityImpl>
         <ee:modifies/>
         <ss:authenticatorName>customAuthenticator</ss:authenticatorName>
     </ss:IdentityImpl>
-
+    -->
 </beans>

@@ -15,8 +15,6 @@ import pl.jasox.medward.model.IMedwardUser;
 import pl.jasox.medward.model.IMedwardUserRepository;
 
 /**
- * This implementation of a <strong>Authenticator</strong> .</br>
- * 
  * Authentication is the act of establishing, or confirming, the identity of a user. 
  * In many applications a user confirms their identity by providing a username and password 
  * (also known as their credentials).
@@ -42,12 +40,13 @@ public class MedwardAuthenticator {
   private IMedwardUserRepository userRepository;
   
   
-  public void authenticate() {    
+  public String authenticate() {  
+    String outcome = "failed";
     if ( ( newUser.getUsername() == null) || ( newUser.getPassword() == null) ) {
       FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_WARN, 
               "Login failed!", "Invalid username or password.");
       facesContext.addMessage(null, m); 
-      return;
+      return outcome;
     }    
     IMedwardUser user = userRepository.find( newUser.getUsername() );  // NOTE  12.11.2013
     if (( user != null) && (user.getPassword().equals(newUser.getPassword()))) {
@@ -56,11 +55,17 @@ public class MedwardAuthenticator {
       FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, 
               "Login successful.", "You're signed in .");
       facesContext.addMessage(null, m);       
-      return;
+      return "success";
     }
     FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_WARN, 
             "Login failed!", "Invalid username or password.");
     facesContext.addMessage(null, m);
+    return outcome;
+  }
+  
+  public String login() {
+    // FIXME! 18.03.2014
+    return authenticate();
   }
   
 }

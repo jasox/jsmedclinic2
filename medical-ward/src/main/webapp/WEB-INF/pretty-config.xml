@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+ <!--
 <pretty-config 
   xmlns="http://ocpsoft.com/prettyfaces/2.0.4"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://ocpsoft.com/prettyfaces/2.0.4
                       http://ocpsoft.com/xml/ns/prettyfaces/ocpsoft-pretty-faces-2.0.4.xsd">
+-->  
+<pretty-config 
+  xmlns="http://ocpsoft.org/schema/rewrite-config-prettyfaces" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://ocpsoft.org/schema/rewrite-config-prettyfaces
+                      http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
+  
 
     <url-mapping id="home">
         <pattern value="/"></pattern>
         <view-id>/home.xhtml</view-id>
     </url-mapping>
-
+    <!--
     <url-mapping id="conversation_ended">
         <pattern value="/conversation_ended"></pattern>
         <view-id>/conversation_ended.xhtml</view-id>
     </url-mapping>
-
+    
     <url-mapping id="logout">
         <pattern value="/logout"></pattern>
         <view-id>/home.xhtml</view-id>
         <action>#{identity.logout}</action>
     </url-mapping>
-
+    -->
     <url-mapping>
         <pattern value="/search"></pattern>
         <view-id>/search.xhtml</view-id>

@@ -1,6 +1,5 @@
 package pl.jasox.medward.account;
 
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
