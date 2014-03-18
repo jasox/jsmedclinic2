@@ -148,19 +148,6 @@
        <scope>provided</scope>
     </dependency>
     
-    <!-- The rewrite library allows us to do url rewriting - 
-         used here for rewriting mobile devices to mobile specific views -->
-    <dependency>
-       <groupId>org.ocpsoft.rewrite</groupId>
-       <artifactId>rewrite-servlet</artifactId>
-    </dependency>
-    
-    <!-- The cdi integration allows for CDI injection into the rewrite configuration class -->
-    <dependency>
-       <groupId>org.ocpsoft.rewrite</groupId>
-       <artifactId>rewrite-integration-cdi</artifactId>
-    </dependency>
-    
     <!-- Annotation processor that raising compilation errors whenever 
          constraint annotations are incorrectly used. -->
     <dependency>
@@ -228,47 +215,8 @@
        <artifactId>xmlunit</artifactId>
        <version>${version.xmlunit}</version>
        <scope>test</scope>
-    </dependency> 
-      
-    <!-- Annotation processor for generating typed loggers 
-    <dependency>
-       <groupId>org.jboss.solder</groupId>
-       <artifactId>solder-tooling</artifactId>
-       <scope>provided</scope>
-       <optional>true</optional>
     </dependency>
-
-    <dependency>
-       <groupId>org.jboss.solder</groupId>
-       <artifactId>solder-impl</artifactId>
-       <scope>provided</scope>
-    </dependency> 
-    -->
-    <!-- Seam 
-    <dependency>
-       <groupId>org.jboss.seam.faces</groupId>
-       <artifactId>seam-faces</artifactId>
-       <scope>compile</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jboss.seam.international</groupId>
-      <artifactId>seam-international</artifactId>
-      <scope>compile</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jboss.seam.security</groupId>
-      <artifactId>seam-security</artifactId>
-      <scope>compile</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jboss.seam.transaction</groupId>
-      <artifactId>seam-transaction</artifactId>
-      <scope>compile</scope>
-    </dependency>        
-    -->
+    
     
     <dependency>
       <groupId>org.picketlink.idm</groupId>
@@ -468,73 +416,7 @@
       <artifactId>jersey-container-grizzly2-http</artifactId>
       <version>${version.jersey}</version>
       <scope>compile</scope>       
-    </dependency>   
-    
-    <!--
-    <dependency>
-      <groupId>org.eclipse.persistence</groupId>
-      <artifactId>org.eclipse.persistence.moxy</artifactId>
-      <version>2.4.1</version>
-    </dependency>
-    -->
-    <!-- JSOn-P 
-    <dependency>
-      <groupId>org.glassfish</groupId>
-      <artifactId>javax.json</artifactId>
-      <version>${version.json}</version>
-    </dependency>
-    -->
-    <!--
-    <dependency>
-        <groupId>org.jboss.resteasy</groupId>
-        <artifactId>resteasy-jaxrs</artifactId>         
-    </dependency>
-    <dependency>
-        <groupId>org.jboss.resteasy</groupId>
-        <artifactId>resteasy-jaxb-provider</artifactId>                 
-    </dependency>
-    -->
-    
-    <!-- c3p0 connection management     
-    <dependency> 
-      <groupId>c3p0</groupId> 
-      <artifactId>c3p0</artifactId> 
-      <version>0.9.1.2</version> 
-      <scope>runtime</scope>
-    </dependency>   
-    -->
-    <!-- p6spy connection management
-    <dependency>
-      <groupId>p6spy</groupId>
-      <artifactId>p6spy</artifactId>
-      <version>1.3</version>
-      <scope>runtime</scope>
-    </dependency>
-    -->
-    <!-- DBCP connection management
-    <dependency>
-      <groupId>commons-dbcp</groupId>
-      <artifactId>commons-dbcp</artifactId>
-      <version>1.2.2</version>
-      <scope>runtime</scope>
-    </dependency>  
-    -->
-    <!-- HSQL database driver 
-    <dependency> 
-      <groupId>org.hsqldb</groupId>  
-      <artifactId>hsqldb</artifactId>  
-      <version>${version.hsql}</version>
-      <scope>provided</scope> 
-    </dependency>
-    -->
-    <!-- MySQL database driver 
-    <dependency>
-      <groupId>mysql</groupId> 
-      <artifactId>mysql-connector-java</artifactId> 
-      <version>${version.mysql}</version>  
-      <scope>provided</scope>
-    </dependency>     
-    -->
+    </dependency> 
        
   </dependencies>
   

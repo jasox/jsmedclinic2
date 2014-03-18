@@ -45,14 +45,8 @@
       <version>${projectVersion}</version>
       <type>jar</type>
     </dependency> 
-    <!--
-    <dependency>
-       <groupId>${projectGroup}</groupId>
-       <artifactId>${projectName}-simple</artifactId>
-       <version>${projectVersion}</version>
-       <type>jar</type>
-    </dependency>   
-    -->    
+    <!-- -->    
+     
      
     <dependency>    
       <groupId>com.sun.mail</groupId>    
@@ -159,7 +153,7 @@
        <scope>provided</scope>
     </dependency>
     
-    <!-- JSR-303 (Bean Validation) Implementation -->
+    <!-- JSR-303 (Bean Validation) Implementation     -->
     <!-- Provides portable constraints such as @Email -->
     <!-- Hibernate Validator is shipped in JBoss AS 7 -->
     <dependency>
@@ -196,19 +190,6 @@
        <scope>provided</scope>
     </dependency>
     
-    <!-- The rewrite library allows us to do url rewriting - 
-         used here for rewriting mobile devices to mobile specific views -->
-    <dependency>
-       <groupId>org.ocpsoft.rewrite</groupId>
-       <artifactId>rewrite-servlet</artifactId>
-    </dependency>
-    
-    <!-- The cdi integration allows for CDI injection into the rewrite configuration class -->
-    <dependency>
-       <groupId>org.ocpsoft.rewrite</groupId>
-       <artifactId>rewrite-integration-cdi</artifactId>
-    </dependency>
-    
     <!-- Annotation processor that raising compilation errors whenever 
          constraint annotations are incorrectly used. -->
     <dependency>
@@ -217,15 +198,20 @@
        <scope>provided</scope>
     </dependency>
     
-    <!--
-      Mixing JUnit and TestNG in one module can be done just by adding both
-      as a plugin dependencies (not only as project dependencies):
-    -->
+    <!-- -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
+    
+    <!--
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>      
+      <scope>test</scope>
+    </dependency>      
+    -->
     
     <!-- Arquillian allows you to test enterprise code such as EJBs and 
          Transactional(JTA) JPA from JUnit/TestNG -->
@@ -239,15 +225,7 @@
         <groupId>org.jboss.arquillian.protocol</groupId>
         <artifactId>arquillian-protocol-servlet</artifactId>
         <scope>test</scope>
-    </dependency>
-
-    <!--
-    <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>      
-      <scope>test</scope>
-    </dependency>      
-    -->
+    </dependency>    
     
     <dependency>
       <groupId>org.hamcrest</groupId>
@@ -277,46 +255,6 @@
       <scope>test</scope>
     </dependency>  
       
-    <!-- Annotation processor for generating typed loggers 
-    <dependency>
-      <groupId>org.jboss.solder</groupId>
-      <artifactId>solder-tooling</artifactId>
-      <scope>provided</scope>
-      <optional>true</optional>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jboss.solder</groupId>
-      <artifactId>solder-impl</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    -->
-    <!-- Seam 
-    <dependency>
-      <groupId>org.jboss.seam.faces</groupId>
-      <artifactId>seam-faces</artifactId>
-      <scope>compile</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jboss.seam.international</groupId>
-      <artifactId>seam-international</artifactId>
-      <scope>compile</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jboss.seam.security</groupId>
-      <artifactId>seam-security</artifactId>
-      <scope>compile</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jboss.seam.transaction</groupId>
-      <artifactId>seam-transaction</artifactId>
-      <scope>compile</scope>
-    </dependency>  
-    -->
-    
     <dependency>
       <groupId>org.picketlink.idm</groupId>
       <artifactId>picketlink-idm-core</artifactId>

@@ -35,7 +35,9 @@
     <log4j.version>1.2.17</log4j.version>
     <picketlink.idm.version>1.5.0.Alpha02</picketlink.idm.version>
     <weld.api.version>1.1.Final</weld.api.version>
-    <weld.version>1.1.2.Final</weld.version>    
+    <weld.version>1.1.2.Final</weld.version>
+    <prettytime.version>1.0.7</prettytime.version>      
+    <prettyfaces.version>3.3.2</prettyfaces.version>     
     <!--
     <jersey.version>1.8</jersey.version>
     -->
@@ -116,13 +118,11 @@
   </properties>
 
   <modules>
-
     <module>medical-ward</module>
     <module>medical-ward-domain</module>
     <module>medical-ward-ejb</module>
     <module>medical-ward-RS</module>
     <module>medical-ward-simple</module>
-
   </modules>
 
   <!-- ===================================================================== -->
@@ -250,32 +250,8 @@
         <version>${jboss.bom.version}</version>
         <type>pom</type>
         <scope>import</scope>
-      </dependency>
+      </dependency>      
       <!--
-      <dependency>
-        <groupId>org.jboss.seam</groupId>
-        <artifactId>seam-bom</artifactId>
-        <version>${seam.version}</version>
-        <scope>import</scope>
-        <type>pom</type>
-      </dependency>
-
-      <dependency>
-        <groupId>org.jboss.seam.remoting</groupId>
-        <artifactId>seam-remoting-parent</artifactId>
-        <version>3.0.0-Beta1</version>
-        <scope>import</scope>
-        <type>pom</type>
-      </dependency>
-
-      <dependency>
-        <groupId>org.jboss.seam.rest</groupId>
-        <artifactId>seam-rest-parent</artifactId>
-        <version>${seam.version}</version>
-        <scope>import</scope>
-        <type>pom</type>
-      </dependency>
-      -->
       <dependency>
         <groupId>org.richfaces</groupId>
         <artifactId>richfaces-bom</artifactId>
@@ -283,7 +259,7 @@
         <scope>import</scope>
         <type>pom</type>
       </dependency>
-
+      -->
     </dependencies>
 
   </dependencyManagement>

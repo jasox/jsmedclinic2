@@ -37,7 +37,7 @@ import pl.jasox.medward.model.IMedwardUser;
 @Table(name="doctor")
 @XmlRootElement(name = "doctor")  // JAXB annotations  
 @XmlType(propOrder = { "idDoctor", "symbolDoctor", "symbolSpec", "firstName", 
-                       "lastName", "emailAddress", "password", "remarks" })
+                       "lastName", "emailAddress", "password", "remarks", "loggedIn" })
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class Doctor implements IMedwardUser, Serializable {
   
@@ -50,7 +50,8 @@ public class Doctor implements IMedwardUser, Serializable {
   private String  lastName;  
   private String  emailAddress;
   private String  password;
-  private String  remarks;  
+  private String  remarks;
+  private boolean loggedIn; // transient
   
   // Getters and Setters
   // ---------------------------------------------------------------------------
@@ -113,9 +114,11 @@ public class Doctor implements IMedwardUser, Serializable {
   @Column(name="email_adress")
   @Email
   @XmlElement(name = "email-address")
+  @Override
   public String getEmailAddress() {
     return emailAddress;
   }
+  @Override
   public void setEmailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
   }
@@ -123,9 +126,11 @@ public class Doctor implements IMedwardUser, Serializable {
   @Column(name="password")
   @Size(min = 3, max = 32)
   @XmlElement(name = "password")
+  @Override
   public String getPassword() {
     return password;
   }
+  @Override
   public void setPassword(String password) {
     this.password = password;
   }
@@ -168,7 +173,7 @@ public class Doctor implements IMedwardUser, Serializable {
   /**   */
   public Doctor(Integer idDoctor, String symbolDoctor, String symbolSpec,
       String firstName, String lastName, String emailAddress,
-      String password, String remarks) {
+      String password, String remarks, boolean loggedIn) {
     super();
     this.idDoctor     = idDoctor;
     this.symbolDoctor = symbolDoctor;
@@ -178,6 +183,7 @@ public class Doctor implements IMedwardUser, Serializable {
     this.emailAddress = emailAddress;
     this.password     = password;
     this.remarks      = remarks;
+    this.loggedIn     = loggedIn;
   }
   
   // Methods
@@ -189,7 +195,7 @@ public class Doctor implements IMedwardUser, Serializable {
         + symbolDoctor + ", symbolSpec=" + symbolSpec + ", firstName="
         + firstName + ", lastName=" + lastName + ", emailAddress="
         + emailAddress + ", password=" + password + ", remarks="
-        + remarks + "]";
+        + remarks + ", loggedIn=" + loggedIn + "]";
   }
   
   /** For interface <i>IMedwardUser</i>
@@ -207,11 +213,22 @@ public class Doctor implements IMedwardUser, Serializable {
   @Override  
   public String getUsername() {    
     return this.symbolDoctor;
-  }
-  
+  }  
   @Override
   public void setUsername(String username) {
     this.symbolDoctor = username;    
+  }
+  
+  /** For interface <i>IMedwardUser</i> - czy użytkownik jest prawidłowo zalogowany */
+  @Transient
+  @XmlTransient
+  @Override  
+  public boolean getLoggedIn() {    
+    return this.loggedIn;
+  }  
+  @Override
+  public void setLoggedIn(boolean loggedIn) {
+    this.loggedIn = loggedIn;    
   }
   
   /** For interface <i>User</i> in PicketLink - ID doktora jest jego numer lekarski */

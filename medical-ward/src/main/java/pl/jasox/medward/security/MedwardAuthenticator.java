@@ -1,7 +1,7 @@
 package pl.jasox.medward.security;
 
 import javax.ejb.Stateful;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Event;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -22,6 +22,7 @@ import pl.jasox.medward.model.IMedwardUserRepository;
  * (also known as their credentials).
  */
 @Stateful
+@SessionScoped
 @Named("customAuthenticator")
 public class MedwardAuthenticator {
   
@@ -49,7 +50,8 @@ public class MedwardAuthenticator {
       return;
     }    
     IMedwardUser user = userRepository.find( newUser.getUsername() );  // NOTE  12.11.2013
-    if ( ( user != null ) && ( user.getPassword().equals( newUser.getPassword() ) ) ) {
+    if (( user != null) && (user.getPassword().equals(newUser.getPassword()))) {
+      user.setLoggedIn(true);
       loginEvent.fire((IMedwardUser)user);
       FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, 
               "Login successful.", "You're signed in .");
