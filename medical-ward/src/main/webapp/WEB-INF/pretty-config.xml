@@ -48,6 +48,21 @@
         <pattern value="/account"></pattern>
         <view-id>/account.xhtml</view-id>
     </url-mapping>
+    
+    <url-mapping id="kasachs">
+        <pattern value="/kasachs"></pattern>
+        <view-id>/kasachs.xhtml</view-id>
+    </url-mapping>
+    
+    <url-mapping id="clinics">
+        <pattern value="/clinics"></pattern>
+        <view-id>/clinics.xhtml</view-id>
+    </url-mapping>
+    
+    <url-mapping id="doctors">
+        <pattern value="/doctors"></pattern>
+        <view-id>/doctors.xhtml</view-id>
+    </url-mapping>
 
     <url-mapping>
         <pattern value="/password"></pattern>

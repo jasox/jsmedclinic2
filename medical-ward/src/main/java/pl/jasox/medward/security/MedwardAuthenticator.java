@@ -1,12 +1,14 @@
 package pl.jasox.medward.security;
 
+import java.io.IOException;
+import java.util.ResourceBundle;
 import javax.ejb.Stateful;
 import javax.enterprise.event.Event;
 import javax.faces.application.FacesMessage;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-
 import pl.jasox.medward.account.Authenticated;
 import pl.jasox.medward.account.NotAuthenticated;
 import pl.jasox.medward.db.ApplicationDatabase;
@@ -41,6 +43,9 @@ public class MedwardAuthenticator {
   @ApplicationDatabase
   private IMedwardUserRepository userRepository;
   
+  @Inject
+  private transient ResourceBundle bundle;  // messages from /i18n/messages
+  
   
   public String authenticate() {
     String outcome = "failed";     
@@ -74,11 +79,13 @@ public class MedwardAuthenticator {
     return authenticate();
   }
   
-  public String logout() {
+  public void logout() throws IOException {
     // FIXME! 19.03.2014
     logoutEvent.fire((IMedwardUser)newUser);
-    facesContext.getExternalContext().invalidateSession();
-    return null;
+        
+    ExternalContext ec = facesContext.getExternalContext();
+    ec.invalidateSession();
+    ec.redirect(ec.getRequestContextPath() + "/home.xhtml");    
   }
   
 }

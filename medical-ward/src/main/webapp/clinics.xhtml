@@ -1,0 +1,67 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://http://java.sun.com/jsf/composite/components/property"
+                template="/WEB-INF/layout/template.xhtml">
+
+  <ui:define name="content">
+
+    <div class="section">
+      <h1>#{msg.template_linkClinics}</h1>
+    </div>
+
+    <!--
+    <div class="section">
+      <p>#{msg.template_notAuthorized}</p>
+    </div>
+    -->
+    <h:panelGroup id="searchResults">
+      <div class="section">
+
+        <h:outputText id="noMsg" 
+                      value="No Items Found" 
+                      rendered="#{empty clinics}"/>
+
+        <h:form id="clinicSelectionForm">
+          <h:dataTable id="clinics" 
+                       value="#{clinics}" 
+                       var="_clinics" 
+                       rendered="#{not empty clinics}"
+                       columnClasses=",,action">
+              <h:column id="idCol">
+                  <f:facet id="idFct" name="header">ID kliniki</f:facet>
+                  #{_clinics.idClinic}
+              </h:column>
+              <h:column id="desCol">
+                  <f:facet id="desFct" name="header">Opis</f:facet>
+                  #{_clinics.description}
+              </h:column>
+              <h:column id="remCol">
+                  <f:facet id="remFct" name="header">Uwagi</f:facet>
+                  #{_clinics.remarks}
+              </h:column>                        
+              
+              <h:column id="actCol">
+                  <f:facet id="actFct" name="header">#{msg.action_Action}</f:facet>
+                  <h:link id="view" 
+                          value="#{msg.action_View}" 
+                          outcome="clinic"
+                          style="white-space: nowrap;" >
+                      <f:param name="id" value="#{_clinics.idClinic}"/>
+                  </h:link>
+
+              </h:column>
+          </h:dataTable>
+        </h:form>              
+
+      </div>
+      
+    </h:panelGroup>
+
+  </ui:define>
+
+</ui:composition>

@@ -35,7 +35,7 @@
       <from-view-id>/search.xhtml</from-view-id>        
 
       <navigation-case>            
-        <to-view-id>/home.xhtml</to-view-id>
+        <to-view-id>/search.xhtml</to-view-id>
         <redirect/>
       </navigation-case>
        
@@ -79,7 +79,7 @@
         <var>msg</var>
       </resource-bundle>
       <!--
-      <message-bundle>messages</message-bundle>
+      <message-bundle>i18n.messages</message-bundle>
       -->
     </application>
     

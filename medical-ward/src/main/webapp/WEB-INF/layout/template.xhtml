@@ -31,17 +31,28 @@
                             rendered="#{currentUser.loggedIn}" 
                             styleClass="user"/>
                         #{' '}
+              <h:outputText value="(#{currentUser.emailAddress})" 
+                            rendered="#{currentUser.loggedIn}" 
+                            styleClass="user"/>
+                        #{' '}          
               <pretty:link mappingId="home">#{msg.template_linkHome}</pretty:link>
                         #{' | '}
               <h:link id="search" 
                       outcome="/search.xhtml" 
-                      value="#{msg.template_linkClinics}"/>
+                      value="#{msg.template_linkSearch}"/>
+              
               <h:panelGroup rendered="#{!currentUser.loggedIn}">
                         #{' | '}
                 <pretty:link mappingId="home">#{msg.template_linkLogin}</pretty:link>
               </h:panelGroup>
               <h:panelGroup rendered="#{currentUser.loggedIn}">
                         #{' | '}
+                <pretty:link mappingId="kasachs">#{msg.template_linkKasach}</pretty:link>
+                        #{' | '}                
+                <pretty:link mappingId="clinics">#{msg.template_linkClinics}</pretty:link>
+                        #{' | '}
+                <pretty:link mappingId="doctors">#{msg.template_linkDoctors}</pretty:link>
+                        #{' | -- | '}
                 <pretty:link mappingId="account">#{msg.template_linkAccount}</pretty:link>
                         #{' | '}
                 <pretty:link mappingId="logout">#{msg.template_linkLogout}</pretty:link>

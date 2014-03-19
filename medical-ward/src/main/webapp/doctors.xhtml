@@ -1,0 +1,85 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://http://java.sun.com/jsf/composite/components/property"
+                template="/WEB-INF/layout/template.xhtml">
+
+  <ui:define name="content">
+
+    <div class="section">
+      <h1>#{msg.template_linkDoctors}</h1>
+    </div>
+
+    <!--
+    <div class="section">
+      <p>#{msg.template_notAuthorized}</p>
+    </div>
+    -->
+    <h:panelGroup id="searchResults">
+      <div class="section">
+
+        <h:outputText id="noMsg" 
+                      value="No Items Found" 
+                      rendered="#{empty doctors}"/>
+
+        <h:form id="doctorSelectionForm">
+          <h:dataTable id="doctors" 
+                       value="#{doctors}" 
+                       var="_doctor" 
+                       rendered="#{not empty doctors}"
+                       columnClasses=",,,,,,action">
+              <h:column id="idCol">
+                  <f:facet id="idFct" name="header">ID doktora</f:facet>
+                  #{_doctor.symbolDoctor}
+              </h:column>            
+              <h:column id="specCol">
+                  <f:facet id="specFct" name="header">Specjalność</f:facet>
+                  #{_doctor.symbolSpec}
+              </h:column>
+              <h:column id="fnCol">
+                  <f:facet id="fnFct" name="header">Imię</f:facet>
+                  #{_doctor.firstName}
+              </h:column>
+              <h:column id="lnCol">
+                  <f:facet id="lnFct" name="header">Nazwisko</f:facet>
+                  #{_doctor.lastName}
+              </h:column>
+              <h:column id="emlCol">
+                  <f:facet id="emlFct" name="header">Email</f:facet>
+                  #{_doctor.emailAddress}
+              </h:column> 
+              <!--
+              <h:column id="pasCol">
+                  <f:facet id="pasFct" name="header">Password</f:facet>
+                  #{_doctor.password}
+              </h:column> 
+              -->
+              <h:column id="remCol">
+                  <f:facet id="remFct" name="header">Uwagi</f:facet>
+                  #{_doctor.remarks}
+              </h:column>           
+              
+              <h:column id="actCol">
+                  <f:facet id="actFct" name="header">#{msg.action_Action}</f:facet>
+                  <h:link id="view" 
+                          value="#{msg.action_View}" 
+                          outcome="doctor"
+                          style="white-space: nowrap;" >
+                      <f:param name="id" value="#{_doctor.symbolDoctor}"/>
+                  </h:link>
+
+              </h:column>
+          </h:dataTable>
+        </h:form>              
+
+      </div>
+      
+    </h:panelGroup>
+
+  </ui:define>
+
+</ui:composition>

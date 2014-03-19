@@ -26,7 +26,7 @@ public class ResourceBundleProducer {
   
   @Produces  
   public ResourceBundle getResourceBundle() {  
-    return ResourceBundle.getBundle("/messages", facesContext.getViewRoot().getLocale() );  
+    return ResourceBundle.getBundle("/i18n/messages", facesContext.getViewRoot().getLocale() );  
   }  
   
 }  

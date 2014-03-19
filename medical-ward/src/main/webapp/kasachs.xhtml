@@ -1,0 +1,66 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://http://java.sun.com/jsf/composite/components/property"
+                template="/WEB-INF/layout/template.xhtml">
+
+  <ui:define name="content">
+
+    <div class="section">
+      <h1>#{msg.template_linkKasach}</h1>
+    </div>
+    <!--
+    <div class="section">
+      <p>#{msg.template_notAuthorized}</p>
+    </div>
+    -->
+    <h:panelGroup id="searchResults">
+      <div class="section">
+
+        <h:outputText id="noMsg" 
+                      value="No Items Found" 
+                      rendered="#{empty kasachs}"/>
+
+        <h:form id="kasachSelectionForm">
+          <h:dataTable id="kasachs" 
+                       value="#{kasachs}" 
+                       var="_kasach" 
+                       rendered="#{not empty kasachs}"
+                       columnClasses=",,action">
+              <h:column id="idCol">
+                  <f:facet id="idFct" name="header">Symbol kasy</f:facet>
+                  #{_kasach.symbolKasa}
+              </h:column>
+              <h:column id="desCol">
+                  <f:facet id="desFct" name="header">Opis</f:facet>
+                  #{_kasach.description}
+              </h:column>
+              <h:column id="remCol">
+                  <f:facet id="remFct" name="header">Uwagi</f:facet>
+                  #{_kasach.remarks}
+              </h:column>                        
+              
+              <h:column id="actCol">
+                  <f:facet id="actFct" name="header">#{msg.action_Action}</f:facet>
+                  <h:link id="view" 
+                          value="#{msg.action_View}" 
+                          outcome="kasach"
+                          style="white-space: nowrap;" >
+                      <f:param name="id" value="#{_kasach.symbolKasa}"/>
+                  </h:link>
+
+              </h:column>
+          </h:dataTable>
+        </h:form>              
+
+      </div>
+      
+    </h:panelGroup>
+
+  </ui:define>
+
+</ui:composition>
