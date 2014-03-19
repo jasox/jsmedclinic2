@@ -1,13 +1,13 @@
 --------------------------------------------------------------------------------
-SETTINGS - Project design                                 projekt : JSMedClinic2
+ Application : JSMedClinic
+      Author : Janusz Swół <janusz.swol@gmail.com>
 --------------------------------------------------------------------------------
 
 file : 
   medical-clinic.eap - project design in Sparx System Enterprise Architect format
       
-directory:
-  AgileDevelopment - project Backlogs, Taskboard foto, Mision-Vision-Scope, Glossary  
-    
+directory :
+  AgileDevelopment - project Backlogs, Taskboard foto, Mision-Vision-Scope, Glossary      
   AgileDevelopment\Requirements - users stories, acceptance tests in FitNesse format
     
 --------------------------------------------------------------------------------   
@@ -48,6 +48,12 @@ directory:
      
 [14] Steve Resnick, Aaron Bjork, Michael de la Maza - Proffesional Scrum with 
      Team Foundation Server 2010, Wiley 2011
+     
+[15] Andrew Pham, Phuong-Van Pham - Scrum in Action: Agile Software Project Management 
+     and Development, Course Technology Cengage Learning 2012 
+    
+ i oczywiście     
+[16] Robert C. Martin - The Clean Coder, Prentice Hall 2011      
 
 --------------------------------------------------------------------------------  
   

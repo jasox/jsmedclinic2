@@ -26,5 +26,5 @@ public class CurrentUserManager {
   public void onLogin(@Observes @Authenticated IMedwardUser user) {
     currentUser = user;
   }
-  
+      
 }

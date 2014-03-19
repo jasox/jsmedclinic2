@@ -1,7 +1,6 @@
 package pl.jasox.medward.security;
 
 import javax.ejb.Stateful;
-import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Event;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -20,7 +19,6 @@ import pl.jasox.medward.model.IMedwardUserRepository;
  * (also known as their credentials).
  */
 @Stateful
-@SessionScoped
 @Named("customAuthenticator")
 public class MedwardAuthenticator {
   
@@ -36,20 +34,26 @@ public class MedwardAuthenticator {
   private Event<IMedwardUser> loginEvent;  
   
   @Inject
+  @NotAuthenticated
+  private Event<IMedwardUser> logoutEvent;
+  
+  @Inject
   @ApplicationDatabase
   private IMedwardUserRepository userRepository;
   
   
-  public String authenticate() {  
-    String outcome = "failed";
-    if ( ( newUser.getUsername() == null) || ( newUser.getPassword() == null) ) {
-      FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_WARN, 
+  public String authenticate() {
+    String outcome = "failed";     
+    // FIXME! - dla ułatwienia testowania, logowanie jest na razie bez hasła
+    if ( (newUser.getUsername() == null) ) { // || (newUser.getPassword() == null) ) {
+      FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, 
               "Login failed!", "Invalid username or password.");
       facesContext.addMessage(null, m); 
       return outcome;
     }    
-    IMedwardUser user = userRepository.find( newUser.getUsername() );  // NOTE  12.11.2013
-    if (( user != null) && (user.getPassword().equals(newUser.getPassword()))) {
+    IMedwardUser user = userRepository.find( newUser.getUsername() );  
+    // FIXME! - j.w.
+    if (( user != null )) { // && (user.getPassword().equals(newUser.getPassword()))) {
       user.setLoggedIn(true);
       loginEvent.fire((IMedwardUser)user);
       FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, 
@@ -57,15 +61,24 @@ public class MedwardAuthenticator {
       facesContext.addMessage(null, m);       
       return "success";
     }
-    FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_WARN, 
-            "Login failed!", "Invalid username or password.");
-    facesContext.addMessage(null, m);
-    return outcome;
+    else {
+      FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, 
+              "Login failed!", "Invalid username or password.");
+      facesContext.addMessage(null, m);
+      return outcome;
+    }    
   }
   
   public String login() {
     // FIXME! 18.03.2014
     return authenticate();
+  }
+  
+  public String logout() {
+    // FIXME! 19.03.2014
+    logoutEvent.fire((IMedwardUser)newUser);
+    facesContext.getExternalContext().invalidateSession();
+    return null;
   }
   
 }

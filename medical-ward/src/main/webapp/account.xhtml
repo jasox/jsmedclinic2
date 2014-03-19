@@ -1,5 +1,6 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
@@ -29,20 +30,10 @@
 
   </ui:define>
 
-  <ui:define name="sidebar">
-
-    
-    <h1>Producing variables</h1>
-    <p>
-     You shouldn't need to write accessor methods (getters and setters) on a backing bean 
-     just to get at your data. Rather, you should be able to expose data as a top-level variable. 
-     The logic necessary to load the data should be produced on demand. That's the role of a @Producer 
-     method on a bean, which you can leverage in a JSF application. Here, the user's account is loaded
-     into the session as the variable 'user' when this page is accessed. Once the variable has been 
-     produced, it doesn't need to happen again, another cycle-saving benefit of this pattern.
-    </p>
-    
-
+  <ui:define name="sidebar">  
+    <div class="content">
+          
+    </div>
   </ui:define>
 
 </ui:composition>
