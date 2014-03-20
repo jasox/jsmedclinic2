@@ -1,12 +1,12 @@
 package pl.jasox.medward.util;
 
 import java.util.logging.Logger;
-
 import javax.enterprise.context.ContextNotActiveException;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
 /**
  * This class uses CDI to alias Java EE resources to CDI beans
@@ -23,9 +23,9 @@ public class ResourcesProducer {
    public Logger produceLog(InjectionPoint injectionPoint) {
       return Logger.getLogger(injectionPoint.getMember().getDeclaringClass().getName());
    }
-   
+  
    @Produces
-   @RequestScoped
+   @RequestScoped   
    public FacesContext produceFacesContext() {
       FacesContext ctx = FacesContext.getCurrentInstance();  
       if (ctx == null) {

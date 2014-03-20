@@ -14,7 +14,7 @@ import pl.jasox.medward.model.dao.IClinicDao;
 import pl.jasox.medward.model.domainobject.Clinic;
 
 @RequestScoped
-public class ClinicListProducer {
+public class ClinicController {
 
   @Inject
   @ApplicationDatabase
@@ -22,8 +22,7 @@ public class ClinicListProducer {
 
   private List<Clinic> clinics;
 
-  // @Named provides access the return value via the EL variable name "clinics" in the UI 
-  // (e.g. Facelets or JSP view)
+  
   @Produces
   @Named
   public List<Clinic> getClinics() {
@@ -38,4 +37,5 @@ public class ClinicListProducer {
   public void retrieveAllClinics() {
     clinics = clinicRepository.getAll();
   }
+  
 }

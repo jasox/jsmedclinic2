@@ -31,10 +31,12 @@
                             rendered="#{currentUser.loggedIn}" 
                             styleClass="user"/>
                         #{' '}
+              <!--          
               <h:outputText value="(#{currentUser.email})" 
                             rendered="#{currentUser.loggedIn}" 
                             styleClass="user"/>
-                        #{' '}          
+                        #{' '}       
+              -->
               <pretty:link mappingId="home">#{msg.template_linkHome}</pretty:link>
                         #{' | '}
               <h:link id="search" 
@@ -47,15 +49,17 @@
               </h:panelGroup>
               <h:panelGroup rendered="#{currentUser.loggedIn}">
                         #{' | '}
-                <pretty:link mappingId="kasachs">#{msg.template_linkKasachs}</pretty:link>
+                <pretty:link mappingId="kasachs"> #{msg.template_linkKasachs} </pretty:link>
                         #{' | '}                
-                <pretty:link mappingId="clinics">#{msg.template_linkClinics}</pretty:link>
+                <pretty:link mappingId="clinics"> #{msg.template_linkClinics} </pretty:link>
                         #{' | '}
-                <pretty:link mappingId="doctors">#{msg.template_linkDoctors}</pretty:link>
+                <pretty:link mappingId="doctors"> #{msg.template_linkDoctors} </pretty:link>
+                        #{' | '}
+                <pretty:link mappingId="patients">#{msg.template_linkPatients}</pretty:link>
                         #{' | -- | '}
-                <pretty:link mappingId="account">#{msg.template_linkAccount}</pretty:link>
+                <pretty:link mappingId="account"> #{msg.template_linkAccount} </pretty:link>
                         #{' | '}
-                <pretty:link mappingId="logout">#{msg.template_linkLogout}</pretty:link>
+                <pretty:link mappingId="logout">  #{msg.template_linkLogout}  </pretty:link>
               </h:panelGroup>
               <h:panelGroup rendered="#{facesContext.application.projectStage == 'Development'}">
                         #{' | '}

@@ -1,0 +1,104 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://http://java.sun.com/jsf/composite/components/property"
+                template="/WEB-INF/layout/template.xhtml">
+
+  
+  <!-- Parametr id przekazywany jest ze strony `patients.xhtml`
+         po wywołaniu patientController.retrievePatientbyPesel(_patientPesel) -
+         Ustawiany jest parametr `patient` w PatientController -->
+  <ui:define name="metadata">
+    <f:metadata>
+      <f:viewParam name="id" value="#{_patientPesel}"/>             
+    </f:metadata>
+    <f:event type="preRenderView"
+             listener="#{patientController.retrievePatientbyPesel(_patientPesel)}" />
+  </ui:define>
+  
+  
+  <ui:define name="content">    
+        
+    <div class="section">
+      <h1>#{msg.template_linkPatients}</h1>
+    </div>    
+
+    <div class="section">
+
+      <h:outputLabel for="pes" value="PESEL:" />
+      <h:inputText label="PESEL"
+                   id="pes" 
+                   value="#{patient.strPesel}"
+                   required="true"/>
+      <h:message for="pes" />
+      <br />
+      <h:outputLabel for="fname" value="First Name:" />
+      <h:inputText label="First Name"
+                   id="fname" 
+                   value="#{patient.firstName}"
+                   required="true"/>
+      <h:message for="fname" />
+      <br />
+      <h:outputLabel for="lname" value="Last Name:" />
+      <h:inputText label="Last Name"
+                   id="lname" 
+                   value="#{patient.lastName}"
+                   required="true"/>
+      <h:message for="lname" />      
+      <br />      
+      <h:outputLabel for="cit" value="City:" />
+      <h:inputText label="City"
+                   id="cit" 
+                   value="#{patient.city}"
+                   required="true"/>
+      <h:message for="cit" />
+      <br />
+      <h:outputLabel for="str" value="Street:" />
+      <h:inputText label="Street"
+                   id="str" 
+                   value="#{patient.street}"
+                   required="true"/>
+      <h:message for="str" />
+      <br />
+      <h:outputLabel for="sex" value="Sex:" />
+      <h:selectOneMenu label="Sex"
+                       id="sex" 
+                       value="#{patient.sex}" 
+                       required="true">
+        <f:selectItem itemLabel="Mężczyzna" itemValue="M" />
+        <f:selectItem itemLabel="Kobieta"   itemValue="K" />
+      </h:selectOneMenu>
+      <h:message for="sex" /> 
+      <br />      
+
+      <div class="buttonBox"> 
+        <h:panelGroup rendered="#{not currentUser.loggedIn}">
+          <p style="text-align: center;">
+            You must login to edit a patient.
+          </p>
+        </h:panelGroup>
+        <br />
+        <h:form id="actions">
+          <h:commandButton 
+            id="save" 
+            action="#{patientController.savePatient}" 
+            value="Save a patient"
+            rendered="#{currentUser.loggedIn}"/>
+          #{'  '}
+          <h:commandButton 
+            id="cancel" 
+            action="#{patientController.cancel}" 
+            value="Cancel" 
+            immediate="true"/>
+        </h:form>        
+      </div>
+
+    </div>      
+    
+  </ui:define>
+
+</ui:composition>

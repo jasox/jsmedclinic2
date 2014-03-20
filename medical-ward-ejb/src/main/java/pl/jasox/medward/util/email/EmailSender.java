@@ -1,6 +1,5 @@
 package pl.jasox.medward.util.email;
 
-
 // Java
 import java.io.UnsupportedEncodingException;
 import java.util.Properties;
@@ -13,9 +12,8 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-
 /**
- * Klasa odpowiedzialna za generowanie wiadomosci e-mail. <br/>
+ * Klasa odpowiedzialna za generowanie wiadomosci e-mail.            <br/>
  * Uwaga : W przypadku wystąpienia błędów podczas wysyłania e-maili, <br/> 
  *         transakcje w bazie danych nie są wycofywane!
  */
@@ -37,8 +35,7 @@ public class EmailSender {
     }
     // send e-mail
     try {
-      String copyAddress = 
-        emailConfiguration.getEmailAddressForTesting();
+      String copyAddress = emailConfiguration.getEmailAddressForTesting();
       Properties props = new Properties();
       props.put("mail.smtps.auth", "true");
       Session session = Session.getDefaultInstance(props);
@@ -47,7 +44,7 @@ public class EmailSender {
         new InternetAddress(
           emailConfiguration.getEmailUsername() + '@' + 
           emailConfiguration.getEmailHost(),
-          "Internetowy system recenzowania publikacji"));
+          "Medical Ward"));
       msg.addRecipient( 
         Message.RecipientType.BCC, 
         new InternetAddress(copyAddress) );

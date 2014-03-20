@@ -73,6 +73,7 @@
             <actionName>CUSTOM-jboss-as-deploy</actionName>
             <displayName>jboss-as7-deploy</displayName>
             <goals>
+                <goal>jboss-as:undeploy</goal>
                 <goal>clean</goal>
                 <goal>jboss-as:deploy</goal>
             </goals>

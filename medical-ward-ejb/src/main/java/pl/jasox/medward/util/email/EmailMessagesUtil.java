@@ -10,14 +10,14 @@ import pl.jasox.medward.model.domainobject.Doctor;
 import pl.jasox.medward.model.domainobject.Patient;
 
 /**
- * Klasa odpowiedzialna za generowanie treści emaili <br/>
+ * Klasa odpowiedzialna za generowanie treści emaili                <br/>
  *  (lokalizowane zasoby pobierane są z pliku Messages.properties). <br/>
- *  łańcuchy są sparametryzowane
+ *     łańcuchy są sparametryzowane
  */
 public class EmailMessagesUtil {
   // ...
   private static ResourceBundle resource = 
-    ResourceBundle.getBundle("isrp.messages.Messages");
+    ResourceBundle.getBundle("pl.jasox.medward.messages.Messages");
   
   /** */
   public static String getString(String key, Object... params  ) {
@@ -31,17 +31,17 @@ public class EmailMessagesUtil {
   
   /** */
   public static EmailContent newPaperVersionMessage(
-      Patient author, 
+      Patient patient, 
       Doctor  doctor,
-      String toAddress, 
-      String toName) {
+      String  toAddress, 
+      String  toName) {
     String title   = resource.getString("new.version");
     String message = null;
     /*
     String message = getString(
         "new.version.msg",
-        author.getFirstName(), 
-        author.getLastName(),
+        patient.getFirstName(), 
+        patient.getLastName(),
         doctor.getSymbolDoctor(), 
         doctor.getSymbolSpec(), 
         doctor.getRemarks());

@@ -1,10 +1,7 @@
 package pl.jasox.medward.util.email;
 
-//--------------------------------------------------------------------
 // Java
 import java.io.Serializable;
-
-//--------------------------------------------------------------------
 
 /**
  * Komponent wsparcia służący do zarządzania konfiguracją poczty e-mail. 
@@ -26,14 +23,12 @@ public class EmailConfiguration implements Serializable {
   }
 
   /** */
-  public EmailConfiguration(
-      String emailHost, 
-      String emailUsername,
-      String emailPassword, 
-      String emailAddressForTesting ) {
-    this.emailHost     = emailHost;
-    this.emailUsername = emailUsername;
-    this.emailPassword = emailPassword;
+  public EmailConfiguration(String emailHost,     String emailUsername, 
+                            String emailPassword, String emailAddressForTesting ) 
+  {
+    this.emailHost              = emailHost;
+    this.emailUsername          = emailUsername;
+    this.emailPassword          = emailPassword;
     this.emailAddressForTesting = emailAddressForTesting;
   }
   
@@ -70,4 +65,4 @@ public class EmailConfiguration implements Serializable {
   }
   
 }
-//--------------------------------------------------------------------
+

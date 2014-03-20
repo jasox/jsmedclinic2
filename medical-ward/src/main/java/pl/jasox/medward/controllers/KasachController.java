@@ -14,7 +14,7 @@ import pl.jasox.medward.model.dao.IKasachDao;
 import pl.jasox.medward.model.domainobject.Kasach;
 
 @RequestScoped
-public class KasachListProducer {
+public class KasachController {
 
   @Inject
   @ApplicationDatabase
@@ -22,8 +22,7 @@ public class KasachListProducer {
 
   private List<Kasach> kasachs;
 
-  // @Named provides access the return value via the EL variable name "kasachs" in the UI 
-  // (e.g. Facelets or JSP view)
+  
   @Produces
   @Named
   public List<Kasach> getKasachs() {
@@ -38,4 +37,5 @@ public class KasachListProducer {
   public void retrieveAllKasachs() {
     kasachs = kasachRepository.getAll();
   }
+  
 }

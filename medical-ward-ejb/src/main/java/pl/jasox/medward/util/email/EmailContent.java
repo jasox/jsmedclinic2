@@ -1,7 +1,5 @@
 package pl.jasox.medward.util.email;
 
-//--------------------------------------------------------------------
-
 /**
  * Klasa reprezentująca zawartość wiadomości e-mail.
  * @contains toAddress,
@@ -17,15 +15,11 @@ public class EmailContent {
   private String message;
 
   /** */
-  public EmailContent(
-      String toAddress, 
-      String toName, 
-      String title,
-      String message ) {
+  public EmailContent(String toAddress, String toName, String title, String message ) {
     this.toAddress = toAddress;
-    this.toName = toName;
-    this.title = title;
-    this.message = message;
+    this.toName    = toName;
+    this.title     = title;
+    this.message   = message;
   }
 
   public String getToAddress() {
@@ -61,4 +55,4 @@ public class EmailContent {
   }
 
 }
-//--------------------------------------------------------------------
+

@@ -30,12 +30,12 @@ public class NewUserProducer {
   
   @PostConstruct
   private void init() {
-    // FIXME! 18.03.2014
+    // FIXME newUser producer
     // Zakładamy wstępnie, że użytkownicy to lekarze;
     // do logowania, dla ułatwienia testowania wybieramy pierwszego z listy. 
     newUser = userRepository.find("0000001");
-    //newUser.setEmail("joe.doe@wp.pl");
-    //newUser.setPassword("1234");
+    System.out.print(newUser.getEmail());
+    System.out.print(newUser.getPassword());
   }
   
 }

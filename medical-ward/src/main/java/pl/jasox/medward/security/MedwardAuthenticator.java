@@ -43,13 +43,14 @@ public class MedwardAuthenticator {
   @ApplicationDatabase
   private IMedwardUserRepository userRepository;
   
+  // TODO - wprowadzić komunikaty z bundle do FacesMessage!
   @Inject
   private transient ResourceBundle bundle;  // messages from /i18n/messages
   
   
   public String authenticate() {
     String outcome = "failed";     
-    // FIXME! - dla ułatwienia testowania, logowanie jest na razie bez hasła
+    // FIXME - dla ułatwienia testowania, logowanie jest na razie bez hasła
     if ( (newUser.getUsername() == null) ) { // || (newUser.getPassword() == null) ) {
       FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, 
               "Login failed!", "Invalid username or password.");
@@ -57,7 +58,7 @@ public class MedwardAuthenticator {
       return outcome;
     }    
     IMedwardUser user = userRepository.find( newUser.getUsername() );  
-    // FIXME! - j.w.
+    // FIXME - j.w.
     if (( user != null )) { // && (user.getPassword().equals(newUser.getPassword()))) {
       user.setLoggedIn(true);
       loginEvent.fire((IMedwardUser)user);
@@ -75,12 +76,12 @@ public class MedwardAuthenticator {
   }
   
   public String login() {
-    // FIXME! 18.03.2014
+    // FIXME login == authenticate ?
     return authenticate();
   }
   
   public void logout() throws IOException {
-    // FIXME! 19.03.2014
+    // FIXME - redirect to home.xhtml in code ?
     logoutEvent.fire((IMedwardUser)newUser);
         
     ExternalContext ec = facesContext.getExternalContext();

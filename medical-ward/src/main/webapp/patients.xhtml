@@ -1,0 +1,89 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://http://java.sun.com/jsf/composite/components/property"
+                template="/WEB-INF/layout/template.xhtml">
+
+  <ui:define name="content">
+
+    <div class="section">
+      <h1>#{msg.template_linkPatients}</h1>
+    </div>
+
+    <!--
+    <div class="section">
+      <p>#{msg.template_notAuthorized}</p>
+    </div>
+    -->
+    <h:panelGroup id="searchResults">
+      <div class="section">
+
+        <h:outputText id="noMsg" 
+                      value="No Items Found" 
+                      rendered="#{empty patients}"/>
+
+        <h:form id="doctorSelectionForm">
+          <h:dataTable id="patients" 
+                       value="#{patients}" 
+                       var="_patient" 
+                       rendered="#{not empty patients}"
+                       columnClasses=",,,,,,,action">
+              <h:column id="idCol">
+                  <f:facet id="idFct" name="header">PESEL</f:facet>
+                  #{_patient.strPesel}
+              </h:column>            
+              <h:column id="specCol">
+                  <f:facet id="specFct" name="header">Płeć</f:facet>
+                  #{_patient.sex}
+              </h:column>
+              <h:column id="fnCol">
+                  <f:facet id="fnFct" name="header">Imię</f:facet>
+                  #{_patient.firstName}
+              </h:column>
+              <h:column id="lnCol">
+                  <f:facet id="lnFct" name="header">Nazwisko</f:facet>
+                  #{_patient.lastName}
+              </h:column>
+              <h:column id="cityCol">
+                  <f:facet id="cityFct" name="header">Miasto</f:facet>
+                  #{_patient.city}
+              </h:column> 
+              <h:column id="strCol">
+                  <f:facet id="strFct" name="header">Ulica</f:facet>
+                  #{_patient.street}
+              </h:column>
+              <!--
+              <h:column id="pasCol">
+                  <f:facet id="pasFct" name="header">Password</f:facet>
+                  #{_patient.password}
+              </h:column> 
+              -->
+              <h:column id="remCol">
+                  <f:facet id="remFct" name="header">Uwagi</f:facet>
+                  #{_patient.remarks}
+              </h:column>           
+              
+              <h:column id="actCol">
+                  <f:facet id="actFct" name="header">#{msg.action_Action}</f:facet>
+                  <h:link id="view" 
+                          value="#{msg.action_View}" 
+                          outcome="patient"
+                          style="white-space: nowrap;" >
+                      <f:param name="id" value="#{_patient.strPesel}"/>
+                  </h:link>
+
+              </h:column>
+          </h:dataTable>
+        </h:form>              
+
+      </div>
+      
+    </h:panelGroup>
+
+  </ui:define>
+
+</ui:composition>

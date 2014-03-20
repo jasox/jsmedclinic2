@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
- <!--
-<pretty-config 
-  xmlns="http://ocpsoft.com/prettyfaces/2.0.4"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://ocpsoft.com/prettyfaces/2.0.4
-                      http://ocpsoft.com/xml/ns/prettyfaces/ocpsoft-pretty-faces-2.0.4.xsd">
--->  
+ 
 <pretty-config 
   xmlns="http://ocpsoft.org/schema/rewrite-config-prettyfaces" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -62,6 +56,11 @@
     <url-mapping id="doctors">
         <pattern value="/doctors"></pattern>
         <view-id>/doctors.xhtml</view-id>
+    </url-mapping>
+    
+    <url-mapping id="patients">
+        <pattern value="/patients"></pattern>
+        <view-id>/patients.xhtml</view-id>
     </url-mapping>
 
     <url-mapping>

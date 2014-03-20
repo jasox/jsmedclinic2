@@ -14,7 +14,7 @@ import pl.jasox.medward.model.dao.IDoctorDao;
 import pl.jasox.medward.model.domainobject.Doctor;
 
 @RequestScoped
-public class DoctorListProducer {
+public class DoctorController {
 
   @Inject
   @ApplicationDatabase
@@ -22,8 +22,7 @@ public class DoctorListProducer {
 
   private List<Doctor> doctors;
 
-  // @Named provides access the return value via the EL variable name "doctors" in the UI 
-  // (e.g. Facelets or JSP view)
+  
   @Produces
   @Named
   public List<Doctor> getDoctors() {
@@ -38,4 +37,5 @@ public class DoctorListProducer {
   public void retrieveAllDoctors() {
     doctors = doctorRepository.getAll();
   }
+  
 }

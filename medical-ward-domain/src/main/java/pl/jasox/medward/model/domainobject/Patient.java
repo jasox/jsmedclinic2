@@ -59,6 +59,12 @@ public class Patient implements java.io.Serializable {
     String strPesel = (new Long(pesel.longValue())).toString();
     return strPesel;
   }
+  public void setStrPesel(String strPesel) {
+    if ( strPesel != null ) {
+      Double pesel = Double.parseDouble(strPesel);
+      this.setPesel(pesel);    
+    }    
+  }
   
   @Column(name="last_name")
   @NotNull
