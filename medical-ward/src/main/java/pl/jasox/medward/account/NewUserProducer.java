@@ -8,7 +8,6 @@ import javax.inject.Named;
 import pl.jasox.medward.db.ApplicationDatabase;
 import pl.jasox.medward.model.IMedwardUser;
 import pl.jasox.medward.model.IMedwardUserRepository;
-//import pl.jasox.medward.model.domainobject.Doctor;
 
 /**
  * Produces the new user
@@ -34,7 +33,9 @@ public class NewUserProducer {
     // FIXME! 18.03.2014
     // Zakładamy wstępnie, że użytkownicy to lekarze;
     // do logowania, dla ułatwienia testowania wybieramy pierwszego z listy. 
-    newUser = userRepository.find("0000001");    
+    newUser = userRepository.find("0000001");
+    //newUser.setEmail("joe.doe@wp.pl");
+    //newUser.setPassword("1234");
   }
   
 }

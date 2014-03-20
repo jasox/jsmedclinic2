@@ -36,8 +36,8 @@ import pl.jasox.medward.model.IMedwardUser;
 @Entity                           // JPA annotations   
 @Table(name="doctor")
 @XmlRootElement(name = "doctor")  // JAXB annotations  
-@XmlType(propOrder = { "idDoctor", "symbolDoctor", "symbolSpec", "firstName", 
-                       "lastName", "emailAddress", "password", "remarks", "loggedIn" })
+@XmlType(propOrder = { "idDoctor", "symbolDoctor", "symbolSpec", "firstName", "lastName", 
+                       "emailAddress", "password", "remarks", "loggedIn"} )
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class Doctor implements IMedwardUser, Serializable {
   
@@ -114,11 +114,9 @@ public class Doctor implements IMedwardUser, Serializable {
   @Column(name="email_adress")
   @Email
   @XmlElement(name = "email-address")
-  @Override
   public String getEmailAddress() {
     return emailAddress;
-  }
-  @Override
+  }  
   public void setEmailAddress(String emailAddress) {
     this.emailAddress = emailAddress;
   }
@@ -217,6 +215,19 @@ public class Doctor implements IMedwardUser, Serializable {
   @Override
   public void setUsername(String username) {
     this.symbolDoctor = username;    
+  }
+  
+  /** For interface <i>IMedwardUser</i> - email */
+  @Transient
+  @XmlTransient
+  @Email
+  @Override  
+  public String getEmail() {    
+    return this.emailAddress;
+  }  
+  @Override
+  public void setEmail(String email) {
+    this.emailAddress = email;    
   }
   
   /** For interface <i>IMedwardUser</i> - czy użytkownik jest prawidłowo zalogowany */

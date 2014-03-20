@@ -36,16 +36,31 @@
                          value="#{msg.home_passwordLabel}"/>
           <h:inputSecret id="password"  
                          value="#{newUser.password}" style="width: 175px;"/>
-        </div>
+        </div>        
 
         <span class="errors">
           <h:messages errorClass="error" styleClass="messages" id="messages" globalOnly="true"/>
         </span>
+        <br />        
 
         <div class="buttonBox">
           <h:commandButton id="login" 
                            action="#{customAuthenticator.login()}" 
                            value="#{msg.home_loginAction}"/>
+        </div>
+        <br />
+        
+        <div>
+          <h:outputText id="name"  
+                        value="#{newUser.name}" style="width: 175px;"/>          
+        </div>
+        <div>
+          <h:outputText id="email"  
+                        value="#{newUser.email}" style="width: 175px;"/>          
+        </div>
+        <div>
+          <h:outputText id="pass"  
+                        value="#{newUser.password}" style="width: 175px;"/>          
         </div>
 
       </fieldset>

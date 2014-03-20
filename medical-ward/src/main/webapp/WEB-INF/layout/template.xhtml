@@ -31,7 +31,7 @@
                             rendered="#{currentUser.loggedIn}" 
                             styleClass="user"/>
                         #{' '}
-              <h:outputText value="(#{currentUser.emailAddress})" 
+              <h:outputText value="(#{currentUser.email})" 
                             rendered="#{currentUser.loggedIn}" 
                             styleClass="user"/>
                         #{' '}          
@@ -47,7 +47,7 @@
               </h:panelGroup>
               <h:panelGroup rendered="#{currentUser.loggedIn}">
                         #{' | '}
-                <pretty:link mappingId="kasachs">#{msg.template_linkKasach}</pretty:link>
+                <pretty:link mappingId="kasachs">#{msg.template_linkKasachs}</pretty:link>
                         #{' | '}                
                 <pretty:link mappingId="clinics">#{msg.template_linkClinics}</pretty:link>
                         #{' | '}

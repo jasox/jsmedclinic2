@@ -28,7 +28,7 @@ public class CalendarReferenceProducer {
     @ConversationScoped
     public List<Month> getMonths(Locale locale) {
         List<Month> months = new ArrayList<Month>(12);
-        // TODO - injectable locale bean
+        //
         DateFormat longNameFormat  = new SimpleDateFormat("MMMM", locale);
         DateFormat shortNameFormat = new SimpleDateFormat("MMM",  locale);
         

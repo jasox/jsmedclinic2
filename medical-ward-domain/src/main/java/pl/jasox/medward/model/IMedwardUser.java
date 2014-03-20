@@ -17,9 +17,9 @@ public interface IMedwardUser extends org.picketlink.idm.api.User {
 
   public abstract void    setPassword(String password);
   
-  public abstract String  getEmailAddress();
+  public abstract String  getEmail();
 
-  public abstract void    setEmailAddress(String emailAddress);
+  public abstract void    setEmail(String email);
   
   public abstract boolean getLoggedIn();
   
