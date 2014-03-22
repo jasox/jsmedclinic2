@@ -6,14 +6,15 @@ import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-
 import pl.jasox.medward.db.ApplicationDatabase;
+import pl.jasox.medward.log.Loggable;
 import pl.jasox.medward.model.dao.IClinicDao;
 import pl.jasox.medward.model.domainobject.Clinic;
 
 
 @ApplicationDatabase
 @Stateless
+@Loggable
 public class ClinicEjbDao implements IClinicDao, Serializable {
 
 

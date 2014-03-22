@@ -1,8 +1,9 @@
 package pl.jasox.medward.security;
 
 import java.io.IOException;
-import java.util.ResourceBundle;
+import java.io.Serializable;
 import javax.ejb.Stateful;
+import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Event;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
@@ -11,6 +12,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import pl.jasox.medward.account.Authenticated;
 import pl.jasox.medward.account.NotAuthenticated;
+import pl.jasox.medward.controllers.AController;
 import pl.jasox.medward.db.ApplicationDatabase;
 import pl.jasox.medward.model.IMedwardUser;
 import pl.jasox.medward.model.IMedwardUserRepository;
@@ -21,11 +23,12 @@ import pl.jasox.medward.model.IMedwardUserRepository;
  * (also known as their credentials).
  */
 @Stateful
+@SessionScoped
 @Named("customAuthenticator")
-public class MedwardAuthenticator {
+public class MedwardAuthenticator extends AController implements Serializable {
   
-  //@Inject  
-  private FacesContext facesContext = FacesContext.getCurrentInstance();
+  @Inject  
+  private FacesContext facesContext; // = FacesContext.getCurrentInstance();
   
   @Inject
   @NotAuthenticated
@@ -43,17 +46,18 @@ public class MedwardAuthenticator {
   @ApplicationDatabase
   private IMedwardUserRepository userRepository;
   
-  // TODO - wprowadziÄ‡ komunikaty z bundle do FacesMessage!
-  @Inject
-  private transient ResourceBundle bundle;  // messages from /i18n/messages
+  // TODO - wprowadź komunikaty z bundle do FacesMessage!
+  //        nie wprost, ale wykorzystując metody AController
+  //@Inject
+  //private transient ResourceBundle bundle;  // messages from /i18n/messages
   
   
   public String authenticate() {
     String outcome = "failed";     
-    // FIXME - dla uĹ‚atwienia testowania, logowanie jest na razie bez hasĹ‚a
+    // FIXME - dla ułatwienia testowania, logowanie jest na razie bez hasła
     if ( (newUser.getUsername() == null) ) { // || (newUser.getPassword() == null) ) {
       FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, 
-              "Login failed!", "Invalid username or password.");
+              "Login failed!", "Invalid username or password.");      
       facesContext.addMessage(null, m); 
       return outcome;
     }    

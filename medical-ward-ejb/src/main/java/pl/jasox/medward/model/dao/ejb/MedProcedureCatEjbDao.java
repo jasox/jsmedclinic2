@@ -6,14 +6,15 @@ import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-
 import pl.jasox.medward.db.ApplicationDatabase;
+import pl.jasox.medward.log.Loggable;
 import pl.jasox.medward.model.dao.IMedProcedureCatDao;
 import pl.jasox.medward.model.domainobject.MedProcedureCat;
 
 
 @ApplicationDatabase
 @Stateless
+@Loggable
 public class MedProcedureCatEjbDao implements IMedProcedureCatDao, Serializable {
 
 

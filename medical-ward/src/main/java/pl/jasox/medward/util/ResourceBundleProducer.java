@@ -21,8 +21,8 @@ public class ResourceBundleProducer {
   @Inject         
   public Locale locale;  
     
-  //@Inject         
-  private FacesContext facesContext = FacesContext.getCurrentInstance();  
+  @Inject         
+  private FacesContext facesContext; // = FacesContext.getCurrentInstance();  
   
   @Produces  
   public ResourceBundle getResourceBundle() {  

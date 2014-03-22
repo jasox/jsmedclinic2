@@ -1,14 +1,11 @@
 package pl.jasox.medward.model.dao.ejb.factory;
 
 import java.io.Serializable;
-
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-//import javax.inject.Inject;
-
-
 import pl.jasox.medward.db.ApplicationDatabase;
+import pl.jasox.medward.log.Loggable;
 import pl.jasox.medward.model.dao.IAdmissionDao;
 import pl.jasox.medward.model.dao.IClinicDao;
 import pl.jasox.medward.model.dao.IDoctorDao;
@@ -26,6 +23,7 @@ import pl.jasox.medward.model.dao.factory.IDaoFactory;
 
 @ApplicationDatabase
 @Stateless
+@Loggable
 public class EjbDaoFactory implements IDaoFactory, Serializable {	
   
   private static final long serialVersionUID = 8562456009982938311L;
@@ -73,7 +71,7 @@ public class EjbDaoFactory implements IDaoFactory, Serializable {
   } 
   */ 
   
-  @PostConstruct
+  @PostConstruct  
   public void init() {
     // ...
   }

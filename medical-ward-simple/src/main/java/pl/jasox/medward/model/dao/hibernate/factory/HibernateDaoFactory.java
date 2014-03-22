@@ -95,6 +95,6 @@ public class HibernateDaoFactory extends ADaoFactory {
   public String toString() {
     return "HibernateDaoFactory [" + super.toString() + "]";
   }
-  
+   
 }
 

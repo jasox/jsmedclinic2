@@ -8,8 +8,8 @@ import javax.inject.Inject;
 
 public class FacesLocaleResolver {  
 
-   //@Inject  
-   private FacesContext facesContext = FacesContext.getCurrentInstance();;  
+   @Inject  
+   private FacesContext facesContext; // = FacesContext.getCurrentInstance();;  
   
    public boolean isActive() {  
       return (facesContext != null) && (facesContext.getCurrentPhaseId() != null);  

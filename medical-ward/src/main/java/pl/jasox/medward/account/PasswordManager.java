@@ -1,11 +1,13 @@
 package pl.jasox.medward.account;
 
+import java.io.Serializable;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import pl.jasox.medward.controllers.AController;
 
 import pl.jasox.medward.db.ApplicationDatabase;
 import pl.jasox.medward.model.IMedwardUser;
@@ -16,10 +18,10 @@ import pl.jasox.medward.model.IMedwardUserRepository;
  */
 //@Stateful
 @Model
-public class PasswordManager {
+public class PasswordManager extends AController implements Serializable {
   
   //@Inject  
-  private FacesContext facesContext = FacesContext.getCurrentInstance();  
+  private FacesContext facesContext; // = FacesContext.getCurrentInstance();  
       
   @Inject 
   @ApplicationDatabase 

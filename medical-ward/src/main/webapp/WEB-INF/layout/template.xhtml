@@ -83,11 +83,8 @@
         <div id="footer">
                 #{msg.template_createdWith}<br/>
                 #{msg.template_projectStage}: #{initParam['javax.faces.PROJECT_STAGE']}
-                #{' | '}
-                <!--
-                #{msg.template_currentConversation}:
-                #{conversation.transient ? 'transient' : 'long-running, id: '.concat(conversation.id)}
-                -->
+                #{' | '}               
+                #{msg.template_currentConversation}: #{javax.enterprise.context.conversation.id}                
         </div>
       </div>
     </h:body>

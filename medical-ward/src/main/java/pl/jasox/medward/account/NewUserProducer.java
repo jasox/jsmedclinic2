@@ -1,10 +1,12 @@
 package pl.jasox.medward.account;
 
+import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
+import pl.jasox.medward.controllers.AController;
 import pl.jasox.medward.db.ApplicationDatabase;
 import pl.jasox.medward.model.IMedwardUser;
 import pl.jasox.medward.model.IMedwardUserRepository;
@@ -33,9 +35,7 @@ public class NewUserProducer {
     // FIXME newUser producer
     // Zakładamy wstępnie, że użytkownicy to lekarze;
     // do logowania, dla ułatwienia testowania wybieramy pierwszego z listy. 
-    newUser = userRepository.find("0000001");
-    System.out.print(newUser.getEmail());
-    System.out.print(newUser.getPassword());
+    newUser = userRepository.find("0000001");    
   }
   
 }

@@ -39,4 +39,5 @@ public interface IDaoFactory {
   // Patient
   public abstract IPatientDao          getPatientDao();
   
+  
 }

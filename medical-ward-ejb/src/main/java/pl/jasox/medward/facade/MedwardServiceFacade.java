@@ -19,6 +19,7 @@ import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
+import pl.jasox.medward.log.Loggable;
 
 /**
  *
@@ -28,6 +29,7 @@ import javax.ejb.TransactionAttributeType;
 @Remote(IMedwardServiceFacadeRemote.class)
 @Local(IMedwardServiceFacadeLocal.class)
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
+@Loggable
 public class MedwardServiceFacade 
   implements IMedwardServiceFacadeRemote, IMedwardServiceFacadeLocal {
   

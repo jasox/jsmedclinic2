@@ -3,7 +3,9 @@
       Author : Janusz Swół <janusz.swol@gmail.com>
 --------------------------------------------------------------------------------
 
- Application EJB Module - contains : 
+ Application EJB Module
+ 
+ contains : 
    Service Façade, 
    Services, 
    DAO's Implementations 
