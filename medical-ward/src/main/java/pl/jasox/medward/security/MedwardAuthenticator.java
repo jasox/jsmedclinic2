@@ -43,14 +43,14 @@ public class MedwardAuthenticator {
   @ApplicationDatabase
   private IMedwardUserRepository userRepository;
   
-  // TODO - wprowadzić komunikaty z bundle do FacesMessage!
+  // TODO - wprowadziÄ‡ komunikaty z bundle do FacesMessage!
   @Inject
   private transient ResourceBundle bundle;  // messages from /i18n/messages
   
   
   public String authenticate() {
     String outcome = "failed";     
-    // FIXME - dla ułatwienia testowania, logowanie jest na razie bez hasła
+    // FIXME - dla uĹ‚atwienia testowania, logowanie jest na razie bez hasĹ‚a
     if ( (newUser.getUsername() == null) ) { // || (newUser.getPassword() == null) ) {
       FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, 
               "Login failed!", "Invalid username or password.");
@@ -89,4 +89,23 @@ public class MedwardAuthenticator {
     ec.redirect(ec.getRequestContextPath() + "/home.xhtml");    
   }
   
+  private String getRootErrorMessage(Exception e) {
+    // Default to general error message that registration failed.
+    String errorMessage = "Login failed. See server log for more information";
+    if (e == null) {
+        // This shouldn't happen, but return the default messages
+        return errorMessage;
+    }
+    // Start with the exception and recurse to find the root cause
+    Throwable t = e;
+    while (t != null) {
+        // Get the message from the Throwable class instance
+        errorMessage = t.getLocalizedMessage();
+        t = t.getCause();
+    }
+    // This is the root cause message
+    return errorMessage;
+  }
+  
 }
+

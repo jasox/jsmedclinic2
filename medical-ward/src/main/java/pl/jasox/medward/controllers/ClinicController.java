@@ -1,10 +1,6 @@
 package pl.jasox.medward.controllers;
 
-import java.util.List;
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.event.Observes;
-import javax.enterprise.event.Reception;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -20,22 +16,14 @@ public class ClinicController {
   @ApplicationDatabase
   private IClinicDao clinicRepository;
 
-  private List<Clinic> clinics;
+  private Clinic     clinic;
 
+  // ---------------------------------------------------------------------------
   
   @Produces
   @Named
-  public List<Clinic> getClinics() {
-    return clinics;
+  public Clinic getClinic() {
+    return clinic;
   }
-
-  public void onClinicListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Clinic clinic) {
-    retrieveAllClinics();
-  }
-
-  @PostConstruct
-  public void retrieveAllClinics() {
-    clinics = clinicRepository.getAll();
-  }
-  
+      
 }

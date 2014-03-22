@@ -1,10 +1,6 @@
 package pl.jasox.medward.controllers;
 
-import java.util.List;
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.event.Observes;
-import javax.enterprise.event.Reception;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -19,32 +15,19 @@ public class PatientController {
 
   @Inject
   @ApplicationDatabase
-  private IPatientDao   patientRepository;
+  private IPatientDao patientRepository;
   
-  private Patient       patient;
-  private List<Patient> patients;
-
+  private Patient     patient;
+  
+  // ---------------------------------------------------------------------------
     
-  @Produces
-  @Named
-  public List<Patient> getPatients() {
-    return patients;
-  }
-  
   @Produces
   @Named
   public Patient getPatient() {
     return patient;
   }
-
-  public void onPatientListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Patient patient) {
-    retrieveAllPatients();
-  }
-
-  @PostConstruct
-  public void retrieveAllPatients() {
-    patients = patientRepository.getAll();    
-  }
+  
+  // ---------------------------------------------------------------------------
   
   public Patient retrievePatientbyPesel( String strPesel ) {  
     if ( strPesel != null ) {
@@ -64,6 +47,7 @@ public class PatientController {
   }
   
   public String savePatient() {
+    // TODO - code to persist patient
     return "save";
   }
   

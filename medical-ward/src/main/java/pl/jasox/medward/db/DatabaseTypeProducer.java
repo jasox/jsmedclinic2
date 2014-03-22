@@ -6,7 +6,7 @@ import javax.ejb.Startup;
 import javax.enterprise.inject.Produces;
 
 /**
- * Exposes the <code>EntityManager</code>'s available for test of application <br/> 
+ * Exposes the <code>DatabaseType</code> available for the application <br/> 
  */
 @Singleton
 @Startup
