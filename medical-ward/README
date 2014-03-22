@@ -6,8 +6,10 @@
  Web Module 
  ----------
  
- use   : JSF 2.0  
- state : Beggining of Development
+ use   : JSF 2.0 
+         PrettyFaces 3.3
+          
+ state : Beginning of the Development
        
 --------------------------------------------------------------------------------
 

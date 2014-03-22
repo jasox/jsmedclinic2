@@ -1,5 +1,5 @@
 -- -------------------------------------------------------------------
---     Nazwa pliku: jsmedclinic-Hsql-dataload.sql
+--     Nazwa pliku: dataload_jsmedclinic-Hsql.sql
 --       Utworzony: 26.09.2013
 --           Autor: Janusz Swół © 2013
 --           Firma: 

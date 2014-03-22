@@ -1,5 +1,5 @@
 -- -------------------------------------------------------------------
---     Nazwa pliku: ddt_jsmedclinic-mySql.sql
+--     Nazwa pliku: DDL_jsmedclinic-MySql.sql
 --       Utworzony: 04.09.2013
 --           Autor: Janusz Swół © 2013
 --           Firma: 

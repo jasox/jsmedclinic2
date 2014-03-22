@@ -1,5 +1,5 @@
 -- -------------------------------------------------------------------
---     Nazwa pliku: jsmedclinic-mySql-dataload.sql
+--     Nazwa pliku: dataload_jsmedclinic-MySql.sql
 --       Utworzony: 13.09.2013
 --           Autor: Janusz Swół © 2013
 --           Firma: 

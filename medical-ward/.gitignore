@@ -17,6 +17,7 @@ test-output/
 /manifest
 #/nb-configuration.xml
 #/nbactions.xml
+/faces-config.NavData
 
 # pliki w każdym katalogu
 
