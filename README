@@ -25,7 +25,10 @@ Ilustruje użycie :
     JSF 2.0             - [JSR 303]
     Servlet 3.0         - [JSR 315]    
     JAXB 2.2            - [JSR 222]
-    JAX-RS 2.0          - [JSR 339]    
+    JAX-RS 2.0          - [JSR 339]   
+    
+ - serwerów aplikacji JBoss 7 i Glassfish 3.1 do testowania i uruchomienia
+           aplikacji  
     
  - Wzorców GoF : a przynajmniej wzorca Strategy, Template method, State, 
           Abstract Factory
